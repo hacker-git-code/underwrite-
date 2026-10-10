@@ -1,27 +1,21 @@
-# Demo video script (target 2:45)
+# Demo video script (target 2:50)
 
-Judging weights the video at 20% for "how clearly it explains the agent and the tool use", so every scene shows one
-thing, on screen, with a sentence that names it. Record at 1080p, terminal font ≥ 16pt, browser zoom 110%.
+Judging weights the video at 20% ("how clearly it explains the agent and the tool use") and the agent itself at 30%,
+so the video is built around **watching the agents make decisions**. Record at 1080p, terminal font ≥ 16pt.
 
-**Before recording:** have these open in tabs: the live site, one dossier (Razorpay), the neatlogs trace for that run,
-the GitHub repo (commit list), `prompts/v2/COACH_NOTES.md`, and the cfo.ai model. Run the chaos demo once beforehand
-so its cache is warm (`uv run underwrite run "Linear" --domain linear.app --chaos 0.3`).
+**Before recording, open in tabs:** the live site · one agent dossier (Ramp) · its neatlogs trace · GitHub commits ·
+`prompts/v2/COACH_NOTES.md` · `submission/ENTIRE.md` · the cfo.ai model. Warm the cache once:
+`uv run underwrite run "Ramp" --domain ramp.com --chaos 0.2`.
 
 | Time | On screen | Say |
 |---|---|---|
-| 0:00–0:15 | Live site hero | "A first-pass VC memo takes an analyst hours. Underwrite writes one in four minutes, overnight, while nobody's watching. The hackathon theme is agents you'd trust to run alone, so the whole design is about trust." |
-| 0:15–0:40 | Terminal: `underwrite run "Razorpay" …` scrolling (speed up 4×) | "It plans nine diligence questions, pulls Razorpay's record from **Crustdata**, searches and reads the web, extracts claims, and every claim has to quote the exact sentence it came from." |
-| 0:40–1:05 | Dossier page 1, then hover a red circle, then page 3 | "The memo is an evaluation form like Sequoia's 1977 Apple memo. Every red number is a source; hover and you see the quote. Page three lists what each source proved, and the claims it threw out." |
-| 1:05–1:25 | Terminal: chaos run with `[inject]` and `[recover]` lines highlighted | "Things break. Here I inject failures on purpose: a 429, a timeout, broken JSON. It backs off, switches to another model or data source, repairs the JSON, and finishes. If the machine dies it resumes from the last checkpoint." |
-| 1:25–1:50 | **neatlogs**: the trace's span tree, a prompt version, a recovery log span | "Every run is a trace in **neatlogs**: each agent, tool call, prompt version, token cost and every recovery. That's not just for me." |
-| 1:50–2:15 | Terminal `underwrite coach`, then `COACH_NOTES.md`, then `underwrite compare v1 v2` table | "The Coach agent reads those traces, detections and triage fixes through the neatlogs MCP server, rewrites the prompts, re-runs the 12-company exam, and keeps the change only if the score goes up. Here: fact accuracy went from X to Y on held-out companies." *(fill in real numbers)* |
-| 2:15–2:30 | GitHub commit with `Entire-Checkpoint:` trailer, then `entire checkpoint explain <id>` | "**Entire** checkpointed every coding session that built this, linked to its commit, with secrets redacted." |
-| 2:30–2:40 | **cfo.ai** model: unit economics + runway chart | "And **cfo.ai** turned the measured cost, about 38 cents a memo, into pricing, margins and runway." |
-| 2:40–2:45 | Live site memo grid | "Underwrite. It does the reading while you sleep. Link's in the repo." |
-
-## Shots to capture separately (for posts, too)
-
-- 4× sped-up terminal GIF of a full run
-- PNG of a dossier's page 1 (toolbar button "Download page 1 (PNG)")
-- The before/after table
-- The neatlogs trace tree
+| 0:00–0:12 | Live site hero | "Underwrite is a team of AI agents that does venture due diligence overnight, and checks its own work, because the theme is agents you'd trust without watching." |
+| 0:12–0:45 | Terminal, `underwrite run "Ramp"` (speed up 3×). Pause on `[agent] step N -> web_search(...)`, then a `REJECTED` line and the `self-corrected` line | "The analyst agent decides every move: pull the **Crustdata** record, search, read a page, record a claim. Each claim has to quote its source exactly, and it's checked the instant it's recorded. Here it misquoted, got bounced, and fixed it itself." |
+| 0:45–1:05 | Pause on `[skeptic] objection…` and `sending the analyst back` | "Then a skeptic agent attacks the work: 'your traction numbers come from one blog, and you never checked risks.' It sends the analyst back. Nobody told it to look for a congressional investigation into Ramp; it found one because the skeptic pushed." |
+| 1:05–1:25 | Dossier page 1 (hover a red circle), page 3 (skeptic rounds, rejected claims) | "The output is an evaluation form like Sequoia's 1977 Apple memo. Every red number links to the exact quote; page three shows the skeptic's objections and what was thrown out." |
+| 1:25–1:40 | Terminal: chaos run (`[inject]` → `[recover]`), and the `daily quota exhausted → falling back` lines | "Failures are normal: rate limits, dead models, broken output. It retries, switches models or data sources, and every step is checkpointed, so even a crash resumes mid-investigation." |
+| 1:40–1:55 | Terminal `underwrite watch` (`CHANGED …` lines) + an UPDATED card on the site | "Every night a watcher re-checks each company and re-investigates only what changed." |
+| 1:55–2:25 | **neatlogs** trace tree → `underwrite coach` output → `COACH_NOTES.md` → `underwrite compare` table | "Every run is a trace in **neatlogs**. The coach agent reads those traces, detections and triage fixes over the neatlogs MCP server, rewrites the agents' prompts, re-runs a 12-company exam with an answer key, and keeps the change only if the score goes up. Fixed pipeline → agents → coached agents: here are the numbers." *(fill in real numbers)* |
+| 2:25–2:38 | `submission/ENTIRE.md` / `entire checkpoint list` / `entire graph checkpoint` | "**Entire** checkpointed every coding session, and its code graph mapped the refactor from pipeline to agents before we touched it." |
+| 2:38–2:48 | **cfo.ai** model | "**cfo.ai** turned measured cost per memo into pricing, margins and runway." |
+| 2:48–2:50 | Site memo grid | "Underwrite: the diligence team that works while you sleep." |

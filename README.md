@@ -1,10 +1,11 @@
 # Underwrite
 
-**An autonomous due-diligence agent you can leave running overnight.**
-Give it a list of startups. It researches each one, writes an investment memo where every fact links to the exact
-sentence it came from, throws out anything its sources don't support, and flags where sources disagree. A Coach
-agent reads Underwrite's own [neatlogs](https://neatlogs.com) traces, rewrites its prompts, and keeps a change only
-if the eval score goes up.
+**A team of AI agents that does venture due diligence while you sleep, and checks its own work.**
+Give it a list of startups. An **analyst agent** decides what to look up, reads sources and records every fact with
+the exact sentence it came from; facts that don't match their source are bounced back to it on the spot. A **skeptic
+agent** attacks the result and sends the analyst back until the evidence holds up. A **watcher** re-checks every
+company each night and re-investigates only what changed. A **coach agent** reads all of this from
+[neatlogs](https://neatlogs.com) traces, rewrites the agents' prompts, and keeps a change only if the eval score goes up.
 
 **Live site (memo gallery + scoreboard):** https://hacker-git-code.github.io/underwrite-/
 &nbsp;·&nbsp; Built for **#neatHack** (Oct 10–12, 2026), theme: *"Build agents you'd trust to run without you watching."*
@@ -37,25 +38,50 @@ source, the claims it supports, the claims that were rejected, and the agent's r
 
 ## What it does
 
-```
-$ underwrite run "Razorpay" --domain razorpay.com
+A real run (Ramp, agent mode), shortened:
 
-[plan    ] 9 questions, 18 queries for Razorpay
-[crust   ] company record: 52 fields
-[web     ] search (crustdata-web) 'Razorpay founding year headquarters location' -> 9 results
+```
+$ underwrite run "Ramp" --domain ramp.com
+
+[recover ] gemini-3.8-flash failed (daily quota exhausted); falling back to gemini-3.5-flash
+[recover ] gemini-3.5-flash failed (daily quota exhausted); falling back to groq:openai/gpt-oss-120b
+[plan    ] 10 questions, 20 queries for Ramp
+[agent   ] step 1  -> company_profile()
+[agent   ] step 2  -> record_claim(field='founded_year', value='2019', evidence_id='E1')     → ACCEPTED C1
+[agent   ] step 4  -> web_search('Ramp founders CEO Eric Glyman Karim Atiyeh')
+[agent   ] step 5  -> record_claim(field='ceo', 'Eric Glyman and Karim Atiyeh serve as Co-CEOs', evidence_id='E7')
 ...
-[crust   ] fetched 2/8 pages via Crustdata
-[recover ] 6 pages empty via Crustdata; retrying them directly
-[extract ] 8 claims from 33 evidence blocks
-[verify  ] grounding: 8/8 quotes found in their cited source
-[verify  ] judge: 7 supported, 1 partial, 0 rejected of 8
-[plan    ] 4 priority questions unanswered -> research round 2
-...
-[memo    ] done in 302s · 12 claims · 92% supported · 0 conflicts · $0.013 LLM · 18 Crustdata credits · 3 recoveries
+[agent   ] round 1 ended on budget after 24 steps
+[verify  ] judge: 11 supported, 0 partial, 0 rejected of 11
+[skeptic ] objection: key traction numbers rely on a single low-authority source
+[skeptic ] objection: no evidence on risks or controversies - a priority-1 question
+[skeptic ] sending the analyst back for round 2
+[agent   ] step 25 -> web_search('Ramp customer count revenue 70,000 Bloomberg TechCrunch')
+[agent   ] step 27 -> web_search('Ramp lawsuits controversy security incident regulatory issues')
+[extract ] C13 In May 2025, a Congressman investigated Ramp over its attempt to win a $25 million federal contract
+[verify  ] claim rejected in-loop: quote not in E20 (match 53%) — agent must fix it
+[verify  ] self-corrected: C14 accepted after the agent fixed a rejected claim
+[agent   ] step 40 -> finish(...)
+[memo    ] done in 212s · 15 claims · 93% supported · 11 Crustdata credits · 2 recoveries
 ```
 
-A first-pass diligence memo takes an analyst hours. Underwrite produces one in about 3–5 minutes for roughly
-18 Crustdata credits and about a cent of LLM tokens at list price, and it can work through a whole watchlist overnight.
+Nobody told it to look for a congressional investigation: the skeptic objected that risks were unexamined, and the
+analyst went and found one. It also found that Ramp's CEO had just made his co-founder co-CEO, with the source linked.
+
+A first-pass diligence memo takes an analyst hours. Underwrite produces one in 3–5 minutes for about 11–19 Crustdata
+credits, and the LLM side runs on free tiers.
+
+### Three agents, one loop
+
+| Agent | Decides | Guardrails around it |
+|---|---|---|
+| **Analyst** (tool-calling loop) | which tool to call next: `company_profile`, `web_search`, `read_page`, `record_claim`, `update_question`, `add_question`, `finish` | every claim is grounded against its cited source **the moment it is recorded** and bounced back if the quote isn't there; budgets shown after every action; `finish` refused while priority-1 questions are open; old page text compacted out of context; conversation checkpointed every step |
+| **Skeptic** | whether the evidence is good enough, or which 1–4 objections must be fixed first | sees only what an investment committee would see; can send the analyst back while rounds and budget remain |
+| **Watcher** (nightly) | whether a company changed since its memo (fresh Crustdata record diff + news since the memo) | re-investigation is scoped to one new priority-1 question, seeded with the previous verified claims |
+| **Coach** (offline) | how to rewrite the agents' prompts, based on neatlogs traces, detections and eval failures | a change is kept only if the eval improves on the train split at sane cost; test split held out |
+
+The original fixed pipeline (plan → search → extract → verify → write) is kept as `--mode pipeline`, as the baseline
+the agents are measured against.
 
 ## Why you can trust it unattended
 
@@ -68,33 +94,42 @@ A first-pass diligence memo takes an analyst hours. Underwrite produces one in a
 | An API fails (429, 5xx, timeout, empty page) | Exponential backoff with jitter, honouring `Retry-After`; Crustdata search → DuckDuckGo fallback; Crustdata fetch → direct fetch fallback. |
 | A model is down, overloaded, or out of quota | Each role has a chain of models across providers (Gemini → Gemini → Groq → Cerebras → Claude on Bedrock). Dead models are skipped for the rest of the run; overloaded ones cool down for 2 minutes. |
 | The model returns broken JSON | A cheap repair call fixes it against the JSON Schema instead of failing the run. |
-| The machine crashes mid-run | State is checkpointed after every phase; `underwrite resume <run_id>` continues where it stopped. |
-| Questions go unanswered | A replanner writes new queries for unanswered priority questions and runs a second research round, with 2 searches reserved for it. |
+| The machine crashes mid-run | State is checkpointed after every phase and after **every analyst tool step**; `underwrite resume <run_id>` continues mid-investigation. (Our own baseline eval was killed by the OS at 8/12 companies and resumed with no lost work.) |
+| The agent quits early or skims | `finish` is refused while priority-1 questions are open and budget remains; questions can only be marked answered with an accepted claim, or unanswerable with a reason. The skeptic can send it back. |
+| The agent quotes from memory | `record_claim` checks the quote against the cited evidence immediately; mismatches are returned as REJECTED with the closest real passage, and the agent has to correct itself. |
+| The world changes after the memo | `underwrite watch` diffs a fresh Crustdata record and scans news since the memo; only real changes trigger a scoped re-investigation, flagged UPDATED on the dossier. |
 | It burns through credits | Per-company search/fetch budgets, a per-run credit cap, and a live balance floor (free `/account/credits` check). |
 | You want to see it fail on purpose | `--chaos 0.3` injects labelled faults (429s, timeouts, malformed JSON) so the recovery paths can be demoed. |
 
 ## How it works
 
 ```mermaid
-flowchart LR
-    A[Company] --> P[Planner<br/>8-10 questions + queries]
-    P --> R[Researcher<br/>Crustdata record + web search + fetch]
-    R --> X[Extractor<br/>claims with source + quote]
-    X --> V{Verifier}
-    V -->|quote not in source| RJ[Rejected]
-    V -->|judge: unsupported| RJ
-    V -->|supported / partial| C[Conflict check]
-    C --> G{Priority questions<br/>still open?}
-    G -->|yes, budget left| RP[Replanner] --> R
-    G -->|no| W[Writer<br/>cited memo + fact sheet]
-    W --> D[Dossier<br/>HTML · PDF · PNG]
+flowchart TB
+    A[Company] --> P[Planner<br/>8-10 diligence questions]
+    P --> AN
+    subgraph AN[Analyst agent: tool-calling loop]
+        direction LR
+        T1[company_profile] ~~~ T2[web_search] ~~~ T3[read_page]
+        RC[record_claim] -->|quote not in source| RJ[REJECTED → agent fixes it]
+        RC -->|quote found| OK[ACCEPTED]
+        FIN[finish] -->|priority-1 open, budget left| NO[refused]
+    end
+    AN --> J[Independent judge<br/>supported / partial / unsupported]
+    J --> C[Conflict check across sources]
+    C --> S{Skeptic agent}
+    S -->|objections, rounds left| AN
+    S -->|signed off| W[Writer<br/>cited memo + fact sheet]
+    W --> D[Dossier · HTML / PDF / PNG]
+    D -. nightly .-> WA{Watcher<br/>record diff + news}
+    WA -->|material change| AN
 ```
 
-Every step is a neatlogs span (`WORKFLOW` → `AGENT` → `TOOL` / `GUARDRAIL` / LLM), every prompt is tracked with
-its template and version, and every recovery is logged both to `events.jsonl` and as a neatlogs log span inside the trace.
+Every step is a neatlogs span (`WORKFLOW` → `AGENT` → `TOOL` / `GUARDRAIL` / LLM), every prompt is tracked with its
+template and version, and every recovery is logged both to `events.jsonl` and as a neatlogs log span in the trace.
 
-The roles use different models on purpose: a "smart" model plans and writes (few calls), a cheaper "fast" model
-extracts and judges (many calls), and the judge never sees the extractor's reasoning, only the claim and the source.
+Models are assigned by role and spread across providers so free daily quotas don't stop a run: the analyst loop runs on
+Gemini Flash-Lite-class models (many cheap steps), the planner/skeptic/writer on Gemini Flash, with Groq and Cerebras
+as fallbacks. The judge never sees the analyst's reasoning, only the claim, the quote and the source text around it.
 
 ## Self-improvement: the Coach and neatlogs
 
@@ -140,7 +175,7 @@ v2 have both been scored._
 | Tool | Used for | Where |
 |---|---|---|
 | **neatlogs** | Tracing every run (spans, prompt templates + versions, token cost, recovery log spans, sessions per batch); the **Coach reads traces, detections and triage fixes over the neatlogs MCP server** to decide how to improve the agent. | `underwrite/obs.py`, `underwrite/llm.py`, `underwrite/coach.py` |
-| **Entire** | Every coding-agent session that built this repo is checkpointed and linked to its commit (`Entire-Checkpoint:` trailers, refs under `refs/entire/checkpoints/`), with secrets redacted. Run `entire checkpoint list` / `entire checkpoint explain <id>`. | git history, `.entire/` |
+| **Entire** | Every coding-agent session that built this repo is checkpointed and linked to its commit (`Entire-Checkpoint:` trailers, refs under `refs/entire/checkpoints/`), with secrets redacted. The **entire-graph** plugin mapped the code before the pipeline→agent refactor (search + impact) and reviewed the result per checkpoint. | git history, `.entire/`, [submission/ENTIRE.md](submission/ENTIRE.md) |
 | **cfo.ai** | Business plan: pricing, unit costs measured from real runs, revenue scenarios, runway. | `business/PLAN.md` |
 | **Crustdata** | Company records (founding, HQ, headcount + growth, funding rounds, investors, founders), live web search, and live page fetch. | `underwrite/tools/crustdata.py` |
 | **AWS** | An EC2 t3.small runs the agent every night and publishes new memos to the site. | `deploy/` |
@@ -172,12 +207,14 @@ Keys (all have free tiers):
 
 | Command | What it does |
 |---|---|
-| `underwrite run "Company" --domain x.com [--open] [--chaos 0.3]` | Research one company and write its dossier |
+| `underwrite run "Company" --domain x.com [--mode agent\|pipeline] [--open] [--chaos 0.3]` | Research one company and write its dossier |
 | `underwrite batch watchlist.txt [--new-only] [--limit N]` | Research a list unattended (`Company, domain` per line) |
-| `underwrite resume <run_id>` | Continue an interrupted run from each company's last saved phase |
+| `underwrite resume <run_id>` | Continue an interrupted run from each company's last saved phase / agent step |
+| `underwrite watch [--limit N]` | Re-check researched companies; re-investigate only what changed |
 | `underwrite eval --prompts v1 [--split train\|test\|all]` | Score a prompt version against ground truth |
 | `underwrite coach --base v1` | Improve the prompts from neatlogs traces + eval failures, evaluate, keep or reject |
-| `underwrite compare v1 v2 [--split test]` | Before/after table between two evals |
+| `underwrite compare pipeline:v1 agent:v1 [--split test]` | Before/after table between two evals (`[mode:]version`) |
+| `underwrite rescore <eval_run_id>` | Re-grade a finished eval after a ground-truth fix, using the memos it already wrote |
 | `underwrite render <run_id> [--open]` | Re-draw dossiers (HTML + PDF) without re-running the agent |
 | `underwrite site [--open]` | Build the website in `docs/` (merges with what's already published) |
 | `underwrite doctor` | Check keys, models, Crustdata balance and the neatlogs MCP connection |
