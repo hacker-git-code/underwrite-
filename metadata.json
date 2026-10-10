@@ -1,0 +1,38 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4K7SZB7WK210FHF4PG7VZCG",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.html",
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.md",
+    "runs/eval-v1-all-20261010-140921/hugging-face/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/hugging-face/memo.html",
+    "runs/eval-v1-all-20261010-140921/hugging-face/memo.md",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/memo.html",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/memo.md",
+    "runs/eval-v1-all-20261010-140921/postman/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/ramp/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/ramp/memo.html",
+    "runs/eval-v1-all-20261010-140921/ramp/memo.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 396,
+    "cache_creation_tokens": 981420,
+    "cache_read_tokens": 67220389,
+    "output_tokens": 299435,
+    "api_call_count": 197
+  }
+}

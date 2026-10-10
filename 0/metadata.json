@@ -1,0 +1,145 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4K7SZB7WK210FHF4PG7VZCG",
+  "session_id": "58af9994-a5f8-4670-83e5-5e7a3175d21c",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T15:44:50.5736537Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "save_step_count": 3,
+  "files_touched": [
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.html",
+    "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.md",
+    "runs/eval-v1-all-20261010-140921/hugging-face/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/hugging-face/memo.html",
+    "runs/eval-v1-all-20261010-140921/hugging-face/memo.md",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/memo.html",
+    "runs/eval-v1-all-20261010-140921/mistral-ai/memo.md",
+    "runs/eval-v1-all-20261010-140921/postman/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/ramp/events.jsonl",
+    "runs/eval-v1-all-20261010-140921/ramp/memo.html",
+    "runs/eval-v1-all-20261010-140921/ramp/memo.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "1d8e7f2b8455",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 396,
+    "cache_creation_tokens": 981420,
+    "cache_read_tokens": 67220389,
+    "output_tokens": 299435,
+    "api_call_count": 197
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01FTDFfFJu8CKNez4mrg2bku",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "claude-api"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "d3a29e4fdf74",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 214,
+        "end": 215,
+        "entry_ids": [
+          "75181bc7-f70d-4d2f-b79b-5dff3b6d0ac6"
+        ],
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: claude-api",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 8
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T15:44:50.2406808Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 2300,
+    "human_modified": 846,
+    "human_removed": 0,
+    "total_committed": 3114,
+    "total_lines_changed": 3216,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 2189,
+      "user_lines_removed": 86,
+      "agent_lines_added": 817,
+      "agent_lines_removed": 24,
+      "user_added_per_file": {
+        "AGENTS.md": 6,
+        "CLAUDE.md": 6,
+        "prompts/v1/analyst.md": 23,
+        "prompts/v1/skeptic.md": 30,
+        "runs/eval-v1-all-20261010-140921/anysphere-cursor/events.jsonl": 1,
+        "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.html": 2,
+        "runs/eval-v1-all-20261010-140921/deel/events.jsonl": 31,
+        "runs/eval-v1-all-20261010-140921/deel/memo.html": 148,
+        "runs/eval-v1-all-20261010-140921/deel/memo.md": 24,
+        "runs/eval-v1-all-20261010-140921/eval.json": 933,
+        "runs/eval-v1-all-20261010-140921/groww/events.jsonl": 28,
+        "runs/eval-v1-all-20261010-140921/groww/memo.html": 148,
+        "runs/eval-v1-all-20261010-140921/groww/memo.md": 25,
+        "runs/eval-v1-all-20261010-140921/manifest.json": 53,
+        "runs/eval-v1-all-20261010-140921/supabase/events.jsonl": 20,
+        "runs/eval-v1-all-20261010-140921/supabase/memo.html": 148,
+        "runs/eval-v1-all-20261010-140921/supabase/memo.md": 26,
+        "underwrite/agents/analyst.py": 280,
+        "underwrite/agents/skeptic.py": 50,
+        "underwrite/agents/verifier.py": 18,
+        "underwrite/config.py": 13,
+        "underwrite/llm.py": 95,
+        "underwrite/models.py": 26,
+        "underwrite/obs.py": 2,
+        "underwrite/pipeline.py": 52,
+        "underwrite/prompts.py": 1
+      },
+      "user_removed_per_file": {
+        "runs/eval-v1-all-20261010-140921/anysphere-cursor/memo.html": 2,
+        "runs/eval-v1-all-20261010-140921/manifest.json": 53,
+        "underwrite/agents/verifier.py": 15,
+        "underwrite/llm.py": 7,
+        "underwrite/models.py": 1,
+        "underwrite/pipeline.py": 7,
+        "underwrite/prompts.py": 1
+      }
+    }
+  ]
+}
