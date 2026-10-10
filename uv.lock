@@ -1258,6 +1258,26 @@ wheels = [
 anthropic = [
     { name = "anthropic" },
 ]
+openai = [
+    { name = "openai" },
+]
+
+[[package]]
+name = "openai"
+version = "3.28.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "httpx2" },
+    { name = "jiter" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b7/a3/3b5576af9c4b8cb7eef1383d33c48a9431b292983fe4b78cbffb31d0aeeb/openai-3.28.0.tar.gz", hash = "sha256:cf0509d32d7bd8eb6a3db02417957cb455212b6629d071826b9ea1f61659e2a4", size = 1827445 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5b/4a/5c807ade1a86ab8accad20dc993ca7de5d1f7b2e78d4674c300c2e6a47b9/openai-3.28.0-py3-none-any.whl", hash = "sha256:1ea40a084ffe2f9f16fd3bea6e870f757853b536b18d8e737c518ef849a2920c", size = 2171532 },
+]
 
 [[package]]
 name = "openinference-instrumentation"
@@ -2838,7 +2858,8 @@ dependencies = [
     { name = "markdown", version = "3.10.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "markdown", version = "3.11", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "mcp" },
-    { name = "neatlogs", extra = ["anthropic"] },
+    { name = "neatlogs", extra = ["anthropic", "openai"] },
+    { name = "openai" },
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "rapidfuzz", version = "3.14.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -2855,7 +2876,8 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.27" },
     { name = "markdown", specifier = ">=3.6" },
     { name = "mcp", specifier = ">=1.9" },
-    { name = "neatlogs", extras = ["anthropic"], specifier = ">=1.4" },
+    { name = "neatlogs", extras = ["openai", "anthropic"], specifier = ">=1.4" },
+    { name = "openai", specifier = ">=1.40" },
     { name = "pydantic", specifier = ">=2.7" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "rapidfuzz", specifier = ">=3.9" },

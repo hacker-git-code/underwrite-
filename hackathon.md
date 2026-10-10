@@ -34,6 +34,16 @@ and only keeps a change if the numbers improve.
 - Read hackathon page, neatlogs SDK/MCP docs, Entire CLI README, Crustdata API docs.
 - Chose idea: due-diligence agent + self-improving Coach loop.
 - Installed Entire CLI 0.11.4, `git init`, `entire enable --agent claude-code`.
+- Got $25 AWS credits → LLM is Claude on Bedrock (Mantle endpoint): Opus 5.5 for planning/writing,
+  Haiku 5.5 for extraction/verification, each with a fallback chain.
+- Built v0 of the agent (commit `5b0a6b0`, Entire checkpoint `01M4JAXC3K796NBFR1Y9S5RJ5D`):
+  planner → researcher (Crustdata + keyless fallbacks) → extractor → verifier (quote grounding,
+  independent judge, conflict detection) → replanner (2nd round for gaps) → writer; checkpointed
+  state machine with `resume`; chaos mode; eval harness (12 companies, train/test split); Coach over neatlogs MCP.
+- Tests run: `tests/test_offline.py` (fake LLM + fake tools) — 4/4 pass: fabricated quote rejected,
+  18-vs-50 headcount conflict flagged, invalid citation stripped, 2nd research round triggered,
+  resume after simulated crash, recovery from 2 injected malformed-JSON faults.
+- Not yet run against real APIs (waiting on keys in `.env`).
 
 ## Demo
 

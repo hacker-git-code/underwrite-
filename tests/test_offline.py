@@ -45,9 +45,9 @@ def fake_complete(role, system, user, *, effort=None, max_tokens=16000):
         if crust:
             claims += [
                 {"question_id": "q1", "field": "founded_year", "statement": "Founded in 2019.", "value": "2019",
-                 "evidence_id": crust, "quote": "basic_info.year_founded: 2019"},
+                 "evidence_id": crust, "quote": "Year founded: 2019"},
                 {"question_id": "q2", "field": "headcount", "statement": "Has 18 employees.", "value": "18",
-                 "evidence_id": crust, "quote": "headcount.total: 18"},
+                 "evidence_id": crust, "quote": "Employee count: 18"},
             ]
         if page:
             claims += [

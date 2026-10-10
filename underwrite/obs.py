@@ -49,7 +49,7 @@ def setup(tags: list[str] | None = None) -> None:
     neatlogs.init(
         api_key=settings.neatlogs_api_key or None,
         workflow_name="underwrite",
-        instrumentations=["anthropic"],
+        instrumentations=["openai", "anthropic"],
         tags=["underwrite", *(tags or [])],
     )
     _initialized = True

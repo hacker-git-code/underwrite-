@@ -22,17 +22,21 @@ def _env_list(name: str, default: str) -> list[str]:
 
 @dataclass
 class Settings:
-    # Claude on Amazon Bedrock (Messages API / "Mantle" endpoint).
+    # Only used for the optional Claude-on-Bedrock provider.
     aws_region: str = field(default_factory=lambda: _env("AWS_REGION", "us-east-1"))
     # "smart" = planning, memo writing, coaching. "fast" = bulk extraction + verification.
     # Each role tries its models in order and skips any the account can't access.
     models_smart: list[str] = field(
         default_factory=lambda: _env_list(
-            "UW_MODELS_SMART", "anthropic.claude-opus-5-5,anthropic.claude-sonnet-5,anthropic.claude-haiku-4-5"
+            "UW_MODELS_SMART",
+            "gemini:gemini-2.5-flash,groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-opus-5-5",
         )
     )
     models_fast: list[str] = field(
-        default_factory=lambda: _env_list("UW_MODELS_FAST", "anthropic.claude-haiku-5-5,anthropic.claude-haiku-4-5")
+        default_factory=lambda: _env_list(
+            "UW_MODELS_FAST",
+            "gemini:gemini-2.5-flash-lite,groq:openai/gpt-oss-20b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-haiku-5-5",
+        )
     )
 
     crustdata_api_key: str = field(default_factory=lambda: _env("CRUSTDATA_API_KEY"))
@@ -45,9 +49,9 @@ class Settings:
 
     # Per-company research budget.
     max_searches: int = field(default_factory=lambda: int(_env("UW_MAX_SEARCHES", "8")))
-    max_fetches: int = field(default_factory=lambda: int(_env("UW_MAX_FETCHES", "10")))
+    max_fetches: int = field(default_factory=lambda: int(_env("UW_MAX_FETCHES", "8")))
     max_rounds: int = field(default_factory=lambda: int(_env("UW_MAX_ROUNDS", "2")))
-    page_chars: int = field(default_factory=lambda: int(_env("UW_PAGE_CHARS", "6000")))
+    page_chars: int = field(default_factory=lambda: int(_env("UW_PAGE_CHARS", "4000")))
 
     # Fault injection rate (0..1) for recovery demos. Injected faults are always labelled.
     chaos: float = field(default_factory=lambda: float(_env("UW_CHAOS", "0") or 0))

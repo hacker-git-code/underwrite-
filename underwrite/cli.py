@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 import time
 import webbrowser
 from pathlib import Path
@@ -157,18 +156,31 @@ def doctor():
     from .coach import ask_neatlogs
 
     obs.setup(tags=["mode:doctor"])
-    has_aws = any(os.environ.get(k) for k in ("AWS_BEARER_TOKEN_BEDROCK", "AWS_ACCESS_KEY_ID", "AWS_PROFILE"))
-    console.print(f"AWS credentials: {'[green]found[/green]' if has_aws else '[red]missing[/red] (AWS_BEARER_TOKEN_BEDROCK or AWS_ACCESS_KEY_ID)'}  region={settings.aws_region}")
-    console.print(f"CRUSTDATA_API_KEY: {'[green]set[/green]' if settings.crustdata_api_key else '[red]missing[/red]'}")
-    console.print(f"NEATLOGS_API_KEY: {'[green]set[/green]' if settings.neatlogs_api_key else '[red]missing[/red]'}")
+    for provider, (_, key_env, _) in {**llm.PROVIDERS, "bedrock": (None, "AWS_BEARER_TOKEN_BEDROCK", None)}.items():
+        state = "[green]key set[/green]" if llm.provider_ready(provider) else "[dim]no key[/dim]"
+        console.print(f"{provider:<10} {key_env:<26} {state}")
+    console.print(f"{'crustdata':<10} {'CRUSTDATA_API_KEY':<26} {'[green]key set[/green]' if settings.crustdata_api_key else '[red]missing[/red]'}")
+    console.print(f"{'neatlogs':<10} {'NEATLOGS_API_KEY':<26} {'[green]key set[/green]' if settings.neatlogs_api_key else '[red]missing[/red]'}")
 
+    console.print("\n[bold]Model chains[/bold] (first working model is used; the rest are fallbacks)")
     for role, chain in (("smart", settings.models_smart), ("fast", settings.models_fast)):
-        for model in chain:
+        for spec in chain:
+            if not llm.provider_ready(llm.split_model(spec)[0]):
+                console.print(f"  {role:<5} {spec}: [dim]skipped (no key)[/dim]")
+                continue
             try:
-                text = llm._call(model, "Reply with the single word OK.", "ping", None, 16)
-                console.print(f"  bedrock {role:<5} {model}: [green]ok[/green] ({text.strip()[:20]!r})")
+                text = llm.call(spec, "Reply with a JSON object {\"ok\": true}.", "ping (json)", None, 64)
+                console.print(f"  {role:<5} {spec}: [green]ok[/green] {text.strip()[:30]!r}")
             except Exception as e:
-                console.print(f"  bedrock {role:<5} {model}: [red]{type(e).__name__}[/red] {str(e)[:160]}")
+                console.print(f"  {role:<5} {spec}: [red]{type(e).__name__}[/red] {str(e)[:160]}")
+
+    if llm.provider_ready("gemini"):
+        try:
+            names = [m.id for m in llm._client("gemini").models.list()]
+            flash = sorted(n.removeprefix("models/") for n in names if "flash" in n or "pro" in n)
+            console.print(f"  gemini models available: {', '.join(flash[:20])}")
+        except Exception as e:
+            console.print(f"  gemini model list failed: {e}")
 
     if settings.crustdata_api_key:
         try:

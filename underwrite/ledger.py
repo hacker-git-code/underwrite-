@@ -5,8 +5,17 @@ from __future__ import annotations
 import contextvars
 from dataclasses import asdict, dataclass, field
 
-# USD per 1M tokens (input, output). List prices; Bedrock global endpoints price at parity.
+# USD per 1M tokens (input, output) at paid list prices. On free tiers the real bill is $0;
+# we still track the list-price equivalent because that's the unit cost a paying customer would carry.
+# More specific names first: lookup is by prefix.
 PRICES = {
+    "gemini-2.5-flash-lite": (0.10, 0.40),
+    "gemini-2.5-flash": (0.30, 2.50),
+    "gemini-2.5-pro": (1.25, 10.00),
+    "openai/gpt-oss-120b": (0.15, 0.60),
+    "openai/gpt-oss-20b": (0.075, 0.30),
+    "gpt-oss-120b": (0.35, 0.75),
+    "llama-3.3-70b": (0.59, 0.79),
     "claude-opus-5-5": (4.00, 20.00),
     "claude-opus-5": (5.00, 25.00),
     "claude-opus-4-8": (5.00, 25.00),
@@ -18,7 +27,7 @@ PRICES = {
 
 
 def price_for(model: str) -> tuple[float, float]:
-    bare = model.split("anthropic.")[-1]
+    bare = model.split(":", 1)[-1].split("anthropic.")[-1]
     for key, p in PRICES.items():
         if bare.startswith(key):
             return p

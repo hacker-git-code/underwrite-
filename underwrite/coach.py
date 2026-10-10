@@ -27,6 +27,8 @@ ALIASES = {
     "query": ["query", "q", "text", "search", "search_query"],
     "trace_id": ["trace_id", "traceId", "id", "trace"],
     "limit": ["limit", "top_k", "k", "max_results", "page_size"],
+    "triage_id": ["triage_id", "id"],
+    "workflow_name": ["workflow_name"],
 }
 
 PIPELINE = """\
@@ -79,7 +81,8 @@ async def _ask_neatlogs(trace_ids: list[str]) -> dict[str, str]:
     http = create_mcp_http_client(headers={"Authorization": f"Bearer {settings.neatlogs_api_key}"})
     found: dict[str, str] = {}
     async with Client(streamable_http_client(settings.neatlogs_mcp_url, http_client=http)) as client:
-        tools = {t.name: t.inputSchema for t in (await client.list_tools()).tools}
+        tools = {t.name: getattr(t, "input_schema", None) or getattr(t, "inputSchema", None) or {}
+                 for t in (await client.list_tools()).tools}
         emit("coach", f"neatlogs MCP connected: {len(tools)} tools ({', '.join(sorted(tools)[:8])}...)")
 
         async def call(name: str, key: str, **wanted) -> None:
@@ -97,9 +100,11 @@ async def _ask_neatlogs(trace_ids: list[str]) -> dict[str, str]:
         await call("list_detections", "detections")
         await call("triage_list", "triage")
         for tid in re.findall(r'"(?:id|fix_id|triage_id)"\s*:\s*"([^"]+)"', found.get("triage", ""))[:3]:
-            await call("triage_get", f"triage:{tid}", trace_id=tid)
-        await call("search_traces", "search:unsupported", query="unsupported quote not found in cited source", limit=5)
-        await call("search_traces", "search:recover", query="invalid JSON repairing fallback", limit=5)
+            await call("triage_get", f"triage:{tid}", triage_id=tid)
+        await call("search_traces", "search:unsupported", query="unsupported quote not found in cited source",
+                   limit=5, workflow_name="underwrite")
+        await call("search_traces", "search:recover", query="invalid JSON repairing fallback", limit=5,
+                   workflow_name="underwrite")
         for tid in trace_ids[:3]:
             await call("get_trace_context", f"trace:{tid}", trace_id=tid)
     return found
