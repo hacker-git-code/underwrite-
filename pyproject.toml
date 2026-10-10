@@ -1,0 +1,30 @@
+[project]
+name = "underwrite"
+version = "0.1.0"
+description = "An autonomous due-diligence agent you can trust to run overnight — with a Coach that improves it from its own neatlogs traces."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "neatlogs[anthropic]>=1.4",
+    "anthropic[bedrock]>=1.13",
+    "markdown>=3.6",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+    "typer>=0.12",
+    "rich>=13.7",
+    "mcp>=1.9",
+    "ddgs>=9.0",
+    "trafilatura>=1.12",
+    "rapidfuzz>=3.9",
+]
+
+[project.scripts]
+underwrite = "underwrite.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["underwrite"]

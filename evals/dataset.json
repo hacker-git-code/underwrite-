@@ -1,0 +1,29 @@
+{
+  "description": "Ground truth for stable facts only (founding year, HQ city, founders, CEO). Fields that are genuinely ambiguous (e.g. HQ of remote-first companies) are omitted rather than guessed. The Coach only ever sees failures from the 'train' split; headline numbers come from 'test'.",
+  "companies": [
+    {"company": "Linear", "domain": "linear.app", "split": "train",
+     "gold": {"founded_year": "2019", "hq_city": ["San Francisco"], "founders": ["Karri Saarinen", "Tuomas Artman", "Jori Lallo"], "ceo": "Karri Saarinen"}},
+    {"company": "PostHog", "domain": "posthog.com", "split": "train",
+     "gold": {"founded_year": "2020", "founders": ["James Hawkins", "Tim Glazier"], "ceo": "James Hawkins"}},
+    {"company": "Razorpay", "domain": "razorpay.com", "split": "train",
+     "gold": {"founded_year": "2014", "hq_city": ["Bengaluru", "Bangalore"], "founders": ["Harshil Mathur", "Shashank Kumar"], "ceo": "Harshil Mathur"}},
+    {"company": "Zerodha", "domain": "zerodha.com", "split": "train",
+     "gold": {"founded_year": "2010", "hq_city": ["Bengaluru", "Bangalore"], "founders": ["Nithin Kamath", "Nikhil Kamath"], "ceo": "Nithin Kamath"}},
+    {"company": "Postman", "domain": "postman.com", "split": "train",
+     "gold": {"founded_year": "2014", "hq_city": ["San Francisco"], "founders": ["Abhinav Asthana", "Ankit Sobti", "Abhijit Kane"], "ceo": "Abhinav Asthana"}},
+    {"company": "Mistral AI", "domain": "mistral.ai", "split": "train",
+     "gold": {"founded_year": "2023", "hq_city": ["Paris"], "founders": ["Arthur Mensch", "Guillaume Lample", "Timothée Lacroix"], "ceo": "Arthur Mensch"}},
+    {"company": "Hugging Face", "domain": "huggingface.co", "split": "train",
+     "gold": {"founded_year": "2016", "hq_city": ["New York", "NYC", "Brooklyn"], "founders": ["Clément Delangue", "Julien Chaumond", "Thomas Wolf"], "ceo": "Clément Delangue"}},
+    {"company": "Ramp", "domain": "ramp.com", "split": "train",
+     "gold": {"founded_year": "2019", "hq_city": ["New York", "NYC"], "founders": ["Eric Glyman", "Karim Atiyeh"], "ceo": "Eric Glyman"}},
+    {"company": "Anysphere (Cursor)", "domain": "cursor.com", "split": "test",
+     "gold": {"founded_year": "2022", "hq_city": ["San Francisco"], "founders": ["Michael Truell", "Sualeh Asif", "Arvid Lunnemark", "Aman Sanger"], "ceo": "Michael Truell"}},
+    {"company": "Groww", "domain": "groww.in", "split": "test",
+     "gold": {"founded_year": "2016", "hq_city": ["Bengaluru", "Bangalore"], "founders": ["Lalit Keshre", "Harsh Jain", "Neeraj Singh", "Ishan Bansal"], "ceo": "Lalit Keshre"}},
+    {"company": "Deel", "domain": "deel.com", "split": "test",
+     "gold": {"founded_year": "2019", "hq_city": ["San Francisco"], "founders": ["Alex Bouaziz", "Shuo Wang"], "ceo": "Alex Bouaziz"}},
+    {"company": "Supabase", "domain": "supabase.com", "split": "test",
+     "gold": {"founded_year": "2020", "founders": ["Paul Copplestone", "Ant Wilson"], "ceo": "Paul Copplestone"}}
+  ]
+}
