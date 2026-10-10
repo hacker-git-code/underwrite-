@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4K8CZ4C9NY7AD7HTPG2Q9DH",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "underwrite/cli.py",
+    "underwrite/coach.py",
+    "underwrite/models.py",
+    "underwrite/report.py",
+    "underwrite/watch.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 48,
+    "cache_creation_tokens": 46816,
+    "cache_read_tokens": 14244151,
+    "output_tokens": 26488,
+    "api_call_count": 24
+  }
+}
