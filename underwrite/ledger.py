@@ -9,6 +9,9 @@ from dataclasses import asdict, dataclass, field
 # we still track the list-price equivalent because that's the unit cost a paying customer would carry.
 # More specific names first: lookup is by prefix.
 PRICES = {
+    "gemini-3.5-flash-lite": (0.25, 1.50),  # Gemini 3.x prices are estimates (paid-tier list price)
+    "gemini-3.1-flash-lite": (0.25, 1.50),
+    "gemini-3": (0.50, 3.00),
     "gemini-2.5-flash-lite": (0.10, 0.40),
     "gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-pro": (1.25, 10.00),

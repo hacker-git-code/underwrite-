@@ -102,9 +102,9 @@ async def _ask_neatlogs(trace_ids: list[str]) -> dict[str, str]:
         for tid in re.findall(r'"(?:id|fix_id|triage_id)"\s*:\s*"([^"]+)"', found.get("triage", ""))[:3]:
             await call("triage_get", f"triage:{tid}", triage_id=tid)
         await call("search_traces", "search:unsupported", query="unsupported quote not found in cited source",
-                   limit=5, workflow_name="underwrite")
+                   limit=5, workflow_name="underwrite.company")
         await call("search_traces", "search:recover", query="invalid JSON repairing fallback", limit=5,
-                   workflow_name="underwrite")
+                   workflow_name="underwrite.company")
         for tid in trace_ids[:3]:
             await call("get_trace_context", f"trace:{tid}", trace_id=tid)
     return found

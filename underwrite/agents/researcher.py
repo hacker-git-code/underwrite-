@@ -74,7 +74,8 @@ def _fetch(urls: list[str]) -> list[dict]:
 
 
 @neatlogs.span(kind="AGENT", name="researcher", role="researcher", goal="collect source evidence within budget")
-def research(state: CompanyState, queries: list[tuple[str, str]]) -> list[Evidence]:
+def research(state: CompanyState, queries: list[tuple[str, str]], reserve: int = 0) -> list[Evidence]:
+    """`reserve` searches are held back for later gap-filling rounds."""
     before = len(state.evidence)
 
     if not any(e.kind == "crustdata" for e in state.evidence):
@@ -92,7 +93,7 @@ def research(state: CompanyState, queries: list[tuple[str, str]]) -> list[Eviden
         else:
             emit("crust", "no Crustdata match for this company")
 
-    budget = max(0, settings.max_searches - len(state.searched))
+    budget = max(0, settings.max_searches - reserve - len(state.searched))
     candidates: list[tuple[str, str]] = []  # (url, question_id)
     company_host = (state.domain or "").removeprefix("www.")
     for qid, query in queries[:budget]:

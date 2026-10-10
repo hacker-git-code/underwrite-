@@ -1,0 +1,690 @@
+{
+  "run_id": "run-20261010-133815",
+  "company": "Razorpay",
+  "domain": "razorpay.com",
+  "prompts_version": "v1",
+  "phase": "done",
+  "round": 1,
+  "plan": {
+    "questions": [
+      {
+        "id": "q1",
+        "topic": "product_and_business_model",
+        "question": "What core products and services does Razorpay offer, who are its target customers, and how does it generate revenue?",
+        "queries": [
+          "Razorpay products business model revenue streams",
+          "site:razorpay.com about products payment gateway neobanking"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q2",
+        "topic": "founding_and_hq",
+        "question": "What is Razorpay's founding year, primary headquarters location, and corporate domicile?",
+        "queries": [
+          "Razorpay founding year headquarters location Bengaluru",
+          "Razorpay US India reverse flip corporate structure"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q3",
+        "topic": "leadership",
+        "question": "Who are the founders of Razorpay and who currently serves as CEO and key leadership?",
+        "queries": [
+          "Razorpay founders Harshil Mathur Shashank Kumar current roles",
+          "Razorpay executive leadership team CEO"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q4",
+        "topic": "funding_and_investors",
+        "question": "What is Razorpay's total funding raised, latest valuation, and who are its primary institutional investors?",
+        "queries": [
+          "Razorpay funding rounds valuation cap table investors",
+          "Razorpay Series F funding investors Y Combinator Sequoia"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q5",
+        "topic": "traction_and_financials",
+        "question": "What is Razorpay's current financial performance, including annual revenue, profitability, total payment volume (TPV), and headcount?",
+        "queries": [
+          "Razorpay annual revenue TPV financial results FY25 FY26",
+          "Razorpay headcount employee growth financial metrics"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q6",
+        "topic": "competitors_and_market",
+        "question": "Who are Razorpay's main direct and indirect competitors in India and globally, and what is its market share?",
+        "queries": [
+          "Razorpay market share competitors Cashfree PayU Pine Labs",
+          "India payment gateway competitive landscape market share"
+        ],
+        "priority": 2
+      },
+      {
+        "id": "q7",
+        "topic": "recent_news",
+        "question": "What major announcements, product launches, acquisitions, or IPO preparation plans has Razorpay made in the last 12 months?",
+        "queries": [
+          "Razorpay IPO plans news 2025 2026",
+          "Razorpay latest acquisitions new product launches"
+        ],
+        "priority": 2
+      },
+      {
+        "id": "q8",
+        "topic": "risks_and_red_flags",
+        "question": "What regulatory hurdles, compliance challenges with the RBI, legal issues, or major business risks does Razorpay face?",
+        "queries": [
+          "Razorpay Reserve Bank of India regulatory compliance payment aggregator issues",
+          "Razorpay litigation controversies risks"
+        ],
+        "priority": 1
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "E1",
+      "kind": "crustdata",
+      "url": "crustdata://company/897127",
+      "title": "Crustdata company record: Razorpay",
+      "text": "Company name: Razorpay\nWebsite: https://bit.ly/razorpay_learnmore\nDescription: Power your finance, grow your business.Razorpay is India’s first full-stack financial solutions company. We are on a mission to enhance the payment experience of over 300 million end consumers. And in doing so, we aim to enable Indian businesses - big and small - accept payments digitally with minimal effort and maximum ease. Razorpay has grown from being a payment gateway provider to a solutions-driven organization boasting of an extensive products suite to accept and disburse payments as well as raise capital and park money. In a nutshell, we fit into every nook and corner where your business touches money. #OutgrowOrdinaryWe identify ourselves as disruptors in the digital payments space and our vision is to power the financial ecosystem for other disruptors. Like attracts like and Razorpay actively looks to partner with established companies and startups that have either broken the glass ceiling in their industry or are set to. The Razorpay Product Suite today comprises verticals, along with Payment Gateway, like Payment Links, Payment Pages, Subscriptions, Smart Collect, Route, Razorpay Capital, RazorpayX, Payroll and Thirdwatch.Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar. Just a short few years later, Razorpay has evolved into a 800-odd strong organization with some of the best talents in the country helping some of the best companies manage their money movement seamlessly.Certified coolWe are a bunch of spirited, ambitious and fun folks. And no, we’re not saying this ourselves--leading institutions have recognized Razorpay for the high trust and high-performance culture that we maintain. Our strength lies in the people we are and we go to great lengths to nurture a family of coders, designers, sellers, marketers, analysts, writers, runners, photographers, gamers, tinkerers, and above all, people who are dreamers and doers at the same time. Be a part of our exciting journey.\nCompany type: Privately Held\nStatus: active\nYear founded: 2014\nHeadquarters: Adugodi, Karnataka, India\nIndustry: Software Development\nCategories: Apps, FinTech, Finance, Financial Services, Information Technology, Mobile, Mobile Apps, Payments, Point of Sale, Software\nEmployee count: 4042\nEmployee count range: 1001-5000\nHeadcount growth: 6 months -1.1%, 1 year -3.2%, 2 years +11.1%\nLargest headcount country: IND\nTotal funding raised: 816,600,000 USD\nNumber of funding rounds: 10\nLast funding round: secondary_market 75,000,000 USD on 2022-05-10\nInvestors: Abhay Singhal, Alkeon Capital, Amit Gupta, Anand Swaminathan, Anshu Sharma, Axevil Capital, Bill Gajda, Brad Flora, Eric Kwan, GIC, GMO VenturePartners, Hiro Mashita, Jeff Ferguson, Jeff Huber, Justin Kan, Kunal Bahl, Kunal Shah, Lightspeed Venture Partners, Lone Pine Capital, Mastercard, Matrix Partners India, Michael Sutcliff, Moore Strategic Ventures, Naveen Tewari, Peak XV Partners\nAcquired by: {'amount_usd': None, 'crustdata_company_id': 897127, 'date': '2022-02-08', 'name': 'Razorpay'}\nEstimated annual revenue: 500,000,000 USD to 1,000,000,000 USD\nSocial media followers: 1,318,332 (+22.1% year over year)\nOpen job postings: 4\nFunding round: seed on 2015-03-23, 2,600,000 USD\nFunding round: series_a on 2015-10-27, 9,000,000 USD, led by Tiger Global Management\nFunding round: corporate_round on 2016-07-01, led by Mastercard\nFunding round: series_b on 2018-01-15, 20,000,000 USD, led by Tiger Global Management\nFunding round: series_c on 2019-06-18, 75,000,000 USD, led by Peak XV Partners, Ribbit Capital\nFunding round: series_d on 2020-10-12, 100,000,000 USD, led by GIC, Peak XV Partners\nFunding round: series_e on 2021-04-19, 160,000,000 USD, led by GIC, Peak XV Partners\nFunding round: series_unknown on 2021-09-20, led by Salesforce Ventures\nFunding round: series_f on 2021-12-19, 375,000,000 USD, led by Alkeon Capital, Lone Pine Capital, TCV\nFunding round: secondary_market on 2022-05-10, 75,000,000 USD, led by Lightspeed Venture Partners\nFounder: Shashank Kumar, Cofounder, Razorpay\nFounder: Harshil Mathur, CEO & Co-Founder at Razorpay\nFounder: Shreed Shrivastava, AI Builder (Founder’s Office) @Razorpay | AI Dev @GoodFin (YC W22) | Data analytics @Amazon @Mobalytics | Quant Lotus Capital, Funding Pips | AI Researcher @ IITs | VCBA @HP, IgniteXL, HappySneeze | ML Dev @HeadStarterAi\nFounder: Kuber Mehta, I Build (& Break) AI | AI Initiatives @Razorpay | Founder @PolyThink | BITS Pilani, GGSIPU AI 28’\nFounder: Satvik Padhiyar, AI @ Razorpay | IIT H | Go | LLMs  Microservices\nFounder: Tapasna Das, Lead Executive Assistant to the CEO and Co-Founder\nFounder: Kriteesha Janveja, Driving Global Expansion at Razorpay | Ex-McKinsey, Unilever | LSR\nFounder: Aashita Gupta, Razorpay | Bain | IIT Delhi\nExecutive: Apuarv Sethi, CMO & Head SME Business @Razorpay | Flipkart | Manipal | Mindtree\nExecutive: Arif Khan, Chief Innovation Officer\nExecutive: Khilan Haria, CPO @ Razorpay\nExecutive: Praveen Parihar, Cyber Security Leader, Helped Top Fintechs on Cyber Security, Ex- Maya\nExecutive: Mayul Mishra, CoS / Business strategy lead\nExecutive: Naresh Jethwani, Chief Vigilance Officer\nExecutive: Arpit Chug, Chief Financial Officer at Razorpay\nDecision maker: Sumit Premi, Head-Talent Acquisition at Razorpay\nDecision maker: Vijeta Chhetri, Senior Talent Partner at Razorpay | Paytm | Mobikwik\nDecision maker: Arpit Bhayani, building px0.ai • curating tdd.cat • Principal Engineer II - AI at Razorpay • databases • ex-Staff at Google {Memorystore, Dataproc} • DiceDB • ex-Amazon Fast Data and DoE Unacademy\nDecision maker: Ayush Bansal, Vice President and General Manager, RazorpayX\nDecision maker: Jason Kumpf, Head of US Revenue @ Razorpay: $180 Billion/YR Global FinTech Group (YC & Tier 1 VCs) / Executive Leader / International GTM Acceleration & Partnerships / Agentic AI Payments / Expert Speaker, Board Advisor, Investor\nDecision maker: Shubham Bisht, Cross Border Payments at Razorpay",
+      "via": "crustdata",
+      "question_ids": [],
+      "round": 1
+    },
+    {
+      "id": "E2",
+      "kind": "snippet",
+      "url": "https://miracuves.com/blog/business-model-of-razorpay/",
+      "title": "Business Model of Razorpay: Revenue, Strategy & Growth",
+      "text": "by A Bhimrajka · 2026 — It starts with transaction fees, but grows through value-added fintech products like payouts, subscriptions, payroll, and banking workflows.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E3",
+      "kind": "snippet",
+      "url": "https://www.linkedin.com/posts/aaronv01_tvschallenge-fintech-100dayschallenge-activity-7329580204266352642-BOw8",
+      "title": "Understanding Razorpay's business model and revenue ...",
+      "text": "▪️ FY24 operating revenue hit ₹2,475 crore, with net profits surging to $48 million in 2025 while maintaining a 94% merchant retention rate.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E4",
+      "kind": "snippet",
+      "url": "https://www.commonroom.io/research/razorpay/business-model/",
+      "title": "Razorpay business model via RoomieAI™",
+      "text": "Razorpay primarily generates revenue through transaction fees, subscription plans, and value-added services like neobanking and loans. It...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E5",
+      "kind": "snippet",
+      "url": "https://razorpay.com/blog/what-is-a-neobank/",
+      "title": "What is a Neobank? Everything you should know",
+      "text": "Jun 18, 2023 — They provide digital, mobile-first financial solutions for payments, money transfers, lending, and more. They allow customers to make deposits ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E6",
+      "kind": "snippet",
+      "url": "https://razorpay.com/x/",
+      "title": "RazorpayX - The All-In-One Business Banking Suite",
+      "text": "The business banking solution with payouts at the center · Add beneficiaries & pay instantly with no cool-off period · Make up to 50k payouts in bulk using a ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E7",
+      "kind": "snippet",
+      "url": "https://razorpay.com/unfiltered/tag/pm/",
+      "title": "How Razorpay is building great products by avoiding ...",
+      "text": "It gives you access to all payment modes including credit card, debit card, netbanking, UPI and popular wallets including JioMoney, Mobikwik, Airtel Money, ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E8",
+      "kind": "snippet",
+      "url": "https://razorpay.com/about/",
+      "title": "About Razorpay and The Team Behind it",
+      "text": "Bangalore Headquarters 1st Floor, SJR Cyber, 22, Laskar Hosur Road, Adugodi, Bangalore, Karnataka - 560030. Bengaluru, 560030, Karnataka,",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E9",
+      "kind": "snippet",
+      "url": "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI",
+      "title": "Razorpay - 2026 Company Profile & Team",
+      "text": "Founded Year 2014 Location Bengaluru, Razorpay was founded in 2014. Razorpay is headquartered in Bengaluru, India. It is registered at 1st Floor, SJR Cyber, 22 ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E10",
+      "kind": "snippet",
+      "url": "https://pitchbook.com/profiles/company/110393-29",
+      "title": "Razorpay 2026 Company Profile: Valuation, Funding & ...",
+      "text": "Corporate Office1st Floor, SJR Cyber, 22 Lasker Hosur Road, Adugodi Bangalore, Karnataka 560030. Razorpay was founded in 2013. Razorpay is headquartered in  ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E11",
+      "kind": "snippet",
+      "url": "https://www.linkedin.com/pulse/reversing-flip-razorpays-strategic-move-what-means-satyendra-kumar-fftfc",
+      "title": "Reversing the Flip: Razorpay's Strategic Move and What It ...",
+      "text": "Razorpay has officially completed its reverse flip—relocating its parent company's domicile from the United States back to India.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E12",
+      "kind": "snippet",
+      "url": "https://www.moneycontrol.com/news/business/startup/razorpay-completes-reverse-flip-from-the-us-to-india-13060525.html",
+      "title": "Razorpay completes reverse flip from US to India",
+      "text": "May 29, 2025 — The reverse flip involved merging Razorpay's US-registered parent entity with its Indian subsidiary, Razorpay Software India Pvt Ltd. This ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E13",
+      "kind": "snippet",
+      "url": "https://bfsi.economictimes.indiatimes.com/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech/121488764",
+      "title": "Razorpay Returns to India: A Strategic Move for Global ...",
+      "text": "May 29, 2025 — A reverse flip involves shifting a company's holding entity from an overseas jurisdiction, typically the US or Singapore, back to India.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E14",
+      "kind": "snippet",
+      "url": "https://in.linkedin.com/in/harshilmathur",
+      "title": "Harshil Mathur - Razorpay",
+      "text": "Harshil Mathur is an influencer. Razorpay Y Combinator. Bengaluru, Karnataka, India. 120K followers 500+ connections.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E15",
+      "kind": "snippet",
+      "url": "https://www.ycombinator.com/companies/razorpay",
+      "title": "Razorpay: India's only full-stack financial solutions ...",
+      "text": "... . Founded in 2014 by Shashank Kumar and Harshil Mathur, Razorpay has 2700 employees based in Bengaluru. Razorpay is hiring for 3 roles in engineering.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E16",
+      "kind": "snippet",
+      "url": "https://app.coinpedia.org/shashankkumar/",
+      "title": "Shashank Kumar | Coinpedia User Profile",
+      "text": "Founder and Managing Director at Razorpay from Jul 2022 - Present; Founder and CTO at Razorpay from May 2014 - Jul 2022; Software Development Engineer at ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E17",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/leadership-team/",
+      "title": "Leadership Team - Razorpay Software Private Limited",
+      "text": "Harshil Mathur. CEO and Co-founder. Download Image | Download Bio · Shashank Kumar. MD and Co-founder. Download Image | Download Bio · Rahul Kothari. Chief ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E18",
+      "kind": "snippet",
+      "url": "https://www.comparably.com/companies/razorpay/leadership",
+      "title": "Razorpay CEO & Leadership Team Ratings",
+      "text": "Harshil Mathur and the Razorpay leadership team are scored a C by 19 employees placing it in the Bottom 40% of companies sized 11-50 Employees.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E19",
+      "kind": "snippet",
+      "url": "https://rocketreach.co/razorpay-management_b5ffc9adf6aaaab9",
+      "title": "Razorpay Management Team | Org Chart",
+      "text": "Razorpay employs 4,027 employees. The Razorpay management team includes Harshil Mathur (CEO and Co-Founder), Divya Babu (Talent Acquisition Manager), and ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E20",
+      "kind": "snippet",
+      "url": "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI/funding-and-investors",
+      "title": "2026 Funding Rounds & List of Investors - Razorpay",
+      "text": "Sep 29, 2026 — Razorpay's valuation is between $4.76B - $7.97B as on Aug 05, 2022. Razorpay has a total of 37 investors. 22 are Institutional investors and 15 ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E21",
+      "kind": "snippet",
+      "url": "https://multiples.vc/private-comps/razorpay",
+      "title": "Razorpay Revenue, Valuation, Funding & Investors",
+      "text": "Sep 18, 2026 — 25 investors have backed Razorpay across its funding rounds, including Tiger Global, Y Combinator, Peak XV Partners, Z47, Ribbit Capital and GIC ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E22",
+      "kind": "snippet",
+      "url": "https://pitchbook.com/profiles/company/110393-29",
+      "title": "Razorpay 2026 Company Profile: Valuation, Funding & ...",
+      "text": "Razorpay has raised $822M. Who are Razorpay's investors? FinSight Ventures, Axevil Capital, Lightspeed India Partners, Moore Strategic Ventures, and Alkeon ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E23",
+      "kind": "snippet",
+      "url": "https://razorpay.com/blog/razorpay-secures-375-million-in-series-f-funding/",
+      "title": "Announcing Razorpay's $375 Million Series-F Funding ...",
+      "text": "Dec 20, 2021 — This Funding round is co-led by Lone Pine Capital, Alkeon Capital and TCV and also saw participation from existing partners like Tiger Global, ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E24",
+      "kind": "snippet",
+      "url": "https://www.thesaasnews.com/news/razorpay-raises-375-million-in-series-f/",
+      "title": "Razorpay Raises $375 Million in Series F",
+      "text": "Dec 20, 2021 — Lead Investors: Lone Pine Capital, Alkeon Capital, and TCV. Additional Investors: Tiger Global, Sequoia Capital India, GIC, and Y Combinator.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E25",
+      "kind": "snippet",
+      "url": "https://salestools.io/report/razorpay-375m-series-f",
+      "title": "Razorpay raises $375M Series F at $7.5B valuation",
+      "text": "Dec 21, 2021 — The Series F round was led by TCV, with participation from Y Combinator, Sequoia India. ... Y Combinator: Verified investor in Series F; Sequoia ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E26",
+      "kind": "page",
+      "url": "https://miracuves.com/blog/business-model-of-razorpay/",
+      "title": "Business Model of Razorpay: Revenue, Strategy & Growth",
+      "text": "<html lang=\"en-US\" prefix=\"og: https://ogp.me/ns#\" class=\"no-js berqwp-premium\"><!-- This website is optimized using the BerqWP plugin. @1791539767 --><head><link rel=\"ai-catalog\" href=\"/.well-known/ai-catalog.json\"><link data-berqwp-exclude=\"\" rel=\"stylesheet\" id=\"gravity_forms_theme_reset-css\" href=\"https://miracuves.com/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-reset.min.css?ver=2.10.5\" media=\"all\"><link data-berqwp-exclude=\"\" rel=\"stylesheet\" id=\"gravity_forms_theme_foundation-css\" href=\"https://miracuves.com/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-foundation.min.css?ver=2.10.5\" media=\"all\"><link data-berqwp-exclude=\"\" rel=\"stylesheet\" id=\"gravity_forms_theme_framework-css\" href=\"https://miracuves.com/wp-content/plugins/gravityforms/assets/css/dist/gravity-forms-theme-framework.min.css?ver=2.10.5\" media=\"all\">\n\t<meta charset=\"UTF-8\">\n<script src=\"blob:https://miracuves.com/38e78c66-0225-446e-9de0-ee9735b0fb78\" type=\"text/bwp-script\" data-type=\"text/javascript\"></script>\n\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n\t\n\t<script src=\"blob:https://miracuves.com/587eb22c-2f62-46f4-8d06-e483c8a30885\" type=\"text/bwp-script\" data-type=\"text/javascript\"></script>\n<script id=\"mcv-tpae-guard\" data-berqwp-exclude=\"\">(function(){var MO=window.MutationObserver;if(!MO||MO.__mcvTpae)return;function G(cb){var i=new MO(function(r,o){cb.call(this,r,o);if(i.__tpae)i.takeRecords();});return i;}G.prototype=MO.prototype;G.__mcvTpae=true;var ob=MO.prototype.observe;MO.prototype.observe=function(t,o){if(t&&t.classList&&t.classList.contains('slick-dots')&&o&&o.attributeFilter&&o.attributeFilter.indexOf('aria-selected')>-1)this.__tpae=true;return ob.apply(this,arguments);};window.MutationObserver=G;})();</script>\n<!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->\n<title>Business Model of Razorpay: Revenue, Strategy &amp; Growth</title>\n<meta name=\"description\" content=\"Explore business model of Razorpay in 2026—covering strategy, revenue streams, fintech ecosystem, growth drivers, and lessons for startups.\">\n<meta name=\"robots\" content=\"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large\">\n<link rel=\"canonical\" href=\"https://miracuves.com/blog/business-model-of-razorpay/\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"article\">\n<meta property=\"og:title\" content=\"Business Model of Razorpay: Revenue, Strategy &amp; Growth\">\n<meta property=\"og:description\" content=\"Explore business model of Razorpay in 2026—covering strategy, revenue streams, fintech ecosystem, growth drivers, and lessons for startups.\">\n<meta property=\"og:url\" content=\"https://miracuves.com/blog/business-model-of-razorpay/\">\n<meta property=\"og:site_name\" content=\"Miracuves Solutions\">\n<meta property=\"article:publisher\" content=\"https://facebook.com/miracuves\">\n<meta property=\"article:author\" content=\"https://www.facebook.com/adityabhimrajka\">\n<meta property=\"article:tag\" content=\"fintech business model\">\n<meta property=\"article:tag\" content=\"payment gateway strategy\">\n<meta property=\"article:tag\" content=\"Razorpay business model\">\n<meta property=\"article:section\" content=\"Industry Solutions\">\n<meta property=\"og:updated_time\" content=\"2026-10-04T19:25:11+05:30\">\n<meta property=\"og:image\" content=\"https://static.berqwp.com/miracuves.com/mw1920-q70-webp/https://miracuves.com/wp-content/uploads/2026/01/Business-Model-of-Razorpay-1.webp\">\n<meta property=\"og:image:secure_url\" content=\"https://static.berqwp.com/miracuves.com/mw1920-q70-webp/https://miracuves.com/wp-content/uploads/2026/01/Business-Model-of-Razorpay-1.webp\">\n<meta property=\"og:image:width\" content=\"1536\">\n<meta property=\"og:image:height\" content=\"1024\">\n<meta property=\"og:image:alt\" content=\"Razorpay business model showing payment gateway services, revenue streams, payouts, subscriptions, and fintech growth\">\n<m",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E27",
+      "kind": "page",
+      "url": "https://www.commonroom.io/research/razorpay/business-model/",
+      "title": "Razorpay business model via RoomieAI™ | Common Room",
+      "text": "<html lang=\"en\"><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"><link rel=\"preconnect\" href=\"https://cdn.sanity.io\"><link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"/static/fonts/SuisseIntl-Regular-WebS.woff2\" crossorigin=\"anonymous\"><link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"/static/fonts/SuisseIntl-Medium-WebS.woff2\" crossorigin=\"anonymous\"><link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"/static/fonts/SuisseIntl-SemiBold-WebS.woff2\" crossorigin=\"anonymous\"><style>\n          @font-face{font-family:&quot;Suisse Intl&quot;;src:url(&quot;/static/fonts/SuisseIntl-Regular-WebS.woff2&quot;) format(&quot;woff2&quot;);font-weight:400;font-style:normal;font-display:swap}\n          @font-face{font-family:&quot;Suisse Intl&quot;;src:url(&quot;/static/fonts/SuisseIntl-Medium-WebS.woff2&quot;) format(&quot;woff2&quot;);font-weight:500;font-style:normal;font-display:swap}\n          @font-face{font-family:&quot;Suisse Intl&quot;;src:url(&quot;/static/fonts/SuisseIntl-SemiBold-WebS.woff2&quot;) format(&quot;woff2&quot;);font-weight:600;font-style:normal;font-display:swap}\n        </style><style data-href=\"/styles.b2655d0d82c3e7ec20b2.css\" id=\"gatsby-global-css\">.web-form-field-module--selectWrapper--2ohdM{position:relative}.web-form-field-module--selectWrapper--2ohdM:after{content:\"▾\";font-size:1.125rem;top:10px;right:16px;position:absolute;--tw-text-opacity:1;color:rgba(0,0,0,var(--tw-text-opacity))}.web-form-field-module--selectWrapperDark--1negO:after{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}.web-form-field-module--pickGroupAnswers--3V0Qc>li:first-child>label{border-top-left-radius:.75rem}.web-form-field-module--pickGroupAnswers--3V0Qc>li:nth-child(2)>label{border-top-right-radius:.75rem}.web-form-field-module--pickGroupAnswers--3V0Qc>li:last-child>label{border-bottom-right-radius:.75rem}.web-form-field-module--pickGroupAnswers--3V0Qc>li:nth-last-child(2)>label{border-bottom-left-radius:.75rem}.web-form-field-module--pickGroupAnswersWithOther--3wWwB>li:first-child>label{border-top-left-radius:.75rem}.web-form-field-module--pickGroupAnswersWithOther--3wWwB>li:nth-child(2)>label{border-top-right-radius:.75rem}.web-form-field-module--pickGroupAnswersWithOther--3wWwB>li:last-child>label{border-bottom-right-radius:.75rem;border-bottom-left-radius:.75rem}.web-form-field-module--inputFieldLight--vgaRc::-moz-placeholder{color:rgba(0,0,0,.3)}.web-form-field-module--inputFieldLight--vgaRc:-ms-input-placeholder{color:rgba(0,0,0,.3)}.web-form-field-module--inputFieldLight--vgaRc::placeholder{color:rgba(0,0,0,.3)}.web-form-field-module--inputFieldDark--b_ibj{background-color:transparent}.web-form-field-module--inputFieldDark--b_ibj:-internal-autofill-selected,.web-form-field-module--inputFieldDark--b_ibj:-webkit-autofill,.web-form-field-module--inputFieldDark--b_ibj:-webkit-autofill:active,.web-form-field-module--inputFieldDark--b_ibj:-webkit-autofill:focus,.web-form-field-module--inputFieldDark--b_ibj:-webkit-autofill:hover{box-shadow:inset 0 0 0 100px #1a1a1a!important;border-color:#1a1a1a!important;-webkit-text-fill-color:#fff!important}.web-form-field-module--inputFieldDark--b_ibj::-moz-placeholder{color:#fff!important}.web-form-field-module--inputFieldDark--b_ibj:-ms-input-placeholder{color:#fff!important}.web-form-field-module--inputFieldDark--b_ibj::placeholder{color:#fff!important}.web-form-field-module--radioInputDark--3KZxm~span{color:hsla(0,0%,100%,.6)}.dialog-module--successWrapper--3UvKD{position:fixed;left:0;right:0;top:0;bottom:0;overflow:hidden;z-index:90;display:flex;align-items:center;justify-content:center;pointer-events:none;background:rgba(0,0,0,.6);-webkit-animation:dialog-module--showOnce--1RG7C 4s;animation:dialog-module--showOnce--1RG7C 4s;opacity:0}.dialog-module--success--323Bg{position:absolute;width:60%;-webkit-animation:dialog-module--zoomBig--3I9Ea 1.5s;ani",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E28",
+      "kind": "page",
+      "url": "https://razorpay.com/blog/what-is-a-neobank/",
+      "title": "What is a Neobank? Everything you should know - RazorpayX",
+      "text": "<html lang=\"en-US\" prefix=\"og: https://ogp.me/ns#\"><head><meta charset=\"UTF-8\"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\\/7\\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf(\"?\")==-1){if(href.indexOf(\"#\")==-1){document.location.href=href+\"?nowprocket=1\"}else{document.location.href=href.replace(\"#\",\"?nowprocket=1#\")}}else{if(href.indexOf(\"#\")==-1){document.location.href=href+\"&nowprocket=1\"}else{document.location.href=href.replace(\"#\",\"&nowprocket=1#\")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v=\"1.2.5.1\",this.triggerEvents=[\"keydown\",\"mousedown\",\"mousemove\",\"touchmove\",\"touchstart\",\"touchend\",\"wheel\"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener(\"pageshow\",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),document.addEventListener(\"DOMContentLoaded\",(()=>{this.p()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}k(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener(\"touchstart\",t.touchStartHandler,{passive:!0}),window.addEventListener(\"mousedown\",t.touchStartHandler),document.addEventListener(\"visibilitychange\",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener(\"visibilitychange\",this.userEventHandler)}i(t){\"HTML\"!==t.target.tagName&&(window.addEventListener(\"touchend\",this.touchEndHandler),window.addEventListener(\"mouseup\",this.touchEndHandler),window.addEventListener(\"touchmove\",this.touchMoveHandler,{passive:!0}),window.addEventListener(\"mousemove\",this.touchMoveHandler),t.target.addEventListener(\"click\",this.clickHandler),this.L(t.target,!0),this.M(t.target,\"onclick\",\"rocket-onclick\"),this.C())}o(t){window.removeEventListener(\"touchend\",this.touchEndHandler),window.removeEventListener(\"mouseup\",this.touchEndHandler),window.removeEventListener(\"touchmove\",this.touchMoveHandler,{passive:!0}),window.removeEventListener(\"mousemove\",this.touchMoveHandler),t.target.removeEventListener(\"click\",this.clickHandler),this.L(t.target,!1),this.M(t.target,\"rocket-onclick\",\"onclick\"),this.O()}h(){window.removeEventListener(\"touchend\",this.touchEndHandler),window.removeEventListener(\"mouseup\",this.touchEndHandler),window.removeEventListener(\"touchmove\",this.touchMoveHandler,{passive:!0}),window.removeEventListener(\"mousemove\",this.touchMoveHandler)}u(t){t.target.removeEventListener(\"click\",this.clickHandler),this.L(t.target,!1),this.M(t.target,\"rocket-onclick\",\"onclick\"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.O()}D(){window.removeEventListener(\"touchstart\",this.touchStartHandler,{passive:!0}),window.removeEventListener(\"mousedown\",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent(\"click\",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){\"click\"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener(\"click\",i.func,i.options):t.addEventListener(\"click\",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}S(){return new Promise((t=>{this.T?this.O=t:t()}))}C(){this.T=!0}O(){this.T=!1}M(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E29",
+      "kind": "page",
+      "url": "https://razorpay.com/x/",
+      "title": "RazorpayX - The All-In-One Business Banking Suite",
+      "text": "<html lang=\"en-IN\"><head>\n\t<meta charset=\"utf-8\">\n\t<meta name=\"viewport\" content=\"width=device-width\">\n\t<meta name=\"generator\" content=\"Framer 6ae18df\">\n\t<title>RazorpayX - The All-In-One Business Banking Suite</title>\n    <link rel=\"canonical\" href=\"https://razorpay.com/x/\"><meta property=\"og:url\" content=\"https://razorpay.com/x/\"><meta name=\"description\" content=\"Get Business Banking, Vendor Payments, Payroll, Corporate Cards, and Banking APIs trusted by 70% of India’s Unicorns. RazorpayX is an All-in-One Business Banking Suite designed specifically for startups, SMEs, and enterprises in India.\">\n    <meta name=\"framer-search-index\" content=\"https://framerusercontent.com/sites/4HbAY0tRNfaR58PW01Euhm/searchIndex-OxmAfnpd8UAq.json\">\n    <meta name=\"framer-search-index-fallback\" content=\"https://framerusercontent.com/sites/4HbAY0tRNfaR58PW01Euhm/searchIndex-H8E6swioBasY.json\">\n    <link href=\"https://framerusercontent.com/images/CU1m0xFonUl76ZeaW0IdkQ0M.png\" rel=\"icon\" media=\"(prefers-color-scheme: light)\">\n    <link href=\"https://framerusercontent.com/images/CU1m0xFonUl76ZeaW0IdkQ0M.png\" rel=\"icon\" media=\"(prefers-color-scheme: dark)\">\n    <!-- Open Graph -->\n    <meta property=\"og:type\" content=\"website\">\n    <meta property=\"og:title\" content=\"RazorpayX - The All-In-One Business Banking Suite\">\n    <meta property=\"og:description\" content=\"Get Business Banking, Vendor Payments, Payroll, Corporate Cards, and Banking APIs trusted by 70% of India’s Unicorns. RazorpayX is an All-in-One Business Banking Suite designed specifically for startups, SMEs, and enterprises in India.\"><meta property=\"og:image\" content=\"https://framerusercontent.com/assets/pdd9apZ9avrB9cPHWHTmskjow.png\">\n    <!-- X -->\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"RazorpayX - The All-In-One Business Banking Suite\">\n    <meta name=\"twitter:description\" content=\"Get Business Banking, Vendor Payments, Payroll, Corporate Cards, and Banking APIs trusted by 70% of India’s Unicorns. RazorpayX is an All-in-One Business Banking Suite designed specifically for startups, SMEs, and enterprises in India.\"><meta name=\"twitter:image\" content=\"https://framerusercontent.com/assets/pdd9apZ9avrB9cPHWHTmskjow.png\">\n\t\n\t\n\t<script type=\"text/javascript\" async=\"\" data-seg-script=\"s\" src=\"https://cdn.segment.com/analytics.js/v1/a3NqjBj0c1MoriJagabg4GUvVOh8zLoo/analytics.min.js\"></script><script>try{if(localStorage.getItem(\"__framer_force_showing_editorbar_since\")){const n=document.createElement(\"link\");n.rel=\"modulepreload\";n.href=\"https://framer.com/edit/init.mjs\";document.head.appendChild(n)}}catch(e){}</script>\n\t\n\t<!-- Start of headStart -->\n    \n    <!-- End of headStart -->\n\t\n\t<style data-framer-font-css=\"\">/* cyrillic-ext */\n@font-face {\n  font-family: 'Inter Tight';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsK8ah8QA.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Inter Tight';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsD8ah8QA.woff2) format('woff2');\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Inter Tight';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsL8ah8QA.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Inter Tight';\n  font-style: normal;\n  font-weight: 500;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/intertight/v9/NGSwv5HMAFg6IuGlBNMjxLsE8ah8QA.woff2) format('woff2');\n  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;\n}\n/* vietnamese */\n@font-face",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E30",
+      "kind": "page",
+      "url": "https://razorpay.com/about/",
+      "title": "Best Payment Gateway in India to Accept Online Payments",
+      "text": "<html lang=\"en-IN\" style=\"overscroll-behavior-y:none\" class=\"js-focus-visible\" data-js-focus-visible=\"\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><script type=\"text/javascript\" async=\"\" data-seg-script=\"s\" src=\"https://cdn.segment.com/analytics.js/v1/YNK2Ge3yl0IaYj8PLndL5V6vfPZPQxZo/analytics.min.js\"></script><script>\n(function() {\n  'use strict';\n  try {\n    var root = document.documentElement;\n    if (!root) return;\n\n    var ATTRIBUTE = \"data-rzp-navbar-auth\";\n    var PREVIEW_PARAM = \"navbar_go_to_dashboard_preview\";\n    var PREVIEW_VALUES = [\"1\",\"true\",\"enabled\",\"on\"];\n\n    // The same predicate the session SDK and the React hook use — see authHintCookies.ts.\n    \nvar RZP_AUTH_HINT_COOKIE_NAMES = [\"rzp_mid\",\"midExists\",\"_rzp__rp3x\"];\nvar RZP_AUTH_HINT_IGNORED_VALUES = [\"false\"];\nfunction rzpReadAuthHintCookieValues(cookieString) {\n  var values = [];\n  var pairs = String(cookieString || '').split(';');\n  for (var i = 0; i < pairs.length; i++) {\n    var trimmed = pairs[i].replace(/^\\s+|\\s+$/g, '');\n    var equalsIndex = trimmed.indexOf('=');\n    if (equalsIndex === -1) continue;\n    var name = trimmed.slice(0, equalsIndex).replace(/^\\s+|\\s+$/g, '');\n    var value = trimmed.slice(equalsIndex + 1).replace(/^\\s+|\\s+$/g, '');\n    if (\n      RZP_AUTH_HINT_COOKIE_NAMES.indexOf(name) !== -1 &&\n      value !== '' &&\n      RZP_AUTH_HINT_IGNORED_VALUES.indexOf(value) === -1\n    ) {\n      values.push(value);\n    }\n  }\n  return values;\n}\nfunction rzpHasAuthHintCookie(cookieString) {\n  return rzpReadAuthHintCookieValues(cookieString).length > 0;\n}\n\n    var hasAuthHintCookie = rzpHasAuthHintCookie(document.cookie);\n\n    // QA opens the experiment with a preview query param and no login cookies; keep the\n    // placeholder behaviour identical for them so previews reflect the real UX.\n    var isPreview = false;\n    try {\n      var previewValue = new URLSearchParams(window.location.search).get(PREVIEW_PARAM);\n      isPreview = previewValue !== null && PREVIEW_VALUES.indexOf(previewValue.toLowerCase()) !== -1;\n    } catch (previewError) {\n      isPreview = false;\n    }\n\n    // Mirrors the gate in useNavbarDashboardSession exactly. Anything the hook will settle\n    // as logged-out without a probe must not get a placeholder here either — otherwise the\n    // CTA is hidden until hydration for visitors this experiment does not even apply to.\n    // (The country gate is applied server-side: the script is not emitted outside India.)\n    var isExperimentEnabled = false;\n    if (!isPreview && !(isExperimentEnabled && hasAuthHintCookie)) return;\n\n    root.setAttribute(ATTRIBUTE, \"pending\");\n\n    // Safety net: React normally flips this to 'resolved' as soon as the session probe\n    // settles. If the bundle never boots, this guarantees the CTA still becomes usable.\n    window.setTimeout(function() {\n      if (root.getAttribute(ATTRIBUTE) === \"pending\") {\n        root.setAttribute(ATTRIBUTE, \"resolved\");\n      }\n    }, 2500);\n  } catch (error) {\n    // Never let the navbar placeholder break page rendering.\n  }\n})();\n</script><title>Best Payment Gateway in India to Accept Online Payments</title><meta data-rh=\"true\" name=\"referrer\" content=\"no-referrer-when-downgrade\"><meta data-rh=\"true\" property=\"og:type\" content=\"website\"><meta data-rh=\"true\" property=\"og:url\" content=\"https://razorpay.com/about/\"><meta data-rh=\"true\" property=\"og:site_name\" content=\"Razorpay\"><meta data-rh=\"true\" property=\"twitter:site\" content=\"@razorpay\"><meta data-rh=\"true\" name=\"twitter:card\" content=\"summary_large_image\"><meta data-rh=\"true\" name=\"twitter:creator\" content=\"Razorpay\"><meta data-rh=\"true\" property=\"fb:app_id\" content=\"413603529019368\"><meta data-rh=\"true\" property=\"fb:pages\" content=\"384638338316241\"><meta data-rh=\"true\" name=\"google-site-verification\" content=\"wSok6NPdreqsrAYRsHIGFCh3NObaVqODHBgE-IdgvgE\"><link data-rh=\"true\" rel=\"canonical\" href=\"https://razorpay.com/about/\"><link data-rh=\"true\" rel=\"alternate",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E31",
+      "kind": "page",
+      "url": "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI",
+      "title": "Razorpay - 2026 Company Profile, Team, Funding, Competitors & Financials - Tracxn",
+      "text": "<html lang=\"en\" data-astro-transition-scope=\"astro-2la7nggh-1\" style=\"--txn-cookie-consent-banner-offset: 105px; --txn-cookie-consent-banner-offset-with-spacing: 129px;\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta name=\"referrer\" content=\"no-referrer-when-downgrade\"><link rel=\"preconnect\" href=\"https://cdn.tracxn.com\" crossorigin=\"anonymous\"><link rel=\"preconnect\" href=\"https://i.tracxn.com\" crossorigin=\"anonymous\"><script type=\"module\" src=\"https://cdn.tracxn.com/scripts-v2/tracxnPlatform/0.2.3/seoastroApp/_astro/static/PageLayout.astro_astro_type_script_index_0_lang.kR-snQDx.js\" data-astro-exec=\"\"></script><script data-astro-exec=\"\">(function(){const cdnResource = \"https://cdn.tracxn.com\";\nconst tAppTypeWithVersion = \"\";\nconst GOOGLE_ANALYTICS_GA4_TAG_ID = \"G-63RZ0E5CHG\";\nconst APP_IDENTIFIER = \"seoastroApp-1791437759888\";\nconst APP_VERSION = \"0.2.3\";\nconst userCountryIsoCode = \"GB\";\nconst isLoggedOut = true;\nconst isSearchBot = false;\nconst enableThirdPartyToolDetection = false;\n\n            window.vars = {\n                cdnResource,\n                tAppTypeWithVersion,\n                GOOGLE_ANALYTICS_GA4_TAG_ID,\n                APP_IDENTIFIER,\n                APP_VERSION,\n                USER_COUNTRY_ISO_CODE: userCountryIsoCode,\n                isLoggedOut,\n                isSearchBot,\n                enableThirdPartyToolDetection,\n            };\n        })();</script><script cross-origin=\"anonymous\" type=\"text/javascript\" data-astro-exec=\"\">\n            window.tCNyVENycE = `Xmh0dHAocz8pOi8vKChkZXZsb2MuaW4pfCh0KChbMC05XXxbMS05XVswLTldKSkuc3RhZ2VkZXYuaW4pfCgoKGluZnJhfGFwcCkuKT8odHJhY3huLmNvbXx0cmFjeG4tY29tLnRyYW5zbGF0ZS5nb29nKSkpJA==`;\n        </script><style id=\"bootstrap\">caption,th{text-align:left}.nav .nav-divider,.sr-only{height:1px;overflow:hidden}.close:focus,.close:hover,.nav>li>a:focus,.nav>li>a:hover,.navbar-brand:focus,.navbar-brand:hover,a{text-decoration:none}.modal,.navbar-toggle:focus{outline:0}.modal,.modal-backdrop{top:0;right:0;bottom:0;left:0}*,:after,:before,input[type=search]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px;-webkit-tap-highlight-color:transparent}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7}a:focus,a:hover{color:#23527c;text-decoration:underline}a:focus,input[type=checkbox]:focus,input[type=file]:focus,input[type=radio]:focus{outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}figure{margin:0}img{vertical-align:middle}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}.sr-only{position:absolute;width:1px;padding:0;margin:-1px;clip:rect(0,0,0,0);border:0}[role=button]{cursor:pointer}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:inherit;font-weight:500;line-height:1.1;color:inherit}.close,dt,kbd kbd,label{font-weight:700}address,dd,dt,output,pre{line-height:1.42857143}legend,pre{display:block;color:#333}.h1,.h2,.h3,h1,h2,h3{margin-top:20px;margin-bottom:10px}.h4,.h5,.h6,h4,h5,h6{margin-top:10px;margin-bottom:10px}dl,ol,ul{margin-top:0}address,dl,legend{margin-bottom:20px}.nav,blockquote ol:last-child,blockquote p:last-child,blockquote ul:last-child,ol ol,ol ul,ul ol,ul ul{margin-bottom:0}.h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small{font-size:75%}.h1,h1{font-size:36px}.h2,h2{font-size:30px}.h3,h3{font-size:24px}.h4,h4{font-size:18px}.h5,h5{font-size:14px}.h6,h6{font-size:12px}p{margin:0 0 10px}small{font-size:85%}ol,ul{margin-bottom:10px}.modal-footer .btn-block+.btn-block,dd{margin-left:0}abbr[data-original-title],abbr[title]{cursor:help;border-bottom:1px dotted #777}blockquote{padding:10px 20px;margin:0 0 20px;font-size:17.5px;border-left:5px solid #eee}code,kbd{padding:2px 4px;font-s",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E32",
+      "kind": "page",
+      "url": "https://www.moneycontrol.com/news/business/startup/razorpay-completes-reverse-flip-from-the-us-to-india-13060525.html",
+      "title": "Razorpay completes reverse flip from US to India",
+      "text": "<html lang=\"en\"><head><script type=\"text/javascript\" async=\"\" src=\"https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js\"></script><script type=\"text/javascript\" id=\"zohodeskasapscript\" defer=\"\" src=\"https://desk.zoho.in/portal/api/web/asapApp/13108000159188961?orgId=60002264006\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/destination?id=AW-782376638&amp;cx=c&amp;gtm=4e6a72\"></script><script async=\"\" src=\"//c.amazon-adsystem.com/aax2/apstag.js\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-4S48PBY299&amp;cx=c&amp;gtm=4e6a72\"></script><script type=\"text/javascript\" async=\"\" src=\"//static.chartbeat.com/js/chartbeat.js\"></script><script async=\"\" type=\"text/javascript\" src=\"https://securepubads.g.doubleclick.net/tag/js/gpt.js\"></script><script async=\"\" src=\"https://sb.scorecardresearch.com/beacon.js\"></script><script async=\"\" src=\"//www.google-analytics.com/analytics.js\"></script><script async=\"\" type=\"text/javascript\" src=\"https://ads.pubmatic.com/AdServer/js/pwt/113941/8278/pwt.js\"></script><script async=\"\" src=\"https://www.googletagmanager.com/gtm.js?id=GTM-WCG4TX9\"></script><script type=\"text/javascript\">   var is_googlebot_instl = '0';</script><meta name=\"next-head-count\" content=\"2\"><link type=\"text/css\" rel=\"stylesheet\" href=\"https://stat2.moneycontrol.com/mccss/differ-css/article-infinite-scroll.css?v=1.10\"><link rel=\"preconnect\" href=\"https://images.moneycontrol.com\" crossorigin=\"\"><link rel=\"dns-prefetch\" href=\"https://images.moneycontrol.com\">         <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin=\"\">      <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&amp;display=swap\" as=\"style\" crossorigin=\"\">      <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap\" as=\"style\" crossorigin=\"\">      <link rel=\"preload\" as=\"image\" href=\"https://images.moneycontrol.com/mcnews/images/preferred_button.svg\">   <link rel=\"preload\" as=\"image\" href=\"https://images.moneycontrol.com/mcnews/images/joinus_button.svg\">   <link rel=\"preload\" as=\"image\" href=\"https://images.moneycontrol.com/mcnews/images/follow_us_button.svg\"><link rel=\"preload\" href=\"https://ads.pubmatic.com/AdServer/js/pwt/113941/8278/pwt.js\" as=\"script\"><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtm.js?id=GTM-WCG4TX9\" as=\"script\"><link rel=\"preload\" href=\"https://www.google-analytics.com/analytics.js\" as=\"script\"><link rel=\"preload\" href=\"https://sb.scorecardresearch.com/beacon.js\" as=\"script\">      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=5.0\">   <link rel=\"preload\" as=\"image\" href=\"https://images.moneycontrol.com/static-mcnews/2021/12/Razorpay-Founders-Harshil-Mathur-Shashank-Kumar-112.jpeg?impolicy=website&amp;width=770&amp;height=431\" fetchpriority=\"high\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><meta name=\"robots\" content=\"max-image-preview:large\"><!-- <link href=\"https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap\" rel=\"stylesheet\" defer> -->   <meta charset=\"utf-8\"><meta name=\"robots\" content=\"index,follow\"><title>Razorpay completes reverse flip from US to India</title><meta name=\"description\" content=\"Razorpay launched the process to move its parent entity to India from the United States in May 2023, ahead of its plans to list on Indian bourses\n\n\"><meta name=\"news_keywords\" content=\"Razorpay, Payment, Reverse Flip, fiNTECH\"><meta name=\"Keywords\" content=\"Razorpay, Payment, Reverse Flip, fiNTECH\"><meta content=\"NOODP\" name=\"robots\"><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta http-equiv=\"Last-Modified\" content=\"2025-05-29T13:55:25+05:30\"><meta property=\"og:article:published_time\" content=\"2025-05-29T13:49:48+05:30\"><meta name=\"Last-Modified\" content=\"2025-05-29T13:55:25+05:30\"><meta property=\"og:l",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E33",
+      "kind": "page",
+      "url": "https://bfsi.economictimes.indiatimes.com/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech/121488764",
+      "title": "Razorpay Returns to India: A Strategic Move for Global Leadership in FinTech, ETBFSI",
+      "text": "<html lang=\"en\" itemscope=\"\" itemtype=\"http://schema.org/WebPage\"><head>\n\n\n\t\t<title>Razorpay Returns to India: A Strategic Move for Global Leadership in FinTech, ETBFSI</title>\n\n        <meta itemprop=\"name\" content=\"Razorpay Returns to India: A Strategic Move for Global Leadership in FinTech, ETBFSI\">\n            <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=11,chrome=1\">\n                <script async=\"\" src=\"https://www.googletagmanager.com/gtm.js?id=GTM-PSW6PC6\"></script><script id=\"onetap-jssdk\" src=\"https://accounts.google.com/gsi/client\"></script><script>\n            var hdomain='indiatimes.com'; \n        </script>\n        <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://img.etb2bimg.com/files/cp/upload-1686643975-bfsi.ico\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <meta name=\"google-site-verification\" content=\"ZgFICIedNvVZl5pV9EfAUeenwta9vBY0Za_GgmV4zuw\">\n         \n        <meta name=\"robots\" content=\"index, follow, max-image-preview:large\">\n            \n    <meta name=\"author\" content=\"www.ETBFSI.com\">\n    <meta property=\"fb:app_id\" content=\"\">\n    \n        <meta property=\"og:site_name\" content=\"ETBFSI.com\"> \n        <meta property=\"og:title\" content=\"Razorpay completes reverse flip from US to India as its Global Headquarter\">\n    <meta name=\"twitter:title\" content=\"Razorpay completes reverse flip from US to India as its Global Headquarter\">\n    <meta property=\"og:description\" content=\"Razorpay has officially completed its reverse flip, shifting its global headquarters from the US back to India, signaling a strong belief in India's economic future and potential for innovation.\">\n    <meta name=\"twitter:description\" content=\"Razorpay has officially completed its reverse flip, shifting its global headquarters from the US back to India, signaling a strong belief in India's economic future and potential for innovation.\">\n    <meta property=\"og:image\" content=\"https://etimg.etb2bimg.com/thumb/msid-121488764,imgsize-23006,width-1200,height=627,overlay-etbfsi,resizemode-75/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech.jpg\">\n    <meta name=\"twitter:site\" content=\"https://twitter.com/ETBFSI\">\n    <meta name=\"twitter:image\" content=\"https://etimg.etb2bimg.com/thumb/msid-121488764,imgsize-23006,width-1200,height=627,overlay-etbfsi,resizemode-75/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech.jpg\">\n    <link rel=\"image_src\" href=\"https://etimg.etb2bimg.com/thumb/msid-121488764,imgsize-23006,width-1200,height=627,overlay-etbfsi,resizemode-75/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech.jpg\">\n    <meta itemprop=\"image\" content=\"https://etimg.etb2bimg.com/thumb/msid-121488764,imgsize-23006,width-1200,height=627,overlay-etbfsi,resizemode-75/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech.jpg\">\n        <meta name=\"news_keywords\" content=\"Razorpay, FinTech unicorn, reverse flip, global headquarters, Indian startups, Shashank Kumar, Venture capital, fintech, payment gateway\">\n        <meta name=\"keywords\" content=\"Razorpay, FinTech unicorn, reverse flip, global headquarters, Indian startups, Shashank Kumar, Venture capital, fintech, payment gateway\">\n    <meta itemprop=\"description\" content=\"Razorpay has officially completed its reverse flip, shifting its global headquarters from the US back to India, signaling a strong belief in India's economic future and potential for innovation.\">\n    <meta name=\"description\" content=\"Razorpay has officially completed its reverse flip, shifting its global headquarters from the US back to India, signaling a strong belief in India's economic future and potential for innovation.\">\n        <link rel=\"canonical\" href=\"https://bfsi.economictimes.indiatimes.com/articles/r",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    }
+  ],
+  "searched": [
+    "Razorpay products business model revenue streams",
+    "site:razorpay.com about products payment gateway neobanking",
+    "Razorpay founding year headquarters location Bengaluru",
+    "Razorpay US India reverse flip corporate structure",
+    "Razorpay founders Harshil Mathur Shashank Kumar current roles",
+    "Razorpay executive leadership team CEO",
+    "Razorpay funding rounds valuation cap table investors",
+    "Razorpay Series F funding investors Y Combinator Sequoia"
+  ],
+  "fetched": [
+    "https://miracuves.com/blog/business-model-of-razorpay/",
+    "https://www.commonroom.io/research/razorpay/business-model/",
+    "https://razorpay.com/blog/what-is-a-neobank/",
+    "https://razorpay.com/x/",
+    "https://razorpay.com/about/",
+    "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI",
+    "https://www.moneycontrol.com/news/business/startup/razorpay-completes-reverse-flip-from-the-us-to-india-13060525.html",
+    "https://bfsi.economictimes.indiatimes.com/articles/razorpay-returns-to-india-a-strategic-move-for-global-leadership-in-fintech/121488764"
+  ],
+  "claims": [
+    {
+      "question_id": "q1",
+      "field": "business_model",
+      "statement": "Razorpay generates revenue through transaction fees, subscription plans, and value-added fintech products like payouts, payroll, neobanking, loans, and business banking workflows.",
+      "value": null,
+      "evidence_id": "E1",
+      "quote": "Razorpay has grown from being a payment gateway provider to a solutions-driven organization boasting of an extensive products suite to accept and disburse payments as well as raise capital and park money.",
+      "id": "C1",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "partial",
+      "reason": "The source text mentions Razorpay's extensive product suite to accept/disburse payments, raise capital, and park money, but it does not explicitly detail transaction fees and subscription plans as revenue sources in the provided quote/text."
+    },
+    {
+      "question_id": "q2",
+      "field": "founded_year",
+      "statement": "Razorpay was founded in 2014.",
+      "value": "2014",
+      "evidence_id": "E1",
+      "quote": "Year founded: 2014",
+      "id": "C2",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text explicitly states 'Year founded: 2014'."
+    },
+    {
+      "question_id": "q2",
+      "field": "hq_city",
+      "statement": "Razorpay is headquartered in Bengaluru, India.",
+      "value": "Bengaluru",
+      "evidence_id": "E9",
+      "quote": "Razorpay is headquartered in Bengaluru, India.",
+      "id": "C3",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text explicitly states 'Razorpay is headquartered in Bengaluru, India.'"
+    },
+    {
+      "question_id": "q2",
+      "field": "hq_country",
+      "statement": "Razorpay completed its reverse flip, shifting its parent company's domicile and global headquarters back to India.",
+      "value": "India",
+      "evidence_id": "E11",
+      "quote": "Razorpay has officially completed its reverse flip—relocating its parent company's domicile from the United States back to India.",
+      "id": "C4",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states that Razorpay has officially completed its reverse flip, relocating its parent company's domicile from the United States back to India."
+    },
+    {
+      "question_id": "q3",
+      "field": "founders",
+      "statement": "Razorpay was founded by Harshil Mathur and Shashank Kumar.",
+      "value": "Harshil Mathur, Shashank Kumar",
+      "evidence_id": "E1",
+      "quote": "Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar.",
+      "id": "C5",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states that Razorpay was started in 2014 by Harshil Mathur and Shashank Kumar."
+    },
+    {
+      "question_id": "q3",
+      "field": "ceo",
+      "statement": "Harshil Mathur serves as the CEO and Co-Founder of Razorpay.",
+      "value": "Harshil Mathur",
+      "evidence_id": "E1",
+      "quote": "Founder: Harshil Mathur, CEO & Co-Founder at Razorpay",
+      "id": "C6",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text lists Harshil Mathur as CEO & Co-Founder at Razorpay."
+    },
+    {
+      "question_id": "q4",
+      "field": "total_funding_usd",
+      "statement": "Razorpay has raised a total funding of approximately $816.6 million to $822 million across multiple rounds.",
+      "value": "816600000",
+      "evidence_id": "E1",
+      "quote": "Total funding raised: 816,600,000 USD",
+      "id": "C7",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states 'Total funding raised: 816,600,000 USD'."
+    },
+    {
+      "question_id": "q5",
+      "field": "headcount",
+      "statement": "Razorpay has an employee headcount of approximately 4,027 to 4,042 employees.",
+      "value": "4042",
+      "evidence_id": "E1",
+      "quote": "Employee count: 4042",
+      "id": "C8",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states 'Employee count: 4042'."
+    }
+  ],
+  "conflicts": [],
+  "memo": {
+    "recommendation": "Dig deeper given Razorpay's substantial funding base and scaled operations, while verifying regulatory risks and competitive market share.",
+    "confidence": "medium",
+    "memo_markdown": "## Summary\nRazorpay is a Bengaluru-based fintech company founded in 2014 [C2][C3]. The company has completed a reverse flip, shifting its parent domicile and global headquarters back to India [C4]. Across multiple financing rounds, Razorpay has raised approximately $816.6 million to $822 million [C7].\n\n## Product & business model\nRazorpay operates a diversified fintech revenue model spanning transaction fees, subscription plans, and value-added solutions [C1]. Its product suite includes payouts, payroll, neobanking, loans, and business banking workflows [C1].\n\n## Team\nThe company was founded by Harshil Mathur and Shashank Kumar [C5]. Harshil Mathur serves as the CEO and Co-Founder [C6]. Razorpay currently has an employee headcount of approximately 4,027 to 4,042 [C8].\n\n## Funding & traction\nRazorpay has secured total funding in the range of $816.6 million to $822 million across multiple investment rounds [C7]. Its organizational footprint spans 4,027 to 4,042 employees [C8].\n\n## Market & competition\nNo verified claims are available regarding Razorpay's primary competitors, market share, or relative positioning in India or international markets.\n\n## Risks & red flags\nVerified details regarding compliance hurdles with the RBI, legal proceedings, or business risks are not available in the provided record.\n\n## Open questions\n- Who are Razorpay's main direct and indirect competitors in India and globally, and what is its market share?\n- What major announcements, product launches, acquisitions, or IPO preparation plans has Razorpay made in the last 12 months?\n- What regulatory hurdles, compliance challenges with the RBI, legal issues, or major business risks does Razorpay face?",
+    "fact_sheet": {
+      "founded_year": "2014",
+      "hq_city": "Bengaluru",
+      "hq_country": "India",
+      "founders": [
+        "Harshil Mathur",
+        "Shashank Kumar"
+      ],
+      "ceo": "Harshil Mathur",
+      "total_funding_usd": "$816.6 million to $822 million",
+      "last_round": null,
+      "headcount": "4,027 to 4,042",
+      "business_model": "Transaction fees, subscription plans, and value-added fintech products (payouts, payroll, neobanking, loans, business banking workflows)"
+    }
+  },
+  "invalid_citations": [],
+  "metrics": {
+    "claims": 8,
+    "grounded_rate": 1.0,
+    "supported_rate": 0.875,
+    "usable_rate": 1.0,
+    "unsupported": 0,
+    "coverage": 0.625,
+    "must_coverage": 0.833,
+    "conflicts": 0,
+    "memo_citations": 8,
+    "invalid_citations": 0,
+    "evidence_pages": 8,
+    "crustdata_record": true,
+    "rounds": 1,
+    "recoveries": 4,
+    "injected_faults": 0,
+    "failures": 0,
+    "duration_s": 173.2
+  },
+  "usage": {
+    "llm_calls": 5,
+    "input_tokens": 19646,
+    "output_tokens": 3314,
+    "llm_usd": 0.01225,
+    "by_model": {
+      "gemini:gemini-3.8-flash": {
+        "calls": 2,
+        "in": 895,
+        "out": 1428,
+        "usd": 0.0047315
+      },
+      "gemini:gemini-3.5-flash-lite": {
+        "calls": 3,
+        "in": 18751,
+        "out": 1886,
+        "usd": 0.00751675
+      }
+    },
+    "crust_calls": 10,
+    "crust_credits": 18.0,
+    "cache_hits": 0,
+    "fallback_calls": 0
+  },
+  "trace_ids": [],
+  "error": null,
+  "started_at": 1791619695.611949,
+  "finished_at": 1791619868.8436863
+}

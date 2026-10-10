@@ -1,0 +1,28 @@
+{"t": 1791619948.8135989, "kind": "plan", "msg": "9 questions, 18 queries for Razorpay"}
+{"t": 1791619949.1679723, "kind": "crust", "msg": "company record: 52 fields"}
+{"t": 1791619954.402169, "kind": "web", "msg": "search (crustdata-web) 'Razorpay founding year headquarters location' -> 9 results"}
+{"t": 1791620000.664352, "kind": "web", "msg": "search (crustdata-web) 'Razorpay founders CEO current leadership' -> 8 results"}
+{"t": 1791620006.2768123, "kind": "web", "msg": "search (crustdata-web) 'Razorpay products services business model revenue model' -> 9 results"}
+{"t": 1791620012.0670154, "kind": "web", "msg": "search (crustdata-web) 'Razorpay funding rounds total raised valuation investors' -> 9 results"}
+{"t": 1791620018.8626041, "kind": "web", "msg": "search (crustdata-web) 'Razorpay revenue FY24 FY25 profitability TPV' -> 9 results"}
+{"t": 1791620050.494571, "kind": "web", "msg": "search (crustdata-web) 'Razorpay RBI regulatory issues payment aggregator license' -> 8 results"}
+{"t": 1791620055.6068304, "kind": "web", "msg": "search (crustdata-web) 'Razorpay competitors market share India payment gateway' -> 9 results"}
+{"t": 1791620060.653831, "kind": "web", "msg": "search (crustdata-web) 'Razorpay news 2025 2026' -> 8 results"}
+{"t": 1791620072.4311748, "kind": "crust", "msg": "fetched 2/8 pages via Crustdata"}
+{"t": 1791620072.4776177, "kind": "recover", "msg": "6 pages empty via Crustdata; retrying them directly"}
+{"t": 1791620083.4719148, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791620086.1338406, "kind": "extract", "msg": "8 claims from 33 evidence blocks"}
+{"t": 1791620086.2085562, "kind": "verify", "msg": "grounding: 8/8 quotes found in their cited source"}
+{"t": 1791620088.1316948, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791620089.9495735, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791620089.9575233, "kind": "verify", "msg": "judge: 7 supported, 1 partial, 0 rejected of 8"}
+{"t": 1791620089.964808, "kind": "plan", "msg": "4 priority questions unanswered -> research round 2"}
+{"t": 1791620091.1369052, "kind": "plan", "msg": "round 2: 4 new queries for 4 unanswered questions"}
+{"t": 1791620099.3248775, "kind": "web", "msg": "search (crustdata-web) 'Razorpay market share comparison competitors India 2025 2026' -> 9 results"}
+{"t": 1791620127.7762613, "kind": "web", "msg": "search (crustdata-web) 'Razorpay acquisitions product launches corporate developments 2025 2026' -> 9 results"}
+{"t": 1791620127.784263, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791620129.602408, "kind": "extract", "msg": "4 claims from 6 evidence blocks"}
+{"t": 1791620129.6095595, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791620130.7941015, "kind": "verify", "msg": "judge: 4 supported, 0 partial, 0 rejected of 4"}
+{"t": 1791620226.7765572, "kind": "memo", "msg": "memo written: 11 distinct verified claims cited, recommendation: Strong interest given Razorpay's massive scale, $816.6 million in funding, and expansion i"}
+{"t": 1791620226.9308615, "kind": "memo", "msg": "done in 302.2s \u00b7 12 claims \u00b7 92% supported \u00b7 0 conflicts \u00b7 $0.013 LLM \u00b7 18 Crustdata credits \u00b7 3 recoveries"}

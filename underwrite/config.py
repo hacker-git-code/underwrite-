@@ -29,13 +29,15 @@ class Settings:
     models_smart: list[str] = field(
         default_factory=lambda: _env_list(
             "UW_MODELS_SMART",
-            "gemini:gemini-2.5-flash,groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-opus-5-5",
+            "gemini:gemini-3.8-flash,gemini:gemini-3.5-flash,groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,"
+            "bedrock:anthropic.claude-opus-5-5",
         )
     )
     models_fast: list[str] = field(
         default_factory=lambda: _env_list(
             "UW_MODELS_FAST",
-            "gemini:gemini-2.5-flash-lite,groq:openai/gpt-oss-20b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-haiku-5-5",
+            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.1-flash-lite,groq:openai/gpt-oss-20b,cerebras:gpt-oss-120b,"
+            "bedrock:anthropic.claude-haiku-5-5",
         )
     )
 
@@ -48,7 +50,8 @@ class Settings:
     prompts_version: str = field(default_factory=lambda: _env("UW_PROMPTS", "v1"))
 
     # Per-company research budget.
-    max_searches: int = field(default_factory=lambda: int(_env("UW_MAX_SEARCHES", "8")))
+    max_searches: int = field(default_factory=lambda: int(_env("UW_MAX_SEARCHES", "10")))
+    reserve_searches: int = field(default_factory=lambda: int(_env("UW_RESERVE_SEARCHES", "2")))
     max_fetches: int = field(default_factory=lambda: int(_env("UW_MAX_FETCHES", "8")))
     max_rounds: int = field(default_factory=lambda: int(_env("UW_MAX_ROUNDS", "2")))
     page_chars: int = field(default_factory=lambda: int(_env("UW_PAGE_CHARS", "4000")))

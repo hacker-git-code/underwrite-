@@ -65,7 +65,7 @@ class MemoOut(BaseModel):
     recommendation: str
     confidence: Literal["low", "medium", "high"]
     memo_markdown: str
-    fact_sheet: dict[str, str | list[str] | None] = Field(default_factory=dict)
+    fact_sheet: dict[str, str | int | float | list[str] | None] = Field(default_factory=dict)
 
 
 # ---- persisted state ---------------------------------------------------------------

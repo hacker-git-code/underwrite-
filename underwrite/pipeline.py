@@ -88,8 +88,10 @@ def _run(state: CompanyState, path: Path, events_path: Path) -> CompanyState:
             state.plan = planner.plan(state)
             state.phase = "planned"
         elif state.phase == "planned":
-            queries = [(q.id, query) for q in sorted(state.plan.questions, key=lambda q: q.priority) for query in q.queries]
-            researcher.research(state, queries)
+            # Breadth first: every question's first query (most important questions first), then second queries.
+            ordered = sorted(state.plan.questions, key=lambda q: q.priority)
+            queries = [(q.id, q.queries[i]) for i in range(2) for q in ordered if len(q.queries) > i]
+            researcher.research(state, queries, reserve=settings.reserve_searches)
             state.phase = "researched"
         elif state.phase == "researched":
             extractor.extract(state, [e for e in state.evidence if e.round == state.round])

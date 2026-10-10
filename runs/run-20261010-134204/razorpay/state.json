@@ -1,0 +1,830 @@
+{
+  "run_id": "run-20261010-134204",
+  "company": "Razorpay",
+  "domain": "razorpay.com",
+  "prompts_version": "v1",
+  "phase": "done",
+  "round": 2,
+  "plan": {
+    "questions": [
+      {
+        "id": "q1",
+        "topic": "founding",
+        "question": "When was Razorpay founded, and where is its headquarters located?",
+        "queries": [
+          "Razorpay founding year headquarters location",
+          "Razorpay company profile Crunchbase"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q2",
+        "topic": "leadership",
+        "question": "Who are the founders of Razorpay and who is the current CEO?",
+        "queries": [
+          "Razorpay founders CEO current leadership",
+          "Harshil Mathur Shashank Kumar Razorpay role"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q3",
+        "topic": "product_and_business_model",
+        "question": "What is Razorpay's core product offering, target customer segment, and monetization/business model?",
+        "queries": [
+          "Razorpay products services business model revenue model",
+          "Razorpay payment gateway banking suite SME enterprise"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q4",
+        "topic": "funding_and_investors",
+        "question": "What is Razorpay's total funding raised, latest valuation, and who are its key investors?",
+        "queries": [
+          "Razorpay funding rounds total raised valuation investors",
+          "Razorpay latest valuation Series F"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q5",
+        "topic": "traction_and_financials",
+        "question": "What are Razorpay's current financial metrics, including ARR/revenue, TPV (total payment volume), profitability, and headcount?",
+        "queries": [
+          "Razorpay revenue FY24 FY25 profitability TPV",
+          "Razorpay annual report financials employee headcount growth"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q6",
+        "topic": "competition_and_market",
+        "question": "Who are Razorpay's primary competitors in India and internationally, and what is its market share?",
+        "queries": [
+          "Razorpay competitors market share India payment gateway",
+          "Razorpay vs Cashfree vs PayU vs Stripe India"
+        ],
+        "priority": 2
+      },
+      {
+        "id": "q7",
+        "topic": "recent_news",
+        "question": "What are the key corporate developments, product launches, or M&A activities involving Razorpay over the last 12 months?",
+        "queries": [
+          "Razorpay news 2025 2026",
+          "Razorpay acquisition expansion IPO plans"
+        ],
+        "priority": 2
+      },
+      {
+        "id": "q8",
+        "topic": "risks_and_red_flags",
+        "question": "Are there any regulatory challenges, RBI compliance actions, or major controversies associated with Razorpay?",
+        "queries": [
+          "Razorpay RBI regulatory issues payment aggregator license",
+          "Razorpay controversy lawsuit compliance risks"
+        ],
+        "priority": 1
+      },
+      {
+        "id": "q9",
+        "topic": "reverse_flip_ipo",
+        "question": "What is the status of Razorpay's reverse-flip to India and timeline for a public listing (IPO)?",
+        "queries": [
+          "Razorpay reverse flip US to India tax status",
+          "Razorpay IPO timeline India listing"
+        ],
+        "priority": 2
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "E1",
+      "kind": "crustdata",
+      "url": "crustdata://company/897127",
+      "title": "Crustdata company record: Razorpay",
+      "text": "Company name: Razorpay\nWebsite: https://bit.ly/razorpay_learnmore\nDescription: Power your finance, grow your business.Razorpay is India’s first full-stack financial solutions company. We are on a mission to enhance the payment experience of over 300 million end consumers. And in doing so, we aim to enable Indian businesses - big and small - accept payments digitally with minimal effort and maximum ease. Razorpay has grown from being a payment gateway provider to a solutions-driven organization boasting of an extensive products suite to accept and disburse payments as well as raise capital and park money. In a nutshell, we fit into every nook and corner where your business touches money. #OutgrowOrdinaryWe identify ourselves as disruptors in the digital payments space and our vision is to power the financial ecosystem for other disruptors. Like attracts like and Razorpay actively looks to partner with established companies and startups that have either broken the glass ceiling in their industry or are set to. The Razorpay Product Suite today comprises verticals, along with Payment Gateway, like Payment Links, Payment Pages, Subscriptions, Smart Collect, Route, Razorpay Capital, RazorpayX, Payroll and Thirdwatch.Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar. Just a short few years later, Razorpay has evolved into a 800-odd strong organization with some of the best talents in the country helping some of the best companies manage their money movement seamlessly.Certified coolWe are a bunch of spirited, ambitious and fun folks. And no, we’re not saying this ourselves--leading institutions have recognized Razorpay for the high trust and high-performance culture that we maintain. Our strength lies in the people we are and we go to great lengths to nurture a family of coders, designers, sellers, marketers, analysts, writers, runners, photographers, gamers, tinkerers, and above all, people who are dreamers and doers at the same time. Be a part of our exciting journey.\nCompany type: Privately Held\nStatus: active\nYear founded: 2014\nHeadquarters: Adugodi, Karnataka, India\nIndustry: Software Development\nCategories: Apps, FinTech, Finance, Financial Services, Information Technology, Mobile, Mobile Apps, Payments, Point of Sale, Software\nEmployee count: 4042\nEmployee count range: 1001-5000\nHeadcount growth: 6 months -1.1%, 1 year -3.2%, 2 years +11.1%\nLargest headcount country: IND\nTotal funding raised: 816,600,000 USD\nNumber of funding rounds: 10\nLast funding round: secondary_market 75,000,000 USD on 2022-05-10\nInvestors: Abhay Singhal, Alkeon Capital, Amit Gupta, Anand Swaminathan, Anshu Sharma, Axevil Capital, Bill Gajda, Brad Flora, Eric Kwan, GIC, GMO VenturePartners, Hiro Mashita, Jeff Ferguson, Jeff Huber, Justin Kan, Kunal Bahl, Kunal Shah, Lightspeed Venture Partners, Lone Pine Capital, Mastercard, Matrix Partners India, Michael Sutcliff, Moore Strategic Ventures, Naveen Tewari, Peak XV Partners\nAcquired by: {'amount_usd': None, 'crustdata_company_id': 897127, 'date': '2022-02-08', 'name': 'Razorpay'}\nEstimated annual revenue: 500,000,000 USD to 1,000,000,000 USD\nSocial media followers: 1,318,332 (+22.1% year over year)\nOpen job postings: 4\nFunding round: seed on 2015-03-23, 2,600,000 USD\nFunding round: series_a on 2015-10-27, 9,000,000 USD, led by Tiger Global Management\nFunding round: corporate_round on 2016-07-01, led by Mastercard\nFunding round: series_b on 2018-01-15, 20,000,000 USD, led by Tiger Global Management\nFunding round: series_c on 2019-06-18, 75,000,000 USD, led by Peak XV Partners, Ribbit Capital\nFunding round: series_d on 2020-10-12, 100,000,000 USD, led by GIC, Peak XV Partners\nFunding round: series_e on 2021-04-19, 160,000,000 USD, led by GIC, Peak XV Partners\nFunding round: series_unknown on 2021-09-20, led by Salesforce Ventures\nFunding round: series_f on 2021-12-19, 375,000,000 USD, led by Alkeon Capital, Lone Pine Capital, TCV\nFunding round: secondary_market on 2022-05-10, 75,000,000 USD, led by Lightspeed Venture Partners\nFounder: Shashank Kumar, Cofounder, Razorpay\nFounder: Harshil Mathur, CEO & Co-Founder at Razorpay\nFounder: Shreed Shrivastava, AI Builder (Founder’s Office) @Razorpay | AI Dev @GoodFin (YC W22) | Data analytics @Amazon @Mobalytics | Quant Lotus Capital, Funding Pips | AI Researcher @ IITs | VCBA @HP, IgniteXL, HappySneeze | ML Dev @HeadStarterAi\nFounder: Kuber Mehta, I Build (& Break) AI | AI Initiatives @Razorpay | Founder @PolyThink | BITS Pilani, GGSIPU AI 28’\nFounder: Satvik Padhiyar, AI @ Razorpay | IIT H | Go | LLMs  Microservices\nFounder: Tapasna Das, Lead Executive Assistant to the CEO and Co-Founder\nFounder: Kriteesha Janveja, Driving Global Expansion at Razorpay | Ex-McKinsey, Unilever | LSR\nFounder: Aashita Gupta, Razorpay | Bain | IIT Delhi\nExecutive: Apuarv Sethi, CMO & Head SME Business @Razorpay | Flipkart | Manipal | Mindtree\nExecutive: Arif Khan, Chief Innovation Officer\nExecutive: Khilan Haria, CPO @ Razorpay\nExecutive: Praveen Parihar, Cyber Security Leader, Helped Top Fintechs on Cyber Security, Ex- Maya\nExecutive: Mayul Mishra, CoS / Business strategy lead\nExecutive: Naresh Jethwani, Chief Vigilance Officer\nExecutive: Arpit Chug, Chief Financial Officer at Razorpay\nDecision maker: Sumit Premi, Head-Talent Acquisition at Razorpay\nDecision maker: Vijeta Chhetri, Senior Talent Partner at Razorpay | Paytm | Mobikwik\nDecision maker: Arpit Bhayani, building px0.ai • curating tdd.cat • Principal Engineer II - AI at Razorpay • databases • ex-Staff at Google {Memorystore, Dataproc} • DiceDB • ex-Amazon Fast Data and DoE Unacademy\nDecision maker: Ayush Bansal, Vice President and General Manager, RazorpayX\nDecision maker: Jason Kumpf, Head of US Revenue @ Razorpay: $180 Billion/YR Global FinTech Group (YC & Tier 1 VCs) / Executive Leader / International GTM Acceleration & Partnerships / Agentic AI Payments / Expert Speaker, Board Advisor, Investor\nDecision maker: Shubham Bisht, Cross Border Payments at Razorpay",
+      "via": "crustdata",
+      "question_ids": [],
+      "round": 1
+    },
+    {
+      "id": "E2",
+      "kind": "snippet",
+      "url": "https://www.ycombinator.com/companies/razorpay",
+      "title": "Razorpay: India's only full-stack financial solutions ...",
+      "text": "... Founded in 2014 by Shashank Kumar and Harshil Mathur, Razorpay has 2700 employees based in Bengaluru. Razorpay is hiring for 3 roles in engineering.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E3",
+      "kind": "snippet",
+      "url": "https://in.linkedin.com/company/razorpay",
+      "title": "Razorpay",
+      "text": "Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar. Headquarters Bangalore, Karnataka Type. Razorpay Office, Bangalore",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E4",
+      "kind": "snippet",
+      "url": "https://razorpay.com/about/",
+      "title": "About Razorpay and The Team Behind it",
+      "text": "Founded by IIT Roorkee alumni, Razorpay revolutionizes online payments ... Headquarters. 1st Floor, SJR Cyber, 22, Laskar Hosur Road,. Adugodi, Bangalore ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E5",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/leadership-team/",
+      "title": "Leadership Team - Razorpay Software Private Limited",
+      "text": "Leadership Team Harshil Mathur CEO and Co-founder. Shashank Kumar MD and Co-founder. Rahul Kothari Chief Operating Officer. Arif Khan Chief Innovation Officer. ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E6",
+      "kind": "snippet",
+      "url": "https://fintechleaders.substack.com/p/harshil-mathur-razorpay-ceo-building",
+      "title": "Harshil Mathur, Razorpay CEO: Building India's Payments ...",
+      "text": "Harshil Mathur, Harshil Mathur, Co-Founder and CEO of Razorpay, an Indian fintech that processes hundreds of billions in annual payment volume ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E7",
+      "kind": "snippet",
+      "url": "https://www.linkedin.com/posts/hng-global_harshilmathur-razorpay-fintech-activity-7468893494338711553-cGLg",
+      "title": "Harshil Mathur CEO of India's Leading Fintech Company ...",
+      "text": "Harshil Mathur is the CEO & Co-Founder of Razorpay, one of India's leading fintech companies transforming digital payments, banking, and ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E8",
+      "kind": "snippet",
+      "url": "https://razorpay.com/learn/what-is-a-business-model/",
+      "title": "What is a Business Model? Definition, Example And Types",
+      "text": "Dec 18, 2024 — Razor Blade Model. A core product is sold at a low price, while consumables generate recurring revenue. Example: razor handles and blades.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E9",
+      "kind": "snippet",
+      "url": "https://www.commonroom.io/research/razorpay/business-model/",
+      "title": "Razorpay business model via RoomieAI™",
+      "text": "Razorpay's revenue model revolves around a fee-based structure where transaction fees, premium subscriptions, and additional financial services form the ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E10",
+      "kind": "snippet",
+      "url": "https://www.linkedin.com/posts/divyadharshini-k-760089267_razorpay-business-model-activity-7199283162110201856-1qpo",
+      "title": "Divyadharshini K's Post - Razorpay Business Model",
+      "text": "Let's delve deep into analyzing the business models that Razorpay uses ! Razorpay's business model revolves around providing integrated ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E11",
+      "kind": "snippet",
+      "url": "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI/funding-and-investors",
+      "title": "2026 Funding Rounds & List of Investors - Razorpay",
+      "text": "Sep 29, 2026 — Razorpay has raised a total of $742M over 12 funding rounds: 3 Seed, 3 Early-Stage and 6 Late-Stage rounds. Razorpay's valuation is between $4. ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E12",
+      "kind": "snippet",
+      "url": "https://multiples.vc/private-comps/razorpay",
+      "title": "Razorpay Revenue, Valuation, Funding & Investors",
+      "text": "Sep 18, 2026 — Razorpay has raised a total of $742M across 7 funding rounds, plus 1 secondary share sale. Razorpay's first fundraising round was a $3M seed ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E13",
+      "kind": "snippet",
+      "url": "https://inc42.com/company/razorpay/funding/",
+      "title": "Total Funding, Rounds & Investors - Razorpay",
+      "text": "Razorpay has raised $4.56 Bn+ from 34 investors. Razorpay has raised a total of $816.62 million across 11 funding rounds since 2014. funding was raised on 10 ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E14",
+      "kind": "snippet",
+      "url": "https://builtin.com/company/razorpay/faq/stability-growth",
+      "title": "Razorpay Company Growth, Stability & Outlook 2026",
+      "text": "9 Sept 2026 — Strong Revenue Growth: Financial disclosures highlight rising income ... revenue growth in FY24, with acceleration into FY25 alongside record TPV.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q5"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E15",
+      "kind": "snippet",
+      "url": "https://valueforstartups.in/02-razorpay",
+      "title": "Razorpay Business Model, Revenue & $9.2B Valuation 2026",
+      "text": "Every rupee that flows through its system generates a fraction as revenue — and at $180 billion in TPV, fractions add up to $483 million in revenue and a newly ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q5"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E16",
+      "kind": "snippet",
+      "url": "https://coinlaw.io/razorpay-statistics/",
+      "title": "Razorpay Statistics 2026: Revenue, Valuation and TPV",
+      "text": "19 Jan 2026 — FY25 consolidated revenue reached Rs 3,783 crore, up 65% from Rs 2,296 crore in FY24. · Gross profit climbed 41% to Rs 1,277 crore from Rs 906 ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q5"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E17",
+      "kind": "snippet",
+      "url": "https://razorpay.com/blog/razorpay-rbi-pa-cb-licence-international-payments/",
+      "title": "Razorpay's RBI PA-CB Licence Explained",
+      "text": "4 days ago — Razorpay secured the RBI's Payment Aggregator – Cross Border (PA-CB) licence in December 2025, authorising it to facilitate both inward and ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q8"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E18",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/razorpay-pos-receives-rbi-approval-for-offline-payment-aggregator-licence/",
+      "title": "Razorpay POS Receives RBI Approval for Offline Payment ...",
+      "text": "Jan 22, 2026 — With the PA-P (Payment Aggregator – Physical) license, Razorpay now holds all three key RBI authorisations for payments, online, offline, and ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q8"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E19",
+      "kind": "snippet",
+      "url": "https://razorpay.com/blog/razorpay-rbi-cross-border-licence-global-payments/",
+      "title": "Razorpay Gets RBI Cross-Border Licence for Global ...",
+      "text": "Jan 14, 2026 — Razorpay has secured the RBI's PA-CB licence, enabling regulated cross-border payment facilitation. Indian businesses can accept payments in 130 ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q8"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E20",
+      "kind": "snippet",
+      "url": "https://www.6sense.com/tech/payments-processing/razorpay-market-share",
+      "title": "Razorpay - Market Share, Competitor Insights in Payments ...",
+      "text": "The top three of Razorpay's competitors in the Payments Processing category are Shopify Pay with 62.35%, Klarna with 7.25%, Braintree with 5.02% market share.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E21",
+      "kind": "snippet",
+      "url": "https://tech-insider.org/top-7-payment-gateways-in-india-high-volume-businesses/",
+      "title": "Top 7 Payment Gateways in India for High-Volume Businesses",
+      "text": "Aug 13, 2026 — Top Payment Gateways for High-Volume Businesses: At a Glance · 1. Cashfree Payments · 2. Razorpay · 3. PayU · 4. BillDesk · 5. CCAvenue · 6. Paytm ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E22",
+      "kind": "snippet",
+      "url": "https://www.imarcgroup.com/blog/top-india-payment-gateways-companies",
+      "title": "Which Are the Top Payment Gateway Companies in India?",
+      "text": "Airpay Payment Services, Cashfree Payments India Private Limited, and Easebuzz rank among the foremost players shaping India's payment gateways industry. The ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E23",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/press/",
+      "title": "Press Releases - Razorpay Latest Information & News",
+      "text": "... 2026: Continuing its commitment… Read More · People May 15, 2026 · Razorpay Elevates Apuarv Sethi to CMO, Accelerating Brand and Business Momentum Across India ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E24",
+      "kind": "snippet",
+      "url": "https://builtin.com/company/razorpay/faq/stability-growth",
+      "title": "Razorpay Company Growth, Stability & Outlook 2026",
+      "text": "Sep 9, 2026 — Sequenced SEA Expansion — Malaysia entry (2022), Singapore launch (March 2025), and plans for 3–4 more Southeast Asian markets by end‑2026 plus ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E25",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/",
+      "title": "Newsroom Razorpay - Media Resources & Press Releases",
+      "text": "Razorpay Launches Vulcan, India's First AI Payments Foundation Model, Fueled by NVIDIA and AWS – Trained on 4Bn Transactions · September 7, 2026 7 Mins Read. A ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E26",
+      "kind": "page",
+      "url": "https://razorpay.com/about/",
+      "title": "About Razorpay and The Team Behind it",
+      "text": "<html lang=\"en-IN\" style=\"overscroll-behavior-y: none; color-scheme: light;\" class=\"js-focus-visible\" data-js-focus-visible=\"\" data-theme=\"light\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><script defer=\"\" src=\"https://s.adroll.com/j/TJ37WOXRMNBN3E7GBHOOXB/roundtrip.js\"></script><script type=\"text/javascript\" async=\"\" data-seg-script=\"s\" src=\"https://cdn.segment.com/analytics.js/v1/YNK2Ge3yl0IaYj8PLndL5V6vfPZPQxZo/analytics.min.js\"></script><script>\n(function() {\n  'use strict';\n  try {\n    var root = document.documentElement;\n    if (!root) return;\n\n    var ATTRIBUTE = \"data-rzp-navbar-auth\";\n    var PREVIEW_PARAM = \"navbar_go_to_dashboard_preview\";\n    var PREVIEW_VALUES = [\"1\",\"true\",\"enabled\",\"on\"];\n\n    // The same predicate the session SDK and the React hook use — see authHintCookies.ts.\n    \nvar RZP_AUTH_HINT_COOKIE_NAMES = [\"rzp_mid\",\"midExists\",\"_rzp__rp3x\"];\nvar RZP_AUTH_HINT_IGNORED_VALUES = [\"false\"];\nfunction rzpReadAuthHintCookieValues(cookieString) {\n  var values = [];\n  var pairs = String(cookieString || '').split(';');\n  for (var i = 0; i < pairs.length; i++) {\n    var trimmed = pairs[i].replace(/^\\s+|\\s+$/g, '');\n    var equalsIndex = trimmed.indexOf('=');\n    if (equalsIndex === -1) continue;\n    var name = trimmed.slice(0, equalsIndex).replace(/^\\s+|\\s+$/g, '');\n    var value = trimmed.slice(equalsIndex + 1).replace(/^\\s+|\\s+$/g, '');\n    if (\n      RZP_AUTH_HINT_COOKIE_NAMES.indexOf(name) !== -1 &&\n      value !== '' &&\n      RZP_AUTH_HINT_IGNORED_VALUES.indexOf(value) === -1\n    ) {\n      values.push(value);\n    }\n  }\n  return values;\n}\nfunction rzpHasAuthHintCookie(cookieString) {\n  return rzpReadAuthHintCookieValues(cookieString).length > 0;\n}\n\n    var hasAuthHintCookie = rzpHasAuthHintCookie(document.cookie);\n\n    // QA opens the experiment with a preview query param and no login cookies; keep the\n    // placeholder behaviour identical for them so previews reflect the real UX.\n    var isPreview = false;\n    try {\n      var previewValue = new URLSearchParams(window.location.search).get(PREVIEW_PARAM);\n      isPreview = previewValue !== null && PREVIEW_VALUES.indexOf(previewValue.toLowerCase()) !== -1;\n    } catch (previewError) {\n      isPreview = false;\n    }\n\n    // Mirrors the gate in useNavbarDashboardSession exactly. Anything the hook will settle\n    // as logged-out without a probe must not get a placeholder here either — otherwise the\n    // CTA is hidden until hydration for visitors this experiment does not even apply to.\n    // (The country gate is applied server-side: the script is not emitted outside India.)\n    var isExperimentEnabled = false;\n    if (!isPreview && !(isExperimentEnabled && hasAuthHintCookie)) return;\n\n    root.setAttribute(ATTRIBUTE, \"pending\");\n\n    // Safety net: React normally flips this to 'resolved' as soon as the session probe\n    // settles. If the bundle never boots, this guarantees the CTA still becomes usable.\n    window.setTimeout(function() {\n      if (root.getAttribute(ATTRIBUTE) === \"pending\") {\n        root.setAttribute(ATTRIBUTE, \"resolved\");\n      }\n    }, 2500);\n  } catch (error) {\n    // Never let the navbar placeholder break page rendering.\n  }\n})();\n</script><title>About Razorpay and The Team Behind it</title><meta data-rh=\"true\" name=\"referrer\" content=\"no-referrer-when-downgrade\"><meta data-rh=\"true\" property=\"og:type\" content=\"website\"><meta data-rh=\"true\" property=\"og:url\" content=\"https://razorpay.com/about/\"><meta data-rh=\"true\" property=\"og:site_name\" content=\"Razorpay\"><meta data-rh=\"true\" property=\"twitter:site\" content=\"@razorpay\"><meta data-rh=\"true\" name=\"twitter:card\" content=\"summary_large_image\"><meta data-rh=\"true\" name=\"twitter:creator\" content=\"Razorpay\"><meta data-rh=\"true\" property=\"fb:app_id\" content=\"413603529019368\"><meta data-rh=\"true\" property=\"fb:pages\" content=\"384638338316241\"><meta data-rh=\"true\" name=\"google-site-verification\" content=\"wSok6NPdreqsrAYRsHIGFCh3NObaVqODHBgE-",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E27",
+      "kind": "page",
+      "url": "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI/funding-and-investors",
+      "title": "Razorpay - 2026 Funding Rounds & List of Investors - Tracxn",
+      "text": "<html lang=\"en\" data-astro-transition-scope=\"astro-2la7nggh-1\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta name=\"referrer\" content=\"no-referrer-when-downgrade\"><link rel=\"preconnect\" href=\"https://cdn.tracxn.com\" crossorigin=\"anonymous\"><link rel=\"preconnect\" href=\"https://i.tracxn.com\" crossorigin=\"anonymous\"><script async=\"\" src=\"https://connect.facebook.net/en_US/fbevents.js\"></script><script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-63RZ0E5CHG\" data-astro-exec=\"\"></script><script type=\"module\" src=\"https://cdn.tracxn.com/scripts-v2/tracxnPlatform/0.2.3/seoastroApp/_astro/static/PageLayout.astro_astro_type_script_index_0_lang.kR-snQDx.js\" data-astro-exec=\"\"></script><script data-astro-exec=\"\">(function(){const cdnResource = \"https://cdn.tracxn.com\";\nconst tAppTypeWithVersion = \"\";\nconst GOOGLE_ANALYTICS_GA4_TAG_ID = \"G-63RZ0E5CHG\";\nconst APP_IDENTIFIER = \"seoastroApp-1791437759888\";\nconst APP_VERSION = \"0.2.3\";\nconst userCountryIsoCode = \"US\";\nconst isLoggedOut = true;\nconst isSearchBot = false;\nconst enableThirdPartyToolDetection = false;\n\n            window.vars = {\n                cdnResource,\n                tAppTypeWithVersion,\n                GOOGLE_ANALYTICS_GA4_TAG_ID,\n                APP_IDENTIFIER,\n                APP_VERSION,\n                USER_COUNTRY_ISO_CODE: userCountryIsoCode,\n                isLoggedOut,\n                isSearchBot,\n                enableThirdPartyToolDetection,\n            };\n        })();</script><script cross-origin=\"anonymous\" type=\"text/javascript\" data-astro-exec=\"\">\n            window.tCNyVENycE = `Xmh0dHAocz8pOi8vKChkZXZsb2MuaW4pfCh0KChbMC05XXxbMS05XVswLTldKSkuc3RhZ2VkZXYuaW4pfCgoKGluZnJhfGFwcCkuKT8odHJhY3huLmNvbXx0cmFjeG4tY29tLnRyYW5zbGF0ZS5nb29nKSkpJA==`;\n        </script><style id=\"bootstrap\">caption,th{text-align:left}.nav .nav-divider,.sr-only{height:1px;overflow:hidden}.close:focus,.close:hover,.nav>li>a:focus,.nav>li>a:hover,.navbar-brand:focus,.navbar-brand:hover,a{text-decoration:none}.modal,.navbar-toggle:focus{outline:0}.modal,.modal-backdrop{top:0;right:0;bottom:0;left:0}*,:after,:before,input[type=search]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px;-webkit-tap-highlight-color:transparent}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7}a:focus,a:hover{color:#23527c;text-decoration:underline}a:focus,input[type=checkbox]:focus,input[type=file]:focus,input[type=radio]:focus{outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}figure{margin:0}img{vertical-align:middle}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}.sr-only{position:absolute;width:1px;padding:0;margin:-1px;clip:rect(0,0,0,0);border:0}[role=button]{cursor:pointer}.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:inherit;font-weight:500;line-height:1.1;color:inherit}.close,dt,kbd kbd,label{font-weight:700}address,dd,dt,output,pre{line-height:1.42857143}legend,pre{display:block;color:#333}.h1,.h2,.h3,h1,h2,h3{margin-top:20px;margin-bottom:10px}.h4,.h5,.h6,h4,h5,h6{margin-top:10px;margin-bottom:10px}dl,ol,ul{margin-top:0}address,dl,legend{margin-bottom:20px}.nav,blockquote ol:last-child,blockquote p:last-child,blockquote ul:last-child,ol ol,ol ul,ul ol,ul ul{margin-bottom:0}.h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small{font-size:75%}.h1,h1{font-size:36px}.h2,h2{font-size:30px}.h3,h3{font-size:24px}.h4,h4{font-size:18px}.h5,h5{font-size:14px}.h6,h6{font-size:12px}p{margin:0 0 10px}small{font-size:85%}ol,ul{margin-bottom:10px}.modal-footer .btn-block+.btn-block,dd{margin-left:0}abbr[data-original-title],abbr[title]{cursor:help;border-bottom:1px dotted #777}blockquote{padding:10px 20px;margin:0 0 ",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E28",
+      "kind": "page",
+      "url": "https://www.ycombinator.com/companies/razorpay",
+      "title": "Razorpay: India's only full-stack financial solutions company for businesses. | Y Combinator",
+      "text": "(Attributed to Harshil Mathur, CEO & CoFounder of Razorpay)I met Shashank during our time at IIT Roorkee, and our collaboration began there. We worked on numerous projects together, fueled by our shared passion for coding. In fact, many of the codes we wrote during our college days are still the backbone of Razorpay's operations today. Our bond extended beyond academics; we were instrumental in founding SDS Labs, the software development section of our alma mater. After graduation, our paths diverged geographically, with Shashank moving to the USA to join Microsoft, while I ventured to the Middle East to work with Schlumberger. Despite the distance, our friendship remained strong, and we continued to collaborate on various side projects.One pivotal moment came in 2014 when we embarked on a crowdsourcing platform project to collect online donations for a cause. However, we encountered significant hurdles with existing payment gateway systems. This experience opened our eyes to the challenges faced by Indian businesses, particularly Startups and small businesses, in accepting payments online.Determined to address this gap, we decided to establish Razorpay, driven by a mission to democratize payments for startups and SMEs. Armed with research and fueled by our passion for solving real-world problems, we set out to create a platform that offers simple, affordable, and secure payment solutions.For us, perseverance has been a way of life. We are relentless in our pursuit of identifying and solving the financial challenges faced by small businesses. Whether it's rain or shine, we push through obstacles until we find viable solutions. This resilience has been the cornerstone of Razorpay's growth, propelling us from 10,000 partner businesses in 2017 to over 5 million today.\n(Attributed to Harshil Mathur, CEO & CoFounder of Razorpay)Long before we applied to YC, Shashank and I had been fans. Hacker News was our go-to source for information on building startups, and a few months after we started working on Razorpay, we saw an announcement on Hacker News about the YC application period opening up.At that point, Razorpay hadn't launched and we weren't remotely confident about getting in. The YC application process is pretty thorough; there are tough questions that force you to be crystal clear about who you are as a company. Things like how will you differentiate yourself from the competition; how will you acquire market share; how big is your market, and how big will you be in a few years from now? All of those are important questions to discuss internally, and so at a minimum, we thought applying would help us zero in on succinct, precise answers to give both of us clarity, even if we didn't get in.But thankfully our efforts paid off, and we did make the cut. When Shashank Kumar and I found out in late 2014 we'd been accepted into Y Combinator, we figured we'd need to split our time between running Razorpay in Bangalore and joining our fellow founders in Silicon Valley. It was only a few months after we had launched Razorpay and we were afraid of abandoning our customers, even for a bit, just as we were getting off the ground. Ignoring that temptation and spending the full three months of YC in Mountain View was one of the best decisions we ever made.It was a good call to stay in US and not fly back and forth to India, because if we had, we'd have missed out on the full benefit of YC — spending valuable time with the other founders in our batch, meeting successful alumni and building relationships throughout the YC community, and getting mentored by YC partners and other investors.Now, 9 years later, we couldn't be more proud to be YC's first Indian unicorn. I can honestly say that although we had to work harder during those three months than at any other time in my life, with countless 20-hour days attending YC sessions and dinners and then working late nights supporting our customers in India, I wouldn't change a thing. That's why the ",
+      "via": "direct",
+      "question_ids": [
+        "q1"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E29",
+      "kind": "page",
+      "url": "https://razorpay.com/newsroom/leadership-team/",
+      "title": "Leadership Team - Razorpay Software Private Limited",
+      "text": "Download Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nDownload Image | Download Bio\nType above and press Enter to search. Press Esc to cancel.",
+      "via": "direct",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E30",
+      "kind": "page",
+      "url": "https://fintechleaders.substack.com/p/harshil-mathur-razorpay-ceo-building",
+      "title": "Harshil Mathur, Razorpay CEO: Building India's Dominant Payments Company",
+      "text": "This article is part of Fintech Leaders, a channel for builders, entrepreneurs, investors, regulators, and students of financial services. I invite you to share and sign up. If you enjoy this conversation, please consider leaving a review on Apple, Spotify, or Youtube.\nI sat down with Harshil Mathur, Co-Founder and CEO of Razorpay, one of India’s most important fintech and tech companies. Razorpay moves hundreds of billions of dollars in annual payment volume and powers about 85% of the country’s largest tech companies. They are also reportedly preparing for a large IPO on the Indian Stock Exchange.\nHarshil started coding at age 12 and began building Razorpay in 2014, only a year after graduating college. Their early days were not easy, and Harshil and his co-founder, Shashank Kumar, ran into about a hundred bank rejections before a single bank partner said yes. Fast forward to 2026, and the company today is one of India’s most important payments players.\nWe discussed the year of rejections that almost ended the company, the defining night Razorpay chose its smallest customers over its biggest ones, why culture values are really long-term financial metrics, why global payment giants keep failing in India, how UPI rewired a billion people’s relationship with money, and the agentic commerce bet that could expand Indian e-commerce ninefold.\n100 Rejections Before a Single Yes\nHarshil grew up in Jaipur, went to one of India’s prestigious IITs, and took a job at Schlumberger working oil fields in the Middle East. He lasted less than a year. He had been coding since he was twelve and could not enjoy his oil job. All he kept thinking was a side project that would not leave him alone: it was absurdly hard for a small business or a young startup in India to accept a digital payment.\nHis first instinct was the classic engineer’s instinct. How hard could this be? The more time he spent on it, the more he realized the answer was very hard, but at the same time it bothered him that nobody was solving this problem for the businesses who needed it the most. This was 2014 and India already had over a hundred payment companies. But every one of them sold to large enterprises and left aside the two and three-person startups that were beginning to appear across the country.\nBuilding the actual software and product turned out to be the easy part. Harshil and Shashank both loved coding, so they built what they thought the best payment experience in India should look like. But as most readers will know, payments is not a business you can ship quickly out of a garage. You need banks, certifications, approvals, and antifraud tools.\nThroughout the entirety of their first year building Razorpay, the two 23-year-olds with no finance background and no banking pedigree submitted business plans bank after bank and got rejected close to a hundred times. Harshil is actually generous and humble about these days: the bankers were not wrong. He and Shashank understood the technology but did not understand the risk. Every rejection helped them refine their product and this turned out to be a discovery process that led them to a great result.\nThen their luck finally turned. After almost a year of knocking on doors, they met a young banker who actually understood what they were building. Startups were barely a known term in India in 2014, and this guy got it. He gave them an in-principle approval to build on top of his bank’s APIs, and Harshil remembers the day very well because he quit Schlumberger the next morning. Raising money was its own fight, with investors calling payments a commoditized space that already had a hundred players in India. But around that same time Razorpay applied to Y Combinator with zero expectations and got in. YC had barely invested in India back then, and suddenly two kids from Jaipur were in rooms with Paul Graham, Paul Buchheit, and Sam Altman (then President of YC).\nYou Can’t Sell to Startups, So Razorpay Built a Brand Instead\nRazorp",
+      "via": "direct",
+      "question_ids": [
+        "q2"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E31",
+      "kind": "page",
+      "url": "https://razorpay.com/learn/what-is-a-business-model/",
+      "title": "What is a Business Model? Definition, Example And Types - Razorpay Learn",
+      "text": "What is a Business Model?\nA business model is a company’s plan for how it will create value for its customers, deliver that value through its products or services, and capture value in the form of revenue or profit. It defines the key elements that drive the business.\n• Value proposition: The unique value a company offers to its customers\n• Target market: The specific group of customers the company aims to serve\n• Revenue streams: The ways in which the company will generate income\n• Cost structure: The expenses involved in operating the business\n• Key resources: The assets and capabilities required to execute the model\n• Key activities: The most important actions a company must take to operate successfully\n• Key partnerships: The network of suppliers and partners needed to make the business model work\n• Customer relationships: The types of relationships a company establishes with its customers\n• Channels: The means by which a company reaches and delivers value to its customers\nRelated Read: Traditional Business Model: Definition & Examples\nTypes of Business Models\n1. Retailer Model\nCompanies buy products from manufacturers or wholesalers and sell them directly to consumers at a markup.\nExamples: Walmart, Amazon. Success depends on competitive pricing, wide product selection, and efficient inventory management.\n2. Manufacturer Model\nManufacturers produce goods from raw materials and sell them to wholesalers, retailers, or consumers.\nExamples: Apple, Toyota. Success relies on producing high-quality products, innovation, and cost efficiency.\n3. Fee-for-Service Model\nCompanies provide specific services in exchange for a fee.\nExamples: law firms, consulting agencies. Success depends on delivering specialized, high-quality services that meet client needs.\n4. Subscription Model\nCustomers pay a recurring fee to access a product or service.\nExamples: Netflix, Spotify. Success requires continuous value to keep customers subscribed.\n5. Freemium Model\nA basic version of a product is offered for free, with premium features available for a fee.\nExamples: Dropbox, LinkedIn. Success depends on converting free users into paying customers.\n6. Leasing Model\nCustomers pay a recurring fee to use a product for a specific period. Common for expensive equipment or machinery.\nExample: medical devices, construction equipment.\n7. Bundling Model\nMultiple products or services are sold together as a package, often at a discount.\nExamples: telecom bundles (internet, TV, phone). Success lies in increasing customer value and encouraging more purchases.\n8. Marketplace Model\nCompanies connect buyers and sellers on an online platform and earn commissions on transactions.\nExamples: eBay, Airbnb. Success requires attracting a large user base and ensuring seamless transactions.\n9. Affiliate Model\nCompanies partner with affiliates who promote products or services and earn commissions on sales or leads.\nExample: Amazon Associates. Success depends on attractive offers and strong marketing support.\n10. Razor Blade Model\nA core product is sold at a low price, while consumables generate recurring revenue.\nExample: razor handles and blades. Success relies on customer loyalty and consistent consumable sales.\n11. Distribution Model\nCompanies act as intermediaries, purchasing products in bulk and selling them to retailers or end customers.\nExamples: Sysco, Ingram Micro. Success depends on efficient logistics and value-added services.\n12. Reverse Razor Blade Model\nA high-margin product is sold upfront, with lower profits on consumables.\nExample: premium coffee machines and pods. Success lies in attracting customers with quality products and driving repeat purchases.\n13. Franchise Model\nA company allows franchisees to operate under its brand in exchange for fees and royalties.\nExamples: McDonald’s, Subway. Success depends on brand strength and consistent quality across locations.\n14. Pay-As-You-Go Model\nCustomers are charged based on usage of a product or service.\nExamples: ut",
+      "via": "direct",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E32",
+      "kind": "page",
+      "url": "https://www.commonroom.io/research/razorpay/business-model/",
+      "title": "Razorpay business model via RoomieAI™ | Common Room",
+      "text": "Razorpay business model\nPowered by RoomieAI™\nGet a complete view of firmographics, product, competitors, hiring trends, and more to inform a tailored engagement plan.\nRazorpay's revenue model revolves around a fee-based structure where transaction fees, premium subscriptions, and additional financial services form the core of its income. The company leverages a product-led growth strategy that emphasizes a superior user experience and targeted trials for select offerings to drive conversion. This model allows Razorpay to diversify revenue streams while building a robust brand in the competitive payments sector.\n• Revenue Generation: Transaction fees, premium subscriptions, and value-added services.\n• GTM Strategy: Product-led growth with an emphasis on user experience.\n• Key Drivers: Trials, enterprise deals, and strategic partnerships.\nBy continuously optimizing its offerings and operational efficiencies, Razorpay sets itself apart in the digital payments landscape, ensuring sustainable growth and market expansion.\nRazorpay is focusing on bolstering its sales, marketing, and technical teams, with a notable increase in GTM and EPD roles while CXO-level hiring has decreased by 25%. This strategic recruitment supports its ongoing expansion and operational excellence.\nRecent earnings calls revealed a 54% revenue growth alongside flat net profit margins, with discussions centered on operational cost management and future profitability targets. The narrative also covered strategic plans for a domicile shift and associated tax implications for FY25.\nExplore more accounts\nBrowserStack\nInternet Software & Services\nBrowserStack delivers a cloud-based testing platform that enables developers to test applications on a...\nIcertis\nDiversified Capital Markets\nIcertis offers a comprehensive Contract Lifecycle Management platform designed for large enterprises....\nClickup\nInternet Software & Services\nClickUp offers a comprehensive productivity platform that integrates task management, project tracking,...\nSnyk\nSoftware\nSnyk provides a comprehensive developer security platform that integrates vulnerability detection into...\nPendo.io, Inc.\nInternet Software & Services\nPendo.io offers a robust product experience platform designed to deliver in-depth analytics, in-app...\nHugging Face\nData Processing & Outsourced Services\nHugging Face offers an innovative platform that integrates open-source AI models, APIs, and a suite of...",
+      "via": "direct",
+      "question_ids": [
+        "q3"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E33",
+      "kind": "page",
+      "url": "https://multiples.vc/private-comps/razorpay",
+      "title": "Razorpay Revenue, Valuation, Funding & Investors | Multiples",
+      "text": "- Companies\n- Razorpay\nRazorpay Revenue, Valuation, Funding & Investors\nRazorpay is valued at $6.5B as of May 2022, a 40.9x revenue multiple. Razorpay revenue was $159M, as disclosed with its latest round.\nLast Razorpay valuation\n$6.5B\nSecondary · May 2022\nLast Razorpay funding round\n$375M\nSeries F · Dec 2021\nRazorpay revenue\n$159M\nSecondary · May 2022\nKey investors in Razorpay\n- Tiger Global\n- Y Combinator\n- Peak XV Partners\n- Z47\n- GIC\n- Ribbit Capital\nAbout Razorpay\nRazorpay is a Bangalore-headquartered payments gateway enabling Indian businesses to process transactions via UPI, cards, net banking, and wallets like Paytm. Founded in 2014, it supports subscriptions, international payouts, and invoicing for merchants on platforms like Shopify and WooCommerce.\nFounded\n2014\nHQ\nWebsite\nStatus\nPrivately held\nCustomer focus\nB2B\nRevenue model\nCommission\nRevenue\n$159M (May 2022)\nValuation\n$6.5B (May 2022)\nRazorpay Valuation\nRazorpay is currently valued at $6.5B, based on its secondary sale in May 2022.\nThe $75M round was led by Lightspeed Venture Partners, with participation from Salesforce Ventures, Axevil Capital and Moore Strategic Ventures.\nRazorpay's valuation has grown 14x from $450M at its Series C in June 2019 to $6.5B in May 2022, across 5 priced rounds.\nRazorpay valuation by funding round\nRevenue multiple\n| Razorpay valuation by funding round |  |  |  | \n|---|---|---|---|\n| Date | Stage | Valuation | Revenue Multiple | \n|---|---|---|---|\n| May 2022 | Secondary | $6.5B | 40.9x | \n| Dec 2021 | Series F | $7.5B | 18.5x | \n| Apr 2021 | Series E | $3B | 7.4x | \n| Oct 2020 | Series D | $1B | 18.5x | \n| Jun 2019 | Series C | $450M | - | \nRazorpay Revenue\nRazorpay's latest recorded revenue is $159M, as of its secondary sale in May 2022. At a $6.5B valuation, that implies a 40.9x revenue multiple.\nRevenue grew from $54M in October 2020 to $159M in May 2022, while the revenue multiple moved from 18.5x to 40.9x.\nRazorpay revenue by funding round\n| Razorpay revenue and valuation multiple by funding round |  |  |  |  | \n|---|---|---|---|---|\n| Date | Revenue * | Valuation | Revenue Multiple | Stage | \n|---|---|---|---|---|\n| May 2022 | $159M | $6.5B | 40.9x | Secondary | \n| Dec 2021 | $405M | $7.5B | 18.5x | Series F | \n| Apr 2021 | $405M | $3B | 7.4x | Series E | \n| Oct 2020 | $54M | $1B | 18.5x | Series D | \n* Revenue (or ARR) figures are the values recorded alongside each funding round. Typically run-rate revenue at the time of the deal, or a reported LTM (last 12 months) revenue.\nRazorpay Funding History\nRazorpay has raised a total of $742M across 7 funding rounds, plus 1 secondary share sale.\nRazorpay's first fundraising round was a $3M seed round in March 2015. The most recent completed round was a $375M Series F in December 2021.\nRazorpay funding rounds\n| Razorpay funding rounds |  |  |  |  |  | \n|---|---|---|---|---|---|\n| Date | Stage | Investors | Raised | Valuation | Deal Summary | \n|---|---|---|---|---|---|\n| May 2022 | Secondary | Lightspeed Venture Partners (lead); Salesforce Ventures; Axevil Capital; Moore Strategic Ventures | $75M | $6.5B | Razorpay is a Bengaluru-based digital payments firm providing full-stack financial solutions including neo-banking, SME payments, and workflow platforms. In May 2022, Lightspeed Venture Partners and Moore Strategic Ventures invested in a $75 million secondary share sale, alongside participation from Salesforce Ventures, enabling ESOP buyback for 650 employees and divestment by early angel investors. The transaction occurred at a valuation of around $6.5 billion, following a $375 million Series F round in December 2021 at $7.5 billion valuation. Razorpay had previously raised a total of about $740 million across Series A through F rounds from investors including Lone Pine Capital, Alkeon Capital, TCV, GIC, Tiger Global, Sequoia Capital India (now Peak XV Partners), Ribbit Capital, Matrix Partners, Salesforce Ventures, Y Combinator, and Mastercard. The company processed $60 billion in ",
+      "via": "direct",
+      "question_ids": [
+        "q4"
+      ],
+      "round": 1
+    },
+    {
+      "id": "E34",
+      "kind": "snippet",
+      "url": "https://decentro.tech/blog/razorpay-alternatives/",
+      "title": "Top 10 Razorpay Alternatives in 2026 | Compared",
+      "text": "Jun 17, 2026 — Top 10 Razorpay Alternatives in 2026 | Compared · Decentro · Cashfree Payments · PayU India · CCAvenue · BillDesk · Paytm Payment Gateway · Juspay ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 2
+    },
+    {
+      "id": "E35",
+      "kind": "snippet",
+      "url": "https://www.6sense.com/tech/banking/razorpay-market-share",
+      "title": "Razorpay - Market Share, Competitor Insights in Banking",
+      "text": "The top three of Razorpay's competitors in the Banking category are Oracle Financial Services with 9.51%, Temenos with 5.13%, NCR with 4.90% market share.Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 2
+    },
+    {
+      "id": "E36",
+      "kind": "snippet",
+      "url": "https://www.xflowpay.com/blog/razorpay-alternatives",
+      "title": "9 Best Razorpay Alternatives for Indian Exporters 2026",
+      "text": "Sep 23, 2026 — The best Razorpay alternatives for receiving international payments into India are 1. Xflow, 2. Skydo, 3. Cashfree, 4. BriskPe, 5. Infinity, 6. ...",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q6"
+      ],
+      "round": 2
+    },
+    {
+      "id": "E37",
+      "kind": "snippet",
+      "url": "https://razorpay.com/newsroom/press/",
+      "title": "Press Releases - Razorpay Latest Information & News",
+      "text": "Razorpay Launches Vulcan, India's First AI Payments Foundation Model, Fueled by NVIDIA and AWS – Trained on 4Bn Transactions ... A single AI system trained on ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 2
+    },
+    {
+      "id": "E38",
+      "kind": "snippet",
+      "url": "https://tracxn.com/d/acquisitions/acquisitions-by-razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI",
+      "title": "List of 7 Acquisitions by Razorpay (Sep 2026)",
+      "text": "Sep 1, 2026 — Razorpay has made a total of 7 acquisitions. These took place across 10 sectors, including Payments, Cybersecurity, and HRTech, ...Read more",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 2
+    },
+    {
+      "id": "E39",
+      "kind": "snippet",
+      "url": "https://razorpay.com/sprint/26",
+      "title": "Razorpay Sprint 2026: The Age of AI-Native Payments",
+      "text": "Razorpay Sprint 2026 Unveils 100+ Launches, From AI-native Payment Upgrades to Agentic Business Banking. The Agentic Era Begins Today.",
+      "via": "crustdata-web",
+      "question_ids": [
+        "q7"
+      ],
+      "round": 2
+    }
+  ],
+  "searched": [
+    "Razorpay founding year headquarters location",
+    "Razorpay founders CEO current leadership",
+    "Razorpay products services business model revenue model",
+    "Razorpay funding rounds total raised valuation investors",
+    "Razorpay revenue FY24 FY25 profitability TPV",
+    "Razorpay RBI regulatory issues payment aggregator license",
+    "Razorpay competitors market share India payment gateway",
+    "Razorpay news 2025 2026",
+    "Razorpay market share comparison competitors India 2025 2026",
+    "Razorpay acquisitions product launches corporate developments 2025 2026"
+  ],
+  "fetched": [
+    "https://razorpay.com/about/",
+    "https://tracxn.com/d/companies/razorpay/__ARWa67NVJPe3TC11rYSBnp-0zVHbDAze4xZvzRsZzAI/funding-and-investors",
+    "https://www.ycombinator.com/companies/razorpay",
+    "https://razorpay.com/newsroom/leadership-team/",
+    "https://fintechleaders.substack.com/p/harshil-mathur-razorpay-ceo-building",
+    "https://razorpay.com/learn/what-is-a-business-model/",
+    "https://www.commonroom.io/research/razorpay/business-model/",
+    "https://multiples.vc/private-comps/razorpay"
+  ],
+  "claims": [
+    {
+      "question_id": "q1",
+      "field": "founded_year",
+      "statement": "Razorpay was founded in 2014.",
+      "value": "2014",
+      "evidence_id": "E1",
+      "quote": "Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar.",
+      "id": "C1",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states that Razorpay was started in 2014."
+    },
+    {
+      "question_id": "q1",
+      "field": "hq_city",
+      "statement": "Razorpay's headquarters is located in Bengaluru, Karnataka, India.",
+      "value": "Bengaluru",
+      "evidence_id": "E2",
+      "quote": "Razorpay has 2700 employees based in Bengaluru.",
+      "id": "C2",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "partial",
+      "reason": "The source text states that Razorpay has employees based in Bengaluru, but it does not explicitly state that Bengaluru is its headquarters."
+    },
+    {
+      "question_id": "q1",
+      "field": "hq_country",
+      "statement": "Razorpay's headquarters is located in India.",
+      "value": "India",
+      "evidence_id": "E1",
+      "quote": "Headquarters: Adugodi, Karnataka, India",
+      "id": "C3",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text lists the headquarters as Adugodi, Karnataka, India."
+    },
+    {
+      "question_id": "q2",
+      "field": "founders",
+      "statement": "Razorpay was founded by Harshil Mathur and Shashank Kumar.",
+      "value": "Harshil Mathur, Shashank Kumar",
+      "evidence_id": "E1",
+      "quote": "Razorpay was started in 2014 by two IIT Roorkee alumni, Harshil Mathur and Shashank Kumar.",
+      "id": "C4",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states that Razorpay was started by Harshil Mathur and Shashank Kumar."
+    },
+    {
+      "question_id": "q2",
+      "field": "ceo",
+      "statement": "The current CEO of Razorpay is Harshil Mathur.",
+      "value": "Harshil Mathur",
+      "evidence_id": "E1",
+      "quote": "Harshil Mathur, CEO & Co-Founder at Razorpay",
+      "id": "C5",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text lists Harshil Mathur as CEO & Co-Founder at Razorpay."
+    },
+    {
+      "question_id": "q3",
+      "field": "business_model",
+      "statement": "Razorpay's revenue model revolves around a fee-based structure including transaction fees, premium subscriptions, and additional financial services.",
+      "value": "Fee-based structure (transaction fees, subscriptions, and financial services)",
+      "evidence_id": "E9",
+      "quote": "Razorpay's revenue model revolves around a fee-based structure where transaction fees, premium subscriptions, and additional financial services form the core of its income.",
+      "id": "C6",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 96.9,
+      "support": "supported",
+      "reason": "The source text states that Razorpay's revenue model revolves around a fee-based structure where transaction fees, premium subscriptions, and additional financial services form the core of its income."
+    },
+    {
+      "question_id": "q4",
+      "field": "total_funding_usd",
+      "statement": "Razorpay has raised a total funding of approximately $816.6 million.",
+      "value": "816600000",
+      "evidence_id": "E1",
+      "quote": "Total funding raised: 816,600,000 USD",
+      "id": "C7",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text states the total funding raised is 816,600,000 USD."
+    },
+    {
+      "question_id": "q5",
+      "field": "headcount",
+      "statement": "Razorpay has a headcount of over 4,000 employees.",
+      "value": "4042",
+      "evidence_id": "E1",
+      "quote": "Employee count: 4042",
+      "id": "C8",
+      "round": 1,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text lists the employee count as 4042, which is over 4,000."
+    },
+    {
+      "question_id": "q6",
+      "field": null,
+      "statement": "Primary competitors of Razorpay include Cashfree Payments, PayU India, CCAvenue, BillDesk, Paytm Payment Gateway, and Juspay.",
+      "value": null,
+      "evidence_id": "E34",
+      "quote": "Decentro · Cashfree Payments · PayU India · CCAvenue · BillDesk · Paytm Payment Gateway · Juspay",
+      "id": "C9",
+      "round": 2,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source lists these exact entities as Razorpay alternatives/competitors."
+    },
+    {
+      "question_id": "q7",
+      "field": null,
+      "statement": "Razorpay launched Vulcan, India's First AI Payments Foundation Model, trained on 4 billion transactions.",
+      "value": null,
+      "evidence_id": "E37",
+      "quote": "Razorpay Launches Vulcan, India's First AI Payments Foundation Model, Fueled by NVIDIA and AWS – Trained on 4Bn Transactions",
+      "id": "C10",
+      "round": 2,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The quote and source text explicitly state that Razorpay launched Vulcan, India's First AI Payments Foundation Model, trained on 4 billion transactions."
+    },
+    {
+      "question_id": "q7",
+      "field": null,
+      "statement": "Razorpay has made a total of 7 acquisitions across sectors including Payments, Cybersecurity, and HRTech.",
+      "value": null,
+      "evidence_id": "E38",
+      "quote": "Razorpay has made a total of 7 acquisitions. These took place across 10 sectors, including Payments, Cybersecurity, and HRTech",
+      "id": "C11",
+      "round": 2,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source states that Razorpay has made a total of 7 acquisitions across sectors including Payments, Cybersecurity, and HRTech."
+    },
+    {
+      "question_id": "q7",
+      "field": null,
+      "statement": "At Razorpay Sprint 2026, the company unveiled over 100 launches ranging from AI-native payment upgrades to agentic business banking.",
+      "value": null,
+      "evidence_id": "E39",
+      "quote": "Razorpay Sprint 2026 Unveils 100+ Launches, From AI-native Payment Upgrades to Agentic Business Banking.",
+      "id": "C12",
+      "round": 2,
+      "quote_found": true,
+      "quote_score": 100.0,
+      "support": "supported",
+      "reason": "The source text confirms that at Razorpay Sprint 2026, the company unveiled over 100 launches ranging from AI-native payment upgrades to agentic business banking."
+    }
+  ],
+  "conflicts": [],
+  "memo": {
+    "recommendation": "Strong interest given Razorpay's massive scale, $816.6 million in funding, and expansion into AI payments, though regulatory standing and IPO readiness warrant deeper review.",
+    "confidence": "medium",
+    "memo_markdown": "## Summary\nRazorpay is an India-based financial technology company founded in 2014 by Harshil Mathur and Shashank Kumar [C1][C3][C4]. The company has raised approximately $816.6 million in total funding and employs over 4,000 people [C7][C8].\n\n## Product & business model\nRazorpay generates revenue through a fee-based structure consisting of transaction fees, premium subscriptions, and additional financial services [C6]. The company introduced Vulcan, India's first AI payments foundation model trained on 4 billion transactions [C10]. Additionally, at Razorpay Sprint 2026, the company unveiled more than 100 product launches spanning AI-native payment improvements and agentic business banking [C12].\n\n## Team\nThe company was founded by Harshil Mathur and Shashank Kumar [C4]. Harshil Mathur serves as the current CEO [C5]. The organization maintains a headcount exceeding 4,000 staff members [C8].\n\n## Funding & traction\nRazorpay has accumulated approximately $816.6 million in total capital raised [C7]. The firm has also demonstrated aggressive M&A traction, completing 7 acquisitions across the payments, cybersecurity, and HRTech sectors [C11].\n\n## Market & competition\nRazorpay's key competitors in the digital payments landscape include Cashfree Payments, PayU India, CCAvenue, BillDesk, Paytm Payment Gateway, and Juspay [C9].\n\n## Risks & red flags\nThe company operates in a highly contested market against several established domestic payment processors and gateways [C9].\n\n## Open questions\n- Are there any regulatory challenges, RBI compliance actions, or major controversies associated with Razorpay?\n- What is the status of Razorpay's reverse-flip to India and timeline for a public listing (IPO)?",
+    "fact_sheet": {
+      "founded_year": 2014,
+      "hq_city": "Bengaluru",
+      "hq_country": "India",
+      "founders": [
+        "Harshil Mathur",
+        "Shashank Kumar"
+      ],
+      "ceo": "Harshil Mathur",
+      "total_funding_usd": "$816.6 million",
+      "last_round": null,
+      "headcount": "over 4,000",
+      "business_model": "Fee-based structure including transaction fees, premium subscriptions, and additional financial services"
+    }
+  },
+  "invalid_citations": [],
+  "metrics": {
+    "claims": 12,
+    "grounded_rate": 1.0,
+    "supported_rate": 0.917,
+    "usable_rate": 1.0,
+    "unsupported": 0,
+    "coverage": 0.778,
+    "must_coverage": 0.833,
+    "conflicts": 0,
+    "memo_citations": 11,
+    "invalid_citations": 0,
+    "evidence_pages": 8,
+    "crustdata_record": true,
+    "rounds": 2,
+    "recoveries": 3,
+    "injected_faults": 0,
+    "failures": 0,
+    "duration_s": 302.2
+  },
+  "usage": {
+    "llm_calls": 8,
+    "input_tokens": 17607,
+    "output_tokens": 3995,
+    "llm_usd": 0.01286,
+    "by_model": {
+      "gemini:gemini-3.8-flash": {
+        "calls": 2,
+        "in": 1009,
+        "out": 1479,
+        "usd": 0.0049415
+      },
+      "gemini:gemini-3.5-flash-lite": {
+        "calls": 6,
+        "in": 16598,
+        "out": 2516,
+        "usd": 0.0079235
+      }
+    },
+    "crust_calls": 11,
+    "crust_credits": 18.0,
+    "cache_hits": 1,
+    "fallback_calls": 0
+  },
+  "trace_ids": [],
+  "error": null,
+  "started_at": 1791619924.6274333,
+  "finished_at": 1791620226.7848723
+}

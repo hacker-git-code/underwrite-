@@ -1,0 +1,21 @@
+{"t": 1791619758.378071, "kind": "plan", "msg": "8 questions, 16 queries for Razorpay"}
+{"t": 1791619769.8985066, "kind": "recover", "msg": "crustdata /company/enrich: network error: ConnectError -> retry 1/3 in 2.0s", "what": "crustdata /company/enrich"}
+{"t": 1791619776.1257484, "kind": "recover", "msg": "crustdata /company/enrich: succeeded on attempt 2", "what": "crustdata /company/enrich", "recovered": true}
+{"t": 1791619776.5951107, "kind": "crust", "msg": "company record: 52 fields"}
+{"t": 1791619781.9060633, "kind": "web", "msg": "search (crustdata-web) 'Razorpay products business model revenue streams' -> 8 results"}
+{"t": 1791619786.9395502, "kind": "web", "msg": "search (crustdata-web) 'site:razorpay.com about products payment gateway neobanking' -> 10 results"}
+{"t": 1791619792.768409, "kind": "web", "msg": "search (crustdata-web) 'Razorpay founding year headquarters location Bengaluru' -> 9 results"}
+{"t": 1791619798.0416248, "kind": "web", "msg": "search (crustdata-web) 'Razorpay US India reverse flip corporate structure' -> 9 results"}
+{"t": 1791619803.1355665, "kind": "web", "msg": "search (crustdata-web) 'Razorpay founders Harshil Mathur Shashank Kumar current roles' -> 7 results"}
+{"t": 1791619812.332542, "kind": "web", "msg": "search (crustdata-web) 'Razorpay executive leadership team CEO' -> 8 results"}
+{"t": 1791619817.7763877, "kind": "web", "msg": "search (crustdata-web) 'Razorpay funding rounds valuation cap table investors' -> 9 results"}
+{"t": 1791619823.2025826, "kind": "web", "msg": "search (crustdata-web) 'Razorpay Series F funding investors Y Combinator Sequoia' -> 9 results"}
+{"t": 1791619837.6856973, "kind": "crust", "msg": "fetched 8/8 pages via Crustdata"}
+{"t": 1791619837.8697815, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791619840.9412403, "kind": "extract", "msg": "8 claims from 33 evidence blocks"}
+{"t": 1791619840.9677846, "kind": "verify", "msg": "grounding: 8/8 quotes found in their cited source"}
+{"t": 1791619842.7996063, "kind": "verify", "msg": "judge: 7 supported, 1 partial, 0 rejected of 8"}
+{"t": 1791619866.9017968, "kind": "recover", "msg": "writer: invalid JSON from gemini:gemini-3.8-flash (2 validation errors for MemoOut\nfact_sheet.founded_year.str\n  Input should be a ); repairing", "prompt": "writer"}
+{"t": 1791619868.8274734, "kind": "recover", "msg": "writer: JSON repaired", "prompt": "writer", "recovered": true}
+{"t": 1791619868.8274734, "kind": "memo", "msg": "memo written: 8 distinct verified claims cited, recommendation: Dig deeper given Razorpay's substantial funding base and scaled operations, while verifyin"}
+{"t": 1791619868.9989364, "kind": "memo", "msg": "done in 173.2s \u00b7 8 claims \u00b7 88% supported \u00b7 0 conflicts \u00b7 $0.012 LLM \u00b7 18 Crustdata credits \u00b7 4 recoveries"}
