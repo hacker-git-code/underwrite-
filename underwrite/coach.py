@@ -31,8 +31,30 @@ ALIASES = {
     "workflow_name": ["workflow_name"],
 }
 
+AGENT = """\
+Underwrite (agent mode) researches one company per run:
+- planner (smart model): company -> 8-10 research questions with web search queries. Vars: company, domain, today.
+- analyst (agent model, tool-calling loop): the system prompt is its whole operating manual. Tools: company_profile
+  (Crustdata record), web_search (results become snippet evidence [E#]), read_page (full page text becomes evidence),
+  record_claim (checked immediately: the quote must occur in the cited evidence, else REJECTED and the agent must fix
+  it), update_question (answered needs an accepted claim), add_question, finish (refused while priority-1 questions
+  are open and budget remains). A [status] line after each action shows remaining steps/searches/page reads. Old page
+  text is removed from context, so facts must be recorded right after reading. Vars: company, domain, fields,
+  questions, max_steps, max_searches, max_reads.
+- verifier prompt (fast model): independent judge, supported/partial/unsupported from the source text around each
+  quote. Vars: company, items.
+- skeptic (smart model): reviews questions, verified claims, rejections and conflicts; returns "ready" or up to 4
+  objections, which send the analyst back for one more round. Vars: company, questions, claims, rejected, conflicts.
+- writer (smart model): verified claims -> cited memo + fact sheet (scored against ground truth).
+  Vars: company, domain, claims, conflicts, gaps, fields.
+Every prompt file is '<system>\\n---USER---\\n<user template>' with {{var}} placeholders. Outputs except the
+analyst's tool calls must be JSON.
+"""
+AGENT_PROMPTS = {"planner", "analyst", "verifier", "skeptic", "writer"}
+PIPELINE_PROMPTS = {"planner", "replanner", "extractor", "verifier", "writer"}
+
 PIPELINE = """\
-Underwrite researches one company per run:
+Underwrite (pipeline mode) researches one company per run:
 - planner (smart model): company -> 8-10 research questions with web search queries. Vars: company, domain, today.
 - researcher (code, no prompt): Crustdata company record + web search + page fetch within a budget.
 - extractor (fast model): evidence blocks -> atomic claims {question_id, field, statement, value, evidence_id, quote}.
@@ -128,6 +150,7 @@ def local_failures(eval_path: Path) -> tuple[dict, list[str]]:
     data = json.loads(eval_path.read_text(encoding="utf-8"))
     rows = [r for r in data["rows"] if r["split"] == "train"]
     wrong, rejected, gaps, recoveries = [], [], [], {}
+    behaviour: list[str] = []  # agent mode: how the analyst used its tools and budget, and what the skeptic said
     worst: list[tuple[float, str]] = []
     for r in rows:
         for field, f in r["facts"].items():
@@ -150,6 +173,17 @@ def local_failures(eval_path: Path) -> tuple[dict, list[str]]:
                     if e["kind"] in ("recover", "fail"):
                         k = re.sub(r"\d+", "N", e["msg"])[:90]
                         recoveries[k] = recoveries.get(k, 0) + 1
+            if st.mode == "agent":
+                srcs = {e.id: e.kind for e in st.evidence}
+                from_snippets = sum(1 for c in st.claims if srcs.get(c.evidence_id) == "snippet")
+                unans = [f"{q}: {s.get('note', '')[:80]}" for q, s in st.question_status.items()
+                         if s.get("status") == "unanswerable"]
+                behaviour.append(
+                    f"{r['company']}: {st.agent_steps} steps, tools {st.tool_counts}, {len(st.claims)} claims "
+                    f"({from_snippets} cited from search snippets, not full pages), {st.rejected_in_loop} rejected "
+                    f"in-loop / {st.claim_attempts} attempts, {st.self_corrections} self-corrections, "
+                    f"marked unanswerable: {unans or 'none'}; skeptic objections: "
+                    + "; ".join(o.issue[:120] for rv in st.reviews for o in rv.objections)[:600])
         m = r.get("metrics") or {}
         worst.append((m.get("supported_rate", 0) + m.get("coverage", 0), (r.get("trace_ids") or [""])[0]))
     trace_ids = [t for _, t in sorted(worst) if t]
@@ -159,6 +193,7 @@ def local_failures(eval_path: Path) -> tuple[dict, list[str]]:
         "rejected_claims": rejected,
         "unanswered_questions": gaps,
         "recoveries": dict(sorted(recoveries.items(), key=lambda x: -x[1])[:15]),
+        "agent_behaviour": behaviour,
     }, trace_ids
 
 
@@ -176,10 +211,11 @@ def next_version() -> str:
 
 @neatlogs.span(kind="AGENT", name="coach", role="agent engineer", goal="improve the agent's prompts from its traces")
 def coach(base: str, run_eval: bool = True, split: str = "all") -> dict:
-    eval_path = evals.latest_eval(base)
+    mode = settings.mode
+    eval_path = evals.latest_eval(base, mode)
     if eval_path is None:
-        emit("coach", f"no eval found for {base}; running one first")
-        eval_path = evals.run_eval(base, split)
+        emit("coach", f"no {mode} eval found for {base}; running one first")
+        eval_path = evals.run_eval(base, split, mode=mode)
     emit("coach", f"baseline: {eval_path.parent.name}")
 
     failures, worst_traces = local_failures(eval_path)
@@ -188,10 +224,11 @@ def coach(base: str, run_eval: bool = True, split: str = "all") -> dict:
     from_neatlogs = ask_neatlogs(worst_traces)
 
     base_dir = settings.prompts_dir / base
-    current = {p.stem: p.read_text(encoding="utf-8") for p in sorted(base_dir.glob("*.md")) if p.stem in prompts.NAMES}
+    used = AGENT_PROMPTS if mode == "agent" else PIPELINE_PROMPTS
+    current = {p.stem: p.read_text(encoding="utf-8") for p in sorted(base_dir.glob("*.md")) if p.stem in used}
     files_text = "\n\n".join(f"=== {name}.md ===\n{text}" for name, text in current.items())
 
-    out = _propose(files_text, failures, from_neatlogs)
+    out = _propose(AGENT if mode == "agent" else PIPELINE, files_text, failures, from_neatlogs)
 
     accepted_files: dict[str, str] = {}
     for name, text in out.files.items():
@@ -227,7 +264,7 @@ def coach(base: str, run_eval: bool = True, split: str = "all") -> dict:
         "decision": "pending-eval",
     }
     if run_eval:
-        new_eval = evals.run_eval(new, split)
+        new_eval = evals.run_eval(new, split, mode=mode)
         report["new_eval"] = str(new_eval.relative_to(settings.runs_dir))
         report["train"] = evals.compare(eval_path, new_eval, "train")
         report["test"] = evals.compare(eval_path, new_eval, "test")
@@ -248,7 +285,7 @@ def decide(train: dict) -> str:
     return "accepted" if quality > 0 and cost_ok else "rejected"
 
 
-def _propose(files_text: str, failures: dict, neat: dict) -> CoachOut:
+def _propose(design: str, files_text: str, failures: dict, neat: dict) -> CoachOut:
     system = (
         "You are an expert AI agent engineer. You improve a due-diligence research agent by rewriting its prompt "
         "files. Base every change on the evidence given (eval failures and neatlogs traces/detections/triage) and "
@@ -258,7 +295,7 @@ def _propose(files_text: str, failures: dict, neat: dict) -> CoachOut:
     )
     neat_text = "\n\n".join(f"--- {k} ---\n{v}" for k, v in neat.items()) or "(neatlogs MCP was not reachable)"
     user = (
-        f"{PIPELINE}\n\nCURRENT PROMPT FILES:\n{files_text}\n\n"
+        f"{design}\n\nCURRENT PROMPT FILES:\n{files_text}\n\n"
         f"EVAL FAILURES (train split):\n{json.dumps(failures, indent=2)[:30000]}\n\n"
         f"NEATLOGS (via MCP):\n{neat_text[:30000]}\n\n"
         'Return JSON: {"diagnosis": ["root cause 1", ...], "changes": [{"prompt": "extractor", "why": "...", '

@@ -11,6 +11,8 @@ uv sync --quiet
 
 # 3 new companies a night keeps Crustdata use around 60 credits/night.
 uv run underwrite batch deploy/watchlist.txt --new-only --limit "${UW_NIGHTLY_LIMIT:-3}"
+# Re-check what we already covered: refresh the record, scan news since the memo, re-investigate only real changes.
+uv run underwrite watch --limit "${UW_WATCH_LIMIT:-5}"
 uv run underwrite site
 
 git add docs runs

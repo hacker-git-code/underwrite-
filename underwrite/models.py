@@ -131,6 +131,8 @@ class CompanyState(BaseModel):
     self_corrections: int = 0
     reviews: list[Review] = Field(default_factory=list)
     active_s: float = 0.0  # time actually spent working (excludes time the process was not running)
+    # set on watch runs: {"since": ts, "previous_run": id, "changes": [...], "headlines": [...]}
+    watch: dict = Field(default_factory=dict)
     plan: Plan | None = None
     evidence: list[Evidence] = Field(default_factory=list)
     searched: list[str] = Field(default_factory=list)

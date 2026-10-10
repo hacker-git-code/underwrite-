@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ramp · Underwrite memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"><style>
+:root{--desk:#d9d4c7;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--rule:#6b6760;--faint:#cfc8b6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--desk:#24221f}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--type)}
+body{font:15px/1.5 "Courier Prime","Courier New",monospace;padding:72px 16px 48px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;padding:10px 16px;background:rgba(30,28,25,.88);backdrop-filter:blur(6px);font:13px system-ui,sans-serif;color:#eee}
+.toolbar b{margin-right:auto;letter-spacing:.08em}
+.toolbar a,.toolbar button{font:inherit;color:#1e1c19;background:#f3eddc;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.toolbar a:hover,.toolbar button:hover{background:#fff}
+.sheet{position:relative;width:min(816px,100%);min-height:1056px;margin:0 auto 36px;padding:56px 60px 64px;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 18% 8%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(ellipse at 90% 100%,rgba(160,130,70,.10),transparent 60%);
+  box-shadow:0 1px 2px rgba(0,0,0,.15),0 12px 28px rgba(0,0,0,.18)}
+.sheet:nth-of-type(odd){transform:rotate(-.25deg)} .sheet:nth-of-type(even){transform:rotate(.3deg)}
+.hand{font-family:Caveat,"Segoe Print","Bradley Hand",cursive;color:var(--ink);font-weight:500;font-size:23px;line-height:1.15;
+  text-transform:uppercase;letter-spacing:.02em}
+.red{color:var(--red)}
+.typed{font-family:"Special Elite","Courier Prime",monospace}
+.title{text-align:center;font-size:15px;letter-spacing:.06em;margin:0 0 30px;text-decoration:underline;text-underline-offset:4px}
+.cc{position:absolute;top:26px;right:48px;transform:rotate(-8deg);font-size:21px;text-align:center;line-height:1}
+.row{display:flex;align-items:flex-end;gap:10px;margin:0 0 13px;flex-wrap:wrap}
+.lbl{font-family:"Special Elite",monospace;font-size:14px;white-space:nowrap}
+.line{flex:1 1 180px;min-width:140px;border-bottom:1px solid var(--rule);padding:0 6px 1px;min-height:30px}
+.line.short{flex:0 1 150px;min-width:110px}
+.sec{margin-top:20px;border-top:3px double var(--rule)}
+.sec>.lbl{display:inline-block;margin-top:3px;text-decoration:underline;text-underline-offset:3px}
+.ruled{padding:4px 8px 0 28px;min-height:62px;background-position:0 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,var(--faint) 29px,var(--faint) 30px);
+  line-height:30px}
+.ruled .hand{line-height:30px}
+table.ops{border-collapse:collapse;margin:8px 0 0 28px;width:calc(100% - 28px)}
+.ops td{padding:2px 6px 2px 0;vertical-align:bottom}
+.ops td:first-child{font-family:"Special Elite",monospace;font-size:14px;width:36%;padding-left:20px}
+.ops td:last-child{border-bottom:1px solid var(--rule)}
+a.cite{display:inline-block;min-width:19px;height:19px;padding:0 4px;margin:0 1px;border:1.6px solid var(--red);border-radius:50%;
+  font:700 12px/16px Caveat,cursive;color:var(--red);text-align:center;text-decoration:none;vertical-align:super;transform:rotate(-6deg)}
+.stamp-row{text-align:right;margin:14px 8px 0}
+.stamp{display:inline-block;transform:rotate(-7deg);border:3px solid var(--red);border-radius:6px;padding:6px 14px;
+  color:var(--red);font:700 17px/1.15 "Special Elite",monospace;text-align:center;letter-spacing:.12em;opacity:.78;mix-blend-mode:multiply;
+  box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--red)}
+.stamp small{display:block;font-size:11px;letter-spacing:.08em}
+.margin-note{border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:6px 0 0 28px;font-size:21px}
+.circled{display:inline-block;border:2px solid var(--ink);border-radius:50%;padding:0 12px;transform:rotate(-3deg)}
+.footer{position:absolute;left:60px;right:60px;bottom:26px;font-size:11px;color:#77736a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.memo h1{font:400 26px "Special Elite",monospace;letter-spacing:.3em;margin:0 0 18px}
+.memo .hdr{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;margin-bottom:12px}
+.memo .hdr b{font-weight:700}
+.memo hr{border:0;border-top:2px solid var(--type);margin:14px 0 18px}
+.memo h2{font:700 15px "Courier Prime",monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 6px}
+.memo p,.memo li{margin:0 0 9px;text-align:left}
+.memo ul{padding-left:22px;margin:0 0 10px}
+.sig{margin-top:30px;font-size:30px}
+.appendix ol{padding-left:24px}.appendix li{margin-bottom:12px;word-break:break-word}
+.appendix .src{font-weight:700;color:var(--ink)}.appendix .via{font-size:12px;color:#6d685e}
+.appendix .claims{list-style:none;padding-left:4px;margin:4px 0 0;font-size:13.5px}
+.appendix .claims li{margin:2px 0}
+.ok{color:#1d6b3a;font-weight:700}.part{color:#9a5b00;font-weight:700}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:#5d5a52}
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 18px;margin:8px 0 16px}
+.log div{border-bottom:1px dotted var(--rule)}
+@media (max-width:640px){body{padding:64px 8px 24px}.sheet{padding:40px 22px 64px;min-height:0}.cc{right:16px;top:12px}
+  .footer{left:22px;right:22px}.hand{font-size:21px}.toolbar b{display:none}}
+@media print{@page{size:letter;margin:0}
+  html,body{background:none;padding:0}.toolbar{display:none}
+  .sheet{transform:none!important;box-shadow:none;margin:0;background-image:none;width:8.5in;min-height:11in;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script><script>
+function savePng(){
+  const el=document.getElementById('page1'); const btn=document.getElementById('pngbtn'); btn.textContent='Rendering…';
+  htmlToImage.toPng(el,{pixelRatio:2,backgroundColor:'#fbf7ec',style:{transform:'none',margin:'0'}}).then(url=>{
+    const a=document.createElement('a'); a.href=url; a.download=document.body.dataset.slug+'-evaluation-form.png'; a.click();
+    btn.textContent='Download page 1 (PNG)';
+  }).catch(()=>{btn.textContent='PNG failed: use PDF'});
+}
+</script></head>
+<body data-slug="ramp">
+<div class="toolbar"><b>UNDERWRITE · Ramp</b>
+  <a href="memo.pdf" download id="pdfbtn">Download PDF</a>
+  <button id="pngbtn" onclick="savePng()">Download page 1 (PNG)</button>
+  <button onclick="window.print()">Print</button></div>
+
+<article class="sheet form" id="page1">
+  <div class="cc hand red">cc: IC<br>10/10/26</div>
+  <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  
+  <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">Ramp</span>
+    <span class="lbl">Date Rec'd</span><span class="line short hand">10/10/26</span></div>
+  <div class="row"><span class="lbl">Address</span><span class="line hand">New York, United States<a class="cite" href="#src1" title="Ramp&#x27;s headquarters is in New York, New York, United States.  —  “Headquarters: New York, New York, United States”">1</a></span>
+    <span class="lbl">Website</span><span class="line short hand" style="text-transform:none">ramp.com</span></div>
+  <div class="row"><span class="lbl">Introduced By</span><span class="line hand">Underwrite agent</span>
+    <span class="lbl">Founded</span><span class="line short hand">2019<a class="cite" href="#src1" title="Ramp was founded in 2019.  —  “Year founded: 2019”">1</a></span></div>
+  <div class="sec"><span class="lbl">BUSINESS:</span><div class="ruled"><span class="hand">Ramp offers an integrated spend‑management platform that combines corporate cards, travel booking, expense management and accounts‑payable capabilities.</span><a class="cite" href="#src5" title="Ramp offers products combining corporate cards, travel, expense management, and accounts payable.  —  “Combine global corporate cards, travel, expenses and accounts payable to automate...”">5</a></div></div>
+  <div class="sec"><span class="lbl">FINANCING TO DATE:</span><div class="ruled"><span class="hand">$3.22 billion<a class="cite" href="#src4" title="Ramp has raised over $3.22 billion across multiple funding rounds.  —  “Ramp has raised a total of $3.22B over 15 funding rounds”">4</a></span>
+    <span class="hand"> · last round: $1.85 billion (Oct 2026)</span></div></div>
+  <div class="sec"><span class="lbl">MARKET:</span><div class="ruled"><span class="hand">Ramp operates in the corporate spend‑management space, competing with firms such as Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express and Corpay.</span><a class="cite" href="#src6" title="Ramp&#x27;s main competitors include Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express, and Corpay.  —  “The credible Ramp alternatives in 2026 are Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express, and Corpay.”">6</a></div></div>
+  <div class="sec"><span class="lbl">OPERATING STATISTICS:</span> <span class="lbl">(as of 10/26)</span>
+    <table class="ops"><tr><td>Employees</td><td><span class="hand">—</span></td></tr><tr><td>Funding raised</td><td><span class="hand">$3.22 billion<a class="cite" href="#src4" title="Ramp has raised over $3.22 billion across multiple funding rounds.  —  “Ramp has raised a total of $3.22B over 15 funding rounds”">4</a></span></td></tr><tr><td>Last round</td><td><span class="hand">$1.85 billion (Oct 2026)</span></td></tr><tr><td>Founded</td><td><span class="hand">2019<a class="cite" href="#src1" title="Ramp was founded in 2019.  —  “Year founded: 2019”">1</a></span></td></tr></table></div>
+  <div class="sec"><span class="lbl">MANAGEMENT:</span><div class="ruled"><span class="hand">Eric Glyman and Karim Atiyeh (Co‑CEOs) — CEO</span><a class="cite" href="#src2" title="Eric Glyman and Karim Atiyeh serve as Co-CEOs of Ramp.  —  “promoted Chief Technology Officer Karim Atiyeh to serve as co-CEO alongside Eric Glyman”">2</a><br><span class="hand">Founders: Eric Glyman, Karim Atiyeh, Gene Lee</span><a class="cite" href="#src3" title="Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee.  —  “Ramp was founded in March 2019 by Eric Glyman, Karim Atiyeh, and Gene Lee.”">3</a></div></div>
+  <div class="sec"><span class="lbl">COMMENTS:</span><div class="ruled"><span class="hand">Ramp was founded in 2019 and is headquartered in New York, United States. The company is led by co‑CEOs Eric Glyman and Karim Atiyeh.</span><a class="cite" href="#src1" title="Ramp was founded in 2019.  —  “Year founded: 2019”">1</a><a class="cite" href="#src2" title="Eric Glyman and Karim Atiyeh serve as Co-CEOs of Ramp.  —  “promoted Chief Technology Officer Karim Atiyeh to serve as co-CEO alongside Eric Glyman”">2</a></div></div>
+  <div class="sec"><span class="lbl">RISKS:</span><div class="ruled"><span class="hand">In May 2025 a U.S. Congressman launched an investigation into Ramp’s bid for a $25 million federal contract, citing concerns about the company’s experience and investor connections.</span><a class="cite" href="#src7" title="In May 2025, a Congressman investigated Ramp over its attempt to win a $25 million federal contract due to concerns over lack of experience and investor ties.  —  “Among Connolly&#x27;s biggest concerns are that Ramp allegedly has “zero federal contracting experience” and its investors include a number of Trump”">7</a></div></div>
+  <div class="sec"></div>
+  <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">dig deeper – impressive growth and funding but recent congressional investigation warrants closer review</span></div>
+  <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">Dig deeper</span></span>
+    <span class="lbl">CONFIDENCE</span><span class="line short hand">medium</span></div>
+  <div class="stamp-row"><div class="stamp" style="margin-right:14px;transform:rotate(4deg)">SKEPTIC<small>4 OBJECTIONS OPEN · 2 REVIEWS</small></div><div class="stamp">VERIFIED<small>15 OF 15 CLAIMS · 0 CONFLICTS</small></div></div>
+  <div class="footer typed"><span>FORM UW-1 · prompts v1</span><span>run run-20261010-211510</span></div>
+</article>
+<article class="sheet memo" id="page2">
+  <h1>MEMORANDUM</h1>
+  <div class="hdr"><b>TO:</b><span>Investment Committee</span><b>FROM:</b><span>Underwrite (autonomous diligence agent)</span>
+    <b>DATE:</b><span>October 10, 2026</span><b>RE:</b><span>Ramp (ramp.com) — first-pass diligence</span></div>
+  <hr>
+  <p><b>Recommendation:</b> dig deeper – impressive growth and funding but recent congressional investigation warrants closer review <i>(confidence: medium)</i></p>
+  <h2>Summary</h2>
+<p>Ramp was founded in 2019 and is headquartered in New York, United States.<a class="cite" href="#src1" title="Ramp was founded in 2019.  —  “Year founded: 2019”">1</a> The company is led by co‑CEOs Eric Glyman and Karim Atiyeh.<a class="cite" href="#src2" title="Eric Glyman and Karim Atiyeh serve as Co-CEOs of Ramp.  —  “promoted Chief Technology Officer Karim Atiyeh to serve as co-CEO alongside Eric Glyman”">2</a> Since inception, Ramp has raised over $3.22 billion in financing and most recently closed a $1.85 billion round in October 2026 at a $60 billion valuation.<a class="cite" href="#src4" title="Ramp has raised over $3.22 billion across multiple funding rounds.  —  “Ramp has raised a total of $3.22B over 15 funding rounds”">4</a><a class="cite" href="#src8" title="In October 2026, Ramp raised $1.85 billion at a $60 billion valuation.  —  “Ramp has reached a roughly $60 billion valuation. Ramp Hits $60 Billion Valuation in $1.85 Billion Funding Round October 9, 2026 at 1:36 PM”">8</a> By June 2026 the firm reported more than 70,000 customers, over $1 billion in annualized revenue and $200 billion in annualized purchase volume.<a class="cite" href="#src9" title="By June 2026, Ramp reported over 70,000 customers, $1B+ in annualized revenue, and $200B in annualized purchase volume.  —  “By June 2026, Ramp reported more than 70,000 customers, over $1 billion in annualized revenue, and $200 billion in annualized purchase volume.”">9</a><a class="cite" href="#src10" title="TechCrunch reported that Ramp has over 70,000 customers and more than $1 billion in annualized revenue.  —  “Ramp said its annualized revenue is currently more than $1 billion, it has over 70,000 customers (up from 50,000 last November), which include”">10</a></p>
+<h2>Product &amp; business model</h2>
+<p>Ramp offers an integrated spend‑management platform that combines corporate cards, travel booking, expense management and accounts‑payable capabilities.<a class="cite" href="#src5" title="Ramp offers products combining corporate cards, travel, expense management, and accounts payable.  —  “Combine global corporate cards, travel, expenses and accounts payable to automate...”">5</a> Its revenue model is anchored on card interchange fees and subscription fees for the Ramp Plus software suite.<a class="cite" href="#src11" title="Ramp&#x27;s business model generates revenue primarily through card interchange fees and Ramp Plus software subscriptions.  —  “Ramp earns revenue primarily through your use of the Ramp card and Ramp Plus subscriptions. Every time you make a purchase, merchants incur a small fee...”">11</a></p>
+<h2>Team</h2>
+<p>The founding team comprises Eric Glyman, Karim Atiyeh and Gene Lee.<a class="cite" href="#src3" title="Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee.  —  “Ramp was founded in March 2019 by Eric Glyman, Karim Atiyeh, and Gene Lee.”">3</a> Glyman and Atiyeh serve as co‑CEOs, driving both product vision and go‑to‑market strategy.<a class="cite" href="#src2" title="Eric Glyman and Karim Atiyeh serve as Co-CEOs of Ramp.  —  “promoted Chief Technology Officer Karim Atiyeh to serve as co-CEO alongside Eric Glyman”">2</a></p>
+<h2>Funding &amp; traction</h2>
+<p>Total funding to date exceeds $3.22 billion across multiple rounds, with participation from Dragoneer Investment Group, Thrive Capital and Founders Fund in the latest financing.<a class="cite" href="#src4" title="Ramp has raised over $3.22 billion across multiple funding rounds.  —  “Ramp has raised a total of $3.22B over 15 funding rounds”">4</a><a class="cite" href="#src12" title="Dragoneer Investment Group, Thrive Capital, and Founders Fund participated in Ramp&#x27;s recent major funding round.  —  “Dragoneer Investment Group and Thrive Capital led the round, with Founders Fund also participating.”">12</a> The October 2026 round raised $1.85 billion, valuing the company at roughly $60 billion.<a class="cite" href="#src8" title="In October 2026, Ramp raised $1.85 billion at a $60 billion valuation.  —  “Ramp has reached a roughly $60 billion valuation. Ramp Hits $60 Billion Valuation in $1.85 Billion Funding Round October 9, 2026 at 1:36 PM”">8</a> Ramp’s customer base has surpassed 70 k and its annualized revenue tops $1 billion, indicating strong market adoption.<a class="cite" href="#src9" title="By June 2026, Ramp reported over 70,000 customers, $1B+ in annualized revenue, and $200B in annualized purchase volume.  —  “By June 2026, Ramp reported more than 70,000 customers, over $1 billion in annualized revenue, and $200 billion in annualized purchase volume.”">9</a><a class="cite" href="#src10" title="TechCrunch reported that Ramp has over 70,000 customers and more than $1 billion in annualized revenue.  —  “Ramp said its annualized revenue is currently more than $1 billion, it has over 70,000 customers (up from 50,000 last November), which include”">10</a></p>
+<h2>Market &amp; competition</h2>
+<p>Ramp operates in the corporate spend‑management space, competing with firms such as Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express and Corpay.<a class="cite" href="#src6" title="Ramp&#x27;s main competitors include Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express, and Corpay.  —  “The credible Ramp alternatives in 2026 are Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express, and Corpay.”">6</a></p>
+<h2>Risks &amp; red flags</h2>
+<p>In May 2025 a U.S. Congressman launched an investigation into Ramp’s bid for a $25 million federal contract, citing concerns about the company’s experience and investor connections.<a class="cite" href="#src7" title="In May 2025, a Congressman investigated Ramp over its attempt to win a $25 million federal contract due to concerns over lack of experience and investor ties.  —  “Among Connolly&#x27;s biggest concerns are that Ramp allegedly has “zero federal contracting experience” and its investors include a number of Trump”">7</a> This regulatory scrutiny could pose reputational and operational risks.</p>
+<h2>Open questions</h2>
+<p>*None identified from the verified claims.*</p>
+  <div class="sig hand">— Underwrite</div>
+  <div class="footer typed"><span>Every factual sentence cites a source that passed verification (red circles → Appendix A)</span><span>page 2</span></div>
+</article>
+<article class="sheet memo appendix" id="page3">
+  <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
+  <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
+  <ol><li id="src1"><span class="src">Crustdata company record: Ramp</span> <span class="via">· Crustdata company database · fetched via crustdata</span><ul class="claims"><li><span class="ok">✓</span> Ramp was founded in 2019.</li><li><span class="ok">✓</span> Ramp&#x27;s headquarters is in New York, New York, United States.</li></ul></li><li id="src2"><a class="src" href="https://www.americanbanker.com/news/ramp-ceo-invites-co-founder-karim-atiyeh-to-share-top-job" rel="noopener noreferrer" target="_blank">Ramp CEO invites co-founder Karim Atiyeh to share top job</a> <span class="via">· www.americanbanker.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Eric Glyman and Karim Atiyeh serve as Co-CEOs of Ramp.</li></ul></li><li id="src3"><a class="src" href="https://en.wikipedia.org/wiki/Ramp_(company)" rel="noopener noreferrer" target="_blank">Ramp (company)</a> <span class="via">· en.wikipedia.org · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee.</li></ul></li><li id="src4"><a class="src" href="https://tracxn.com/d/companies/ramp/__mMFluFx9yKyt9DXRq5KzSGK2frbsYq5y9jc9XK9-g9E/funding-and-investors" rel="noopener noreferrer" target="_blank">2026 Funding Rounds &amp; List of Investors - Ramp</a> <span class="via">· tracxn.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Ramp has raised over $3.22 billion across multiple funding rounds.</li></ul></li><li id="src5"><a class="src" href="https://ramp.com/" rel="noopener noreferrer" target="_blank">Ramp: Spend Management, Corporate Cards &amp; Accounts ...</a> <span class="via">· ramp.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Ramp offers products combining corporate cards, travel, expense management, and accounts payable.</li><li><span class="ok">✓</span> Ramp provides spend management platform features making expense management easy.</li></ul></li><li id="src6"><a class="src" href="https://www.corpay.com/resources/blog/ramp-alternatives-competitors" rel="noopener noreferrer" target="_blank">8 Best Ramp Alternatives and Competitors for Corporate ...</a> <span class="via">· www.corpay.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Ramp&#x27;s main competitors include Brex, Bill.com, Expensify, SAP Concur, Airbase, Navan, American Express, and Corpay.</li></ul></li><li id="src7"><a class="src" href="https://techcrunch.com/2025/05/12/congressman-is-investigating-fintech-ramps-attempt-to-win-25m-federal-contract/" rel="noopener noreferrer" target="_blank">Congressman is investigating fintech Ramp&#x27;s attempt to ...</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="part">~</span> In May 2025, a Congressman investigated Ramp over its attempt to win a $25 million federal contract due to concerns over lack of experience and investor ties.</li></ul></li><li id="src8"><a class="src" href="https://www.bloomberg.com/news/articles/2026-10-09/ramp-hits-60-billion-valuation-in-1-85-billion-funding-round" rel="noopener noreferrer" target="_blank">Ramp Hits $60 Billion Valuation in $1.85 Billion Funding ...</a> <span class="via">· www.bloomberg.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> In October 2026, Ramp raised $1.85 billion at a $60 billion valuation.</li><li><span class="ok">✓</span> Ramp reached a valuation of approximately $60 billion.</li></ul></li><li id="src9"><a class="src" href="https://okara.ai/blog/ramp-revenue-growth" rel="noopener noreferrer" target="_blank">Ramp Revenue and Valuation: How It Grew to a $1.5B Run ...</a> <span class="via">· okara.ai · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> By June 2026, Ramp reported over 70,000 customers, $1B+ in annualized revenue, and $200B in annualized purchase volume.</li></ul></li><li id="src10"><a class="src" href="https://techcrunch.com/2026/06/04/ramp-raises-750m-at-44b-valuation-as-investors-hunger-for-fintechs-with-an-ai-story/" rel="noopener noreferrer" target="_blank">Ramp raises $750M at $44B valuation as investors hunger ...</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> TechCrunch reported that Ramp has over 70,000 customers and more than $1 billion in annualized revenue.</li></ul></li><li id="src11"><a class="src" href="https://support.ramp.com/how-ramp-makes-money" rel="noopener noreferrer" target="_blank">How Ramp makes money</a> <span class="via">· support.ramp.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Ramp&#x27;s business model generates revenue primarily through card interchange fees and Ramp Plus software subscriptions.</li></ul></li><li id="src12"><a class="src" href="https://www.bloomberg.com/news/articles/2026-10-09/ramp-hits-60-billion-valuation-in-1-85-billion-funding-round" rel="noopener noreferrer" target="_blank">Ramp Hits $60 Billion Valuation in $1.85 Billion Funding ...</a> <span class="via">· www.bloomberg.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Dragoneer Investment Group, Thrive Capital, and Founders Fund participated in Ramp&#x27;s recent major funding round.</li></ul></li></ol>
+  <h2>Rejected claims (kept out of the memo)</h2><ul><li>None — every extracted claim passed.</li></ul>
+  <h2>Skeptic reviews</h2><ol><li><b>Round 1: needs work</b><ul class='claims'><li>[q5] Key traction numbers (70,000 customers, $1B+ revenue, $200B purchase volume) rely on a single low‑authority source <i>→ Find additional reputable sources (e.g., Crunchbase, company press releases, SEC filings, reputable news articles) that confirm customer count, revenue and purchase volume for 2026</i></li><li>[q8] No evidence provided for potential risks, controversies, or red flags – a priority‑1 question left unanswered <i>→ Search recent news, legal databases, and industry analyses for any lawsuits, regulatory issues, security incidents, or executive turnover at Ramp in the last 12 months</i></li><li>[q9] Product‑update claim is missing; need concrete examples of new features launched in the past year <i>→ Locate Ramp blog posts, press releases, or tech news articles from 2023‑2024 that detail new product launches or major feature upgrades</i></li><li>[q10] Financial metrics (revenue, profitability, valuation) are not disclosed beyond the funding round; need independent estimates or disclosed figures <i>→ Search for analyst reports, market research, or credible news stories that provide revenue estimates, profit margins, or valuation commentary for Ramp in the most recent fiscal period</i></li></ul></li><li><b>Round 2: needs work</b><ul class='claims'><li>[q5] Key traction numbers (70,000 customers, $1B+ ARR, $200B purchase volume) rely on a low‑quality blog and a single TechCrunch article; need higher‑credibility sources such as SEC filings, company earnings releases, or reputable financial news outlets. <i>→ Search for recent Ramp press releases, SEC Form D filings, or coverage in Wall Street Journal/Financial Times that confirm customer count and revenue metrics for 2025‑2026.</i></li><li>[q4] Total capital raised ($3.2 B) is supported by a single Tracxn entry; need additional verification from a primary source like Crunchbase, PitchBook, or a Bloomberg report. <i>→ Find at least one other reputable source (e.g., Crunchbase, PitchBook, Bloomberg) that lists Ramp’s cumulative funding amount and key investors.</i></li><li>[q8] Risk claim about a congressional investigation is based on a single TechCrunch piece; need confirmation from a government record or mainstream news outlet to assess material risk. <i>→ Search for congressional hearing transcripts, Government Accountability Office reports, or coverage in major outlets (e.g., Reuters, Washington Post) about the investigation into Ramp’s federal contract bid.</i></li><li>[q9] Product update details are vague and only cite the company website; need concrete examples of features launched in the past year with third‑party coverage. <i>→ Locate recent product announcement articles or reviews (e.g., TechCrunch, Business Insider) that describe specific new features or releases by Ramp in the last 12 months.</i></li></ul></li></ol>
+  <h2>Agent run log</h2><div class="log"><div>Claims extracted: <b>15</b></div><div>Verified: <b>15 (93% fully)</b></div><div>Rejected: <b>0</b></div><div>Conflicts flagged: <b>0</b></div><div>Research rounds: <b>2</b></div><div>Recoveries: <b>2</b></div><div>Run time: <b>212s</b></div><div>Crustdata credits: <b>11</b></div><div>LLM cost (list price): <b>$0.085</b></div><div>Agent steps: <b>40</b></div><div>Claims rejected in-loop: <b>2 of 21</b></div><div>Self-corrections: <b>1</b></div><div>Skeptic objections: <b>8</b></div><div>Tools used: <b>company_profile ×1, finish ×1, read_page ×1, record_claim ×21, update_question ×15, web_search ×10</b></div></div>
+  <p class="via">neatlogs trace: not exported</p>
+  <div class="footer typed"><span>Generated by Underwrite · 2026-10-10 21:18</span><span>page 3</span></div>
+</article>
+</body></html>

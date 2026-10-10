@@ -37,11 +37,13 @@ ENRICH_FIELDS = [
 ]
 
 
-def _post(path: str, body: dict, *, credits: float, timeout: float = 60.0) -> Any:
+def _post(path: str, body: dict, *, credits: float, timeout: float = 60.0, fresh: bool = False) -> Any:
+    """POST with rate limiting, retries and an on-disk cache. fresh=True skips the cache read (watch mode
+    needs today's data) but still refreshes the cache."""
     if not settings.crustdata_api_key:
         raise Fatal("CRUSTDATA_API_KEY is not set")
 
-    hit = cache.get("crustdata", {"path": path, "body": body})
+    hit = None if fresh else cache.get("crustdata", {"path": path, "body": body})
     if hit is not None:
         ledger.current().cache_hits += 1
         return hit
@@ -96,7 +98,7 @@ def balance() -> float | None:
 
 
 @neatlogs.span(kind="TOOL", tool_name="crustdata_company_enrich")
-def enrich_company(domain: str | None = None, name: str | None = None) -> dict | None:
+def enrich_company(domain: str | None = None, name: str | None = None, fresh: bool = False) -> dict | None:
     """Best match's company_data, or None if Crustdata has no match."""
     body: dict[str, Any] = {"fields": ENRICH_FIELDS}
     if domain:
@@ -105,7 +107,7 @@ def enrich_company(domain: str | None = None, name: str | None = None) -> dict |
         body |= {"names": [name]}
     else:
         raise ValueError("need a domain or a name")
-    data = _post("/company/enrich", body, credits=2)
+    data = _post("/company/enrich", body, credits=2, fresh=fresh)
     entries = data if isinstance(data, list) else data.get("results") or data.get("data") or []
     for entry in entries:
         matches = entry.get("matches") or []
@@ -116,8 +118,12 @@ def enrich_company(domain: str | None = None, name: str | None = None) -> dict |
 
 
 @neatlogs.span(kind="TOOL", tool_name="crustdata_web_search")
-def web_search(query: str) -> list[dict]:
-    data = _post("/web/search/live", {"query": query, "sources": ["web"]}, credits=1)
+def web_search(query: str, sources: tuple[str, ...] = ("web",), since: float | None = None,
+               fresh: bool = False) -> list[dict]:
+    body: dict[str, Any] = {"query": query, "sources": list(sources)}
+    if since:
+        body["start_date"] = int(since)
+    data = _post("/web/search/live", body, credits=1, fresh=fresh)
     results = data.get("results") if isinstance(data, dict) else data
     return [
         {"title": r.get("title") or "", "url": r.get("url") or "", "snippet": r.get("snippet") or ""}

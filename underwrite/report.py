@@ -201,6 +201,7 @@ def _render_md(markdown: str, cites: Citations) -> str:
     def inline(s: str) -> str:
         s = esc(s)
         s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
+        s = re.sub(r"(?<![\w*])\*([^*\n]+?)\*(?![\w*])", r"<i>\1</i>", s)
         s = re.sub(r"\s*((?:\[C\d+\])+)([.,;:]?)", lambda m: m.group(2) + cites.mark(CITE.findall(m.group(1))), s)
         return s
 
@@ -285,6 +286,22 @@ def write_report(state: CompanyState, out_dir: Path) -> Path:
     verified = sum(c.support in ("supported", "partial") for c in state.claims)
     rec = memo.recommendation if memo else "No memo produced"
 
+    w = state.watch or {}
+    watch_note = ""
+    if w.get("changes") or w.get("headlines"):
+        since = dt.datetime.fromtimestamp(w.get("since") or 0)
+        items = list(w.get("changes", [])) + [f"news: {h['title']}" for h in w.get("headlines", [])]
+        watch_note = (f'<div class="margin-note hand red" style="margin:-14px 0 18px">UPDATED — changed since '
+                      f'{since.month}/{since.day}/{since:%y}: {esc("; ".join(items)[:420])}</div>')
+    skeptic_stamp = ""
+    if state.reviews:
+        last = state.reviews[-1]
+        still_open = len(last.objections) if last.verdict == "needs_work" else 0
+        verdict = "SIGNED OFF" if not still_open else f"{still_open} OBJECTIONS OPEN"
+        plural = "S" if len(state.reviews) > 1 else ""
+        skeptic_stamp = (f'<div class="stamp" style="margin-right:14px;transform:rotate(4deg)">SKEPTIC'
+                         f'<small>{verdict} · {len(state.reviews)} REVIEW{plural}</small></div>')
+
     ops_rows = [
         ("Employees", "headcount"), ("Funding raised", "total_funding_usd"),
         ("Last round", "last_round"), ("Founded", "founded_year"),
@@ -296,6 +313,7 @@ def write_report(state: CompanyState, out_dir: Path) -> Path:
 <article class="sheet form" id="page1">
   <div class="cc hand red">cc: IC<br>{when.month}/{when.day}/{when:%y}</div>
   <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  {watch_note}
   <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">{esc(state.company)}</span>
     <span class="lbl">Date Rec'd</span><span class="line short hand">{when.month}/{when.day}/{when:%y}</span></div>
   <div class="row"><span class="lbl">Address</span><span class="line hand">{esc(hq) or '—'}{hq_cite}</span>
@@ -315,7 +333,7 @@ def write_report(state: CompanyState, out_dir: Path) -> Path:
   <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">{esc(rec)}</span></div>
   <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">{_action(rec)}</span></span>
     <span class="lbl">CONFIDENCE</span><span class="line short hand">{esc(memo.confidence if memo else '—')}</span></div>
-  <div class="stamp-row"><div class="stamp">VERIFIED<small>{verified} OF {total} CLAIMS · {m.get('conflicts', 0)} CONFLICTS</small></div></div>
+  <div class="stamp-row">{skeptic_stamp}<div class="stamp">VERIFIED<small>{verified} OF {total} CLAIMS · {m.get('conflicts', 0)} CONFLICTS</small></div></div>
   <div class="footer typed"><span>FORM UW-1 · prompts {esc(state.prompts_version)}</span><span>run {esc(state.run_id)}</span></div>
 </article>"""
 
@@ -357,12 +375,23 @@ def write_report(state: CompanyState, out_dir: Path) -> Path:
         ("Run time", f"{m.get('duration_s', 0):.0f}s"), ("Crustdata credits", f"{u.get('crust_credits', 0):g}"),
         ("LLM cost (list price)", f"${u.get('llm_usd', 0):.3f}"),
     ]
+    if state.mode == "agent":
+        log += [("Agent steps", state.agent_steps),
+                ("Claims rejected in-loop", f"{state.rejected_in_loop} of {state.claim_attempts}"),
+                ("Self-corrections", state.self_corrections),
+                ("Skeptic objections", sum(len(r.objections) for r in state.reviews)),
+                ("Tools used", ", ".join(f"{k} ×{v}" for k, v in sorted(state.tool_counts.items())))]
+    reviews_html = "".join(
+        f"<li><b>Round {i}: {esc(r.verdict.replace('_', ' '))}</b><ul class='claims'>"
+        + "".join(f"<li>[{esc(o.question_id or '-')}] {esc(o.issue)} <i>→ {esc(o.action)}</i></li>" for o in r.objections)
+        + "</ul></li>" for i, r in enumerate(state.reviews, 1))
     page3 = f"""
 <article class="sheet memo appendix" id="page3">
   <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
   <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
   <ol>{''.join(src_items) or '<li>No sources cited.</li>'}</ol>
   <h2>Rejected claims (kept out of the memo)</h2><ul>{rej}</ul>
+  {f"<h2>Skeptic reviews</h2><ol>{reviews_html}</ol>" if reviews_html else ""}
   <h2>Agent run log</h2><div class="log">{''.join(f'<div>{k}: <b>{esc(v)}</b></div>' for k, v in log)}</div>
   <p class="via">neatlogs trace: {esc(', '.join(state.trace_ids) or 'not exported')}</p>
   <div class="footer typed"><span>Generated by Underwrite · {when:%Y-%m-%d %H:%M}</span><span>page 3</span></div>

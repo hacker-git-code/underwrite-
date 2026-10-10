@@ -38,6 +38,7 @@ STYLE = {
     "coach": "bold cyan",
     "agent": "bold cyan",
     "skeptic": "bold magenta",
+    "watch": "bold red",
     "eval": "bold white",
     "info": "dim",
 }

@@ -1,0 +1,23 @@
+{"t": 1791647637.8091946, "kind": "plan", "msg": "9 questions, 18 queries for PostHog"}
+{"t": 1791647639.0098796, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791647639.1197598, "kind": "crust", "msg": "company record: 35 fields"}
+{"t": 1791647640.8642762, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', value='2020', question_id='q2', statement='PostHog was founded in 2020.', field='founded_year')"}
+{"t": 1791647640.8672752, "kind": "extract", "msg": "C1 [q2] PostHog was founded in 2020."}
+{"t": 1791647640.8712716, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='PostHog is headquartered in San Francisco, California, Unite', value='San Francisco', question_id='q2', field='hq_city', evidence_id='E1')"}
+{"t": 1791647640.9078894, "kind": "extract", "msg": "C2 [q2] PostHog is headquartered in San Francisco, California, United States."}
+{"t": 1791647640.9098885, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', statement='PostHog is headquartered in the United States.', field='hq_country', evidence_id='E1', value='United States')"}
+{"t": 1791647640.9153605, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement=\"PostHog's total funding raised is $182,150,000 USD.\", evidence_id='E1', field='total_funding_usd', question_id='q4', value='182150000')"}
+{"t": 1791647640.9173589, "kind": "extract", "msg": "C3 [q4] PostHog's total funding raised is $182,150,000 USD."}
+{"t": 1791647640.918358, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='PostHog has an employee count of 224.', field='headcount', question_id='q6', value='224', evidence_id='E1')"}
+{"t": 1791647640.9213574, "kind": "extract", "msg": "C4 [q6] PostHog has an employee count of 224."}
+{"t": 1791647642.274805, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> web_search(query='\"PostHog\" founders James Hawkins Tim Glaser')"}
+{"t": 1791647672.8647606, "kind": "web", "msg": "search (crustdata-web) '\"PostHog\" founders James Hawkins Tim Glaser' -> 9 results"}
+{"t": 1791647674.16153, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E3', question_id='q3', statement='PostHog was founded on January 23, 2020 by James Hawkins and', field='founders', value='James Hawkins and Tim Glaser')"}
+{"t": 1791647674.164528, "kind": "extract", "msg": "C5 [q3] PostHog was founded on January 23, 2020 by James Hawkins and Tim Glaser."}
+{"t": 1791647675.7292562, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> web_search(query='\"PostHog\" ARR revenue customers 2024 OR 2025 OR 2026')"}
+{"t": 1791647680.5233526, "kind": "web", "msg": "search (crustdata-web) '\"PostHog\" ARR revenue customers 2024 OR 2025 OR 2026' -> 10 results"}
+{"t": 1791647680.5278606, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647681.6521184, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> web_search(query='\"PostHog\" funding round investors valuation Series A B C Y C')"}
+{"t": 1791647687.8784955, "kind": "web", "msg": "search (crustdata-web) '\"PostHog\" funding round investors valuation Series A B C Y Combinator' -> 9 results"}
+{"t": 1791647687.8874907, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647688.9986932, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> web_search(query='\"PostHog\" pricing products features tools developer')"}

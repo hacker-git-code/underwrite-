@@ -150,6 +150,19 @@ def coach(
     console.print_json(data={k: v for k, v in report.items() if k in ("base", "new", "decision", "diagnosis")})
 
 
+@app.command("watch")
+def watch_cmd(limit: Optional[int] = typer.Option(None, help="Check at most N companies")):
+    """Re-check researched companies; when something changed, the agent re-investigates just that and re-writes the memo."""
+    from .watch import watch
+
+    _start(None, None, "watch", "agent")
+    states = watch(limit)
+    if states:
+        _finish(states, states[0].run_id, False)
+    else:
+        console.print("no material changes found")
+
+
 @app.command("rescore")
 def rescore_cmd(run_id: str = typer.Argument(..., help="Eval run id, e.g. eval-v1-all-20261010-140921")):
     """Re-grade a finished eval against the current ground truth, using the memos it already wrote."""

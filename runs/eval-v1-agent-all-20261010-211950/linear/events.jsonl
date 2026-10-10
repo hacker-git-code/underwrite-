@@ -1,0 +1,121 @@
+{"t": 1791647393.3206112, "kind": "recover", "msg": "gemini:gemini-3.8-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.7-flash", "model": "gemini:gemini-3.8-flash"}
+{"t": 1791647403.0412135, "kind": "plan", "msg": "8 questions, 16 queries for Linear"}
+{"t": 1791647404.0013437, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791647404.0639358, "kind": "crust", "msg": "company record: 34 fields"}
+{"t": 1791647406.6081567, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', evidence_id='E1', field='founded_year', value='2019', statement='Linear was founded in 2019.')"}
+{"t": 1791647406.613153, "kind": "extract", "msg": "C1 [q2] Linear was founded in 2019."}
+{"t": 1791647406.61915, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', evidence_id='E1', value='San Francisco', field='hq_city', statement='Linear is headquartered in San Francisco, California, United')"}
+{"t": 1791647406.624148, "kind": "extract", "msg": "C2 [q2] Linear is headquartered in San Francisco, California, United States."}
+{"t": 1791647406.630144, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='founders', statement='Tuomas Artman and Jori Lallo are co-founders of Linear.', question_id='q3', value='Tuomas Artman, Jori Lallo', evidence_id='E1')"}
+{"t": 1791647406.6413388, "kind": "extract", "msg": "C3 [q3] Tuomas Artman and Jori Lallo are co-founders of Linear."}
+{"t": 1791647406.6453366, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(value='Karri Saarinen', field='ceo', evidence_id='E1', question_id='q3', statement='Karri Saarinen serves as Co-Founder and CEO of Linear.')"}
+{"t": 1791647406.6488447, "kind": "extract", "msg": "C4 [q3] Karri Saarinen serves as Co-Founder and CEO of Linear."}
+{"t": 1791647406.6518488, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='Linear has raised a total of $233,200,000 in funding.', field='total_funding_usd', value='233200000', question_id='q4', evidence_id='E1')"}
+{"t": 1791647406.65446, "kind": "extract", "msg": "C5 [q4] Linear has raised a total of $233,200,000 in funding."}
+{"t": 1791647406.6586292, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(value='291', question_id='q5', evidence_id='E1', statement='Linear has an employee count of 291.', field='headcount')"}
+{"t": 1791647406.6616268, "kind": "extract", "msg": "C6 [q5] Linear has an employee count of 291."}
+{"t": 1791647407.6004987, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(question_id='q2', status='answered', note='Founded in 2019, HQ in San Francisco, CA.')"}
+{"t": 1791647407.6043003, "kind": "plan", "msg": "q2 -> answered: Founded in 2019, HQ in San Francisco, CA."}
+{"t": 1791647407.6066556, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(question_id='q3', status='answered', note='Co-founders are Karri Saarinen (CEO), Tuomas Artman (CTO), a')"}
+{"t": 1791647407.6096532, "kind": "plan", "msg": "q3 -> answered: Co-founders are Karri Saarinen (CEO), Tuomas Artman (CTO), and Jori Lallo. Crist"}
+{"t": 1791647408.7568283, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" pricing plan issue tracking product features linear')"}
+{"t": 1791647431.08058, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" pricing plan issue tracking product features linear.app' -> 9 results"}
+{"t": 1791647432.8322544, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> read_page(url='https://linear.app/pricing')"}
+{"t": 1791647439.2718647, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791647439.3013577, "kind": "web", "msg": "read https://linear.app/pricing -> E8 (4000 chars)"}
+{"t": 1791647439.3071055, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647441.0609467, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" funding rounds investors valuation series b series ')"}
+{"t": 1791647473.2275364, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" funding rounds investors valuation series b series c' -> 8 results"}
+{"t": 1791647473.23628, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647474.6973052, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" series b funding amount investors Sequoia Accel')"}
+{"t": 1791647485.421701, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" series b funding amount investors Sequoia Accel' -> 9 results"}
+{"t": 1791647485.4307153, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647486.5415466, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" ARR revenue traction customers 2025 2026')"}
+{"t": 1791647508.4389877, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" ARR revenue traction customers 2025 2026' -> 9 results"}
+{"t": 1791647508.448983, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647509.6060867, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" competitors issue tracking Jira GitHub projects pro')"}
+{"t": 1791647516.0564873, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" competitors issue tracking Jira GitHub projects product differentiation' -> 10 results"}
+{"t": 1791647516.0656447, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647517.1916933, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" product updates launches 2025 2026 releases linear.')"}
+{"t": 1791647523.0195165, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" product updates launches 2025 2026 releases linear.app' -> 9 results"}
+{"t": 1791647523.0405047, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647525.2280061, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" risks limitations critiques lock-in issue tracking')"}
+{"t": 1791647531.6378205, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" risks limitations critiques lock-in issue tracking' -> 9 results"}
+{"t": 1791647531.6553628, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647533.9917824, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Linear offers issue tracking, project management, and produc', question_id='q1')"}
+{"t": 1791647533.9927835, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(question_id='q4', status='answered', note='Total funding is over $233M, backed by Sequoia, Accel, and o')"}
+{"t": 1791647533.9937804, "kind": "plan", "msg": "q4 -> answered: Total funding is over $233M, backed by Sequoia, Accel, and other major investors"}
+{"t": 1791647533.9953856, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q5', note='Linear has hundreds of employees (~291), robust growth, stro')"}
+{"t": 1791647533.9962869, "kind": "plan", "msg": "q5 -> answered: Linear has hundreds of employees (~291), robust growth, strong tech/startup adop"}
+{"t": 1791647533.9962869, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Primary competitors include Atlassian Jira, GitHub Projects,', question_id='q6')"}
+{"t": 1791647533.9972868, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Between late 2025 and 2026, Linear introduced AI-native feat', question_id='q7')"}
+{"t": 1791647533.998286, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q8', note='Key risks include rising competition from AI coding tools an')"}
+{"t": 1791647535.2655542, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> record_claim(statement='Linear provides issue tracking and project management tools ', value='SaaS subscription', question_id='q1', field='business_model', evidence_id='E8')"}
+{"t": 1791647535.2735496, "kind": "verify", "msg": "claim rejected in-loop: quote not in E8 (match 38%) \u2014 agent must fix it"}
+{"t": 1791647536.5355175, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" pricing plans Free Standard Plus Enterprise linear.')"}
+{"t": 1791647542.2672255, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" pricing plans Free Standard Plus Enterprise linear.app' -> 9 results"}
+{"t": 1791647542.2764943, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647544.227512, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(value='SaaS subscription', evidence_id='E48', question_id='q1', field='business_model', statement='Linear monetizes through a per-user SaaS subscription model ')"}
+{"t": 1791647544.2310607, "kind": "verify", "msg": "self-corrected: C7 accepted after the agent fixed a rejected claim"}
+{"t": 1791647544.2320561, "kind": "extract", "msg": "C7 [q1] Linear monetizes through a per-user SaaS subscription model spanning Free, Basic, and Busi"}
+{"t": 1791647544.2362235, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(field='none', value='none', statement='Linear competes with Jira and GitHub Issues by offering stre', evidence_id='E27', question_id='q6')"}
+{"t": 1791647544.2402062, "kind": "verify", "msg": "claim rejected in-loop: quote not in E27 (match 54%) \u2014 agent must fix it"}
+{"t": 1791647544.2442026, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(value='none', statement='Linear released new AI-powered features and engineering inte', field='none', evidence_id='E33', question_id='q7')"}
+{"t": 1791647544.2493737, "kind": "verify", "msg": "claim rejected in-loop: quote not in E33 (match 50%) \u2014 agent must fix it"}
+{"t": 1791647544.2528858, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E42', question_id='q8', field='none', statement='A major shift is that AI agents now account for a significan', value='none')"}
+{"t": 1791647544.2560155, "kind": "verify", "msg": "self-corrected: C8 accepted after the agent fixed a rejected claim"}
+{"t": 1791647544.2560155, "kind": "extract", "msg": "C8 [q8] A major shift is that AI agents now account for a significant portion of issue creation on"}
+{"t": 1791647545.4110944, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" issue tracking Jira comparison software project man')"}
+{"t": 1791647550.820204, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" issue tracking Jira comparison software project management competitors' -> 9 results"}
+{"t": 1791647550.8283503, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647552.062326, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" updates releases product features 2025 2026')"}
+{"t": 1791647557.1111226, "kind": "web", "msg": "search (crustdata-web) '\"Linear\" updates releases product features 2025 2026' -> 9 results"}
+{"t": 1791647557.1181, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647558.9762533, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> record_claim(statement='Linear competes with tools like Jira, Shortcut, and Plane in', value='none', evidence_id='E51', field='none', question_id='q6')"}
+{"t": 1791647558.9792533, "kind": "verify", "msg": "claim rejected in-loop: quote not in E51 (match 41%) \u2014 agent must fix it"}
+{"t": 1791647558.984249, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E58', statement='Linear introduced new updates including Linear Agent feature', question_id='q7', field='none', value='none')"}
+{"t": 1791647558.987141, "kind": "verify", "msg": "self-corrected: C9 accepted after the agent fixed a rejected claim"}
+{"t": 1791647558.988175, "kind": "extract", "msg": "C9 [q7] Linear introduced new updates including Linear Agent features and coding session model add"}
+{"t": 1791647558.9917953, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> record_claim(statement='Linear faces evolving expectations and risks around managing', evidence_id='E59', value='none', field='none', question_id='q8')"}
+{"t": 1791647558.9943712, "kind": "extract", "msg": "C10 [q8] Linear faces evolving expectations and risks around managing complex enterprise product ro"}
+{"t": 1791647560.149758, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" issue tracking Jira comparison software project man')"}
+{"t": 1791647561.5895293, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> record_claim(field='none', value='none', question_id='q6', statement=\"Linear's competitors include Jira, Shortcut, and Plane.\", evidence_id='E53')"}
+{"t": 1791647561.592528, "kind": "extract", "msg": "C11 [q6] Linear's competitors include Jira, Shortcut, and Plane."}
+{"t": 1791647563.3798792, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q1', note='Linear offers issue tracking and software project management')"}
+{"t": 1791647563.3808815, "kind": "plan", "msg": "q1 -> answered: Linear offers issue tracking and software project management tools, monetizing v"}
+{"t": 1791647563.38188, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Primary competitors include Atlassian Jira, Shortcut, Plane,', question_id='q6')"}
+{"t": 1791647563.38188, "kind": "plan", "msg": "q6 -> answered: Primary competitors include Atlassian Jira, Shortcut, Plane, and GitHub Projects"}
+{"t": 1791647563.3828807, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> update_question(note='Between late 2025 and 2026, Linear released Linear Agent in ', status='answered', question_id='q7')"}
+{"t": 1791647563.383879, "kind": "plan", "msg": "q7 -> answered: Between late 2025 and 2026, Linear released Linear Agent in beta, added MCP supp"}
+{"t": 1791647563.3848784, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Risks include heightened competition from Atlassian and AI-f', question_id='q8')"}
+{"t": 1791647563.3861618, "kind": "plan", "msg": "q8 -> answered: Risks include heightened competition from Atlassian and AI-first dev platforms, "}
+{"t": 1791647565.2365775, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> finish(summary='Completed first-pass due diligence on Linear (linear.app):\\n-')"}
+{"t": 1791647565.2564943, "kind": "verify", "msg": "grounding: 11/11 quotes found in their cited source"}
+{"t": 1791647567.4599717, "kind": "verify", "msg": "judge: 10 supported, 1 partial, 0 rejected of 11"}
+{"t": 1791647572.1353388, "kind": "skeptic", "msg": "objection [q4]: Total funding jump to $233.2M relies on a single Crustdata entry without breakdown of rounds, valuations, or l"}
+{"t": 1791647572.1363387, "kind": "skeptic", "msg": "objection [q5]: Traction signals lack verified revenue/ARR or customer figures, and the headcount figure (291) comes from a si"}
+{"t": 1791647572.1383371, "kind": "skeptic", "msg": "objection [q3]: Cristina Cordova's role as COO is asserted in the summary note but lacks any verified supporting claim."}
+{"t": 1791647572.1463325, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791647573.644765, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> web_search(query='\"Linear\" funding rounds series b series c valuation techcrun')"}
+{"t": 1791647575.1730194, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> add_question(question='What are the exact funding rounds, lead investors, and valua', topic='funding_history', priority='1')"}
+{"t": 1791647575.1740193, "kind": "plan", "msg": "agent added q9 (p1): What are the exact funding rounds, lead investors, and valuations making up Line"}
+{"t": 1791647575.1750178, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> add_question(priority='1', question=\"What are Linear's estimated ARR and customer counts reported\", topic='traction_and_metrics')"}
+{"t": 1791647575.177017, "kind": "plan", "msg": "agent added q10 (p1): What are Linear's estimated ARR and customer counts reported by SaaS metrics tra"}
+{"t": 1791647575.178016, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> add_question(topic='leadership', priority='1', question='Is Cristina Cordova serving as COO at Linear, and what is he')"}
+{"t": 1791647575.180015, "kind": "plan", "msg": "agent added q11 (p1): Is Cristina Cordova serving as COO at Linear, and what is her official role?"}
+{"t": 1791647576.9767177, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> update_question(status='unanswerable', question_id='q9', note='Unanswerable due to zero remaining search budget.')"}
+{"t": 1791647576.9777157, "kind": "plan", "msg": "q9 -> unanswerable: Unanswerable due to zero remaining search budget."}
+{"t": 1791647576.9797144, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> update_question(question_id='q10', note='Unanswerable due to zero remaining search budget.', status='unanswerable')"}
+{"t": 1791647576.9807134, "kind": "plan", "msg": "q10 -> unanswerable: Unanswerable due to zero remaining search budget."}
+{"t": 1791647576.982713, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> update_question(status='unanswerable', question_id='q11', note='Unanswerable due to zero remaining search budget.')"}
+{"t": 1791647576.9837122, "kind": "plan", "msg": "q11 -> unanswerable: Unanswerable due to zero remaining search budget."}
+{"t": 1791647578.3552842, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> finish(summary=\"Addressed the investment committee skeptic's objections by a\")"}
+{"t": 1791647578.374274, "kind": "verify", "msg": "grounding: 0/0 quotes found in their cited source"}
+{"t": 1791647578.3802695, "kind": "verify", "msg": "judge: 0 supported, 0 partial, 0 rejected of 0"}
+{"t": 1791647605.4983475, "kind": "recover", "msg": "llm smart:gemini:gemini-3.7-flash: HTTP 503 -> retry 1/3 in 2.2s", "what": "llm smart:gemini:gemini-3.7-flash"}
+{"t": 1791647612.4131234, "kind": "recover", "msg": "llm smart:gemini:gemini-3.7-flash: succeeded on attempt 2", "what": "llm smart:gemini:gemini-3.7-flash", "recovered": true}
+{"t": 1791647612.4161012, "kind": "skeptic", "msg": "objection [q4]: Total funding ($233.2M) and recent rounds lack breakdown, lead investors, or valuation details, relying solely"}
+{"t": 1791647612.4171002, "kind": "skeptic", "msg": "objection [q5]: Traction lacks independent estimated ARR and customer numbers; q10 was left unanswerable due to budget limits,"}
+{"t": 1791647612.4181008, "kind": "skeptic", "msg": "objection [q3]: Cristina Cordova's executive role as COO is asserted in notes but marked unanswerable in q11 with no verified "}
+{"t": 1791647623.1865313, "kind": "memo", "msg": "memo written: 11 distinct verified claims cited, recommendation: Dig deeper given Linear's strong capitalization and AI agent adoption, though enterprise e"}
+{"t": 1791647623.3221207, "kind": "fail", "msg": "Linear: stopped at phase 'written': AttributeError: 'CompanyState' object has no attribute 'watch'"}

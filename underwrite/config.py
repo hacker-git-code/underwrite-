@@ -29,15 +29,15 @@ class Settings:
     models_smart: list[str] = field(
         default_factory=lambda: _env_list(
             "UW_MODELS_SMART",
-            "gemini:gemini-3.8-flash,gemini:gemini-3.5-flash,groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,"
-            "bedrock:anthropic.claude-opus-5-5",
+            "gemini:gemini-3.8-flash,gemini:gemini-3.7-flash,gemini:gemini-3.6-flash,gemini:gemini-3.5-flash,"
+            "groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-opus-5-5",
         )
     )
     models_fast: list[str] = field(
         default_factory=lambda: _env_list(
             "UW_MODELS_FAST",
-            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.1-flash-lite,groq:openai/gpt-oss-20b,cerebras:gpt-oss-120b,"
-            "bedrock:anthropic.claude-haiku-5-5",
+            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.1-flash-lite,gemini:gemini-3.6-flash,groq:openai/gpt-oss-20b,"
+            "cerebras:gpt-oss-120b,bedrock:anthropic.claude-haiku-5-5",
         )
     )
 
@@ -46,8 +46,8 @@ class Settings:
     models_agent: list[str] = field(
         default_factory=lambda: _env_list(
             "UW_MODELS_AGENT",
-            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.7-flash,gemini:gemini-3.6-flash,"
-            "gemini:gemini-3.1-flash-lite,cerebras:gpt-oss-120b,groq:openai/gpt-oss-120b,gemini:gemini-3.5-flash",
+            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.1-flash-lite,gemini:gemini-3.7-flash,"
+            "gemini:gemini-3.6-flash,cerebras:gpt-oss-120b,groq:openai/gpt-oss-120b,gemini:gemini-3.5-flash",
         )
     )
     mode: str = field(default_factory=lambda: _env("UW_MODE", "agent"))

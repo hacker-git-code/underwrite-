@@ -93,7 +93,8 @@ th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;white-
 .card{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 8px 18px rgba(0,0,0,.14);padding:18px 20px 16px;position:relative;
   background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#d8d1bf 27px,#d8d1bf 28px);background-position:0 54px}
 .card:nth-child(odd){transform:rotate(-.4deg)}.card:nth-child(even){transform:rotate(.35deg)}
-.card h3{font:400 22px "Special Elite",monospace;margin:0 0 2px}.card .dom{font-size:13px;color:var(--mut);margin-bottom:10px}
+.card h3{font:400 22px "Special Elite",monospace;margin:0 0 2px}
+.card .upd{font:500 18px/1.2 Caveat,cursive;color:var(--red);margin:-2px 0 8px;padding-right:90px}.card .dom{font-size:13px;color:var(--mut);margin-bottom:10px}
 .card .rec{font:500 21px/28px Caveat,cursive;color:var(--ink);min-height:84px;text-transform:uppercase}
 .card .stamp{position:absolute;top:14px;right:14px;transform:rotate(-9deg);border:2.5px solid var(--red);color:var(--red);
   font:700 12px "Special Elite",monospace;padding:3px 7px;letter-spacing:.08em;opacity:.8}
@@ -134,6 +135,9 @@ def build(out: Path | None = None) -> Path:
             "verified": sum(c.support in ("supported", "partial") for c in st.claims),
             "conflicts": m.get("conflicts", 0), "recoveries": m.get("recoveries", 0),
             "recommendation": st.memo.recommendation if st.memo else "", "has_pdf": has_pdf,
+            "mode": st.mode, "agent_steps": st.agent_steps, "self_corrections": st.self_corrections,
+            "skeptic_objections": sum(len(r.objections) for r in st.reviews),
+            "watch_changes": (st.watch or {}).get("changes", []) + [f"news: {h['title']}" for h in (st.watch or {}).get("headlines", [])],
         }
     index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
 
@@ -146,11 +150,15 @@ def build(out: Path | None = None) -> Path:
         rec = e["recommendation"]
         cards.append(
             f'<article class="card"><div class="stamp">VERIFIED {e["verified"]}/{e["claims"]}</div>'
+            + (f'<div class="upd">UPDATED: {esc("; ".join(e["watch_changes"])[:140])}</div>' if e.get("watch_changes") else "")
+            + f''
             f'<h3>{esc(e["company"])}</h3><div class="dom">{esc(e["domain"] or "")} · {when:%Y-%m-%d} · prompts {esc(e["prompts_version"])}</div>'
             f'<div class="rec">{esc(rec[:150])}{"…" if len(rec) > 150 else ""}</div>'
             f'<div class="links"><a href="memos/{esc(s)}/">Open dossier →</a>'
             f'{f"<a href=memos/{esc(s)}/memo.pdf download>PDF</a>" if e["has_pdf"] else ""}'
-            f'<span class="small">{e["conflicts"]} conflicts · {e["recoveries"]} recoveries</span></div></article>')
+            f'<span class="small">{e["conflicts"]} conflicts · {e["recoveries"]} recoveries'
+            + (f' · {e["agent_steps"]} agent steps · {e["skeptic_objections"]} skeptic objections' if e.get("mode") == "agent" else "")
+            + '</span></div></article>')
 
     scoreboard_path = out / "scoreboard.html"
     scoreboard = _scoreboard()

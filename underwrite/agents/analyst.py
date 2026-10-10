@@ -223,7 +223,11 @@ def _compact(messages: list[dict], keep: int) -> int:
 
 
 def _questions_block(state: CompanyState) -> str:
-    return "\n".join(f"- {q.id} (priority {q.priority}, {q.topic}): {q.question}" for q in state.plan.questions)
+    def tag(qid: str) -> str:
+        s = state.question_status.get(qid, {}).get("status", "open")
+        return "" if s == "open" else f" [{s}, no work needed]"
+
+    return "\n".join(f"- {q.id} (priority {q.priority}, {q.topic}){tag(q.id)}: {q.question}" for q in state.plan.questions)
 
 
 @neatlogs.span(kind="AGENT", name="analyst", role="research analyst", goal="answer every diligence question with sourced claims")
