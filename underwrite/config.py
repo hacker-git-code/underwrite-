@@ -54,6 +54,8 @@ class Settings:
     reserve_searches: int = field(default_factory=lambda: int(_env("UW_RESERVE_SEARCHES", "2")))
     # Hard stop for a whole batch, so a bug or a huge list can't drain the hackathon's Crustdata credits.
     max_credits_per_run: float = field(default_factory=lambda: float(_env("UW_MAX_CREDITS_PER_RUN", "400")))
+    # Never start a company when the account balance (checked live, free endpoint) is below this.
+    min_credit_balance: float = field(default_factory=lambda: float(_env("UW_MIN_CREDIT_BALANCE", "100")))
     max_fetches: int = field(default_factory=lambda: int(_env("UW_MAX_FETCHES", "8")))
     max_rounds: int = field(default_factory=lambda: int(_env("UW_MAX_ROUNDS", "2")))
     page_chars: int = field(default_factory=lambda: int(_env("UW_PAGE_CHARS", "4000")))

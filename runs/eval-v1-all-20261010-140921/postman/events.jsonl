@@ -1,0 +1,24 @@
+{"t": 1791622536.2795072, "kind": "plan", "msg": "9 questions, 18 queries for Postman"}
+{"t": 1791622541.5738125, "kind": "crust", "msg": "company record: 46 fields"}
+{"t": 1791622549.6422083, "kind": "web", "msg": "search (crustdata-web) 'Postman core product platform enterprise pricing model' -> 9 results"}
+{"t": 1791622554.573428, "kind": "web", "msg": "search (crustdata-web) 'Postman founding year headquarters location Crunchbase' -> 9 results"}
+{"t": 1791622560.6660926, "kind": "web", "msg": "search (crustdata-web) 'Postman founders current CEO executive team' -> 9 results"}
+{"t": 1791622570.6888318, "kind": "web", "msg": "search (crustdata-web) 'Postman funding rounds series valuation investors' -> 9 results"}
+{"t": 1791622575.8140085, "kind": "web", "msg": "search (crustdata-web) 'Postman registered developers ARR revenue metrics 2025 2026' -> 9 results"}
+{"t": 1791622581.0579028, "kind": "web", "msg": "search (crustdata-web) 'Postman security incidents vulnerability controversy pricing backlash' -> 9 results"}
+{"t": 1791622588.7793343, "kind": "web", "msg": "search (crustdata-web) 'Postman top competitors API platform market share' -> 9 results"}
+{"t": 1791622605.6539998, "kind": "web", "msg": "search (crustdata-web) 'API lifecycle management market size growth forecast' -> 9 results"}
+{"t": 1791622619.3890488, "kind": "crust", "msg": "fetched 8/8 pages via Crustdata"}
+{"t": 1791622619.6233504, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791622624.1706142, "kind": "extract", "msg": "8 claims from 33 evidence blocks"}
+{"t": 1791622624.190615, "kind": "verify", "msg": "grounding: 8/8 quotes found in their cited source"}
+{"t": 1791622626.2615116, "kind": "verify", "msg": "judge: 6 supported, 2 partial, 0 rejected of 8"}
+{"t": 1791622626.2675118, "kind": "plan", "msg": "4 priority questions unanswered -> research round 2"}
+{"t": 1791622627.438212, "kind": "plan", "msg": "round 2: 4 new queries for 4 unanswered questions"}
+{"t": 1791622639.1641684, "kind": "web", "msg": "search (crustdata-web) 'Postman competitors API development Swagger Insomnia Hoppscotch differentiation' -> 8 results"}
+{"t": 1791622644.07589, "kind": "web", "msg": "search (crustdata-web) 'API management market size growth forecast 2024 2025 Postman new products' -> 9 results"}
+{"t": 1791622644.0788887, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791622645.2470617, "kind": "extract", "msg": "1 claims from 6 evidence blocks"}
+{"t": 1791622645.2546437, "kind": "verify", "msg": "grounding: 1/1 quotes found in their cited source"}
+{"t": 1791622646.1880233, "kind": "verify", "msg": "judge: 1 supported, 0 partial, 0 rejected of 1"}
+{"t": 1791622710.2446756, "kind": "memo", "msg": "memo written: 9 distinct verified claims cited, recommendation: Dig deeper, as Postman holds a significant presence in the rapidly expanding API managemen"}

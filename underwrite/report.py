@@ -387,7 +387,9 @@ def write_report(state: CompanyState, out_dir: Path) -> Path:
     (out_dir / "memo.md").write_text(
         f"# {state.company}\n\n**{rec}** (confidence: {memo.confidence if memo else 'n/a'})\n\n"
         + (memo.memo_markdown if memo else "") + "\n", encoding="utf-8")
-    export_pdf(path)
+    if export_pdf(path) is None:  # no headless browser here: let the reader's browser make the PDF
+        path.write_text(page.replace(f'<a href="{pdf_name}" download id="pdfbtn">Download PDF</a>',
+                                     '<button id="pdfbtn" onclick="window.print()">Save as PDF</button>'), encoding="utf-8")
     return path
 
 

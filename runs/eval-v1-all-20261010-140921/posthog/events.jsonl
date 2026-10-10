@@ -1,0 +1,18 @@
+{"t": 1791621833.261385, "kind": "plan", "msg": "8 questions, 16 queries for PostHog"}
+{"t": 1791621838.7363093, "kind": "crust", "msg": "company record: 35 fields"}
+{"t": 1791621853.9196947, "kind": "web", "msg": "search (crustdata-web) 'PostHog product overview platform features' -> 8 results"}
+{"t": 1791621859.6655335, "kind": "web", "msg": "search (crustdata-web) 'PostHog founding year headquarters location' -> 8 results"}
+{"t": 1791621865.8357573, "kind": "web", "msg": "search (crustdata-web) 'PostHog founders CEO James Hawkins Tim Glaser' -> 7 results"}
+{"t": 1791621880.6779985, "kind": "web", "msg": "search (crustdata-web) 'PostHog funding rounds investors Series A Series B' -> 9 results"}
+{"t": 1791621885.7280743, "kind": "web", "msg": "search (crustdata-web) 'PostHog ARR revenue growth customer count' -> 9 results"}
+{"t": 1791621891.3018308, "kind": "web", "msg": "search (crustdata-web) 'PostHog competitors alternatives Amplitude Mixpanel LogRocket' -> 8 results"}
+{"t": 1791621898.8148458, "kind": "web", "msg": "search (crustdata-web) 'PostHog news announcements 2025 2026' -> 9 results"}
+{"t": 1791621904.491153, "kind": "web", "msg": "search (crustdata-web) 'PostHog open source license changes controversy' -> 8 results"}
+{"t": 1791621952.80179, "kind": "crust", "msg": "fetched 5/8 pages via Crustdata"}
+{"t": 1791621953.0064087, "kind": "recover", "msg": "3 pages empty via Crustdata; retrying them directly"}
+{"t": 1791621962.3011074, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791621966.6676338, "kind": "extract", "msg": "12 claims from 33 evidence blocks"}
+{"t": 1791621966.688616, "kind": "verify", "msg": "grounding: 12/12 quotes found in their cited source"}
+{"t": 1791621969.41759, "kind": "verify", "msg": "judge: 10 supported, 2 partial, 0 rejected of 12"}
+{"t": 1791622020.1375408, "kind": "memo", "msg": "memo written: 12 distinct verified claims cited, recommendation: Dig deeper: PostHog exhibits strong market footprint and capital backing in developer-focu"}
+{"t": 1791622053.8872218, "kind": "memo", "msg": "done in 215.4s \u00b7 12 claims \u00b7 83% supported \u00b7 0 conflicts \u00b7 $0.012 LLM \u00b7 18 Crustdata credits \u00b7 1 recoveries"}

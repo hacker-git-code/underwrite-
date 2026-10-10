@@ -83,6 +83,18 @@ def _post(path: str, body: dict, *, credits: float, timeout: float = 60.0) -> An
     return data
 
 
+def balance() -> float | None:
+    """Remaining account credits (free endpoint). None if it can't be read right now."""
+    if not settings.crustdata_api_key:
+        return None
+    try:
+        r = httpx.get(BASE + "/account/credits", timeout=20.0, headers={
+            "authorization": f"Bearer {settings.crustdata_api_key}", "x-api-version": "2025-11-01"})
+        return float(r.json()["account"]["credits"]) if r.status_code == 200 else None
+    except (httpx.HTTPError, KeyError, ValueError, TypeError):
+        return None
+
+
 @neatlogs.span(kind="TOOL", tool_name="crustdata_company_enrich")
 def enrich_company(domain: str | None = None, name: str | None = None) -> dict | None:
     """Best match's company_data, or None if Crustdata has no match."""

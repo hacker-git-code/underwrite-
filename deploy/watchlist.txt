@@ -1,0 +1,16 @@
+# Companies the nightly EC2 job researches, 3 new ones per night. One "Company, domain" per line.
+Dodo Payments, dodopayments.com
+Sarvam AI, sarvam.ai
+Zepto, zeptonow.com
+Perplexity, perplexity.ai
+ElevenLabs, elevenlabs.io
+Clerk, clerk.com
+Resend, resend.com
+Neon, neon.tech
+Modal, modal.com
+Browserbase, browserbase.com
+Exa, exa.ai
+Lovable, lovable.dev
+Composio, composio.dev
+Atlan, atlan.com
+Zerodha, zerodha.com

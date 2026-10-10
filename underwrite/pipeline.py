@@ -167,9 +167,16 @@ def run_batch(companies: list[tuple[str, str | None]], run_id: str, version: str
     states: list[CompanyState] = []
     spent = 0.0
     for company, domain in companies:
+        from .tools.crustdata import balance
+
+        left = balance()
+        low = left is not None and left < settings.min_credit_balance
+        if low:
+            emit("fail", f"Crustdata balance is {left:g} credits (< {settings.min_credit_balance:g} floor); not starting {company}")
         if spent >= settings.max_credits_per_run:
             emit("fail", f"credit cap reached ({spent:g} >= {settings.max_credits_per_run:g} Crustdata credits); "
                          f"skipping {company}. Raise UW_MAX_CREDITS_PER_RUN or resume later.")
+        if low or spent >= settings.max_credits_per_run:
             states.append(load_state(company_dir(run_id, company) / "state.json") or CompanyState(
                 run_id=run_id, company=company, domain=domain, prompts_version=version or settings.prompts_version,
                 error="skipped: credit cap"))

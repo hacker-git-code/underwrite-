@@ -1,0 +1,38 @@
+{
+  "razorpay": {
+    "company": "Razorpay",
+    "domain": "razorpay.com",
+    "finished_at": 1791622229.6154158,
+    "prompts_version": "v1",
+    "claims": 11,
+    "verified": 11,
+    "conflicts": 0,
+    "recoveries": 2,
+    "recommendation": "Dig deeper given Razorpay's strong market leadership with a 21% market share and deep funding base, pending investigation into regulatory compliance.",
+    "has_pdf": true
+  },
+  "posthog": {
+    "company": "PostHog",
+    "domain": "posthog.com",
+    "finished_at": 1791622020.1435406,
+    "prompts_version": "v1",
+    "claims": 12,
+    "verified": 12,
+    "conflicts": 0,
+    "recoveries": 1,
+    "recommendation": "Dig deeper: PostHog exhibits strong market footprint and capital backing in developer-focused analytics, but the impact of its late 2025 security incident requires further diligence.",
+    "has_pdf": true
+  },
+  "linear": {
+    "company": "Linear",
+    "domain": "linear.app",
+    "finished_at": 1791621780.2419653,
+    "prompts_version": "v1",
+    "claims": 14,
+    "verified": 14,
+    "conflicts": 0,
+    "recoveries": 3,
+    "recommendation": "Dig deeper, as Linear demonstrates substantial funding and market presence among software teams but faces intense competition from established enterprise issue trackers.",
+    "has_pdf": true
+  }
+}

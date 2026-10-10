@@ -1,0 +1,28 @@
+{"t": 1791621580.3273504, "kind": "plan", "msg": "8 questions, 16 queries for Linear"}
+{"t": 1791621580.4296842, "kind": "crust", "msg": "company record: 34 fields"}
+{"t": 1791621611.9027724, "kind": "web", "msg": "search (crustdata-web) 'Linear linear.app founding date headquarters location' -> 9 results"}
+{"t": 1791621619.7814033, "kind": "web", "msg": "search (crustdata-web) 'Linear linear.app founders Karri Saarinen Tuomas Artman CEO' -> 9 results"}
+{"t": 1791621627.4002957, "kind": "web", "msg": "search (crustdata-web) 'Linear linear.app product features target audience pricing tiers' -> 9 results"}
+{"t": 1791621650.1011195, "kind": "web", "msg": "search (crustdata-web) 'Linear linear.app funding rounds investors valuation Crunchbase' -> 9 results"}
+{"t": 1791621655.0723298, "kind": "web", "msg": "search (crustdata-web) 'Linear linear.app ARR revenue customer growth metrics' -> 9 results"}
+{"t": 1791621682.4138584, "kind": "web", "msg": "search (crustdata-web) 'Linear vs Jira vs Height vs Shortcut issue tracking alternatives' -> 9 results"}
+{"t": 1791621687.2270284, "kind": "web", "msg": "search (crustdata-web) 'Linear app product updates news announcements 2025 2026' -> 9 results"}
+{"t": 1791621692.714216, "kind": "web", "msg": "search (crustdata-web) 'Linear app enterprise limitations criticism reviews' -> 8 results"}
+{"t": 1791621712.9305289, "kind": "crust", "msg": "fetched 7/8 pages via Crustdata"}
+{"t": 1791621713.5515165, "kind": "recover", "msg": "1 pages empty via Crustdata; retrying them directly"}
+{"t": 1791621725.5896268, "kind": "recover", "msg": "fetch https://www.crunchbase.com/organization/linear-app: DNS lookup failed for www.crunchbase.com -> retry 1/1 in 1.3s", "what": "fetch https://www.crunchbase.com/organization/linear-app"}
+{"t": 1791621727.429472, "kind": "recover", "msg": "fetch https://www.crunchbase.com/organization/linear-app: succeeded on attempt 2", "what": "fetch https://www.crunchbase.com/organization/linear-app", "recovered": true}
+{"t": 1791621727.440498, "kind": "web", "msg": "round 1: +32 evidence (7 pages)"}
+{"t": 1791621730.923624, "kind": "extract", "msg": "8 claims from 32 evidence blocks"}
+{"t": 1791621730.9459064, "kind": "verify", "msg": "grounding: 8/8 quotes found in their cited source"}
+{"t": 1791621732.8611817, "kind": "verify", "msg": "judge: 8 supported, 0 partial, 0 rejected of 8"}
+{"t": 1791621732.8681772, "kind": "plan", "msg": "4 priority questions unanswered -> research round 2"}
+{"t": 1791621734.252182, "kind": "plan", "msg": "round 2: 4 new queries for 4 unanswered questions"}
+{"t": 1791621739.4480066, "kind": "web", "msg": "search (crustdata-web) 'Linear app pricing plans features target market' -> 9 results"}
+{"t": 1791621744.6358252, "kind": "web", "msg": "search (crustdata-web) 'Linear app differentiation competitors issue tracking' -> 8 results"}
+{"t": 1791621744.637829, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791621746.8558948, "kind": "extract", "msg": "6 claims from 6 evidence blocks"}
+{"t": 1791621746.8634052, "kind": "verify", "msg": "grounding: 6/6 quotes found in their cited source"}
+{"t": 1791621748.4779558, "kind": "verify", "msg": "judge: 6 supported, 0 partial, 0 rejected of 6"}
+{"t": 1791621780.2359688, "kind": "memo", "msg": "memo written: 14 distinct verified claims cited, recommendation: Dig deeper, as Linear demonstrates substantial funding and market presence among software "}
+{"t": 1791621804.737401, "kind": "memo", "msg": "done in 218.4s \u00b7 14 claims \u00b7 100% supported \u00b7 0 conflicts \u00b7 $0.013 LLM \u00b7 18 Crustdata credits \u00b7 3 recoveries"}

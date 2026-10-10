@@ -1,0 +1,54 @@
+{
+  "run_id": "eval-v1-all-20261010-140921",
+  "version": "v1",
+  "companies": [
+    [
+      "Linear",
+      "linear.app"
+    ],
+    [
+      "PostHog",
+      "posthog.com"
+    ],
+    [
+      "Razorpay",
+      "razorpay.com"
+    ],
+    [
+      "Zerodha",
+      "zerodha.com"
+    ],
+    [
+      "Postman",
+      "postman.com"
+    ],
+    [
+      "Mistral AI",
+      "mistral.ai"
+    ],
+    [
+      "Hugging Face",
+      "huggingface.co"
+    ],
+    [
+      "Ramp",
+      "ramp.com"
+    ],
+    [
+      "Anysphere (Cursor)",
+      "cursor.com"
+    ],
+    [
+      "Groww",
+      "groww.in"
+    ],
+    [
+      "Deel",
+      "deel.com"
+    ],
+    [
+      "Supabase",
+      "supabase.com"
+    ]
+  ]
+}

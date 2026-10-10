@@ -56,12 +56,22 @@ def batch(
     file: Path = typer.Argument(..., exists=True, help="Text file: one 'Company, domain' per line"),
     prompts: Optional[str] = typer.Option(None, "--prompts", "-p"),
     chaos: Optional[float] = typer.Option(None),
+    new_only: bool = typer.Option(False, "--new-only", help="Skip companies already published on the site"),
+    limit: Optional[int] = typer.Option(None, help="Research at most N companies this run"),
 ):
     """Research a list of companies unattended (the overnight mode)."""
-    from .pipeline import run_batch
+    from .pipeline import run_batch, slug
+    from .site import published_slugs
 
     version = _start(prompts, chaos, "batch")
     companies = [p for p in map(_parse_line, file.read_text(encoding="utf-8").splitlines()) if p]
+    if new_only:
+        done = published_slugs()
+        companies = [c for c in companies if slug(c[0]) not in done]
+    companies = companies[:limit] if limit else companies
+    if not companies:
+        console.print("nothing new to research")
+        return
     run_id = f"batch-{time.strftime('%Y%m%d-%H%M%S')}"
     console.print(f"[bold]batch {run_id}[/bold]: {len(companies)} companies. Ctrl-C is safe: `underwrite resume {run_id}`")
     states = run_batch(companies, run_id, version)
@@ -168,10 +178,19 @@ def render(
 
 
 @app.command()
-def doctor():
-    """Check keys and connectivity: Bedrock models, Crustdata, neatlogs."""
-    import httpx
+def site(open_site: bool = typer.Option(False, "--open", help="Open the site when done")):
+    """Build the static website in docs/ (memo gallery + scoreboard) for GitHub Pages."""
+    from .site import build
 
+    index = build()
+    console.print(f"site written to {index.parent}")
+    if open_site:
+        webbrowser.open(index.resolve().as_uri())
+
+
+@app.command()
+def doctor():
+    """Check keys and connectivity: LLM models, Crustdata, neatlogs."""
     from . import llm
     from .coach import ask_neatlogs
 
@@ -203,12 +222,10 @@ def doctor():
             console.print(f"  gemini model list failed: {e}")
 
     if settings.crustdata_api_key:
-        try:
-            r = httpx.get("https://api.crustdata.com/account/endpoints", timeout=30,
-                          headers={"authorization": f"Bearer {settings.crustdata_api_key}", "x-api-version": "2025-11-01"})
-            console.print(f"  crustdata: HTTP {r.status_code} {r.text[:200]}")
-        except Exception as e:
-            console.print(f"  crustdata: [red]{e}[/red]")
+        from .tools.crustdata import balance
+
+        left = balance()
+        console.print(f"  crustdata: {'[green]ok[/green] ' + format(left, ',.1f') + ' credits left' if left is not None else '[red]could not read balance[/red]'}")
 
     found = ask_neatlogs([])
     console.print(f"  neatlogs MCP: {'[green]ok[/green] ' + found.get('whoami', '')[:200] if found else '[red]not reachable[/red]'}")

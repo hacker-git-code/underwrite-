@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Underwrite · autonomous due diligence</title>
+<meta name="description" content="An autonomous due-diligence agent that researches startups overnight, verifies every claim against its source, and improves itself from its own neatlogs traces.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap">
+<style>
+:root{--desk:#e4dfd3;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--mut:#6d685e;--line:#cfc8b6}
+@media (prefers-color-scheme:dark){:root{--desk:#1f1d1a;--type:#262421}}
+*{box-sizing:border-box}body{margin:0;background:var(--desk);color:var(--type);font:16px/1.55 "Courier Prime","Courier New",monospace}
+main{max-width:1060px;margin:0 auto;padding:40px 16px 64px}
+.sheet{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 10px 26px rgba(0,0,0,.16);padding:36px 40px;margin:0 0 28px}
+h1{font:400 44px/1.1 "Special Elite",monospace;letter-spacing:.14em;margin:0}
+h2{font:400 20px "Special Elite",monospace;letter-spacing:.08em;margin:0 0 14px;text-decoration:underline;text-underline-offset:4px}
+.hand{font-family:Caveat,cursive;color:var(--ink);font-size:26px;line-height:1.15}
+.tagline{margin:10px 0 18px}.small{font-size:13px;color:var(--mut)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-top:18px}
+.stats div{border-top:3px double #6b6760;padding-top:6px}.stats b{display:block;font:700 30px Caveat,cursive;color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:s;padding:0;list-style:none}
+.steps li{border:1px dashed #9a958a;padding:10px 12px;counter-increment:s}
+.steps li:before{content:counter(s);display:inline-block;width:24px;height:24px;border:1.6px solid var(--red);border-radius:50%;
+  color:var(--red);font:700 15px/21px Caveat,cursive;text-align:center;margin-right:6px;transform:rotate(-6deg)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;white-space:nowrap}
+.tag{font-size:11px;border:1.5px solid var(--red);color:var(--red);padding:0 5px;border-radius:3px;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 8px 18px rgba(0,0,0,.14);padding:18px 20px 16px;position:relative;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#d8d1bf 27px,#d8d1bf 28px);background-position:0 54px}
+.card:nth-child(odd){transform:rotate(-.4deg)}.card:nth-child(even){transform:rotate(.35deg)}
+.card h3{font:400 22px "Special Elite",monospace;margin:0 0 2px}.card .dom{font-size:13px;color:var(--mut);margin-bottom:10px}
+.card .rec{font:500 21px/28px Caveat,cursive;color:var(--ink);min-height:84px;text-transform:uppercase}
+.card .stamp{position:absolute;top:14px;right:14px;transform:rotate(-9deg);border:2.5px solid var(--red);color:var(--red);
+  font:700 12px "Special Elite",monospace;padding:3px 7px;letter-spacing:.08em;opacity:.8}
+.card .links{margin-top:10px;display:flex;gap:12px;font-size:14px;flex-wrap:wrap;align-items:baseline}.card .links a{white-space:nowrap}
+a{color:var(--ink)}footer{text-align:center;font-size:13px;color:var(--mut)}
+@media (max-width:600px){.sheet{padding:24px 18px}h1{font-size:32px}}
+</style></head><body><main>
+<section class="sheet">
+  <h1>UNDERWRITE</h1>
+  <p class="hand tagline">A due-diligence analyst you can leave running overnight.</p>
+  <p>Give it a list of startups. It plans the research, pulls company data from Crustdata, reads the web, and writes an
+  investment memo where <b>every fact links to the exact sentence it came from</b>. An independent checker throws out
+  anything the sources don't support, and disagreements between sources are flagged in red. A Coach agent reads the
+  agent's own <a href="https://neatlogs.com">neatlogs</a> traces and rewrites its prompts — and keeps a change only if the eval score improves.</p>
+  <div class="stats">
+    <div><b>3</b>memos written</div><div><b>37</b>claims verified</div>
+    <div><b>0</b>claims rejected</div><div><b>0</b>source conflicts flagged</div>
+    <div><b>6</b>failures recovered</div><div><b>10 Oct 08:51</b>last updated (UTC)</div>
+  </div>
+</section>
+<section class="sheet"><h2>HOW IT WORKS</h2><ol class="steps">
+  <li><b>Plan</b> — turns a company into 8–10 diligence questions with search queries.</li>
+  <li><b>Research</b> — Crustdata company record + web search + page fetch, within a fixed budget.</li>
+  <li><b>Extract</b> — atomic claims, each pinned to one source and a verbatim quote.</li>
+  <li><b>Verify</b> — quote must exist in the source; an independent judge checks support; values are cross-checked.</li>
+  <li><b>Fill gaps</b> — unanswered questions trigger a second research round.</li>
+  <li><b>Write</b> — a cited memo and evaluation form, using verified claims only.</li>
+  <li><b>Recover</b> — retries, model + data-source fallbacks, JSON repair, checkpoint/resume after a crash.</li>
+  <li><b>Improve</b> — the Coach reads neatlogs traces, detections and triage fixes over MCP, rewrites prompts, re-runs the eval.</li>
+</ol></section>
+<section class="sheet"><h2>SCOREBOARD</h2><p>No evaluation has been run yet.</p></section>
+<section><h2 style="margin-left:4px">MEMOS</h2><div class="grid"><article class="card"><div class="stamp">VERIFIED 11/11</div><h3>Razorpay</h3><div class="dom">razorpay.com · 2026-10-10 · prompts v1</div><div class="rec">Dig deeper given Razorpay&#x27;s strong market leadership with a 21% market share and deep funding base, pending investigation into regulatory compliance.</div><div class="links"><a href="memos/razorpay/">Open dossier →</a><a href=memos/razorpay/memo.pdf download>PDF</a><span class="small">0 conflicts · 2 recoveries</span></div></article><article class="card"><div class="stamp">VERIFIED 12/12</div><h3>PostHog</h3><div class="dom">posthog.com · 2026-10-10 · prompts v1</div><div class="rec">Dig deeper: PostHog exhibits strong market footprint and capital backing in developer-focused analytics, but the impact of its late 2025 security inci…</div><div class="links"><a href="memos/posthog/">Open dossier →</a><a href=memos/posthog/memo.pdf download>PDF</a><span class="small">0 conflicts · 1 recoveries</span></div></article><article class="card"><div class="stamp">VERIFIED 14/14</div><h3>Linear</h3><div class="dom">linear.app · 2026-10-10 · prompts v1</div><div class="rec">Dig deeper, as Linear demonstrates substantial funding and market presence among software teams but faces intense competition from established enterpr…</div><div class="links"><a href="memos/linear/">Open dossier →</a><a href=memos/linear/memo.pdf download>PDF</a><span class="small">0 conflicts · 3 recoveries</span></div></article></div></section>
+<footer><p>Built for <b>#neatHack</b> with neatlogs · Entire · cfo.ai · Crustdata ·
+<a href="https://github.com/hacker-git-code/underwrite-">source on GitHub</a></p></footer>
+</main></body></html>
