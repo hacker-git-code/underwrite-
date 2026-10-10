@@ -98,13 +98,39 @@ class Conflict(BaseModel):
     note: str
 
 
+class Objection(BaseModel):
+    question_id: str = ""
+    issue: str
+    action: str = ""
+
+
+class Review(BaseModel):
+    verdict: Literal["ready", "needs_work"]
+    objections: list[Objection] = Field(default_factory=list)
+
+
 class CompanyState(BaseModel):
     run_id: str
     company: str
     domain: str | None = None
     prompts_version: str
-    phase: str = "new"  # new -> planned -> researched -> extracted -> verified -> written -> done | failed
+    # "agent": analyst tool loop + skeptic review. "pipeline": the original fixed plan->search->extract->verify flow.
+    mode: Literal["agent", "pipeline"] = "pipeline"
+    # pipeline: new -> planned -> researched -> extracted -> verified -> written -> done
+    # agent:    new -> planned -> investigating -> judging -> reviewing -> (investigating ...) -> writing -> written -> done
+    phase: str = "new"
     round: int = 1
+    question_status: dict[str, dict] = Field(default_factory=dict)  # qid -> {"status": open|answered|unanswerable, "note"}
+    agent_messages: list[dict] = Field(default_factory=list)  # the analyst's conversation, checkpointed every step
+    agent_steps: int = 0
+    round_start_step: int = 0
+    tasks_round: int = 1  # last round whose skeptic objections were handed to the analyst
+    tool_counts: dict[str, int] = Field(default_factory=dict)
+    claim_attempts: int = 0
+    rejected_in_loop: int = 0
+    self_corrections: int = 0
+    reviews: list[Review] = Field(default_factory=list)
+    active_s: float = 0.0  # time actually spent working (excludes time the process was not running)
     plan: Plan | None = None
     evidence: list[Evidence] = Field(default_factory=list)
     searched: list[str] = Field(default_factory=list)

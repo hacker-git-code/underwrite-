@@ -8,7 +8,7 @@ import re
 from .config import settings
 
 SPLIT = "---USER---"
-NAMES = ["planner", "replanner", "extractor", "verifier", "writer"]
+NAMES = ["planner", "replanner", "extractor", "verifier", "writer", "analyst", "skeptic"]
 
 
 def load(name: str, version: str | None = None) -> tuple[str, str]:

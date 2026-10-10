@@ -1,0 +1,28 @@
+{"t": 1791622865.720688, "kind": "recover", "msg": "llm smart:gemini:gemini-3.8-flash: HTTP 503 -> retry 1/3 in 2.0s", "what": "llm smart:gemini:gemini-3.8-flash"}
+{"t": 1791622977.844963, "kind": "recover", "msg": "llm smart:gemini:gemini-3.8-flash: succeeded on attempt 2", "what": "llm smart:gemini:gemini-3.8-flash", "recovered": true}
+{"t": 1791622977.8466227, "kind": "plan", "msg": "9 questions, 18 queries for Mistral AI"}
+{"t": 1791622982.60264, "kind": "crust", "msg": "company record: 46 fields"}
+{"t": 1791622987.8474276, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI products commercial API enterprise solutions business model' -> 9 results"}
+{"t": 1791622995.081975, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI founding date headquarters Paris France Crunchbase' -> 9 results"}
+{"t": 1791623025.1169956, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI co-founders Arthur Mensch Guillaume Lample Timothee Lacroix' -> 9 results"}
+{"t": 1791623030.9750981, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI total funding rounds valuation investors Crunchbase' -> 9 results"}
+{"t": 1791623035.857952, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI enterprise customers revenue ARR growth' -> 9 results"}
+{"t": 1791623064.6031656, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI EU AI Act compliance copyright regulatory risks' -> 9 results"}
+{"t": 1791623070.096432, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI competitors OpenAI Anthropic Meta Llama comparison' -> 7 results"}
+{"t": 1791623076.6350703, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI distribution partnerships Microsoft Azure AWS Snowflake' -> 8 results"}
+{"t": 1791623094.8645422, "kind": "crust", "msg": "fetched 7/8 pages via Crustdata"}
+{"t": 1791623095.1194975, "kind": "recover", "msg": "1 pages empty via Crustdata; retrying them directly"}
+{"t": 1791623097.1308234, "kind": "web", "msg": "round 1: +32 evidence (7 pages)"}
+{"t": 1791623100.8615398, "kind": "extract", "msg": "10 claims from 32 evidence blocks"}
+{"t": 1791623100.8815265, "kind": "verify", "msg": "grounding: 10/10 quotes found in their cited source"}
+{"t": 1791623103.2296345, "kind": "verify", "msg": "judge: 9 supported, 1 partial, 0 rejected of 10"}
+{"t": 1791623103.2396293, "kind": "plan", "msg": "2 priority questions unanswered -> research round 2"}
+{"t": 1791623104.2001467, "kind": "plan", "msg": "round 2: 2 new queries for 2 unanswered questions"}
+{"t": 1791623127.1355517, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI competitive moat open-weights proprietary models market position' -> 8 results"}
+{"t": 1791623166.7637486, "kind": "web", "msg": "search (crustdata-web) 'Mistral AI major model releases product launches updates controversies 2025 2026' -> 9 results"}
+{"t": 1791623166.7657285, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791623168.7722654, "kind": "extract", "msg": "3 claims from 6 evidence blocks"}
+{"t": 1791623168.781263, "kind": "verify", "msg": "grounding: 3/3 quotes found in their cited source"}
+{"t": 1791623170.0599825, "kind": "verify", "msg": "judge: 2 supported, 1 partial, 0 rejected of 3"}
+{"t": 1791623248.4250965, "kind": "memo", "msg": "memo written: 13 distinct verified claims cited, recommendation: Dig deeper given Mistral AI's proven ability to attract massive capital and top-tier resea"}
+{"t": 1791623282.9710019, "kind": "memo", "msg": "done in 455.9s \u00b7 13 claims \u00b7 85% supported \u00b7 0 conflicts \u00b7 $0.013 LLM \u00b7 20 Crustdata credits \u00b7 3 recoveries"}

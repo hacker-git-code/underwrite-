@@ -41,6 +41,19 @@ class Settings:
         )
     )
 
+    # "agent" = the analyst's tool-calling loop (it decides what to search, read and record). Uses tool calling,
+    # so only OpenAI-compatible providers. Each Gemini model has its own free daily quota, so the chain spreads load.
+    models_agent: list[str] = field(
+        default_factory=lambda: _env_list(
+            "UW_MODELS_AGENT",
+            "gemini:gemini-3.5-flash-lite,gemini:gemini-3.7-flash,gemini:gemini-3.6-flash,"
+            "gemini:gemini-3.1-flash-lite,cerebras:gpt-oss-120b,groq:openai/gpt-oss-120b,gemini:gemini-3.5-flash",
+        )
+    )
+    mode: str = field(default_factory=lambda: _env("UW_MODE", "agent"))
+    max_steps: int = field(default_factory=lambda: int(_env("UW_MAX_STEPS", "24")))  # analyst tool steps per round
+    keep_pages: int = field(default_factory=lambda: int(_env("UW_KEEP_PAGES", "2")))  # page texts kept in context
+
     crustdata_api_key: str = field(default_factory=lambda: _env("CRUSTDATA_API_KEY"))
     neatlogs_api_key: str = field(default_factory=lambda: _env("NEATLOGS_API_KEY"))
     neatlogs_mcp_url: str = field(

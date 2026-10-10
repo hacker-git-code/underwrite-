@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mistral AI · Underwrite memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"><style>
+:root{--desk:#d9d4c7;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--rule:#6b6760;--faint:#cfc8b6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--desk:#24221f}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--type)}
+body{font:15px/1.5 "Courier Prime","Courier New",monospace;padding:72px 16px 48px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;padding:10px 16px;background:rgba(30,28,25,.88);backdrop-filter:blur(6px);font:13px system-ui,sans-serif;color:#eee}
+.toolbar b{margin-right:auto;letter-spacing:.08em}
+.toolbar a,.toolbar button{font:inherit;color:#1e1c19;background:#f3eddc;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.toolbar a:hover,.toolbar button:hover{background:#fff}
+.sheet{position:relative;width:min(816px,100%);min-height:1056px;margin:0 auto 36px;padding:56px 60px 64px;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 18% 8%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(ellipse at 90% 100%,rgba(160,130,70,.10),transparent 60%);
+  box-shadow:0 1px 2px rgba(0,0,0,.15),0 12px 28px rgba(0,0,0,.18)}
+.sheet:nth-of-type(odd){transform:rotate(-.25deg)} .sheet:nth-of-type(even){transform:rotate(.3deg)}
+.hand{font-family:Caveat,"Segoe Print","Bradley Hand",cursive;color:var(--ink);font-weight:500;font-size:23px;line-height:1.15;
+  text-transform:uppercase;letter-spacing:.02em}
+.red{color:var(--red)}
+.typed{font-family:"Special Elite","Courier Prime",monospace}
+.title{text-align:center;font-size:15px;letter-spacing:.06em;margin:0 0 30px;text-decoration:underline;text-underline-offset:4px}
+.cc{position:absolute;top:26px;right:48px;transform:rotate(-8deg);font-size:21px;text-align:center;line-height:1}
+.row{display:flex;align-items:flex-end;gap:10px;margin:0 0 13px;flex-wrap:wrap}
+.lbl{font-family:"Special Elite",monospace;font-size:14px;white-space:nowrap}
+.line{flex:1 1 180px;min-width:140px;border-bottom:1px solid var(--rule);padding:0 6px 1px;min-height:30px}
+.line.short{flex:0 1 150px;min-width:110px}
+.sec{margin-top:20px;border-top:3px double var(--rule)}
+.sec>.lbl{display:inline-block;margin-top:3px;text-decoration:underline;text-underline-offset:3px}
+.ruled{padding:4px 8px 0 28px;min-height:62px;background-position:0 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,var(--faint) 29px,var(--faint) 30px);
+  line-height:30px}
+.ruled .hand{line-height:30px}
+table.ops{border-collapse:collapse;margin:8px 0 0 28px;width:calc(100% - 28px)}
+.ops td{padding:2px 6px 2px 0;vertical-align:bottom}
+.ops td:first-child{font-family:"Special Elite",monospace;font-size:14px;width:36%;padding-left:20px}
+.ops td:last-child{border-bottom:1px solid var(--rule)}
+a.cite{display:inline-block;min-width:19px;height:19px;padding:0 4px;margin:0 1px;border:1.6px solid var(--red);border-radius:50%;
+  font:700 12px/16px Caveat,cursive;color:var(--red);text-align:center;text-decoration:none;vertical-align:super;transform:rotate(-6deg)}
+.stamp-row{text-align:right;margin:14px 8px 0}
+.stamp{display:inline-block;transform:rotate(-7deg);border:3px solid var(--red);border-radius:6px;padding:6px 14px;
+  color:var(--red);font:700 17px/1.15 "Special Elite",monospace;text-align:center;letter-spacing:.12em;opacity:.78;mix-blend-mode:multiply;
+  box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--red)}
+.stamp small{display:block;font-size:11px;letter-spacing:.08em}
+.margin-note{border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:6px 0 0 28px;font-size:21px}
+.circled{display:inline-block;border:2px solid var(--ink);border-radius:50%;padding:0 12px;transform:rotate(-3deg)}
+.footer{position:absolute;left:60px;right:60px;bottom:26px;font-size:11px;color:#77736a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.memo h1{font:400 26px "Special Elite",monospace;letter-spacing:.3em;margin:0 0 18px}
+.memo .hdr{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;margin-bottom:12px}
+.memo .hdr b{font-weight:700}
+.memo hr{border:0;border-top:2px solid var(--type);margin:14px 0 18px}
+.memo h2{font:700 15px "Courier Prime",monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 6px}
+.memo p,.memo li{margin:0 0 9px;text-align:left}
+.memo ul{padding-left:22px;margin:0 0 10px}
+.sig{margin-top:30px;font-size:30px}
+.appendix ol{padding-left:24px}.appendix li{margin-bottom:12px;word-break:break-word}
+.appendix .src{font-weight:700;color:var(--ink)}.appendix .via{font-size:12px;color:#6d685e}
+.appendix .claims{list-style:none;padding-left:4px;margin:4px 0 0;font-size:13.5px}
+.appendix .claims li{margin:2px 0}
+.ok{color:#1d6b3a;font-weight:700}.part{color:#9a5b00;font-weight:700}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:#5d5a52}
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 18px;margin:8px 0 16px}
+.log div{border-bottom:1px dotted var(--rule)}
+@media (max-width:640px){body{padding:64px 8px 24px}.sheet{padding:40px 22px 64px;min-height:0}.cc{right:16px;top:12px}
+  .footer{left:22px;right:22px}.hand{font-size:21px}.toolbar b{display:none}}
+@media print{@page{size:letter;margin:0}
+  html,body{background:none;padding:0}.toolbar{display:none}
+  .sheet{transform:none!important;box-shadow:none;margin:0;background-image:none;width:8.5in;min-height:11in;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script><script>
+function savePng(){
+  const el=document.getElementById('page1'); const btn=document.getElementById('pngbtn'); btn.textContent='Rendering…';
+  htmlToImage.toPng(el,{pixelRatio:2,backgroundColor:'#fbf7ec',style:{transform:'none',margin:'0'}}).then(url=>{
+    const a=document.createElement('a'); a.href=url; a.download=document.body.dataset.slug+'-evaluation-form.png'; a.click();
+    btn.textContent='Download page 1 (PNG)';
+  }).catch(()=>{btn.textContent='PNG failed: use PDF'});
+}
+</script></head>
+<body data-slug="mistral-ai">
+<div class="toolbar"><b>UNDERWRITE · Mistral AI</b>
+  <a href="memo.pdf" download id="pdfbtn">Download PDF</a>
+  <button id="pngbtn" onclick="savePng()">Download page 1 (PNG)</button>
+  <button onclick="window.print()">Print</button></div>
+
+<article class="sheet form" id="page1">
+  <div class="cc hand red">cc: IC<br>10/10/26</div>
+  <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">Mistral AI</span>
+    <span class="lbl">Date Rec'd</span><span class="line short hand">10/10/26</span></div>
+  <div class="row"><span class="lbl">Address</span><span class="line hand">Paris, France<a class="cite" href="#src1" title="Mistral AI&#x27;s headquarters are located in Paris, France.  —  “Headquarters: Paris, Paris 10, Île-de-France, France”">1</a></span>
+    <span class="lbl">Website</span><span class="line short hand" style="text-transform:none">mistral.ai</span></div>
+  <div class="row"><span class="lbl">Introduced By</span><span class="line hand">Underwrite agent</span>
+    <span class="lbl">Founded</span><span class="line short hand">2023<a class="cite" href="#src1" title="Mistral AI was founded in April 2023.  —  “Year founded: 2023”">1</a></span></div>
+  <div class="sec"><span class="lbl">BUSINESS:</span><div class="ruled"><span class="hand">Mistral AI monetizes its offerings through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.</span><a class="cite" href="#src1" title="Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.  —  “Categories: Agentic AI, Artificial Intelligence (AI), Developer Platform, Enterprise Software, Foundational AI, Generative AI, Machine Learning, Natural Language Processing, Open Source, SaaS”">1</a></div></div>
+  <div class="sec"><span class="lbl">FINANCING TO DATE:</span><div class="ruled"><span class="hand">7.5 billion USD<a class="cite" href="#src1" title="Mistral AI has raised a total of approximately 7.5 billion USD across multiple funding rounds.  —  “Total funding raised: 7,495,504,669 USD”">1</a></span>
+    <span class="hand"> · last round: Series D<a class="cite" href="#src1" title="Mistral AI&#x27;s latest reported funding round was a Series D of approximately 3.49 billion USD on September 8, 2026.  —  “Last funding round: series_d 3,487,686,722 USD on 2026-09-08”">1</a></span></div></div>
+  <div class="sec"><span class="lbl">MARKET:</span><div class="ruled"><span class="hand">Mistral AI targets enterprise and developer demand with open-weight frontier models such as ML4.</span><a class="cite" href="#src1" title="Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.  —  “Categories: Agentic AI, Artificial Intelligence (AI), Developer Platform, Enterprise Software, Foundational AI, Generative AI, Machine Learning, Natural Language Processing, Open Source, SaaS”">1</a><a class="cite" href="#src3" title="Mistral unveiled its model ML4 in October 2026, which the company calls the best open-weight model in the world.  —  “Mistral unveiled its long-awaited model, ML4, which the company calls the “best open-weight model in the world.””">3</a></div></div>
+  <div class="sec"><span class="lbl">OPERATING STATISTICS:</span> <span class="lbl">(as of 10/26)</span>
+    <table class="ops"><tr><td>Employees</td><td><span class="hand">1,613<a class="cite" href="#src1" title="Mistral AI has an employee count of 1,613 according to recent data.  —  “Employee count: 1613”">1</a></span></td></tr><tr><td>Funding raised</td><td><span class="hand">7.5 billion USD<a class="cite" href="#src1" title="Mistral AI has raised a total of approximately 7.5 billion USD across multiple funding rounds.  —  “Total funding raised: 7,495,504,669 USD”">1</a></span></td></tr><tr><td>Last round</td><td><span class="hand">Series D<a class="cite" href="#src1" title="Mistral AI&#x27;s latest reported funding round was a Series D of approximately 3.49 billion USD on September 8, 2026.  —  “Last funding round: series_d 3,487,686,722 USD on 2026-09-08”">1</a></span></td></tr><tr><td>Founded</td><td><span class="hand">2023<a class="cite" href="#src1" title="Mistral AI was founded in April 2023.  —  “Year founded: 2023”">1</a></span></td></tr></table></div>
+  <div class="sec"><span class="lbl">MANAGEMENT:</span><div class="ruled"><span class="hand">Arthur Mensch — CEO</span><a class="cite" href="#src1" title="Arthur Mensch currently serves as the co-founder and CEO of Mistral AI.  —  “Arthur Mensch, Cofounder &amp; CEO @ Mistral”">1</a><br><span class="hand">Founders: Arthur Mensch, Timothée Lacroix, Guillaume Lample</span><a class="cite" href="#src2" title="Mistral AI was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.  —  “co-founded by Arthur Mensch , Guillaume Lample and Timoth”">2</a><br><span class="hand">Team size: 1,613</span><a class="cite" href="#src1" title="Mistral AI has an employee count of 1,613 according to recent data.  —  “Employee count: 1613”">1</a></div></div>
+  <div class="sec"><span class="lbl">COMMENTS:</span><div class="ruled"><span class="hand">Mistral AI is a Paris-based artificial intelligence company founded in April 2023. Led by co-founder and CEO Arthur Mensch, the company develops customizable open-weight frontier models and enterprise platforms.</span><a class="cite" href="#src1" title="Mistral AI was founded in April 2023.  —  “Year founded: 2023”">1</a><a class="cite" href="#src2" title="Mistral AI was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.  —  “co-founded by Arthur Mensch , Guillaume Lample and Timoth”">2</a></div></div>
+  <div class="sec"><span class="lbl">RISKS:</span><div class="ruled"><span class="hand">The company is subject to regulatory compliance obligations, including adherence to the EU AI Act.</span><a class="cite" href="#src4" title="Mistral AI faces regulatory compliance requirements such as adherence to the EU AI Act.  —  “Welcome to the Mistral AI Legal Center, your resource for understanding our compliance with the EU AI Act and accessing model documentation.”">4</a></div></div>
+  <div class="sec"></div>
+  <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">Dig deeper given Mistral AI&#x27;s proven ability to attract massive capital and top-tier research talent, while further investigating competitive defensibility against proprietary foundation model providers.</span></div>
+  <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">Dig deeper</span></span>
+    <span class="lbl">CONFIDENCE</span><span class="line short hand">medium</span></div>
+  <div class="stamp-row"><div class="stamp">VERIFIED<small>13 OF 13 CLAIMS · 0 CONFLICTS</small></div></div>
+  <div class="footer typed"><span>FORM UW-1 · prompts v1</span><span>run eval-v1-all-20261010-140921</span></div>
+</article>
+<article class="sheet memo" id="page2">
+  <h1>MEMORANDUM</h1>
+  <div class="hdr"><b>TO:</b><span>Investment Committee</span><b>FROM:</b><span>Underwrite (autonomous diligence agent)</span>
+    <b>DATE:</b><span>October 10, 2026</span><b>RE:</b><span>Mistral AI (mistral.ai) — first-pass diligence</span></div>
+  <hr>
+  <p><b>Recommendation:</b> Dig deeper given Mistral AI&#x27;s proven ability to attract massive capital and top-tier research talent, while further investigating competitive defensibility against proprietary foundation model providers. <i>(confidence: medium)</i></p>
+  <h2>Summary</h2>
+<p>Mistral AI is a Paris-based artificial intelligence company founded in April 2023.<a class="cite" href="#src1" title="Mistral AI was founded in April 2023.  —  “Year founded: 2023”">1</a> Led by co-founder and CEO Arthur Mensch, the company develops customizable open-weight frontier models and enterprise platforms.<a class="cite" href="#src1" title="Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.  —  “Categories: Agentic AI, Artificial Intelligence (AI), Developer Platform, Enterprise Software, Foundational AI, Generative AI, Machine Learning, Natural Language Processing, Open Source, SaaS”">1</a><a class="cite" href="#src2" title="Mistral AI was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.  —  “co-founded by Arthur Mensch , Guillaume Lample and Timoth”">2</a> It has raised approximately 7.5 billion USD in total funding, achieving a post-money valuation above €21 billion following a Series D round in September 2026.<a class="cite" href="#src1" title="Mistral AI has raised a total of approximately 7.5 billion USD across multiple funding rounds.  —  “Total funding raised: 7,495,504,669 USD”">1</a><a class="cite" href="#src5" title="Mistral AI raised €3 billion in a Series D funding round at a post-money valuation of more than €21 billion in September 2026.  —  “Mistral today announced that it has raised €3 billion in a Series D funding round at a post-money valuation of more than €21 billion.”">5</a></p>
+<h2>Product &amp; business model</h2>
+<p>Mistral AI monetizes its offerings through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.<a class="cite" href="#src1" title="Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.  —  “Categories: Agentic AI, Artificial Intelligence (AI), Developer Platform, Enterprise Software, Foundational AI, Generative AI, Machine Learning, Natural Language Processing, Open Source, SaaS”">1</a> In October 2026, the company unveiled ML4, which it positions as the best open-weight model in the world.<a class="cite" href="#src3" title="Mistral unveiled its model ML4 in October 2026, which the company calls the best open-weight model in the world.  —  “Mistral unveiled its long-awaited model, ML4, which the company calls the “best open-weight model in the world.””">3</a></p>
+<h2>Team</h2>
+<p>The company was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.<a class="cite" href="#src2" title="Mistral AI was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.  —  “co-founded by Arthur Mensch , Guillaume Lample and Timoth”">2</a> Arthur Mensch currently serves as CEO.<a class="cite" href="#src1" title="Arthur Mensch currently serves as the co-founder and CEO of Mistral AI.  —  “Arthur Mensch, Cofounder &amp; CEO @ Mistral”">1</a> The founders are AI research experts originating from institutions including DeepMind and Meta FAIR.<a class="cite" href="#src6" title="Mistral&#x27;s founders are experts in AI research who came from reputable labs like DeepMind and Meta FAIR.  —  “the founders are definitely experts in AI research, coming from reputable labs like DeepMind and Meta FAIR.”">6</a> Mistral AI has expanded to an employee count of 1,613.<a class="cite" href="#src1" title="Mistral AI has an employee count of 1,613 according to recent data.  —  “Employee count: 1613”">1</a></p>
+<h2>Funding &amp; traction</h2>
+<p>Mistral AI has raised approximately 7.5 billion USD across multiple financing rounds.<a class="cite" href="#src1" title="Mistral AI has raised a total of approximately 7.5 billion USD across multiple funding rounds.  —  “Total funding raised: 7,495,504,669 USD”">1</a> Its latest funding round was a Series D on September 8, 2026, which secured €3 billion (approximately 3.49 billion USD) at a post-money valuation exceeding €21 billion.<a class="cite" href="#src1" title="Mistral AI&#x27;s latest reported funding round was a Series D of approximately 3.49 billion USD on September 8, 2026.  —  “Last funding round: series_d 3,487,686,722 USD on 2026-09-08”">1</a><a class="cite" href="#src5" title="Mistral AI raised €3 billion in a Series D funding round at a post-money valuation of more than €21 billion in September 2026.  —  “Mistral today announced that it has raised €3 billion in a Series D funding round at a post-money valuation of more than €21 billion.”">5</a> The company has also established commercial traction through a major strategic integration partnership with Snowflake.<a class="cite" href="#src7" title="Mistral AI maintains a major strategic integration partnership with Snowflake.  —  “This partnership between Snowflake and Mistral is just the beginning of a journey to provide customers with fast and insightful access to data”">7</a></p>
+<h2>Market &amp; competition</h2>
+<p>Mistral AI targets enterprise and developer demand with open-weight frontier models such as ML4.<a class="cite" href="#src1" title="Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.  —  “Categories: Agentic AI, Artificial Intelligence (AI), Developer Platform, Enterprise Software, Foundational AI, Generative AI, Machine Learning, Natural Language Processing, Open Source, SaaS”">1</a><a class="cite" href="#src3" title="Mistral unveiled its model ML4 in October 2026, which the company calls the best open-weight model in the world.  —  “Mistral unveiled its long-awaited model, ML4, which the company calls the “best open-weight model in the world.””">3</a> Specific competitive benchmarks and market share metrics against rival foundation model providers remain unverified.</p>
+<h2>Risks &amp; red flags</h2>
+<p>The company is subject to regulatory compliance obligations, including adherence to the EU AI Act.<a class="cite" href="#src4" title="Mistral AI faces regulatory compliance requirements such as adherence to the EU AI Act.  —  “Welcome to the Mistral AI Legal Center, your resource for understanding our compliance with the EU AI Act and accessing model documentation.”">4</a></p>
+<h2>Open questions</h2>
+<p>Who are Mistral AI&#x27;s primary competitors in proprietary and open-weights foundation models, and what is its long-term competitive moat?</p>
+  <div class="sig hand">— Underwrite</div>
+  <div class="footer typed"><span>Every factual sentence cites a source that passed verification (red circles → Appendix A)</span><span>page 2</span></div>
+</article>
+<article class="sheet memo appendix" id="page3">
+  <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
+  <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
+  <ol><li id="src1"><span class="src">Crustdata company record: Mistral</span> <span class="via">· Crustdata company database · fetched via crustdata</span><ul class="claims"><li><span class="part">~</span> Mistral AI monetizes its products and services through API usage, enterprise subscriptions, developer platforms, and customizable open-weight frontier models.</li><li><span class="ok">✓</span> Mistral AI was founded in April 2023.</li><li><span class="ok">✓</span> Mistral AI&#x27;s headquarters are located in Paris, France.</li><li><span class="ok">✓</span> Arthur Mensch currently serves as the co-founder and CEO of Mistral AI.</li><li><span class="ok">✓</span> Mistral AI has raised a total of approximately 7.5 billion USD across multiple funding rounds.</li><li><span class="ok">✓</span> Mistral AI&#x27;s latest reported funding round was a Series D of approximately 3.49 billion USD on September 8, 2026.</li><li><span class="ok">✓</span> Mistral AI has an employee count of 1,613 according to recent data.</li></ul></li><li id="src2"><a class="src" href="https://baike.baidu.com/en/item/Mistral%20AI/5660109" rel="noopener noreferrer" target="_blank">Mistral AI - French artificial intelligence company</a> <span class="via">· baike.baidu.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Mistral AI was co-founded by Arthur Mensch, Timothée Lacroix, and Guillaume Lample.</li></ul></li><li id="src3"><a class="src" href="https://www.cnn.com/2026/10/07/business/mistral-ai-open-weight" rel="noopener noreferrer" target="_blank">Huge companies have dominated AI. Two startups with an ...</a> <span class="via">· www.cnn.com · fetched via crustdata-web</span><ul class="claims"><li><span class="part">~</span> Mistral unveiled its model ML4 in October 2026, which the company calls the best open-weight model in the world.</li></ul></li><li id="src4"><a class="src" href="https://legal.mistral.ai/" rel="noopener noreferrer" target="_blank">Mistral AI: Legal Center</a> <span class="via">· legal.mistral.ai · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Mistral AI faces regulatory compliance requirements such as adherence to the EU AI Act.</li></ul></li><li id="src5"><a class="src" href="https://mistral.ai/news/" rel="noopener noreferrer" target="_blank">Latest news - Mistral</a> <span class="via">· mistral.ai · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Mistral AI raised €3 billion in a Series D funding round at a post-money valuation of more than €21 billion in September 2026.</li></ul></li><li id="src6"><a class="src" href="https://www.reddit.com/r/MistralAI/comments/1uzbgm8/what_happened_to_mistral/" rel="noopener noreferrer" target="_blank">What happened to Mistral? : r/MistralAI</a> <span class="via">· www.reddit.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Mistral&#x27;s founders are experts in AI research who came from reputable labs like DeepMind and Meta FAIR.</li></ul></li><li id="src7"><a class="src" href="https://mistral.ai/customers/snowflake/" rel="noopener noreferrer" target="_blank">Snowflake | Mistral AI</a> <span class="via">· mistral.ai · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Mistral AI maintains a major strategic integration partnership with Snowflake.</li></ul></li></ol>
+  <h2>Rejected claims (kept out of the memo)</h2><ul><li>None — every extracted claim passed.</li></ul>
+  <h2>Agent run log</h2><div class="log"><div>Claims extracted: <b>13</b></div><div>Verified: <b>13 (85% fully)</b></div><div>Rejected: <b>0</b></div><div>Conflicts flagged: <b>0</b></div><div>Research rounds: <b>2</b></div><div>Recoveries: <b>3</b></div><div>Run time: <b>456s</b></div><div>Crustdata credits: <b>20</b></div><div>LLM cost (list price): <b>$0.013</b></div></div>
+  <p class="via">neatlogs trace: not exported</p>
+  <div class="footer typed"><span>Generated by Underwrite · 2026-10-10 14:37</span><span>page 3</span></div>
+</article>
+</body></html>

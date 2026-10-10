@@ -25,6 +25,20 @@ def _norm(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def ground(quote: str, source_text: str) -> tuple[bool, float, str]:
+    """Is `quote` (fuzzily) in `source_text`? Returns (found, match score 0-100, the source text around the best match)."""
+    quote, text = _norm(quote), _norm(source_text)
+    if len(quote) < 4 or not text:
+        return False, 0.0, ""
+    idx = text.lower().find(quote.lower())
+    if idx != -1:
+        score, start, end = 100.0, idx, idx + len(quote)
+    else:
+        al = fuzz.partial_ratio_alignment(quote.lower(), text.lower())
+        score, start, end = al.score, al.dest_start, al.dest_end
+    return score >= QUOTE_MIN_SCORE, round(score, 1), text[max(0, start - CONTEXT_CHARS) : end + CONTEXT_CHARS]
+
+
 @neatlogs.span(kind="GUARDRAIL", name="quote_grounding")
 def check_grounding(state: CompanyState, claims: list[Claim]) -> dict[str, str]:
     """Mark claims whose quote is (fuzzily) present in the cited evidence. Returns claim_id -> context."""
@@ -32,21 +46,10 @@ def check_grounding(state: CompanyState, claims: list[Claim]) -> dict[str, str]:
     contexts: dict[str, str] = {}
     for c in claims:
         ev = by_id.get(c.evidence_id)
-        quote = _norm(c.quote)
-        if ev is None or len(quote) < 4:
-            c.quote_found, c.quote_score = False, 0.0
-            continue
-        text = _norm(ev.text)
-        idx = text.lower().find(quote.lower())
-        if idx != -1:
-            score, start, end = 100.0, idx, idx + len(quote)
-        else:
-            al = fuzz.partial_ratio_alignment(quote.lower(), text.lower())
-            score, start, end = al.score, al.dest_start, al.dest_end
-        c.quote_score = round(score, 1)
-        c.quote_found = score >= QUOTE_MIN_SCORE
-        if c.quote_found:
-            contexts[c.id] = text[max(0, start - CONTEXT_CHARS) : end + CONTEXT_CHARS]
+        found, score, context = ground(c.quote, ev.text) if ev else (False, 0.0, "")
+        c.quote_found, c.quote_score = found, score
+        if found:
+            contexts[c.id] = context
     grounded = sum(c.quote_found for c in claims)
     emit("verify", f"grounding: {grounded}/{len(claims)} quotes found in their cited source")
     return contexts

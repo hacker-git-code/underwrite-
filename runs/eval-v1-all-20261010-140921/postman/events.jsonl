@@ -22,3 +22,4 @@
 {"t": 1791622645.2546437, "kind": "verify", "msg": "grounding: 1/1 quotes found in their cited source"}
 {"t": 1791622646.1880233, "kind": "verify", "msg": "judge: 1 supported, 0 partial, 0 rejected of 1"}
 {"t": 1791622710.2446756, "kind": "memo", "msg": "memo written: 9 distinct verified claims cited, recommendation: Dig deeper, as Postman holds a significant presence in the rapidly expanding API managemen"}
+{"t": 1791622792.5462887, "kind": "memo", "msg": "done in 182.8s \u00b7 9 claims \u00b7 78% supported \u00b7 0 conflicts \u00b7 $0.013 LLM \u00b7 20 Crustdata credits \u00b7 0 recoveries"}

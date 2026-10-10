@@ -87,13 +87,20 @@ def summarize(rows: list[dict]) -> dict:
     }
 
 
-def run_eval(version: str, split: str = "all", limit: int | None = None, resume_id: str | None = None) -> Path:
+def run_eval(version: str, split: str = "all", limit: int | None = None, resume_id: str | None = None,
+             mode: str | None = None) -> Path:
     """Score `version` on the dataset. With resume_id, continue that interrupted eval run: finished companies
     are skipped (their saved state is reused), unfinished ones pick up at their last checkpoint."""
     items = load_dataset(split)[:limit] if limit else load_dataset(split)
-    run_id = resume_id or f"eval-{version}-{split}-{time.strftime('%Y%m%d-%H%M%S')}"
+    if resume_id:  # keep the mode the interrupted run was started with
+        manifest = settings.runs_dir / resume_id / "manifest.json"
+        if manifest.exists():
+            mode = json.loads(manifest.read_text(encoding="utf-8")).get("mode", "pipeline")
+    mode = mode or settings.mode
+    tag = version if mode == "pipeline" else f"{version}-agent"
+    run_id = resume_id or f"eval-{tag}-{split}-{time.strftime('%Y%m%d-%H%M%S')}"
     emit("eval", f"eval {run_id}: {len(items)} companies, prompts {version}" + (" (resumed)" if resume_id else ""))
-    states = run_batch([(c["company"], c["domain"]) for c in items], run_id, version)
+    states = run_batch([(c["company"], c["domain"]) for c in items], run_id, version, mode)
     rows = []
     for item, st in zip(items, states):
         rows.append({
@@ -106,12 +113,32 @@ def run_eval(version: str, split: str = "all", limit: int | None = None, resume_
             "usage": st.usage,
             "trace_ids": st.trace_ids,
         })
-    result = {"run_id": run_id, "version": version, "split": split, "created": time.time(), "rows": rows,
+    result = {"run_id": run_id, "version": version, "mode": mode, "split": split, "created": time.time(), "rows": rows,
               "summary": {s: summarize([r for r in rows if s == "all" or r["split"] == s]) for s in ("all", "train", "test")}}
     path = settings.runs_dir / run_id / "eval.json"
     path.write_text(json.dumps(result, indent=2), encoding="utf-8")
     print_eval(result)
     return path
+
+
+def rescore(path: Path) -> dict:
+    """Re-grade a finished eval against the current dataset (e.g. after fixing a ground-truth error) using the
+    memos it already produced. Nothing is re-run."""
+    from .models import CompanyState
+    from .pipeline import company_dir
+
+    result = json.loads(path.read_text(encoding="utf-8"))
+    gold = {c["company"]: c["gold"] for c in load_dataset("all")}
+    for row in result["rows"]:
+        sp = company_dir(result["run_id"], row["company"]) / "state.json"
+        if sp.exists() and row["company"] in gold:
+            st = CompanyState.model_validate_json(sp.read_text(encoding="utf-8"))
+            row["facts"] = score_facts(st.memo.fact_sheet if st.memo else {}, gold[row["company"]])
+    result["summary"] = {s: summarize([r for r in result["rows"] if s == "all" or r["split"] == s])
+                         for s in ("all", "train", "test")}
+    result["rescored"] = time.time()
+    path.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    return result
 
 
 def print_eval(result: dict) -> None:
@@ -129,9 +156,19 @@ def print_eval(result: dict) -> None:
     console.print_json(data=result["summary"]["all"])
 
 
-def latest_eval(version: str) -> Path | None:
-    paths = sorted(settings.runs_dir.glob(f"eval-{version}-*/eval.json"), key=lambda p: p.stat().st_mtime)
-    return paths[-1] if paths else None
+def label(result: dict) -> str:
+    return f"{result.get('mode', 'pipeline')}:{result['version']}"
+
+
+def latest_eval(version: str, mode: str | None = None) -> Path | None:
+    """Latest finished eval of `version` in `mode` (evals from before modes existed count as pipeline)."""
+    mode = mode or settings.mode
+    found = []
+    for p in settings.runs_dir.glob(f"eval-{version}-*/eval.json"):
+        data = json.loads(p.read_text(encoding="utf-8"))
+        if data.get("version") == version and data.get("mode", "pipeline") == mode:
+            found.append(p)
+    return max(found, key=lambda p: p.stat().st_mtime) if found else None
 
 
 HIGHER_IS_BETTER = {"fact_accuracy", "fact_precision", "supported_rate", "grounded_rate", "coverage", "must_coverage",
@@ -143,8 +180,8 @@ LOWER_IS_BETTER = {"unsupported_per_memo", "invalid_citations_per_memo", "usd_pe
 def compare(a: Path, b: Path, split: str = "test") -> dict:
     ra, rb = json.loads(a.read_text(encoding="utf-8")), json.loads(b.read_text(encoding="utf-8"))
     sa, sb = ra["summary"][split], rb["summary"][split]
-    t = Table(title=f"{ra['version']} -> {rb['version']} ({split} split)")
-    for col in ("metric", ra["version"], rb["version"], "change"):
+    t = Table(title=f"{label(ra)} -> {label(rb)} ({split} split)")
+    for col in ("metric", label(ra), label(rb), "change"):
         t.add_column(col)
     out = {}
     for k in sa:

@@ -1,0 +1,23 @@
+{"t": 1791623492.648772, "kind": "plan", "msg": "10 questions, 20 queries for Ramp"}
+{"t": 1791623497.208442, "kind": "crust", "msg": "company record: 58 fields"}
+{"t": 1791623502.2291083, "kind": "web", "msg": "search (crustdata-web) 'Ramp product offerings site:ramp.com' -> 10 results"}
+{"t": 1791623507.2859151, "kind": "web", "msg": "search (crustdata-web) 'Ramp founded year' -> 9 results"}
+{"t": 1791623512.364474, "kind": "web", "msg": "search (crustdata-web) 'Ramp founders' -> 7 results"}
+{"t": 1791623517.3238697, "kind": "web", "msg": "search (crustdata-web) 'Ramp funding rounds' -> 9 results"}
+{"t": 1791623550.442857, "kind": "web", "msg": "search (crustdata-web) 'Ramp customers count' -> 8 results"}
+{"t": 1791623556.0377276, "kind": "web", "msg": "search (crustdata-web) 'Ramp competitors fintech' -> 8 results"}
+{"t": 1791623561.0911725, "kind": "web", "msg": "search (crustdata-web) 'Ramp news 2025' -> 8 results"}
+{"t": 1791623566.7278693, "kind": "web", "msg": "search (crustdata-web) 'Ramp risk analysis' -> 8 results"}
+{"t": 1791623581.3186119, "kind": "crust", "msg": "fetched 5/8 pages via Crustdata"}
+{"t": 1791623581.698603, "kind": "recover", "msg": "3 pages empty via Crustdata; retrying them directly"}
+{"t": 1791623589.068339, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791623593.1743073, "kind": "extract", "msg": "12 claims from 33 evidence blocks"}
+{"t": 1791623593.2196906, "kind": "verify", "msg": "grounding: 11/12 quotes found in their cited source"}
+{"t": 1791623596.4693625, "kind": "verify", "msg": "judge: 8 supported, 3 partial, 1 rejected of 12"}
+{"t": 1791623603.3836622, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 1/3 in 2.2s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623606.6818748, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 2/3 in 4.4s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623613.2054188, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 3/3 in 8.4s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623623.781639, "kind": "fail", "msg": "llm smart:gemini:gemini-3.5-flash: gave up after 4 attempts (HTTP 503)", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623623.784662, "kind": "recover", "msg": "gemini:gemini-3.5-flash failed (HTTP 503); falling back to groq:openai/gpt-oss-120b", "model": "gemini:gemini-3.5-flash"}
+{"t": 1791623626.4727557, "kind": "memo", "msg": "memo written: 0 distinct verified claims cited, recommendation: dig deeper: the company shows strong growth and funding but valuation and competitive pres"}
+{"t": 1791623649.3276248, "kind": "memo", "msg": "done in 135.4s \u00b7 12 claims \u00b7 67% supported \u00b7 0 conflicts \u00b7 $0.008 LLM \u00b7 18 Crustdata credits \u00b7 5 recoveries"}

@@ -1,0 +1,31 @@
+{"t": 1791623283.4983737, "kind": "recover", "msg": "gemini:gemini-3.8-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.5-flash", "model": "gemini:gemini-3.8-flash"}
+{"t": 1791623298.3500285, "kind": "plan", "msg": "8 questions, 16 queries for Hugging Face"}
+{"t": 1791623301.7577932, "kind": "crust", "msg": "company record: 43 fields"}
+{"t": 1791623307.2850935, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face core products enterprise pricing business model' -> 9 results"}
+{"t": 1791623312.8990927, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face founding year headquarters location' -> 9 results"}
+{"t": 1791623319.1190803, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face founders CEO leadership team' -> 9 results"}
+{"t": 1791623323.849627, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face funding rounds valuation investors' -> 9 results"}
+{"t": 1791623329.3926911, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face revenue enterprise growth 2025 2026' -> 9 results"}
+{"t": 1791623338.7158496, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face top competitors AI model hub' -> 9 results"}
+{"t": 1791623343.8879223, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face news announcements 2025 2026' -> 9 results"}
+{"t": 1791623348.595791, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face security vulnerabilities risk open source model hosting' -> 9 results"}
+{"t": 1791623366.450832, "kind": "crust", "msg": "fetched 8/8 pages via Crustdata"}
+{"t": 1791623366.5360746, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791623369.9488018, "kind": "extract", "msg": "8 claims from 33 evidence blocks"}
+{"t": 1791623369.962089, "kind": "verify", "msg": "grounding: 8/8 quotes found in their cited source"}
+{"t": 1791623376.241625, "kind": "verify", "msg": "judge: 7 supported, 1 partial, 0 rejected of 8"}
+{"t": 1791623376.2496219, "kind": "plan", "msg": "3 priority questions unanswered -> research round 2"}
+{"t": 1791623377.3672569, "kind": "plan", "msg": "round 2: 3 new queries for 3 unanswered questions"}
+{"t": 1791623383.0034442, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face market share competitors AI developer platform' -> 9 results"}
+{"t": 1791623387.917324, "kind": "web", "msg": "search (crustdata-web) 'Hugging Face partnerships product launches recent news' -> 8 results"}
+{"t": 1791623387.9183395, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791623389.9146283, "kind": "extract", "msg": "4 claims from 6 evidence blocks"}
+{"t": 1791623389.9246013, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791623391.413359, "kind": "verify", "msg": "judge: 4 supported, 0 partial, 0 rejected of 4"}
+{"t": 1791623392.6715567, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 1/3 in 2.4s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623396.2257955, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 2/3 in 4.1s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623402.215402, "kind": "recover", "msg": "llm smart:gemini:gemini-3.5-flash: HTTP 503 -> retry 3/3 in 8.1s", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623422.636952, "kind": "fail", "msg": "llm smart:gemini:gemini-3.5-flash: gave up after 4 attempts (HTTP 503)", "what": "llm smart:gemini:gemini-3.5-flash"}
+{"t": 1791623422.6389527, "kind": "recover", "msg": "gemini:gemini-3.5-flash failed (HTTP 503); falling back to groq:openai/gpt-oss-120b", "model": "gemini:gemini-3.5-flash"}
+{"t": 1791623427.3856943, "kind": "memo", "msg": "memo written: 11 distinct verified claims cited, recommendation: dig deeper \u2013 need more insight on risks and growth strategy"}
+{"t": 1791623491.1170933, "kind": "memo", "msg": "done in 144.4s \u00b7 12 claims \u00b7 92% supported \u00b7 0 conflicts \u00b7 $0.012 LLM \u00b7 20 Crustdata credits \u00b7 5 recoveries"}

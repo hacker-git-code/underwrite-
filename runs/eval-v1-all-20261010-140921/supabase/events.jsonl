@@ -1,0 +1,20 @@
+{"t": 1791646678.5721004, "kind": "recover", "msg": "gemini:gemini-3.5-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to groq:openai/gpt-oss-120b", "model": "gemini:gemini-3.5-flash"}
+{"t": 1791646679.8488882, "kind": "plan", "msg": "10 questions, 20 queries for Supabase"}
+{"t": 1791646683.1902452, "kind": "crust", "msg": "company record: 36 fields"}
+{"t": 1791646688.738828, "kind": "web", "msg": "search (crustdata-web) 'Supabase product overview' -> 8 results"}
+{"t": 1791646694.213536, "kind": "web", "msg": "search (crustdata-web) 'Supabase founded year' -> 8 results"}
+{"t": 1791646707.2549872, "kind": "web", "msg": "search (crustdata-web) 'Supabase founders' -> 7 results"}
+{"t": 1791646712.845229, "kind": "web", "msg": "search (crustdata-web) 'Supabase funding round history' -> 9 results"}
+{"t": 1791646720.4472814, "kind": "web", "msg": "search (crustdata-web) 'Supabase customers list' -> 9 results"}
+{"t": 1791646726.3831875, "kind": "web", "msg": "search (crustdata-web) 'Supabase competitors' -> 9 results"}
+{"t": 1791646737.7957191, "kind": "web", "msg": "search (crustdata-web) 'Supabase news 2025' -> 8 results"}
+{"t": 1791646745.1071663, "kind": "web", "msg": "search (crustdata-web) 'Supabase controversy' -> 7 results"}
+{"t": 1791646753.4389274, "kind": "crust", "msg": "fetched 8/8 pages via Crustdata"}
+{"t": 1791646753.594714, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791646757.3603659, "kind": "extract", "msg": "13 claims from 33 evidence blocks"}
+{"t": 1791646757.3813777, "kind": "verify", "msg": "grounding: 13/13 quotes found in their cited source"}
+{"t": 1791646760.5014436, "kind": "verify", "msg": "judge: 11 supported, 2 partial, 0 rejected of 13"}
+{"t": 1791646763.5896163, "kind": "recover", "msg": "writer: invalid JSON from groq:openai/gpt-oss-120b (4 validation errors for MemoOut\nfact_sheet.last_round.str\n  Input should be a va); repairing", "prompt": "writer"}
+{"t": 1791646765.785669, "kind": "recover", "msg": "writer: JSON repaired", "prompt": "writer", "recovered": true}
+{"t": 1791646765.7906663, "kind": "memo", "msg": "memo written: 12 distinct verified claims cited, recommendation: dig deeper: promising product and traction but security incident and unclear business mode"}
+{"t": 1791646786.998628, "kind": "memo", "msg": "done in 87.6s \u00b7 13 claims \u00b7 85% supported \u00b7 0 conflicts \u00b7 $0.011 LLM \u00b7 18 Crustdata credits \u00b7 3 recoveries"}

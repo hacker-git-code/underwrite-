@@ -28,6 +28,9 @@ PAGE = ("Acme AI was founded in 2019 by Jane Doe and John Roe. The company is he
         "Acme AI now has a team of 50 people. Jane Doe is the CEO.")
 
 
+SKEPTIC_CALLS = {"n": 0}
+
+
 def fake_complete(role, system, user, *, effort=None, max_tokens=16000):
     if "research planner" in system:
         out = {"questions": [
@@ -62,6 +65,11 @@ def fake_complete(role, system, user, *, effort=None, max_tokens=16000):
     elif "independent fact-checker" in system:
         out = {"judgements": [{"claim_id": cid, "support": "supported", "reason": "stated in source"}
                               for cid in re.findall(r"^(C\d+)$", user, flags=re.M)]}
+    elif "skeptic on a venture-capital" in system:
+        SKEPTIC_CALLS["n"] += 1
+        out = ({"verdict": "needs_work", "objections": [{"question_id": "q3", "issue": "No check for lawsuits.",
+                                                        "action": "Search for litigation news."}]}
+               if SKEPTIC_CALLS["n"] == 1 else {"verdict": "ready", "objections": []})
     elif "venture-capital analyst" in system:
         cids = re.findall(r"^(C\d+) \|", user, flags=re.M)
         out = {"recommendation": "Dig deeper: small team, conflicting headcount.", "confidence": "medium",
@@ -89,7 +97,7 @@ def setup_fakes(tmp: Path):
 def test_pipeline_end_to_end():
     with tempfile.TemporaryDirectory() as d:
         setup_fakes(Path(d))
-        st = pipeline.run_company("Acme AI", "acme.ai", "test-run", "v1")
+        st = pipeline.run_company("Acme AI", "acme.ai", "test-run", "v1", "pipeline")
         assert st.phase == "done", st.error
         by_stmt = {c.statement: c for c in st.claims}
         # fabricated quote is rejected deterministically, without the judge
@@ -120,9 +128,9 @@ def test_resume_after_crash():
 
         pipeline.verifier.verify = crash_once
         try:
-            st = pipeline.run_company("Acme AI", "acme.ai", "crash-run", "v1")
+            st = pipeline.run_company("Acme AI", "acme.ai", "crash-run", "v1", "pipeline")
             assert st.phase == "extracted" and "power cut" in st.error
-            st = pipeline.run_company("Acme AI", "acme.ai", "crash-run", "v1")
+            st = pipeline.run_company("Acme AI", "acme.ai", "crash-run", "v1", "pipeline")
             assert st.phase == "done" and st.error is None
         finally:
             pipeline.verifier.verify = real
@@ -155,7 +163,7 @@ def test_chaos_recovers():
 
         llm.complete = complete_with_repair
         try:
-            st = pipeline.run_company("Acme AI", "acme.ai", "chaos-run", "v1")
+            st = pipeline.run_company("Acme AI", "acme.ai", "chaos-run", "v1", "pipeline")
             assert st.phase == "done", st.error
             assert repaired["n"] == 2, "both truncated JSON outputs should be repaired"
             assert st.metrics["injected_faults"] == 2 and st.metrics["recoveries"] >= 2
@@ -209,6 +217,89 @@ def test_report_escapes_untrusted_html():
         assert "<script>alert" not in body and "<img src=x" not in body
         assert 'href="javascript:' not in body
         assert "&lt;script&gt;" in body
+
+
+def _call(name: str, **args) -> dict:
+    _call.n = getattr(_call, "n", 0) + 1
+    return {"id": f"call{_call.n}", "type": "function", "function": {"name": name, "arguments": json.dumps(args)}}
+
+
+def fake_chat(role, messages, tools, *, effort=None, max_tokens=4096):
+    """A scripted analyst: makes a mistake, gets rejected, fixes it, tries to quit early, and is sent back."""
+    tool_msgs = [m["content"] for m in messages if m["role"] == "tool"]
+    last = tool_msgs[-1] if tool_msgs else ""
+    step = sum(1 for m in messages if m["role"] == "assistant")
+    page_url = next((u for t in tool_msgs for u in re.findall(r"\| (https://\S+)", t)), None)
+    page_id = next((re.match(r"\[(E\d+)\]", t).group(1) for t in tool_msgs if "founded in 2019 by" in t), None)
+    if "skeptic reviewed your work" in messages[-1].get("content", "") or (messages[-1]["role"] == "user" and step > 3):
+        calls = [_call("update_question", question_id="q3", status="unanswerable", note="no litigation found"),
+                 _call("finish", summary="addressed the skeptic")]
+    elif step == 0:
+        calls = [_call("company_profile")]
+    elif step == 1:
+        calls = [_call("web_search", query="acme ai founders")]
+    elif step == 2:
+        calls = [_call("read_page", url=page_url)]
+    elif step == 3:  # wrong quote: must be rejected
+        calls = [_call("record_claim", question_id="q2", field="founders", statement="Founded by Jane Doe.",
+                       value="Jane Doe", evidence_id=page_id, quote="Jane Doe started it alone in a garage")]
+    elif step == 4:
+        assert last.startswith("REJECTED"), last
+        calls = [_call("record_claim", question_id="q2", field="founders", statement="Founded by Jane Doe and John Roe.",
+                       value="Jane Doe, John Roe", evidence_id=page_id, quote="founded in 2019 by Jane Doe and John Roe"),
+                 _call("record_claim", question_id="q1", field="founded_year", statement="Founded in 2019.", value="2019",
+                       evidence_id="E1", quote="Year founded: 2019"),
+                 _call("record_claim", question_id="q2", field="headcount", statement="18 employees.", value="18",
+                       evidence_id="E1", quote="Employee count: 18"),
+                 _call("record_claim", question_id="q2", field="headcount", statement="Team of 50.", value="50",
+                       evidence_id=page_id, quote="now has a team of 50 people")]
+    elif step == 5:
+        calls = [_call("update_question", question_id="q1", status="answered", note="2019"),
+                 _call("update_question", question_id="q2", status="answered", note="founders"),
+                 _call("finish", summary="done early")]  # q3 is p2 so this is allowed
+    else:
+        calls = [_call("finish", summary="done")]
+    return {"role": "assistant", "content": "", "tool_calls": calls}, "fake:agent"
+
+
+def test_agent_mode_end_to_end():
+    with tempfile.TemporaryDirectory() as d:
+        setup_fakes(Path(d))
+        SKEPTIC_CALLS["n"] = 0
+        llm.chat = fake_chat
+        st = pipeline.run_company("Acme AI", "acme.ai", "agent-run", "v1", "agent")
+        assert st.phase == "done", st.error
+        assert st.mode == "agent" and st.agent_steps >= 6
+        assert st.rejected_in_loop == 1 and st.self_corrections == 1, (st.rejected_in_loop, st.self_corrections)
+        assert st.round == 2 and len(st.reviews) == 2 and st.reviews[0].verdict == "needs_work"
+        assert any(c.field == "headcount" for c in st.conflicts), "18 vs 50 headcount should be flagged"
+        assert st.question_status["q3"]["status"] == "unanswerable"
+        m = st.metrics
+        assert m["skeptic_objections"] == 1 and m["tool_calls"]["record_claim"] == 5
+        assert all(c.support != "unchecked" for c in st.claims), "every accepted claim must be judged"
+
+
+def test_agent_finish_refused_while_priority_questions_open():
+    from underwrite.agents.analyst import Toolbox
+    from underwrite.models import CompanyState, Plan, Question
+
+    st = CompanyState(run_id="x", company="A", prompts_version="v1", mode="agent",
+                      plan=Plan(questions=[Question(id="q1", topic="t", question="?", priority=1)]))
+    st.question_status = {"q1": {"status": "open"}}
+    box = Toolbox(st)
+    assert box.t_finish("bye").startswith("Not yet") and not box.finished
+    assert "no accepted claim" in box.t_update_question("q1", "answered", "x")
+    box.t_update_question("q1", "unanswerable", "tried 3 searches")
+    assert box.t_finish("bye") == "Investigation closed." and box.finished
+
+
+def test_context_compaction():
+    from underwrite.agents.analyst import _compact
+
+    msgs = [{"role": "tool", "tool_call_id": str(i), "content": f"[E{i}] page\n" + "x" * 2000} for i in range(1, 5)]
+    assert _compact(msgs, keep=2) == 2
+    assert msgs[0]["content"].endswith("<removed>") and msgs[1]["content"].endswith("<removed>")
+    assert len(msgs[3]["content"]) > 2000
 
 
 if __name__ == "__main__":

@@ -1,10 +1,11 @@
 {
+  "corrections": ["2026-10-10: PostHog co-founder corrected from \"Tim Glazier\" to \"Tim Glaser\" after the agent's answer disagreed with this file and the agent was right."],
   "description": "Ground truth for stable facts only (founding year, HQ city, founders, CEO). Fields that are genuinely ambiguous (e.g. HQ of remote-first companies) are omitted rather than guessed. The Coach only ever sees failures from the 'train' split; headline numbers come from 'test'.",
   "companies": [
     {"company": "Linear", "domain": "linear.app", "split": "train",
      "gold": {"founded_year": "2019", "hq_city": ["San Francisco"], "founders": ["Karri Saarinen", "Tuomas Artman", "Jori Lallo"], "ceo": "Karri Saarinen"}},
     {"company": "PostHog", "domain": "posthog.com", "split": "train",
-     "gold": {"founded_year": "2020", "founders": ["James Hawkins", "Tim Glazier"], "ceo": "James Hawkins"}},
+     "gold": {"founded_year": "2020", "founders": ["James Hawkins", "Tim Glaser"], "ceo": "James Hawkins"}},
     {"company": "Razorpay", "domain": "razorpay.com", "split": "train",
      "gold": {"founded_year": "2014", "hq_city": ["Bengaluru", "Bangalore"], "founders": ["Harshil Mathur", "Shashank Kumar"], "ceo": "Harshil Mathur"}},
     {"company": "Zerodha", "domain": "zerodha.com", "split": "train",

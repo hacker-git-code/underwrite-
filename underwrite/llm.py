@@ -15,6 +15,7 @@ import json
 import os
 import re
 import time
+from collections.abc import Callable
 from typing import TypeVar
 
 import neatlogs
@@ -26,6 +27,7 @@ from .obs import emit
 from .resilience import Fatal, RateLimiter, Retryable, chaos_hit, with_retries
 
 M = TypeVar("M", bound=BaseModel)
+T = TypeVar("T")
 
 # OpenAI-compatible providers: base URL, key env var, and a client-side requests-per-minute cap
 # matching their free tiers so we wait politely instead of hammering into 429s.
@@ -152,10 +154,14 @@ def call(spec: str, system: str, user: str, effort: str | None = None, max_token
     return _call_openai(provider, model, system, user, effort, max_tokens)
 
 
-def complete(role: str, system: str, user: str, *, effort: str | None = None, max_tokens: int = 16000) -> tuple[str, str]:
-    """Run one prompt on the first usable model for `role`. Returns (text, model_used)."""
-    chain = [m for m in (settings.models_smart if role == "smart" else settings.models_fast)
-             if provider_ready(split_model(m)[0])]
+def _chain(role: str) -> list[str]:
+    specs = {"smart": settings.models_smart, "fast": settings.models_fast, "agent": settings.models_agent}[role]
+    return [m for m in specs if provider_ready(split_model(m)[0])]
+
+
+def _run_chain(role: str, chain: list[str], attempt: Callable[[str], T]) -> tuple[T, str]:
+    """Try each model in the chain (with retries) until one works. Dead models are skipped for the rest of the
+    process; models that exhausted their retries cool down for COOLDOWN_S."""
     last_error: Exception | None = None
 
     def usable(m: str) -> bool:
@@ -165,7 +171,7 @@ def complete(role: str, system: str, user: str, *, effort: str | None = None, ma
     for i, spec in enumerate(candidates):
         nxt = candidates[i + 1] if i + 1 < len(candidates) else None
         try:
-            text = with_retries(lambda: call(spec, system, user, effort, max_tokens), what=f"llm {role}:{spec}")
+            result = with_retries(lambda: attempt(spec), what=f"llm {role}:{spec}")
         except (Fatal, Retryable) as e:
             if isinstance(e, Fatal):
                 _dead[spec] = str(e)
@@ -176,8 +182,90 @@ def complete(role: str, system: str, user: str, *, effort: str | None = None, ma
                 emit("recover", f"{spec} failed ({str(e)[:120]}); falling back to {nxt}", model=spec)
                 ledger.current().fallback_calls += 1
             continue
-        return text, spec
-    raise Fatal(f"no usable model for role '{role}' (set GEMINI_API_KEY / GROQ_API_KEY in .env): {last_error}")
+        return result, spec
+    raise Fatal(f"no usable model for role '{role}' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): {last_error}")
+
+
+def complete(role: str, system: str, user: str, *, effort: str | None = None, max_tokens: int = 16000) -> tuple[str, str]:
+    """Run one prompt on the first usable model for `role`. Returns (text, model_used)."""
+    return _run_chain(role, _chain(role), lambda spec: call(spec, system, user, effort, max_tokens))
+
+
+# ---- tool calling (the analyst agent) ----------------------------------------------------
+
+SKIP_SIGNATURE = {"google": {"thought_signature": "skip_thought_signature_validator"}}
+
+
+def _for_provider(messages: list[dict], provider: str) -> list[dict]:
+    """Messages can come from different models mid-conversation (fallbacks). Keep only portable fields; Gemini 3
+    needs a thought signature on every earlier tool call, so calls made by other models get the documented dummy."""
+    out = []
+    for m in messages:
+        if m.get("role") != "assistant":
+            out.append(m)
+            continue
+        clean: dict = {"role": "assistant", "content": m.get("content") or ""}
+        calls = []
+        for c in m.get("tool_calls") or []:
+            call_ = {"id": c["id"], "type": "function",
+                     "function": {"name": c["function"]["name"], "arguments": c["function"].get("arguments") or "{}"}}
+            if provider == "gemini":
+                call_["extra_content"] = c.get("extra_content") or SKIP_SIGNATURE
+            calls.append(call_)
+        if calls:
+            clean["tool_calls"] = calls
+        out.append(clean)
+    return out
+
+
+def _call_tools(spec: str, messages: list[dict], tools: list[dict], effort: str | None, max_tokens: int) -> dict:
+    import openai
+
+    provider, model = split_model(spec)
+    if not provider_ready(provider):
+        raise Fatal(f"no API key for {provider}")
+    client = _client(provider)
+    _limiters[provider].acquire()
+    kwargs: dict = {"model": model, "messages": _for_provider(messages, provider), "tools": tools,
+                    "tool_choice": "auto", "max_tokens": max_tokens}
+    if effort and (model.startswith("gemini-3") or "gpt-oss" in model):
+        kwargs["reasoning_effort"] = effort
+    try:
+        resp = client.chat.completions.create(**kwargs)
+    except openai.RateLimitError as e:
+        if _daily_quota(str(e)):
+            raise Fatal(f"daily quota exhausted: {str(e)[:160]}") from e
+        raise Retryable("429 rate limited") from e
+    except openai.APIStatusError as e:
+        text = str(e).lower()
+        if e.status_code >= 500 or e.status_code in (408, 409):
+            raise Retryable(f"HTTP {e.status_code}") from e
+        if e.status_code == 400 and any(s in text for s in ("output_parse_failed", "tool_use_failed", "failed_generation")):
+            raise Retryable("model produced an unparseable tool call") from e
+        raise Fatal(f"HTTP {e.status_code}: {str(e)[:200]}") from e  # incl. 413 request too large for the free tier
+    except openai.APIConnectionError as e:
+        raise Retryable(f"connection error: {type(e).__name__}") from e
+
+    if resp.usage:
+        ledger.current().add_llm(spec, resp.usage.prompt_tokens or 0, resp.usage.completion_tokens or 0)
+    m = resp.choices[0].message
+    msg: dict = {"role": "assistant", "content": m.content or ""}
+    if m.tool_calls:
+        msg["tool_calls"] = []
+        for c in m.tool_calls:
+            entry = {"id": c.id, "type": "function", "function": {"name": c.function.name, "arguments": c.function.arguments}}
+            extra = (c.model_extra or {}).get("extra_content")
+            if extra:
+                entry["extra_content"] = extra
+            msg["tool_calls"].append(entry)
+    return msg
+
+
+def chat(role: str, messages: list[dict], tools: list[dict], *, effort: str | None = "low",
+         max_tokens: int = 4096) -> tuple[dict, str]:
+    """One agent step: returns the assistant message (with any tool calls) and the model that produced it."""
+    chain = [m for m in _chain(role) if split_model(m)[0] != "bedrock"]
+    return _run_chain(role, chain, lambda spec: _call_tools(spec, messages, tools, effort, max_tokens))
 
 
 def _extract_json(text: str):

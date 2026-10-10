@@ -16,12 +16,19 @@ from .obs import console
 app = typer.Typer(add_completion=False, no_args_is_help=True, help="Underwrite: a due-diligence agent you can leave running overnight.")
 
 
-def _start(version: str | None, chaos: float | None, mode: str) -> str:
+MODE_HELP = "agent (analyst + skeptic agents, default) or pipeline (the original fixed flow)"
+
+
+def _start(version: str | None, chaos: float | None, command: str, mode: str | None = None) -> str:
     version = version or settings.prompts_version
     settings.prompts_version = version
     if chaos is not None:
         settings.chaos = chaos
-    tags = [f"prompts:{version}", f"mode:{mode}"] + (["chaos"] if settings.chaos else [])
+    if mode:
+        if mode not in ("agent", "pipeline"):
+            raise typer.BadParameter("mode must be agent or pipeline")
+        settings.mode = mode
+    tags = [f"prompts:{version}", f"cmd:{command}", f"mode:{settings.mode}"] + (["chaos"] if settings.chaos else [])
     obs.setup(tags=tags)
     return version
 
@@ -41,11 +48,12 @@ def run(
     prompts: Optional[str] = typer.Option(None, "--prompts", "-p", help="Prompt version (default: UW_PROMPTS or v1)"),
     chaos: Optional[float] = typer.Option(None, help="Inject faults at this rate (0-1) to demo recovery"),
     open_report: bool = typer.Option(False, "--open", help="Open the HTML memo when done"),
+    mode: Optional[str] = typer.Option(None, "--mode", "-m", help=MODE_HELP),
 ):
     """Research one company and write a cited memo."""
     from .pipeline import run_batch
 
-    version = _start(prompts, chaos, "run")
+    version = _start(prompts, chaos, "run", mode)
     run_id = f"run-{time.strftime('%Y%m%d-%H%M%S')}"
     [state] = run_batch([(company, domain)], run_id, version)
     _finish([state], run_id, open_report)
@@ -58,12 +66,13 @@ def batch(
     chaos: Optional[float] = typer.Option(None),
     new_only: bool = typer.Option(False, "--new-only", help="Skip companies already published on the site"),
     limit: Optional[int] = typer.Option(None, help="Research at most N companies this run"),
+    mode: Optional[str] = typer.Option(None, "--mode", "-m", help=MODE_HELP),
 ):
     """Research a list of companies unattended (the overnight mode)."""
     from .pipeline import run_batch, slug
     from .site import published_slugs
 
-    version = _start(prompts, chaos, "batch")
+    version = _start(prompts, chaos, "batch", mode)
     companies = [p for p in map(_parse_line, file.read_text(encoding="utf-8").splitlines()) if p]
     if new_only:
         done = published_slugs()
@@ -115,14 +124,15 @@ def eval_cmd(
     limit: Optional[int] = typer.Option(None, help="Only the first N companies"),
     chaos: Optional[float] = typer.Option(None),
     resume_id: Optional[str] = typer.Option(None, "--resume", help="Finish an interrupted eval run (its run id)"),
+    mode: Optional[str] = typer.Option(None, "--mode", "-m", help=MODE_HELP),
 ):
     """Score a prompt version against the ground-truth dataset."""
     from .evals import run_eval
 
     if resume_id and not prompts:  # an eval run id looks like eval-<version>-<split>-<timestamp>
         prompts = resume_id.split("-")[1]
-    version = _start(prompts, chaos, "eval")
-    path = run_eval(version, split, limit, resume_id=resume_id)
+    version = _start(prompts, chaos, "eval", mode)
+    path = run_eval(version, split, limit, resume_id=resume_id, mode=mode)
     console.print(f"eval written to {path}")
 
 
@@ -140,19 +150,30 @@ def coach(
     console.print_json(data={k: v for k, v in report.items() if k in ("base", "new", "decision", "diagnosis")})
 
 
+@app.command("rescore")
+def rescore_cmd(run_id: str = typer.Argument(..., help="Eval run id, e.g. eval-v1-all-20261010-140921")):
+    """Re-grade a finished eval against the current ground truth, using the memos it already wrote."""
+    from .evals import print_eval, rescore
+
+    print_eval(rescore(settings.runs_dir / run_id / "eval.json"))
+
+
 @app.command()
 def compare(
-    a: str = typer.Argument(..., help="Prompt version or path to eval.json"),
-    b: str = typer.Argument(..., help="Prompt version or path to eval.json"),
+    a: str = typer.Argument(..., help="[mode:]version (e.g. pipeline:v1, agent:v2) or a path to eval.json"),
+    b: str = typer.Argument(..., help="[mode:]version (e.g. pipeline:v1, agent:v2) or a path to eval.json"),
     split: str = typer.Option("test"),
 ):
     """Before/after table between two evals."""
     from .evals import compare as do_compare
     from .evals import latest_eval
 
-    def resolve(x: str) -> Path:
+    def resolve(x: str) -> Path | None:
         p = Path(x)
-        return p if p.exists() else latest_eval(x)
+        if p.exists():
+            return p
+        mode, _, version = x.rpartition(":")
+        return latest_eval(version, mode or None)
 
     pa, pb = resolve(a), resolve(b)
     if not pa or not pb:

@@ -1,0 +1,28 @@
+{"t": 1791646380.3082557, "kind": "plan", "msg": "8 questions, 16 queries for Groww"}
+{"t": 1791646384.2975614, "kind": "crust", "msg": "company record: 47 fields"}
+{"t": 1791646389.7361774, "kind": "web", "msg": "search (crustdata-web) 'Groww founding year headquarters location' -> 9 results"}
+{"t": 1791646395.7402809, "kind": "web", "msg": "search (crustdata-web) 'Groww founders Lalit Keshre CEO' -> 8 results"}
+{"t": 1791646401.688488, "kind": "web", "msg": "search (crustdata-web) 'Groww business model revenue streams brokerage mutual funds' -> 9 results"}
+{"t": 1791646407.1260936, "kind": "web", "msg": "search (crustdata-web) 'Groww funding rounds investors valuation' -> 9 results"}
+{"t": 1791646412.2763062, "kind": "web", "msg": "search (crustdata-web) 'Groww active clients NSE market share revenue profit' -> 9 results"}
+{"t": 1791646418.1932023, "kind": "web", "msg": "search (crustdata-web) 'Groww SEBI regulatory scrutiny penalties issues' -> 9 results"}
+{"t": 1791646424.2861896, "kind": "web", "msg": "search (crustdata-web) 'Groww vs Zerodha Angel One market share active clients' -> 8 results"}
+{"t": 1791646430.1725268, "kind": "web", "msg": "search (crustdata-web) 'Groww news updates 2025 2026' -> 9 results"}
+{"t": 1791646447.495407, "kind": "crust", "msg": "fetched 8/8 pages via Crustdata"}
+{"t": 1791646447.5534227, "kind": "web", "msg": "round 1: +33 evidence (8 pages)"}
+{"t": 1791646450.0725684, "kind": "extract", "msg": "5 claims from 33 evidence blocks"}
+{"t": 1791646450.0976622, "kind": "verify", "msg": "grounding: 5/5 quotes found in their cited source"}
+{"t": 1791646451.4712915, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791646452.70742, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791646452.711438, "kind": "verify", "msg": "judge: 4 supported, 1 partial, 0 rejected of 5"}
+{"t": 1791646452.715418, "kind": "plan", "msg": "4 priority questions unanswered -> research round 2"}
+{"t": 1791646453.8603802, "kind": "plan", "msg": "round 2: 4 new queries for 4 unanswered questions"}
+{"t": 1791646464.4881897, "kind": "web", "msg": "search (crustdata-web) 'Groww products target audience monetization model revenue' -> 7 results"}
+{"t": 1791646470.984181, "kind": "web", "msg": "search (crustdata-web) 'Groww market position India retail brokerage competitors comparison' -> 8 results"}
+{"t": 1791646470.9878252, "kind": "web", "msg": "round 2: +6 evidence (0 pages)"}
+{"t": 1791646472.4953506, "kind": "extract", "msg": "3 claims from 6 evidence blocks"}
+{"t": 1791646472.5063436, "kind": "verify", "msg": "grounding: 3/3 quotes found in their cited source"}
+{"t": 1791646473.608125, "kind": "verify", "msg": "judge: 3 supported, 0 partial, 0 rejected of 3"}
+{"t": 1791646473.9912636, "kind": "recover", "msg": "gemini:gemini-3.8-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.5-flash", "model": "gemini:gemini-3.8-flash"}
+{"t": 1791646485.858982, "kind": "memo", "msg": "memo written: 8 distinct verified claims cited, recommendation: Dig deeper given Groww's strong market leadership as India's top stockbroker by active cli"}
+{"t": 1791646505.9454122, "kind": "memo", "msg": "done in 113.9s \u00b7 8 claims \u00b7 88% supported \u00b7 0 conflicts \u00b7 $0.011 LLM \u00b7 20 Crustdata credits \u00b7 3 recoveries"}

@@ -36,6 +36,8 @@ STYLE = {
     "fail": "bold red",
     "memo": "bold green",
     "coach": "bold cyan",
+    "agent": "bold cyan",
+    "skeptic": "bold magenta",
     "eval": "bold white",
     "info": "dim",
 }

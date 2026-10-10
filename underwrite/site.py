@@ -42,8 +42,8 @@ def _latest_states() -> list[tuple[CompanyState, Path]]:
 
 def _scoreboard() -> str:
     rows = []
-    for v in prompts.versions():
-        path = latest_eval(v)
+    for v, mode in [(v, m) for v in prompts.versions() for m in ("pipeline", "agent")]:
+        path = latest_eval(v, mode)
         if not path:
             continue
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -56,13 +56,13 @@ def _scoreboard() -> str:
             if not s.get("completed"):
                 continue
             rows.append(
-                f"<tr><td><b>{esc(v)}</b> {f'<span class=tag>{esc(status)}</span>' if status else ''}</td><td>{split}</td>"
+                f"<tr><td><b>{esc(mode)} {esc(v)}</b> {f'<span class=tag>{esc(status)}</span>' if status and mode == 'agent' else ''}</td><td>{split}</td>"
                 f"<td>{s['completed']}/{s['companies']}</td><td>{s['fact_accuracy']:.0%}</td><td>{s['fact_precision']:.0%}</td>"
                 f"<td>{s['supported_rate']:.0%}</td><td>{s['coverage']:.0%}</td><td>{s['unsupported_per_memo']:.1f}</td>"
                 f"<td>${s['usd_per_memo']:.3f}</td><td>{s['credits_per_memo']:.0f}</td></tr>")
     if not rows:
         return "<p>No evaluation has been run yet.</p>"
-    return ("<div class=scroll><table><tr><th>prompts</th><th>split</th><th>memos</th><th>fact accuracy</th>"
+    return ("<div class=scroll><table><tr><th>version</th><th>split</th><th>memos</th><th>fact accuracy</th>"
             "<th>fact precision</th><th>claims supported</th><th>questions answered</th><th>rejected / memo</th>"
             "<th>LLM $ / memo*</th><th>credits / memo</th></tr>" + "".join(rows) + "</table></div>"
             "<p class=small>Fact accuracy/precision: agent's fact sheet vs. hand-checked ground truth (founding year, HQ, "
