@@ -1,0 +1,56 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4JAXC3K796NBFR1Y9S5RJ5D",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".env.example",
+    "README.md",
+    "evals/dataset.json",
+    "prompts/v1/extractor.md",
+    "prompts/v1/planner.md",
+    "prompts/v1/replanner.md",
+    "prompts/v1/verifier.md",
+    "prompts/v1/writer.md",
+    "pyproject.toml",
+    "tests/test_offline.py",
+    "underwrite/agents/__init__.py",
+    "underwrite/agents/extractor.py",
+    "underwrite/agents/planner.py",
+    "underwrite/agents/researcher.py",
+    "underwrite/agents/verifier.py",
+    "underwrite/agents/writer.py",
+    "underwrite/cache.py",
+    "underwrite/cli.py",
+    "underwrite/coach.py",
+    "underwrite/config.py",
+    "underwrite/evals.py",
+    "underwrite/ledger.py",
+    "underwrite/llm.py",
+    "underwrite/models.py",
+    "underwrite/obs.py",
+    "underwrite/pipeline.py",
+    "underwrite/prompts.py",
+    "underwrite/report.py",
+    "underwrite/resilience.py",
+    "underwrite/tools/crustdata.py",
+    "underwrite/tools/web.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 118,
+    "cache_creation_tokens": 249886,
+    "cache_read_tokens": 9368462,
+    "output_tokens": 105910,
+    "api_call_count": 59
+  }
+}

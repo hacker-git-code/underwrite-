@@ -1,0 +1,112 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4JAXC3K796NBFR1Y9S5RJ5D",
+  "session_id": "58af9994-a5f8-4670-83e5-5e7a3175d21c",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T07:19:55.4334332Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".env.example",
+    "README.md",
+    "evals/dataset.json",
+    "prompts/v1/extractor.md",
+    "prompts/v1/planner.md",
+    "prompts/v1/replanner.md",
+    "prompts/v1/verifier.md",
+    "prompts/v1/writer.md",
+    "pyproject.toml",
+    "tests/test_offline.py",
+    "underwrite/agents/__init__.py",
+    "underwrite/agents/extractor.py",
+    "underwrite/agents/planner.py",
+    "underwrite/agents/researcher.py",
+    "underwrite/agents/verifier.py",
+    "underwrite/agents/writer.py",
+    "underwrite/cache.py",
+    "underwrite/cli.py",
+    "underwrite/coach.py",
+    "underwrite/config.py",
+    "underwrite/evals.py",
+    "underwrite/ledger.py",
+    "underwrite/llm.py",
+    "underwrite/models.py",
+    "underwrite/obs.py",
+    "underwrite/pipeline.py",
+    "underwrite/prompts.py",
+    "underwrite/report.py",
+    "underwrite/resilience.py",
+    "underwrite/tools/crustdata.py",
+    "underwrite/tools/web.py"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "d3a29e4fdf74",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 118,
+    "cache_creation_tokens": 249886,
+    "cache_read_tokens": 9368462,
+    "output_tokens": 105910,
+    "api_call_count": 59
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01FTDFfFJu8CKNez4mrg2bku",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "claude-api"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "d3a29e4fdf74",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 214,
+        "end": 215,
+        "entry_ids": [
+          "75181bc7-f70d-4d2f-b79b-5dff3b6d0ac6"
+        ],
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: claude-api",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T07:19:55.2409356Z",
+    "agent_lines": 2609,
+    "agent_removed": 0,
+    "human_added": 93,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 2702,
+    "total_lines_changed": 2702,
+    "agent_percentage": 96.5581051073279,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 2959,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "pyproject.toml": 29,
+        "uv.lock": 2930
+      }
+    }
+  ]
+}
