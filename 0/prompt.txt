@@ -1,0 +1,2 @@
+you know how these memo's look like a white page with info inside maybe like this  - & 'd:\User Files\Downloads\Sequoia-Apple-Memo.webp' and so I want you to make a memo this type but virtual graphic paper memo where the details are accruate and looks cool and even download able. 
+and rn how we could put it live and is it done building or something left and check for any bugs and security issues and keep the api keys safe and like does it will the tools free credits we got from the hackathon
