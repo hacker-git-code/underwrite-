@@ -87,10 +87,12 @@ def summarize(rows: list[dict]) -> dict:
     }
 
 
-def run_eval(version: str, split: str = "all", limit: int | None = None) -> Path:
+def run_eval(version: str, split: str = "all", limit: int | None = None, resume_id: str | None = None) -> Path:
+    """Score `version` on the dataset. With resume_id, continue that interrupted eval run: finished companies
+    are skipped (their saved state is reused), unfinished ones pick up at their last checkpoint."""
     items = load_dataset(split)[:limit] if limit else load_dataset(split)
-    run_id = f"eval-{version}-{split}-{time.strftime('%Y%m%d-%H%M%S')}"
-    emit("eval", f"eval {run_id}: {len(items)} companies, prompts {version}")
+    run_id = resume_id or f"eval-{version}-{split}-{time.strftime('%Y%m%d-%H%M%S')}"
+    emit("eval", f"eval {run_id}: {len(items)} companies, prompts {version}" + (" (resumed)" if resume_id else ""))
     states = run_batch([(c["company"], c["domain"]) for c in items], run_id, version)
     rows = []
     for item, st in zip(items, states):

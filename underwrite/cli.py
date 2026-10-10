@@ -114,12 +114,15 @@ def eval_cmd(
     split: str = typer.Option("all", help="all | train | test"),
     limit: Optional[int] = typer.Option(None, help="Only the first N companies"),
     chaos: Optional[float] = typer.Option(None),
+    resume_id: Optional[str] = typer.Option(None, "--resume", help="Finish an interrupted eval run (its run id)"),
 ):
     """Score a prompt version against the ground-truth dataset."""
     from .evals import run_eval
 
+    if resume_id and not prompts:  # an eval run id looks like eval-<version>-<split>-<timestamp>
+        prompts = resume_id.split("-")[1]
     version = _start(prompts, chaos, "eval")
-    path = run_eval(version, split, limit)
+    path = run_eval(version, split, limit, resume_id=resume_id)
     console.print(f"eval written to {path}")
 
 
