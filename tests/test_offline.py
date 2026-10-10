@@ -101,7 +101,7 @@ def test_pipeline_end_to_end():
         assert "C99" in st.invalid_citations and "[C99]" not in st.memo.memo_markdown
         assert st.round == 2, "unanswered priority-2 question should trigger a second research round"
         html = (Path(d) / "runs" / "test-run" / "acme-ai" / "memo.html").read_text(encoding="utf-8")
-        assert "Conflicts between sources" in html and "headcount" in html
+        assert "sources disagree" in html and "headcount" in html and "VERIFIED" in html
         m = st.metrics
         assert m["claims"] >= 5 and 0 < m["supported_rate"] < 1 and m["conflicts"] >= 1
 
@@ -173,6 +173,42 @@ def test_fact_scoring():
                      "ceo": "Karri Saarinen (CEO)"}, gold)
     assert s["founded_year"]["score"] == 1 and s["hq_city"]["score"] == 0 and not s["hq_city"]["answered"]
     assert s["founders"]["score"] == 0.5 and s["ceo"]["score"] == 1
+
+
+
+
+def test_ssrf_blocked():
+    from underwrite.tools.web import UnsafeURL, check_public
+
+    for bad in ("http://169.254.169.254/latest/meta-data/", "http://127.0.0.1:8000/", "http://localhost/",
+                "http://10.0.0.5/", "file:///etc/passwd", "javascript:alert(1)"):
+        try:
+            check_public(bad)
+        except UnsafeURL:
+            continue
+        raise AssertionError(f"should block {bad}")
+
+
+def test_report_escapes_untrusted_html():
+    from underwrite.models import Claim, CompanyState, Evidence, MemoOut
+    from underwrite.report import write_report
+
+    with tempfile.TemporaryDirectory() as d:
+        st = CompanyState(run_id="x", company="Evil <Co>", domain="evil.example", prompts_version="v1", phase="done")
+        st.evidence = [Evidence(id="E1", kind="page", url="javascript:alert(1)", title="<img src=x onerror=alert(1)>",
+                                text="Founded 2020.", via="direct")]
+        st.claims = [Claim(id="C1", question_id="q1", field="founded_year", statement="Founded <b>2020</b>",
+                           value="2020", evidence_id="E1", quote="Founded 2020", support="supported")]
+        st.memo = MemoOut(recommendation="<script>alert(1)</script>", confidence="low",
+                          memo_markdown="## Summary\nHi <script>alert(2)</script> [link](javascript:alert(3)) [C1].",
+                          fact_sheet={"founded_year": "2020"})
+        settings_pdf = __import__("underwrite.report", fromlist=["export_pdf"])
+        settings_pdf.export_pdf = lambda p: None  # no browser needed for this test
+        out = write_report(st, Path(d)).read_text(encoding="utf-8")
+        body = out.split("</head>", 1)[1]
+        assert "<script>alert" not in body and "<img src=x" not in body
+        assert 'href="javascript:' not in body
+        assert "&lt;script&gt;" in body
 
 
 if __name__ == "__main__":

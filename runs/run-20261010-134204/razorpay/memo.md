@@ -1,6 +1,6 @@
 # Razorpay
 
-**Strong interest given Razorpay's massive scale, $816.6 million in funding, and expansion into AI payments, though regulatory standing and IPO readiness warrant deeper review.**
+**Strong interest given Razorpay's massive scale, $816.6 million in funding, and expansion into AI payments, though regulatory standing and IPO readiness warrant deeper review.** (confidence: medium)
 
 ## Summary
 Razorpay is an India-based financial technology company founded in 2014 by Harshil Mathur and Shashank Kumar [C1][C3][C4]. The company has raised approximately $816.6 million in total funding and employs over 4,000 people [C7][C8].

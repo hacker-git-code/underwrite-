@@ -148,6 +148,26 @@ def compare(
 
 
 @app.command()
+def render(
+    run_id: str = typer.Argument(..., help="Run id under runs/"),
+    open_report: bool = typer.Option(False, "--open", help="Open the memo when done"),
+):
+    """Re-draw the memo dossier (HTML + PDF) for every finished company in a run, without re-running the agent."""
+    from .models import CompanyState
+    from .report import write_report
+
+    for path in sorted((settings.runs_dir / run_id).glob("*/state.json")):
+        state = CompanyState.model_validate_json(path.read_text(encoding="utf-8"))
+        if state.phase != "done":
+            continue
+        out = write_report(state, path.parent)
+        pdf = out.with_name("memo.pdf")
+        console.print(f"{state.company}: {out}  {'+ memo.pdf' if pdf.exists() else '(no PDF: Edge/Chrome not found)'}")
+        if open_report:
+            webbrowser.open(out.resolve().as_uri())
+
+
+@app.command()
 def doctor():
     """Check keys and connectivity: Bedrock models, Crustdata, neatlogs."""
     import httpx

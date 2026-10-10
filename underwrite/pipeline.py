@@ -73,7 +73,7 @@ def compute_metrics(state: CompanyState, events_path: Path) -> dict:
     }
 
 
-@neatlogs.span(kind="WORKFLOW", name="underwrite.company")
+@neatlogs.span(kind="WORKFLOW", name="underwrite.company", capture_input=False)
 def _run(state: CompanyState, path: Path, events_path: Path) -> CompanyState:
     tid = obs.current_trace_id()
     if tid and tid not in state.trace_ids:
@@ -164,7 +164,19 @@ def run_batch(companies: list[tuple[str, str | None]], run_id: str, version: str
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(json.dumps({"run_id": run_id, "version": version or settings.prompts_version,
                                     "companies": companies}, indent=2), encoding="utf-8")
-    states = [run_company(c, d, run_id, version) for c, d in companies]
+    states: list[CompanyState] = []
+    spent = 0.0
+    for company, domain in companies:
+        if spent >= settings.max_credits_per_run:
+            emit("fail", f"credit cap reached ({spent:g} >= {settings.max_credits_per_run:g} Crustdata credits); "
+                         f"skipping {company}. Raise UW_MAX_CREDITS_PER_RUN or resume later.")
+            states.append(load_state(company_dir(run_id, company) / "state.json") or CompanyState(
+                run_id=run_id, company=company, domain=domain, prompts_version=version or settings.prompts_version,
+                error="skipped: credit cap"))
+            continue
+        st = run_company(company, domain, run_id, version)
+        spent += float(st.usage.get("crust_credits", 0) or 0)
+        states.append(st)
     neatlogs.flush()
     return states
 

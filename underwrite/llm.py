@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 from typing import TypeVar
 
 import neatlogs
@@ -37,7 +38,9 @@ PROVIDERS = {
 
 _clients: dict[str, object] = {}
 _limiters: dict[str, RateLimiter] = {}
-_dead: dict[str, str] = {}
+_dead: dict[str, str] = {}  # permanently unusable this process (no key, unknown model, daily quota gone)
+_cooldown: dict[str, float] = {}  # temporarily skipped after exhausting retries (e.g. "model overloaded")
+COOLDOWN_S = 120.0
 
 
 def split_model(spec: str) -> tuple[str, str]:
@@ -154,15 +157,20 @@ def complete(role: str, system: str, user: str, *, effort: str | None = None, ma
     chain = [m for m in (settings.models_smart if role == "smart" else settings.models_fast)
              if provider_ready(split_model(m)[0])]
     last_error: Exception | None = None
-    for i, spec in enumerate(chain):
-        if spec in _dead:
-            continue
-        nxt = next((m for m in chain[i + 1 :] if m not in _dead), None)
+
+    def usable(m: str) -> bool:
+        return m not in _dead and _cooldown.get(m, 0) <= time.time()
+
+    candidates = [m for m in chain if usable(m)] or [m for m in chain if m not in _dead]  # all cooling: try anyway
+    for i, spec in enumerate(candidates):
+        nxt = candidates[i + 1] if i + 1 < len(candidates) else None
         try:
             text = with_retries(lambda: call(spec, system, user, effort, max_tokens), what=f"llm {role}:{spec}")
         except (Fatal, Retryable) as e:
             if isinstance(e, Fatal):
                 _dead[spec] = str(e)
+            else:
+                _cooldown[spec] = time.time() + COOLDOWN_S
             last_error = e
             if nxt:
                 emit("recover", f"{spec} failed ({str(e)[:120]}); falling back to {nxt}", model=spec)
