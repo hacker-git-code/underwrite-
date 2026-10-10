@@ -1,0 +1,1 @@
+{"t": 1791651447.5316584, "kind": "fail", "msg": "Supabase: stopped at phase 'new': Fatal: no usable model for role 'smart' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): None"}

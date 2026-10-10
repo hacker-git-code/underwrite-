@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PostHog · Underwrite memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"><style>
+:root{--desk:#d9d4c7;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--rule:#6b6760;--faint:#cfc8b6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--desk:#24221f}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--type)}
+body{font:15px/1.5 "Courier Prime","Courier New",monospace;padding:72px 16px 48px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;padding:10px 16px;background:rgba(30,28,25,.88);backdrop-filter:blur(6px);font:13px system-ui,sans-serif;color:#eee}
+.toolbar b{margin-right:auto;letter-spacing:.08em}
+.toolbar a,.toolbar button{font:inherit;color:#1e1c19;background:#f3eddc;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.toolbar a:hover,.toolbar button:hover{background:#fff}
+.sheet{position:relative;width:min(816px,100%);min-height:1056px;margin:0 auto 36px;padding:56px 60px 64px;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 18% 8%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(ellipse at 90% 100%,rgba(160,130,70,.10),transparent 60%);
+  box-shadow:0 1px 2px rgba(0,0,0,.15),0 12px 28px rgba(0,0,0,.18)}
+.sheet:nth-of-type(odd){transform:rotate(-.25deg)} .sheet:nth-of-type(even){transform:rotate(.3deg)}
+.hand{font-family:Caveat,"Segoe Print","Bradley Hand",cursive;color:var(--ink);font-weight:500;font-size:23px;line-height:1.15;
+  text-transform:uppercase;letter-spacing:.02em}
+.red{color:var(--red)}
+.typed{font-family:"Special Elite","Courier Prime",monospace}
+.title{text-align:center;font-size:15px;letter-spacing:.06em;margin:0 0 30px;text-decoration:underline;text-underline-offset:4px}
+.cc{position:absolute;top:26px;right:48px;transform:rotate(-8deg);font-size:21px;text-align:center;line-height:1}
+.row{display:flex;align-items:flex-end;gap:10px;margin:0 0 13px;flex-wrap:wrap}
+.lbl{font-family:"Special Elite",monospace;font-size:14px;white-space:nowrap}
+.line{flex:1 1 180px;min-width:140px;border-bottom:1px solid var(--rule);padding:0 6px 1px;min-height:30px}
+.line.short{flex:0 1 150px;min-width:110px}
+.sec{margin-top:20px;border-top:3px double var(--rule)}
+.sec>.lbl{display:inline-block;margin-top:3px;text-decoration:underline;text-underline-offset:3px}
+.ruled{padding:4px 8px 0 28px;min-height:62px;background-position:0 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,var(--faint) 29px,var(--faint) 30px);
+  line-height:30px}
+.ruled .hand{line-height:30px}
+table.ops{border-collapse:collapse;margin:8px 0 0 28px;width:calc(100% - 28px)}
+.ops td{padding:2px 6px 2px 0;vertical-align:bottom}
+.ops td:first-child{font-family:"Special Elite",monospace;font-size:14px;width:36%;padding-left:20px}
+.ops td:last-child{border-bottom:1px solid var(--rule)}
+a.cite{display:inline-block;min-width:19px;height:19px;padding:0 4px;margin:0 1px;border:1.6px solid var(--red);border-radius:50%;
+  font:700 12px/16px Caveat,cursive;color:var(--red);text-align:center;text-decoration:none;vertical-align:super;transform:rotate(-6deg)}
+.stamp-row{text-align:right;margin:14px 8px 0}
+.stamp{display:inline-block;transform:rotate(-7deg);border:3px solid var(--red);border-radius:6px;padding:6px 14px;
+  color:var(--red);font:700 17px/1.15 "Special Elite",monospace;text-align:center;letter-spacing:.12em;opacity:.78;mix-blend-mode:multiply;
+  box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--red)}
+.stamp small{display:block;font-size:11px;letter-spacing:.08em}
+.margin-note{border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:6px 0 0 28px;font-size:21px}
+.circled{display:inline-block;border:2px solid var(--ink);border-radius:50%;padding:0 12px;transform:rotate(-3deg)}
+.footer{position:absolute;left:60px;right:60px;bottom:26px;font-size:11px;color:#77736a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.memo h1{font:400 26px "Special Elite",monospace;letter-spacing:.3em;margin:0 0 18px}
+.memo .hdr{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;margin-bottom:12px}
+.memo .hdr b{font-weight:700}
+.memo hr{border:0;border-top:2px solid var(--type);margin:14px 0 18px}
+.memo h2{font:700 15px "Courier Prime",monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 6px}
+.memo p,.memo li{margin:0 0 9px;text-align:left}
+.memo ul{padding-left:22px;margin:0 0 10px}
+.sig{margin-top:30px;font-size:30px}
+.appendix ol{padding-left:24px}.appendix li{margin-bottom:12px;word-break:break-word}
+.appendix .src{font-weight:700;color:var(--ink)}.appendix .via{font-size:12px;color:#6d685e}
+.appendix .claims{list-style:none;padding-left:4px;margin:4px 0 0;font-size:13.5px}
+.appendix .claims li{margin:2px 0}
+.ok{color:#1d6b3a;font-weight:700}.part{color:#9a5b00;font-weight:700}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:#5d5a52}
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 18px;margin:8px 0 16px}
+.log div{border-bottom:1px dotted var(--rule)}
+@media (max-width:640px){body{padding:64px 8px 24px}.sheet{padding:40px 22px 64px;min-height:0}.cc{right:16px;top:12px}
+  .footer{left:22px;right:22px}.hand{font-size:21px}.toolbar b{display:none}}
+@media print{@page{size:letter;margin:0}
+  html,body{background:none;padding:0}.toolbar{display:none}
+  .sheet{transform:none!important;box-shadow:none;margin:0;background-image:none;width:8.5in;min-height:11in;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script><script>
+function savePng(){
+  const el=document.getElementById('page1'); const btn=document.getElementById('pngbtn'); btn.textContent='Rendering…';
+  htmlToImage.toPng(el,{pixelRatio:2,backgroundColor:'#fbf7ec',style:{transform:'none',margin:'0'}}).then(url=>{
+    const a=document.createElement('a'); a.href=url; a.download=document.body.dataset.slug+'-evaluation-form.png'; a.click();
+    btn.textContent='Download page 1 (PNG)';
+  }).catch(()=>{btn.textContent='PNG failed: use PDF'});
+}
+</script></head>
+<body data-slug="posthog">
+<div class="toolbar"><b>UNDERWRITE · PostHog</b>
+  <a href="memo.pdf" download id="pdfbtn">Download PDF</a>
+  <button id="pngbtn" onclick="savePng()">Download page 1 (PNG)</button>
+  <button onclick="window.print()">Print</button></div>
+
+<article class="sheet form" id="page1">
+  <div class="cc hand red">cc: IC<br>10/10/26</div>
+  <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  
+  <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">PostHog</span>
+    <span class="lbl">Date Rec'd</span><span class="line short hand">10/10/26</span></div>
+  <div class="row"><span class="lbl">Address</span><span class="line hand">San Francisco, United States<a class="cite" href="#src1" title="PostHog is headquartered in San Francisco, California, United States.  —  “Headquarters: San Francisco, California, United States”">1</a></span>
+    <span class="lbl">Website</span><span class="line short hand" style="text-transform:none">posthog.com</span></div>
+  <div class="row"><span class="lbl">Introduced By</span><span class="line hand">Underwrite agent</span>
+    <span class="lbl">Founded</span><span class="line short hand">2020<a class="cite" href="#src1" title="PostHog was founded in 2020.  —  “Year founded: 2020”">1</a></span></div>
+  <div class="sec"><span class="lbl">BUSINESS:</span><div class="ruled"><span class="hand">PostHog provides a product suite comprising product analytics, session replay, and experiments.</span><a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a></div></div>
+  <div class="sec"><span class="lbl">FINANCING TO DATE:</span><div class="ruled"><span class="hand">182150000<a class="cite" href="#src1" title="PostHog&#x27;s total funding raised is $182,150,000 USD.  —  “Total funding raised: 182,150,000 USD”">1</a></span>
+    </div></div>
+  <div class="sec"><span class="lbl">MARKET:</span><div class="ruled"><span class="hand">PostHog operates in the analytics and developer tools sector, competing with alternatives through an open-source licensing model, self-hosting options, and integrated toolsets spanning product analytics and session replay.</span><a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a><a class="cite" href="#src4" title="PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.  —  “You can find PostHog&#x27;s code (and work) publicly available on GitHub. A majority of it is MIT licensed, but some parts are under a separate”">4</a></div></div>
+  <div class="sec"><span class="lbl">OPERATING STATISTICS:</span> <span class="lbl">(as of 10/26)</span>
+    <table class="ops"><tr><td>Employees</td><td><span class="hand">224<a class="cite" href="#src1" title="PostHog has an employee count of 224.  —  “Employee count: 224”">1</a></span></td></tr><tr><td>Funding raised</td><td><span class="hand">182150000<a class="cite" href="#src1" title="PostHog&#x27;s total funding raised is $182,150,000 USD.  —  “Total funding raised: 182,150,000 USD”">1</a></span></td></tr><tr><td>Last round</td><td><span class="hand">—</span></td></tr><tr><td>Founded</td><td><span class="hand">2020<a class="cite" href="#src1" title="PostHog was founded in 2020.  —  “Year founded: 2020”">1</a></span></td></tr></table></div>
+  <div class="sec"><span class="lbl">MANAGEMENT:</span><div class="ruled"><span class="hand">Founders: James Hawkins, Tim Glaser</span><a class="cite" href="#src2" title="PostHog was founded on January 23, 2020 by James Hawkins and Tim Glaser.  —  “PostHog was founded on 23 January 2020 by James Hawkins and Tim Glaser”">2</a><br><span class="hand">Team size: 224</span><a class="cite" href="#src1" title="PostHog has an employee count of 224.  —  “Employee count: 224”">1</a></div></div>
+  <div class="sec"><span class="lbl">COMMENTS:</span><div class="ruled"><span class="hand">PostHog is an open-source product analytics and developer platform founded in 2020 and headquartered in San Francisco, California. The company has raised between $182.15M and $194M in total funding and employs 224 people.</span><a class="cite" href="#src1" title="PostHog was founded in 2020.  —  “Year founded: 2020”">1</a><a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a><a class="cite" href="#src5" title="PostHog raised approximately $194m in total funding as of October 2025.  —  “PostHog has raised six rounds, approximately $194m in total as of October 2025. Investors include Y Combinator&#x27;s Continuity Fund, GV, 1984”">5</a></div></div>
+  <div class="sec"><span class="lbl">RISKS:</span><div class="ruled"><span class="hand">Providing generous free allowances alongside open-source self-hosting under an MIT license introduces the risk of users self-hosting or remaining on free tiers without converting to paid plans.</span><a class="cite" href="#src6" title="PostHog provides a free Docker Compose deployment under an MIT license for self-hosting.  —  “PostHog is open-source and freely available for anyone to host themselves. We offer a free Docker Compose deployment under an MIT license.”">6</a><a class="cite" href="#src7" title="PostHog provides a generous free monthly allowance per product (e.g., 1M events for analytics, 5K session replays, 1M feature flag requests).  —  “PostHog is free to use and each product has a generous free monthly allowance (1M events for analytics, 5K session replays, 1M feature flag requests, and more).”">7</a><a class="cite" href="#src4" title="PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.  —  “You can find PostHog&#x27;s code (and work) publicly available on GitHub. A majority of it is MIT licensed, but some parts are under a separate”">4</a></div></div>
+  <div class="sec"></div>
+  <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">Dig deeper to assess PostHog&#x27;s commercial conversion given its significant funding and product breadth, while validating core financial metrics.</span></div>
+  <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">Dig deeper</span></span>
+    <span class="lbl">CONFIDENCE</span><span class="line short hand">medium</span></div>
+  <div class="stamp-row"><div class="stamp" style="margin-right:14px;transform:rotate(4deg)">SKEPTIC<small>2 OBJECTIONS OPEN · 2 REVIEWS</small></div><div class="stamp">VERIFIED<small>12 OF 12 CLAIMS · 0 CONFLICTS</small></div></div>
+  <div class="footer typed"><span>FORM UW-1 · prompts v1</span><span>run eval-v1-agent-all-20261010-211950</span></div>
+</article>
+<article class="sheet memo" id="page2">
+  <h1>MEMORANDUM</h1>
+  <div class="hdr"><b>TO:</b><span>Investment Committee</span><b>FROM:</b><span>Underwrite (autonomous diligence agent)</span>
+    <b>DATE:</b><span>October 10, 2026</span><b>RE:</b><span>PostHog (posthog.com) — first-pass diligence</span></div>
+  <hr>
+  <p><b>Recommendation:</b> Dig deeper to assess PostHog&#x27;s commercial conversion given its significant funding and product breadth, while validating core financial metrics. <i>(confidence: medium)</i></p>
+  <h2>Summary</h2>
+<p>PostHog is an open-source product analytics and developer platform founded in 2020 and headquartered in San Francisco, California.<a class="cite" href="#src1" title="PostHog was founded in 2020.  —  “Year founded: 2020”">1</a><a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a> The company has raised between $182.15M and $194M in total funding and employs 224 people.<a class="cite" href="#src1" title="PostHog&#x27;s total funding raised is $182,150,000 USD.  —  “Total funding raised: 182,150,000 USD”">1</a><a class="cite" href="#src5" title="PostHog raised approximately $194m in total funding as of October 2025.  —  “PostHog has raised six rounds, approximately $194m in total as of October 2025. Investors include Y Combinator&#x27;s Continuity Fund, GV, 1984”">5</a></p>
+<h2>Product &amp; business model</h2>
+<p>PostHog provides a product suite comprising product analytics, session replay, and experiments.<a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a> Its source code is publicly accessible on GitHub, with a majority under an MIT license alongside separate licenses for other parts.<a class="cite" href="#src4" title="PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.  —  “You can find PostHog&#x27;s code (and work) publicly available on GitHub. A majority of it is MIT licensed, but some parts are under a separate”">4</a> PostHog offers self-hosting via a free Docker Compose deployment under an MIT license.<a class="cite" href="#src6" title="PostHog provides a free Docker Compose deployment under an MIT license for self-hosting.  —  “PostHog is open-source and freely available for anyone to host themselves. We offer a free Docker Compose deployment under an MIT license.”">6</a> The platform employs a freemium model featuring a monthly free allowance per product, including 1M analytics events, 5K session replays, and 1M feature flag requests.<a class="cite" href="#src7" title="PostHog provides a generous free monthly allowance per product (e.g., 1M events for analytics, 5K session replays, 1M feature flag requests).  —  “PostHog is free to use and each product has a generous free monthly allowance (1M events for analytics, 5K session replays, 1M feature flag requests, and more).”">7</a> PostHog released PostHog Desktop in early 2026 and announced a partnership with Stripe in March 2026.<a class="cite" href="#src8" title="PostHog released PostHog Desktop in early 2026.  —  “Early 2026. PostHog released PostHog Desktop, which the handbook calls its biggest launch so far.”">8</a><a class="cite" href="#src9" title="PostHog announced a partnership with Stripe in March 2026.  —  “We&#x27;re partnering with Stripe to solve the most annoying problem for product builders.”">9</a></p>
+<h2>Team</h2>
+<p>PostHog was founded on January 23, 2020, by James Hawkins and Tim Glaser.<a class="cite" href="#src2" title="PostHog was founded on January 23, 2020 by James Hawkins and Tim Glaser.  —  “PostHog was founded on 23 January 2020 by James Hawkins and Tim Glaser”">2</a> The organization currently maintains an employee count of 224.<a class="cite" href="#src1" title="PostHog has an employee count of 224.  —  “Employee count: 224”">1</a></p>
+<h2>Funding &amp; traction</h2>
+<p>PostHog has accumulated substantial capital, reporting $182,150,000 in total funding according to Crustdata and approximately $194M as of October 2025.<a class="cite" href="#src1" title="PostHog&#x27;s total funding raised is $182,150,000 USD.  —  “Total funding raised: 182,150,000 USD”">1</a><a class="cite" href="#src5" title="PostHog raised approximately $194m in total funding as of October 2025.  —  “PostHog has raised six rounds, approximately $194m in total as of October 2025. Investors include Y Combinator&#x27;s Continuity Fund, GV, 1984”">5</a> Commercial activity includes an announced partnership with Stripe in March 2026 and the release of PostHog Desktop in early 2026.<a class="cite" href="#src8" title="PostHog released PostHog Desktop in early 2026.  —  “Early 2026. PostHog released PostHog Desktop, which the handbook calls its biggest launch so far.”">8</a><a class="cite" href="#src9" title="PostHog announced a partnership with Stripe in March 2026.  —  “We&#x27;re partnering with Stripe to solve the most annoying problem for product builders.”">9</a></p>
+<h2>Market &amp; competition</h2>
+<p>PostHog operates in the analytics and developer tools sector, competing with alternatives through an open-source licensing model, self-hosting options, and integrated toolsets spanning product analytics and session replay.<a class="cite" href="#src3" title="PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.  —  “Compare Swetrix and PostHog on open-source licensing, privacy, self-hosting, product analytics, session replay, experiments, and SEO.”">3</a><a class="cite" href="#src4" title="PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.  —  “You can find PostHog&#x27;s code (and work) publicly available on GitHub. A majority of it is MIT licensed, but some parts are under a separate”">4</a></p>
+<h2>Risks &amp; red flags</h2>
+<p>Providing generous free allowances alongside open-source self-hosting under an MIT license introduces the risk of users self-hosting or remaining on free tiers without converting to paid plans.<a class="cite" href="#src6" title="PostHog provides a free Docker Compose deployment under an MIT license for self-hosting.  —  “PostHog is open-source and freely available for anyone to host themselves. We offer a free Docker Compose deployment under an MIT license.”">6</a><a class="cite" href="#src7" title="PostHog provides a generous free monthly allowance per product (e.g., 1M events for analytics, 5K session replays, 1M feature flag requests).  —  “PostHog is free to use and each product has a generous free monthly allowance (1M events for analytics, 5K session replays, 1M feature flag requests, and more).”">7</a><a class="cite" href="#src4" title="PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.  —  “You can find PostHog&#x27;s code (and work) publicly available on GitHub. A majority of it is MIT licensed, but some parts are under a separate”">4</a> Additionally, core financial health indicators such as ARR and profitability remain unverified.</p>
+<h2>Open questions</h2>
+<p>What are PostHog&#x27;s exact latest ARR, profitability status, customer count, valuation, and funding round details?</p>
+  <div class="sig hand">— Underwrite</div>
+  <div class="footer typed"><span>Every factual sentence cites a source that passed verification (red circles → Appendix A)</span><span>page 2</span></div>
+</article>
+<article class="sheet memo appendix" id="page3">
+  <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
+  <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
+  <ol><li id="src1"><span class="src">Crustdata company record: PostHog</span> <span class="via">· Crustdata company database · fetched via crustdata</span><ul class="claims"><li><span class="ok">✓</span> PostHog was founded in 2020.</li><li><span class="ok">✓</span> PostHog is headquartered in San Francisco, California, United States.</li><li><span class="ok">✓</span> PostHog&#x27;s total funding raised is $182,150,000 USD.</li><li><span class="ok">✓</span> PostHog has an employee count of 224.</li></ul></li><li id="src2"><a class="src" href="https://posthog.com/hogpedia/history-of-posthog" rel="noopener noreferrer" target="_blank">History of PostHog - Hogpedia</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog was founded on January 23, 2020 by James Hawkins and Tim Glaser.</li></ul></li><li id="src3"><a class="src" href="https://swetrix.com/blog/posthog-open-source-alternative" rel="noopener noreferrer" target="_blank">PostHog Open Source Alternative</a> <span class="via">· swetrix.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog offers product analytics, session replay, experiments, self-hosting, and open-source licensing.</li></ul></li><li id="src4"><a class="src" href="https://posthog.com/newsletter/open-source-benefits" rel="noopener noreferrer" target="_blank">The hidden benefits of being an open-source startup</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog&#x27;s code is publicly available on GitHub, with a majority MIT licensed and some parts under separate licenses.</li></ul></li><li id="src5"><a class="src" href="https://posthog.com/hogpedia/posthog" rel="noopener noreferrer" target="_blank">PostHog - Hogpedia</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog raised approximately $194m in total funding as of October 2025.</li></ul></li><li id="src6"><a class="src" href="https://posthog.com/docs/self-host" rel="noopener noreferrer" target="_blank">Self-host PostHog - Docs</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog provides a free Docker Compose deployment under an MIT license for self-hosting.</li></ul></li><li id="src7"><a class="src" href="https://posthog.com/pricing" rel="noopener noreferrer" target="_blank">PostHog pricing – Start free, scale when you need</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog provides a generous free monthly allowance per product (e.g., 1M events for analytics, 5K session replays, 1M feature flag requests).</li></ul></li><li id="src8"><a class="src" href="https://posthog.com/hogpedia/history-of-posthog" rel="noopener noreferrer" target="_blank">History of PostHog - Hogpedia</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog released PostHog Desktop in early 2026.</li></ul></li><li id="src9"><a class="src" href="https://posthog.com/blog/product-updates" rel="noopener noreferrer" target="_blank">Posts</a> <span class="via">· posthog.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> PostHog announced a partnership with Stripe in March 2026.</li></ul></li></ol>
+  <h2>Rejected claims (kept out of the memo)</h2><ul><li>None — every extracted claim passed.</li></ul>
+  <h2>Skeptic reviews</h2><ol><li><b>Round 1: needs work</b><ul class='claims'><li>[q5] Priority-1 question q5 asks for revenue figures (ARR), profitability status, and paid customer numbers, but has zero specific metrics or supported claims beyond vague commentary (&#x27;tens of millions&#x27;) and repeated funding figures. <i>→ Search PostHog public transparent updates, Sacra, TechCrunch, or PostHog&#x27;s website/handbook for reported ARR figures, customer counts, and profitability status (e.g., query &#x27;PostHog ARR revenue profitability customer count&#x27;).</i></li><li>[q4] Priority-1 question q4 lacks valuation and clear breakdown of recent rounds/lead investors, while total funding has conflicting numbers ($182.15M vs $194M) that have not been reconciled. <i>→ Search recent funding coverage for PostHog&#x27;s latest round, post-money valuation, and primary lead investors (e.g., query &#x27;PostHog valuation series round lead investor&#x27;).</i></li></ul></li><li><b>Round 2: needs work</b><ul class='claims'><li>[q5] Priority-1 question q5 on ARR, profitability status, and paid customer counts is answered vaguely (&#x27;growing towards and surpassing tens of millions&#x27;) without verified claims. PostHog is notoriously transparent and frequently publishes detailed revenue milestones and profitability updates in their public handbook and newsletter. <i>→ Search posthog.com/newsletter or posthog.com/handbook for &#x27;ARR&#x27;, &#x27;revenue&#x27;, and &#x27;profitable&#x27; or &#x27;default alive&#x27; milestones.</i></li><li>[q4] There is a funding discrepancy between Crustdata ($182.15M) and PostHog&#x27;s Hogpedia ($194M as of October 2025), and key round details (lead investors, Series C/D breakdown, valuation) lack concrete verified citations beyond generic lists. <i>→ Search TechCrunch, PR Newswire, or posthog.com/blog for PostHog&#x27;s Series C / Series D funding announcements in 2024–2025 to verify the exact round sizes, lead investors, and valuation.</i></li></ul></li></ol>
+  <h2>Agent run log</h2><div class="log"><div>Claims extracted: <b>12</b></div><div>Verified: <b>12 (100% fully)</b></div><div>Rejected: <b>0</b></div><div>Conflicts flagged: <b>0</b></div><div>Research rounds: <b>2</b></div><div>Recoveries: <b>1</b></div><div>Run time: <b>153s</b></div><div>Crustdata credits: <b>10</b></div><div>LLM cost (list price): <b>$0.055</b></div><div>Agent steps: <b>28</b></div><div>Claims rejected in-loop: <b>3 of 16</b></div><div>Self-corrections: <b>1</b></div><div>Skeptic objections: <b>4</b></div><div>Tools used: <b>add_question ×1, company_profile ×1, finish ×2, record_claim ×16, update_question ×15, web_search ×17</b></div></div>
+  <p class="via">neatlogs trace: not exported</p>
+  <div class="footer typed"><span>Generated by Underwrite · 2026-10-10 21:28</span><span>page 3</span></div>
+</article>
+</body></html>

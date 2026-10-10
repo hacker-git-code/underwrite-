@@ -1,0 +1,109 @@
+{"t": 1791647933.768609, "kind": "plan", "msg": "8 questions, 16 queries for Razorpay"}
+{"t": 1791647934.9518707, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791647935.3263028, "kind": "crust", "msg": "company record: 52 fields"}
+{"t": 1791647937.8861535, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', statement='Razorpay was founded in 2014.', question_id='q2', field='founded_year')"}
+{"t": 1791647937.8988395, "kind": "extract", "msg": "C1 [q2] Razorpay was founded in 2014."}
+{"t": 1791647937.900838, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement=\"Razorpay's headquarters is in Adugodi, Karnataka, India.\", question_id='q2', field='hq_city', evidence_id='E1')"}
+{"t": 1791647937.9070196, "kind": "extract", "msg": "C2 [q2] Razorpay's headquarters is in Adugodi, Karnataka, India."}
+{"t": 1791647937.9080193, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', statement=\"Razorpay's founders are Harshil Mathur and Shashank Kumar.\", question_id='q3', field='founders')"}
+{"t": 1791647937.911017, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q3', field='ceo', statement='Harshil Mathur is the CEO and Co-Founder of Razorpay.', evidence_id='E1')"}
+{"t": 1791647937.9140148, "kind": "extract", "msg": "C3 [q3] Harshil Mathur is the CEO and Co-Founder of Razorpay."}
+{"t": 1791647937.9171286, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q4', statement='Razorpay has raised a total of $816,600,000 USD in funding.', evidence_id='E1', field='total_funding_usd')"}
+{"t": 1791647937.9201267, "kind": "extract", "msg": "C4 [q4] Razorpay has raised a total of $816,600,000 USD in funding."}
+{"t": 1791647937.9236157, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', field='last_round', question_id='q4', statement=\"Razorpay's last funding round was a secondary market round o\")"}
+{"t": 1791647937.926747, "kind": "extract", "msg": "C5 [q4] Razorpay's last funding round was a secondary market round of $75,000,000 USD on May 10, 2"}
+{"t": 1791647937.9287434, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='headcount', statement=\"Razorpay's headcount is approximately 4,042 employees.\", question_id='q5', evidence_id='E1')"}
+{"t": 1791647937.932862, "kind": "extract", "msg": "C6 [q5] Razorpay's headcount is approximately 4,042 employees."}
+{"t": 1791647939.2448168, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> web_search(query='Razorpay founding location Jaipur Bangalore core products bu')"}
+{"t": 1791647944.275741, "kind": "web", "msg": "search (crustdata-web) 'Razorpay founding location Jaipur Bangalore core products business model' -> 7 results"}
+{"t": 1791647945.811885, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> record_claim(field='hq_city', evidence_id='E7', statement='Razorpay is headquartered in Bengaluru, India.', question_id='q2')"}
+{"t": 1791647945.8181798, "kind": "extract", "msg": "C7 [q2] Razorpay is headquartered in Bengaluru, India."}
+{"t": 1791647948.9094422, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> update_question(note='Founding year is 2014, HQ is in Bengaluru / Adugodi, Karnata', status='answered', question_id='q2')"}
+{"t": 1791647948.9124506, "kind": "plan", "msg": "q2 -> answered: Founding year is 2014, HQ is in Bengaluru / Adugodi, Karnataka, India."}
+{"t": 1791647950.3300836, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> update_question(note='Founders are Harshil Mathur and Shashank Kumar; CEO is Harsh', status='answered', question_id='q3')"}
+{"t": 1791647950.3320835, "kind": "plan", "msg": "q3 -> answered: Founders are Harshil Mathur and Shashank Kumar; CEO is Harshil Mathur; key execu"}
+{"t": 1791647951.998491, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> web_search(query='Razorpay latest valuation total funding key institutional in')"}
+{"t": 1791647958.3136086, "kind": "web", "msg": "search (crustdata-web) 'Razorpay latest valuation total funding key institutional investors 2024 2025 2026' -> 10 results"}
+{"t": 1791647958.3239, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647960.6424217, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> record_claim(question_id='q4', field='total_funding_usd', evidence_id='E13', statement='Razorpay reached a valuation of $9.2 Billion in June 2025.')"}
+{"t": 1791647960.64542, "kind": "extract", "msg": "C8 [q4] Razorpay reached a valuation of $9.2 Billion in June 2025."}
+{"t": 1791647960.650125, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E10', field='total_funding_usd', statement='Razorpay has raised approximately $822M in total funding fro', question_id='q4')"}
+{"t": 1791647960.6531234, "kind": "extract", "msg": "C9 [q4] Razorpay has raised approximately $822M in total funding from investors including FinSight"}
+{"t": 1791647961.9685774, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> update_question(note='Razorpay has raised $816M-$822M in total funding, achieved a', question_id='q4', status='answered')"}
+{"t": 1791647961.970576, "kind": "plan", "msg": "q4 -> answered: Razorpay has raised $816M-$822M in total funding, achieved a peak valuation of $"}
+{"t": 1791647963.2921736, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> web_search(query='Razorpay FY24 FY25 revenue total payment volume TPV business')"}
+{"t": 1791647968.0986066, "kind": "web", "msg": "search (crustdata-web) 'Razorpay FY24 FY25 revenue total payment volume TPV business model products' -> 8 results"}
+{"t": 1791647968.1048796, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647969.8398886, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> record_claim(field='none', evidence_id='E15', question_id='q5', statement=\"Razorpay's FY25 consolidated revenue reached Rs 3,783 crore,\")"}
+{"t": 1791647969.845293, "kind": "extract", "msg": "C10 [q5] Razorpay's FY25 consolidated revenue reached Rs 3,783 crore, representing a 65% increase o"}
+{"t": 1791647969.8502898, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', statement='Razorpay reported an annualized Total Payment Volume (TPV) o', evidence_id='E14', field='none')"}
+{"t": 1791647969.853829, "kind": "extract", "msg": "C11 [q5] Razorpay reported an annualized Total Payment Volume (TPV) of $180 billion and over 450,00"}
+{"t": 1791647971.1242664, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q5', note='Razorpay reported FY25 consolidated revenue of Rs 3,783 cror')"}
+{"t": 1791647971.1254761, "kind": "plan", "msg": "q5 -> answered: Razorpay reported FY25 consolidated revenue of Rs 3,783 crore (~$450M), up 65% f"}
+{"t": 1791647972.5605466, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> web_search(query='Razorpay core products payment gateway business model target')"}
+{"t": 1791647978.390931, "kind": "web", "msg": "search (crustdata-web) 'Razorpay core products payment gateway business model target customers' -> 8 results"}
+{"t": 1791647978.3965318, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647979.9423838, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> record_claim(field='business_model', statement=\"Razorpay's primary business model is based on transaction ta\", evidence_id='E22', question_id='q1')"}
+{"t": 1791647979.959039, "kind": "verify", "msg": "claim rejected in-loop: quote not in E22 (match 77%) \u2014 agent must fix it"}
+{"t": 1791647981.4700344, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(statement=\"Razorpay's core product is a payment gateway allowing busine\", question_id='q1', field='business_model', evidence_id='E22')"}
+{"t": 1791647981.4762797, "kind": "verify", "msg": "self-corrected: C12 accepted after the agent fixed a rejected claim"}
+{"t": 1791647981.4782786, "kind": "extract", "msg": "C12 [q1] Razorpay's core product is a payment gateway allowing businesses to accept payments via ca"}
+{"t": 1791647982.7417035, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> update_question(question_id='q1', note='Razorpay offers a comprehensive suite of financial products ', status='answered')"}
+{"t": 1791647982.744698, "kind": "plan", "msg": "q1 -> answered: Razorpay offers a comprehensive suite of financial products including Payment Ga"}
+{"t": 1791647984.301671, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> web_search(query='Razorpay RBI regulatory restrictions compliance payment aggr')"}
+{"t": 1791647989.946203, "kind": "web", "msg": "search (crustdata-web) 'Razorpay RBI regulatory restrictions compliance payment aggregator license' -> 8 results"}
+{"t": 1791647989.9585016, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647991.3020303, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> web_search(query='Razorpay RBI onboarding restriction ban lifted payment aggre')"}
+{"t": 1791647996.6618104, "kind": "web", "msg": "search (crustdata-web) 'Razorpay RBI onboarding restriction ban lifted payment aggregator license' -> 7 results"}
+{"t": 1791647996.6765509, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791647998.2697697, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> update_question(note='Razorpay faced a regulatory embargo by the RBI in late 2022 ', question_id='q8', status='answered')"}
+{"t": 1791647999.7171023, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> record_claim(field='none', statement='The Reserve Bank of India (RBI) previously restricted Razorp', evidence_id='E32', question_id='q8')"}
+{"t": 1791647999.7274086, "kind": "verify", "msg": "claim rejected in-loop: quote not in E32 (match 88%) \u2014 agent must fix it"}
+{"t": 1791648005.1377072, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(statement='The Reserve Bank of India (RBI) lifted its ban on Razorpay i', question_id='q8', evidence_id='E32', field='none')"}
+{"t": 1791648005.1455784, "kind": "verify", "msg": "self-corrected: C13 accepted after the agent fixed a rejected claim"}
+{"t": 1791648005.1465893, "kind": "extract", "msg": "C13 [q8] The Reserve Bank of India (RBI) lifted its ban on Razorpay in December 2023."}
+{"t": 1791648011.4143505, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q8', note='Razorpay faced a temporary RBI embargo on onboarding new mer')"}
+{"t": 1791648011.4167023, "kind": "plan", "msg": "q8 -> answered: Razorpay faced a temporary RBI embargo on onboarding new merchants starting late"}
+{"t": 1791648017.8402767, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> web_search(query='Razorpay primary competitors India market share PhonePe Cash')"}
+{"t": 1791648023.2122972, "kind": "web", "msg": "search (crustdata-web) 'Razorpay primary competitors India market share PhonePe Cashfree Paytm Stripe' -> 7 results"}
+{"t": 1791648023.221486, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791648024.6473591, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> record_claim(statement='Razorpay leads the Indian payment gateway market with an est', field='none', question_id='q6', evidence_id='E41')"}
+{"t": 1791648024.650937, "kind": "extract", "msg": "C14 [q6] Razorpay leads the Indian payment gateway market with an estimated 21% market share, compe"}
+{"t": 1791648024.655938, "kind": "agent", "msg": "round 1 ended on budget after 24 steps"}
+{"t": 1791648024.6691022, "kind": "verify", "msg": "grounding: 14/14 quotes found in their cited source"}
+{"t": 1791648030.3160841, "kind": "verify", "msg": "judge: 14 supported, 0 partial, 0 rejected of 14"}
+{"t": 1791648062.050672, "kind": "skeptic", "msg": "objection [q5]: Revenue and financial metrics rely on questionable aggregator blogs ('coinlaw.io') citing FY25 revenue, which "}
+{"t": 1791648062.0545835, "kind": "skeptic", "msg": "objection [q4]: The $9.2 billion valuation claim is sourced solely from an obscure blog ('valueforstartups.in') citing June 20"}
+{"t": 1791648062.0588465, "kind": "skeptic", "msg": "objection [q1]: The answer note for q1 cuts off mid-sentence ('taking a') and the verified claims lack details on pricing mode"}
+{"t": 1791648062.0738292, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791648064.164813, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> web_search(query='Razorpay FY23 FY24 revenue net profit RoC filings Entrackr I')"}
+{"t": 1791648069.4832265, "kind": "web", "msg": "search (crustdata-web) 'Razorpay FY23 FY24 revenue net profit RoC filings Entrackr Inc42' -> 9 results"}
+{"t": 1791648069.4953225, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791648072.3653963, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> record_claim(field='none', question_id='q5', statement='According to RoC filings, Razorpay reported \u20b92,501.4 Cr in r', evidence_id='E44')"}
+{"t": 1791648072.3714175, "kind": "extract", "msg": "C15 [q5] According to RoC filings, Razorpay reported \u20b92,501.4 Cr in revenue for FY24 with a net pro"}
+{"t": 1791648072.3765166, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', evidence_id='E45', field='none', statement=\"In FY23, Razorpay's revenue from operations reached Rs 2,279\")"}
+{"t": 1791648072.3805187, "kind": "extract", "msg": "C16 [q5] In FY23, Razorpay's revenue from operations reached Rs 2,279 crore."}
+{"t": 1791648074.0766456, "kind": "agent", "msg": "step 27 (gemini-3.5-flash-lite) -> web_search(query='Razorpay valuation Series F 7.5 billion December 2021 second')"}
+{"t": 1791648078.9038093, "kind": "web", "msg": "search (crustdata-web) 'Razorpay valuation Series F 7.5 billion December 2021 secondary sale Economic Times TechCrunch' -> 9 results"}
+{"t": 1791648078.9139304, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791648081.4931602, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E50', field='none', question_id='q4', statement=\"Razorpay's peak official valuation is $7.5 billion, achieved\")"}
+{"t": 1791648081.4993505, "kind": "extract", "msg": "C17 [q4] Razorpay's peak official valuation is $7.5 billion, achieved in December 2021 during its S"}
+{"t": 1791648085.7272217, "kind": "agent", "msg": "step 29 (gemini-3.5-flash-lite) -> web_search(query='Razorpay pricing model MDR take rate SaaS fees RazorpayX fee')"}
+{"t": 1791648090.5919793, "kind": "web", "msg": "search (crustdata-web) 'Razorpay pricing model MDR take rate SaaS fees RazorpayX fee structure' -> 9 results"}
+{"t": 1791648090.6176155, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791648094.0043366, "kind": "agent", "msg": "step 30 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E57', statement='Razorpay charges a standard 2% platform fee plus 18% GST for', question_id='q1', field='business_model')"}
+{"t": 1791648094.01746, "kind": "extract", "msg": "C18 [q1] Razorpay charges a standard 2% platform fee plus 18% GST for payment gateway transactions "}
+{"t": 1791648096.1508293, "kind": "agent", "msg": "step 31 (gemini-3.5-flash-lite) -> update_question(status='answered', note=\"Razorpay's business model relies on a pay-as-you-go transact\", question_id='q1')"}
+{"t": 1791648096.154506, "kind": "plan", "msg": "q1 -> answered: Razorpay's business model relies on a pay-as-you-go transaction take rate (Merch"}
+{"t": 1791648098.3958669, "kind": "agent", "msg": "step 32 (gemini-3.5-flash-lite) -> update_question(note=\"Razorpay's official peak valuation is $7.5 billion, achieved\", question_id='q4', status='answered')"}
+{"t": 1791648098.398867, "kind": "plan", "msg": "q4 -> answered: Razorpay's official peak valuation is $7.5 billion, achieved in December 2021 du"}
+{"t": 1791648099.975013, "kind": "agent", "msg": "step 33 (gemini-3.5-flash-lite) -> update_question(question_id='q5', status='answered', note='According to official RoC filings, Razorpay reported operati')"}
+{"t": 1791648099.9762032, "kind": "plan", "msg": "q5 -> answered: According to official RoC filings, Razorpay reported operating revenue of Rs 2,2"}
+{"t": 1791648102.8443983, "kind": "agent", "msg": "step 34 (gemini-3.5-flash-lite) -> finish(summary='Razorpay (razorpay.com), founded in 2014 by IIT Roorkee alum')"}
+{"t": 1791648102.8802612, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791648107.4889402, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791648108.9985065, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791648109.0015504, "kind": "verify", "msg": "judge: 2 supported, 2 partial, 0 rejected of 4"}
+{"t": 1791648263.216033, "kind": "skeptic", "msg": "signed off: the evidence is good enough to write the memo"}
+{"t": 1791648526.716855, "kind": "memo", "msg": "memo written: 18 distinct verified claims cited, recommendation: Dig deeper given Razorpay's dominant 21% market share, strong revenue growth, and profitab"}
+{"t": 1791648541.989963, "kind": "memo", "msg": "done in 598.6s \u00b7 18 claims \u00b7 89% supported \u00b7 0 conflicts \u00b7 $0.079 LLM \u00b7 10 Crustdata credits \u00b7 2 recoveries"}

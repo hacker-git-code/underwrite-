@@ -159,7 +159,31 @@ def _chain(role: str) -> list[str]:
     return [m for m in specs if provider_ready(split_model(m)[0])]
 
 
+CHAIN_WAITS = (60.0, 120.0, 240.0)  # when every model is only rate-limited: wait, then try the whole chain again
+
+
 def _run_chain(role: str, chain: list[str], attempt: Callable[[str], T]) -> tuple[T, str]:
+    """Try the chain; if every model failed only transiently (rate limits, overload), wait and try again instead of
+    stopping the run. Nobody is watching: a busy minute shouldn't cost a company."""
+    for i, wait in enumerate((*CHAIN_WAITS, None)):
+        try:
+            return _run_chain_once(role, chain, attempt)
+        except _AllTransient as e:
+            if wait is None or not any(m not in _dead for m in chain):
+                raise Fatal(str(e)) from e
+            emit("recover", f"every {role} model is busy or rate-limited; waiting {wait:.0f}s before trying the chain again "
+                            f"({i + 1}/{len(CHAIN_WAITS)})")
+            for m in chain:
+                _cooldown.pop(m, None)
+            time.sleep(wait)
+    raise AssertionError("unreachable")
+
+
+class _AllTransient(Exception):
+    pass
+
+
+def _run_chain_once(role: str, chain: list[str], attempt: Callable[[str], T]) -> tuple[T, str]:
     """Try each model in the chain (with retries) until one works. Dead models are skipped for the rest of the
     process; models that exhausted their retries cool down for COOLDOWN_S."""
     last_error: Exception | None = None
@@ -183,7 +207,10 @@ def _run_chain(role: str, chain: list[str], attempt: Callable[[str], T]) -> tupl
                 ledger.current().fallback_calls += 1
             continue
         return result, spec
-    raise Fatal(f"no usable model for role '{role}' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): {last_error}")
+    msg = f"no usable model for role '{role}' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): {last_error}"
+    if any(m not in _dead for m in chain):  # someone is only busy, not gone: worth waiting for
+        raise _AllTransient(msg)
+    raise Fatal(msg)
 
 
 def complete(role: str, system: str, user: str, *, effort: str | None = None, max_tokens: int = 16000) -> tuple[str, str]:

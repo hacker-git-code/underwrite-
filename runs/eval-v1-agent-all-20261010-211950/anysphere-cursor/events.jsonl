@@ -1,0 +1,92 @@
+{"t": 1791650942.2031686, "kind": "plan", "msg": "10 questions, 20 queries for Anysphere (Cursor)"}
+{"t": 1791650943.838276, "kind": "agent", "msg": "step 1 (gemini-3.1-flash-lite) -> company_profile()"}
+{"t": 1791650944.234509, "kind": "crust", "msg": "company record: 27 fields"}
+{"t": 1791650946.3599973, "kind": "agent", "msg": "step 2 (gemini-3.1-flash-lite) -> web_search(query='Anysphere Cursor founded date headquarters founders funding')"}
+{"t": 1791650953.1472626, "kind": "web", "msg": "search (crustdata-web) 'Anysphere Cursor founded date headquarters founders funding' -> 9 results"}
+{"t": 1791650954.678262, "kind": "agent", "msg": "step 3 (gemini-3.1-flash-lite) -> web_search(query='Anysphere Cursor Series A funding 2024 founders')"}
+{"t": 1791650960.369308, "kind": "web", "msg": "search (crustdata-web) 'Anysphere Cursor Series A funding 2024 founders' -> 9 results"}
+{"t": 1791650960.3777072, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791650963.3854454, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> record_claim(field='founders', question_id='q3', evidence_id='E8', statement='The co-founders of Anysphere are Michael Truell, Sualeh Asif', value='Michael Truell, Sualeh Asif, Arvid Lunnemark, Aman Sanger')"}
+{"t": 1791650963.3943083, "kind": "extract", "msg": "C1 [q3] The co-founders of Anysphere are Michael Truell, Sualeh Asif, Arvid Lunnemark, and Aman Sa"}
+{"t": 1791650963.4000106, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> record_claim(statement='Anysphere raised $60 million in Series A funding in August 2', value='60000000', question_id='q4', evidence_id='E8', field='total_funding_usd')"}
+{"t": 1791650963.4087198, "kind": "verify", "msg": "claim rejected in-loop: quote not in E8 (match 43%) \u2014 agent must fix it"}
+{"t": 1791650963.4183333, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> record_claim(value='2022', question_id='q2', evidence_id='E8', statement='Anysphere, the company behind Cursor, was founded in 2022.', field='none')"}
+{"t": 1791650963.4196067, "kind": "verify", "msg": "claim rejected in-loop: quote not in E8 (match 43%) \u2014 agent must fix it"}
+{"t": 1791650963.4196067, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> update_question(question_id='q2', note='Answered using reliable TechCrunch source. Ignoring future-d', status='answered')"}
+{"t": 1791650963.4278724, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> update_question(question_id='q3', note='Answered based on TechCrunch 2024 report.', status='answered')"}
+{"t": 1791650963.4278724, "kind": "plan", "msg": "q3 -> answered: Answered based on TechCrunch 2024 report."}
+{"t": 1791650963.4278724, "kind": "agent", "msg": "step 4 (gemini-3.1-flash-lite) -> update_question(status='answered', note='Answered based on August 2024 Series A. Disregarding contrad', question_id='q4')"}
+{"t": 1791650968.5639658, "kind": "agent", "msg": "step 5 (gemini-3.1-flash-lite) -> read_page(url='https://techcrunch.com/2024/08/09/anysphere-a-github-copilot')"}
+{"t": 1791650977.7631652, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791650977.780632, "kind": "web", "msg": "read https://techcrunch.com/2024/08/09/anysphere-a-github-copilot-rival-has-raised-60 -> E14 (4000 chars)"}
+{"t": 1791650977.7886236, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791650991.5363219, "kind": "agent", "msg": "step 6 (gemini-3.1-flash-lite) -> record_claim(value='60000000', question_id='q4', field='total_funding_usd', evidence_id='E14', statement='Anysphere raised $60 million in Series A funding in August 2')"}
+{"t": 1791650991.5363219, "kind": "verify", "msg": "self-corrected: C2 accepted after the agent fixed a rejected claim"}
+{"t": 1791650991.5363219, "kind": "extract", "msg": "C2 [q4] Anysphere raised $60 million in Series A funding in August 2024."}
+{"t": 1791650991.5443213, "kind": "agent", "msg": "step 6 (gemini-3.1-flash-lite) -> update_question(note='Answered based on August 2024 TechCrunch article.', status='answered', question_id='q4')"}
+{"t": 1791650991.5443213, "kind": "plan", "msg": "q4 -> answered: Answered based on August 2024 TechCrunch article."}
+{"t": 1791650998.9316182, "kind": "agent", "msg": "step 7 (gemini-3.1-flash-lite) -> record_claim(field='founded_year', evidence_id='E14', statement='Anysphere was founded in 2022.', value='2022', question_id='q2')"}
+{"t": 1791650998.947243, "kind": "extract", "msg": "C3 [q2] Anysphere was founded in 2022."}
+{"t": 1791650998.947243, "kind": "agent", "msg": "step 7 (gemini-3.1-flash-lite) -> record_claim(field='business_model', question_id='q1', evidence_id='E14', statement='Anysphere offers an AI-powered coding assistant, Cursor, whi', value='SaaS')"}
+{"t": 1791650998.953986, "kind": "agent", "msg": "step 7 (gemini-3.1-flash-lite) -> update_question(question_id='q2', status='answered', note='Answered based on description in TechCrunch 2024 article.')"}
+{"t": 1791650998.953986, "kind": "plan", "msg": "q2 -> answered: Answered based on description in TechCrunch 2024 article."}
+{"t": 1791650998.953986, "kind": "agent", "msg": "step 7 (gemini-3.1-flash-lite) -> update_question(question_id='q1', status='answered', note='Answered based on description of the company as a GitHub Cop')"}
+{"t": 1791651002.191183, "kind": "agent", "msg": "step 8 (gemini-3.1-flash-lite) -> record_claim(question_id='q1', field='business_model', evidence_id='E14', value='SaaS', statement='Anysphere offers an AI-powered coding assistant, Cursor, whi')"}
+{"t": 1791651002.1918669, "kind": "agent", "msg": "step 8 (gemini-3.1-flash-lite) -> update_question(note='Answered based on description of the company in TechCrunch a', question_id='q1', status='answered')"}
+{"t": 1791651012.3078043, "kind": "agent", "msg": "step 9 (gemini-3.1-flash-lite) -> web_search(query='cursor.com pricing business model')"}
+{"t": 1791651025.670056, "kind": "web", "msg": "search (crustdata-web) 'cursor.com pricing business model' -> 9 results"}
+{"t": 1791651025.6780627, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791651027.7457242, "kind": "agent", "msg": "step 10 (gemini-3.1-flash-lite) -> record_claim(statement='Anysphere (Cursor) operates on a subscription-based business', value='Subscription', field='business_model', question_id='q1', evidence_id='E15')"}
+{"t": 1791651027.7537234, "kind": "extract", "msg": "C4 [q1] Anysphere (Cursor) operates on a subscription-based business model with Individual, Teams,"}
+{"t": 1791651027.7561798, "kind": "agent", "msg": "step 10 (gemini-3.1-flash-lite) -> update_question(question_id='q1', note='Answered based on Cursor pricing page.', status='answered')"}
+{"t": 1791651027.7561798, "kind": "plan", "msg": "q1 -> answered: Answered based on Cursor pricing page."}
+{"t": 1791651027.7561798, "kind": "agent", "msg": "step 10 (gemini-3.1-flash-lite) -> record_claim(value='none', statement='Cursor claims that 64% of Fortune 500 companies use their pr', question_id='q5', evidence_id='E20', field='none')"}
+{"t": 1791651027.764181, "kind": "verify", "msg": "claim rejected in-loop: quote not in E20 (match 67%) \u2014 agent must fix it"}
+{"t": 1791651027.772857, "kind": "agent", "msg": "step 10 (gemini-3.1-flash-lite) -> update_question(question_id='q5', note='Answered based on Cursor enterprise page claim.', status='answered')"}
+{"t": 1791651029.9274316, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> record_claim(evidence_id='E20', field='none', question_id='q5', statement='Cursor claims that 64% of Fortune 500 companies use their pr', value='none')"}
+{"t": 1791651029.9354303, "kind": "verify", "msg": "self-corrected: C5 accepted after the agent fixed a rejected claim"}
+{"t": 1791651029.9354303, "kind": "extract", "msg": "C5 [q5] Cursor claims that 64% of Fortune 500 companies use their product."}
+{"t": 1791651029.9434297, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> update_question(status='answered', question_id='q5', note='Answered based on Cursor enterprise page.')"}
+{"t": 1791651029.9434297, "kind": "plan", "msg": "q5 -> answered: Answered based on Cursor enterprise page."}
+{"t": 1791651029.9434297, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> record_claim(field='none', statement=\"Cursor's primary competitor is GitHub Copilot.\", value='none', question_id='q6', evidence_id='E14')"}
+{"t": 1791651029.9434297, "kind": "extract", "msg": "C6 [q6] Cursor's primary competitor is GitHub Copilot."}
+{"t": 1791651029.9514284, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> update_question(question_id='q6', note='Answered based on tech media reporting characterizing it as ', status='answered')"}
+{"t": 1791651029.9514284, "kind": "plan", "msg": "q6 -> answered: Answered based on tech media reporting characterizing it as a GitHub Copilot riv"}
+{"t": 1791651029.959432, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> record_claim(evidence_id='E14', question_id='q7', value='Series A', statement='Anysphere raised a $60 million Series A in August 2024.', field='last_round')"}
+{"t": 1791651029.959432, "kind": "extract", "msg": "C7 [q7] Anysphere raised a $60 million Series A in August 2024."}
+{"t": 1791651029.9674292, "kind": "agent", "msg": "step 11 (gemini-3.1-flash-lite) -> update_question(note='Answered based on August 2024 Series A announcement.', question_id='q7', status='answered')"}
+{"t": 1791651029.9674292, "kind": "plan", "msg": "q7 -> answered: Answered based on August 2024 Series A announcement."}
+{"t": 1791651031.793612, "kind": "agent", "msg": "step 12 (gemini-3.1-flash-lite) -> web_search(query='Anysphere Cursor legal issues risks VS Code license')"}
+{"t": 1791651039.9250681, "kind": "web", "msg": "search (crustdata-web) 'Anysphere Cursor legal issues risks VS Code license' -> 9 results"}
+{"t": 1791651039.9330685, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791651042.6887336, "kind": "agent", "msg": "step 13 (gemini-3.1-flash-lite) -> finish(summary='Anysphere is a two-year-old AI-focused startup (founded 2022')"}
+{"t": 1791651042.7049408, "kind": "verify", "msg": "grounding: 7/7 quotes found in their cited source"}
+{"t": 1791651045.5297875, "kind": "verify", "msg": "judge: 4 supported, 3 partial, 0 rejected of 7"}
+{"t": 1791651046.756772, "kind": "skeptic", "msg": "objection [q4]: Funding history relies on a single source reporting only the Series A $60M; total amount raised and prior seed"}
+{"t": 1791651046.7722728, "kind": "skeptic", "msg": "objection [q5]: Traction claim that 64% of Fortune 500 companies use the product is based on a company page and lacks independ"}
+{"t": 1791651046.7722728, "kind": "skeptic", "msg": "objection [q6]: Market size and dynamics are not substantiated; only a competitor is listed without market valuation or growth"}
+{"t": 1791651046.7722728, "kind": "skeptic", "msg": "objection [q9]: No disclosed financial metrics are provided; reliance on internal statements is insufficient for a VC assessme"}
+{"t": 1791651046.7802708, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791651048.8056698, "kind": "agent", "msg": "step 14 (gemini-3.1-flash-lite) -> web_search(query='Anysphere seed funding amount investors \"Anysphere\"')"}
+{"t": 1791651055.6889932, "kind": "web", "msg": "search (crustdata-web) 'Anysphere seed funding amount investors \"Anysphere\"' -> 9 results"}
+{"t": 1791651055.6939995, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791651066.9874256, "kind": "agent", "msg": "step 15 (gemini-3.1-flash-lite) -> record_claim(statement='Anysphere raised $8 million in seed funding in October 2023,', question_id='q4', value='11000000', field='total_funding_usd', evidence_id='E27')"}
+{"t": 1791651066.9874256, "kind": "extract", "msg": "C8 [q4] Anysphere raised $8 million in seed funding in October 2023, bringing its total raised to "}
+{"t": 1791651066.995424, "kind": "agent", "msg": "step 15 (gemini-3.1-flash-lite) -> update_question(note='Updated funding history with the $8M seed round and total pr', status='answered', question_id='q4')"}
+{"t": 1791651066.995424, "kind": "plan", "msg": "q4 -> answered: Updated funding history with the $8M seed round and total prior to Series A. Ser"}
+{"t": 1791651071.606352, "kind": "agent", "msg": "step 16 (gemini-3.1-flash-lite) -> web_search(query='\"Anysphere\" revenue ARR \"Cursor\" financial metrics')"}
+{"t": 1791651081.3531, "kind": "web", "msg": "search (crustdata-web) '\"Anysphere\" revenue ARR \"Cursor\" financial metrics' -> 9 results"}
+{"t": 1791651081.3616784, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791651085.9386225, "kind": "agent", "msg": "step 17 (gemini-3.1-flash-lite) -> web_search(query='\"AI coding assistant\" market size 2024 2025 growth forecast')"}
+{"t": 1791651094.6587524, "kind": "web", "msg": "search (crustdata-web) '\"AI coding assistant\" market size 2024 2025 growth forecast' -> 9 results"}
+{"t": 1791651094.6702578, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791651106.743125, "kind": "agent", "msg": "step 18 (gemini-3.1-flash-lite) -> finish(summary='Anysphere (Cursor) is an AI-coding assistant provider. Found')"}
+{"t": 1791651106.7591238, "kind": "verify", "msg": "grounding: 1/1 quotes found in their cited source"}
+{"t": 1791651108.4262831, "kind": "verify", "msg": "judge: 0 supported, 1 partial, 0 rejected of 1"}
+{"t": 1791651108.4262831, "kind": "conflict", "msg": "total_funding_usd: '60000000' (crustdata-web) vs '11000000' (crustdata-web)", "field": "total_funding_usd"}
+{"t": 1791651110.294283, "kind": "skeptic", "msg": "objection [q4]: Total funding amount is contradictory; one source lists $60M total, another $11M, and the memo claims ~$71M wi"}
+{"t": 1791651110.302359, "kind": "skeptic", "msg": "objection [q2]: Headquarters location is not verified; only founding year is partially sourced."}
+{"t": 1791651110.302359, "kind": "skeptic", "msg": "objection [q5]: Traction claim relies on a self\u2011reported 64% Fortune\u202f500 usage figure, which may be marketing hype and lacks t"}
+{"t": 1791651110.302359, "kind": "skeptic", "msg": "objection [q8]: Risks/red flags are completely missing, leaving a material gap in the assessment."}
+{"t": 1791651112.9025338, "kind": "memo", "msg": "memo written: 8 distinct verified claims cited, recommendation: dig deeper \u2013 strong product potential but funding details conflict and limited financial/o"}
+{"t": 1791651173.7661006, "kind": "memo", "msg": "done in 172.3s \u00b7 8 claims \u00b7 50% supported \u00b7 1 conflicts \u00b7 $0.038 LLM \u00b7 8 Crustdata credits \u00b7 0 recoveries"}

@@ -30,7 +30,7 @@ class Settings:
         default_factory=lambda: _env_list(
             "UW_MODELS_SMART",
             "gemini:gemini-3.8-flash,gemini:gemini-3.7-flash,gemini:gemini-3.6-flash,gemini:gemini-3.5-flash,"
-            "groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,bedrock:anthropic.claude-opus-5-5",
+            "groq:openai/gpt-oss-120b,cerebras:gpt-oss-120b,gemini:gemini-3.5-flash-lite,bedrock:anthropic.claude-opus-5-5",
         )
     )
     models_fast: list[str] = field(

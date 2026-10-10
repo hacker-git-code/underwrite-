@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anysphere (Cursor) · Underwrite memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"><style>
+:root{--desk:#d9d4c7;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--rule:#6b6760;--faint:#cfc8b6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--desk:#24221f}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--type)}
+body{font:15px/1.5 "Courier Prime","Courier New",monospace;padding:72px 16px 48px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;padding:10px 16px;background:rgba(30,28,25,.88);backdrop-filter:blur(6px);font:13px system-ui,sans-serif;color:#eee}
+.toolbar b{margin-right:auto;letter-spacing:.08em}
+.toolbar a,.toolbar button{font:inherit;color:#1e1c19;background:#f3eddc;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.toolbar a:hover,.toolbar button:hover{background:#fff}
+.sheet{position:relative;width:min(816px,100%);min-height:1056px;margin:0 auto 36px;padding:56px 60px 64px;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 18% 8%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(ellipse at 90% 100%,rgba(160,130,70,.10),transparent 60%);
+  box-shadow:0 1px 2px rgba(0,0,0,.15),0 12px 28px rgba(0,0,0,.18)}
+.sheet:nth-of-type(odd){transform:rotate(-.25deg)} .sheet:nth-of-type(even){transform:rotate(.3deg)}
+.hand{font-family:Caveat,"Segoe Print","Bradley Hand",cursive;color:var(--ink);font-weight:500;font-size:23px;line-height:1.15;
+  text-transform:uppercase;letter-spacing:.02em}
+.red{color:var(--red)}
+.typed{font-family:"Special Elite","Courier Prime",monospace}
+.title{text-align:center;font-size:15px;letter-spacing:.06em;margin:0 0 30px;text-decoration:underline;text-underline-offset:4px}
+.cc{position:absolute;top:26px;right:48px;transform:rotate(-8deg);font-size:21px;text-align:center;line-height:1}
+.row{display:flex;align-items:flex-end;gap:10px;margin:0 0 13px;flex-wrap:wrap}
+.lbl{font-family:"Special Elite",monospace;font-size:14px;white-space:nowrap}
+.line{flex:1 1 180px;min-width:140px;border-bottom:1px solid var(--rule);padding:0 6px 1px;min-height:30px}
+.line.short{flex:0 1 150px;min-width:110px}
+.sec{margin-top:20px;border-top:3px double var(--rule)}
+.sec>.lbl{display:inline-block;margin-top:3px;text-decoration:underline;text-underline-offset:3px}
+.ruled{padding:4px 8px 0 28px;min-height:62px;background-position:0 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,var(--faint) 29px,var(--faint) 30px);
+  line-height:30px}
+.ruled .hand{line-height:30px}
+table.ops{border-collapse:collapse;margin:8px 0 0 28px;width:calc(100% - 28px)}
+.ops td{padding:2px 6px 2px 0;vertical-align:bottom}
+.ops td:first-child{font-family:"Special Elite",monospace;font-size:14px;width:36%;padding-left:20px}
+.ops td:last-child{border-bottom:1px solid var(--rule)}
+a.cite{display:inline-block;min-width:19px;height:19px;padding:0 4px;margin:0 1px;border:1.6px solid var(--red);border-radius:50%;
+  font:700 12px/16px Caveat,cursive;color:var(--red);text-align:center;text-decoration:none;vertical-align:super;transform:rotate(-6deg)}
+.stamp-row{text-align:right;margin:14px 8px 0}
+.stamp{display:inline-block;transform:rotate(-7deg);border:3px solid var(--red);border-radius:6px;padding:6px 14px;
+  color:var(--red);font:700 17px/1.15 "Special Elite",monospace;text-align:center;letter-spacing:.12em;opacity:.78;mix-blend-mode:multiply;
+  box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--red)}
+.stamp small{display:block;font-size:11px;letter-spacing:.08em}
+.margin-note{border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:6px 0 0 28px;font-size:21px}
+.circled{display:inline-block;border:2px solid var(--ink);border-radius:50%;padding:0 12px;transform:rotate(-3deg)}
+.footer{position:absolute;left:60px;right:60px;bottom:26px;font-size:11px;color:#77736a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.memo h1{font:400 26px "Special Elite",monospace;letter-spacing:.3em;margin:0 0 18px}
+.memo .hdr{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;margin-bottom:12px}
+.memo .hdr b{font-weight:700}
+.memo hr{border:0;border-top:2px solid var(--type);margin:14px 0 18px}
+.memo h2{font:700 15px "Courier Prime",monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 6px}
+.memo p,.memo li{margin:0 0 9px;text-align:left}
+.memo ul{padding-left:22px;margin:0 0 10px}
+.sig{margin-top:30px;font-size:30px}
+.appendix ol{padding-left:24px}.appendix li{margin-bottom:12px;word-break:break-word}
+.appendix .src{font-weight:700;color:var(--ink)}.appendix .via{font-size:12px;color:#6d685e}
+.appendix .claims{list-style:none;padding-left:4px;margin:4px 0 0;font-size:13.5px}
+.appendix .claims li{margin:2px 0}
+.ok{color:#1d6b3a;font-weight:700}.part{color:#9a5b00;font-weight:700}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:#5d5a52}
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 18px;margin:8px 0 16px}
+.log div{border-bottom:1px dotted var(--rule)}
+@media (max-width:640px){body{padding:64px 8px 24px}.sheet{padding:40px 22px 64px;min-height:0}.cc{right:16px;top:12px}
+  .footer{left:22px;right:22px}.hand{font-size:21px}.toolbar b{display:none}}
+@media print{@page{size:letter;margin:0}
+  html,body{background:none;padding:0}.toolbar{display:none}
+  .sheet{transform:none!important;box-shadow:none;margin:0;background-image:none;width:8.5in;min-height:11in;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script><script>
+function savePng(){
+  const el=document.getElementById('page1'); const btn=document.getElementById('pngbtn'); btn.textContent='Rendering…';
+  htmlToImage.toPng(el,{pixelRatio:2,backgroundColor:'#fbf7ec',style:{transform:'none',margin:'0'}}).then(url=>{
+    const a=document.createElement('a'); a.href=url; a.download=document.body.dataset.slug+'-evaluation-form.png'; a.click();
+    btn.textContent='Download page 1 (PNG)';
+  }).catch(()=>{btn.textContent='PNG failed: use PDF'});
+}
+</script></head>
+<body data-slug="anysphere-cursor">
+<div class="toolbar"><b>UNDERWRITE · Anysphere (Cursor)</b>
+  <a href="memo.pdf" download id="pdfbtn">Download PDF</a>
+  <button id="pngbtn" onclick="savePng()">Download page 1 (PNG)</button>
+  <button onclick="window.print()">Print</button></div>
+
+<article class="sheet form" id="page1">
+  <div class="cc hand red">cc: IC<br>10/10/26</div>
+  <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  
+  <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">Anysphere (Cursor)</span>
+    <span class="lbl">Date Rec'd</span><span class="line short hand">10/10/26</span></div>
+  <div class="row"><span class="lbl">Address</span><span class="line hand">—</span>
+    <span class="lbl">Website</span><span class="line short hand" style="text-transform:none">cursor.com</span></div>
+  <div class="row"><span class="lbl">Introduced By</span><span class="line hand">Underwrite agent</span>
+    <span class="lbl">Founded</span><span class="line short hand">2022<a class="cite" href="#src2" title="Anysphere was founded in 2022.  —  “Anysphere, a two-year-old startup that’s developed an AI-powered coding assistant called Cursor”">2</a></span></div>
+  <div class="sec"><span class="lbl">BUSINESS:</span><div class="ruled"><span class="hand">Cursor offers a subscription‑based model with Individual, Teams, and Enterprise tiers. It markets itself as an AI‑enhanced development environment and asserts that a majority of Fortune 500 firms have adopted the tool.</span><a class="cite" href="#src3" title="Anysphere (Cursor) operates on a subscription-based business model with Individual, Teams, and Enterprise tiers.  —  “Pricing ; Individual. For the agent-curious. $20 ; Teams. For teams that ship together. $40 ; Enterprise. For scaled organizations. Custom.”">3</a><a class="cite" href="#src4" title="Cursor claims that 64% of Fortune 500 companies use their product.  —  “64% Fortune 500 companies using Cursor.”">4</a></div></div>
+  <div class="sec"><span class="lbl">FINANCING TO DATE:</span><div class="ruled"><span class="hand">not verified</span>
+    <span class="hand"> · last round: Series A $60M Aug 2024<a class="cite" href="#src2" title="Anysphere raised a $60 million Series A in August 2024.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A at  $400M valuation from a16z, Thrive, sources say”">2</a></span></div></div>
+  <div class="sec"><span class="lbl">MARKET:</span><div class="ruled"><span class="hand">The primary competitive threat is GitHub Copilot; the broader market includes AI‑assisted coding assistants and integrated development environments.</span><a class="cite" href="#src2" title="Cursor&#x27;s primary competitor is GitHub Copilot.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A”">2</a></div></div>
+  <div class="sec"><span class="lbl">OPERATING STATISTICS:</span> <span class="lbl">(as of 10/26)</span>
+    <table class="ops"><tr><td>Employees</td><td><span class="hand">—</span></td></tr><tr><td>Funding raised</td><td><span class="hand">—</span></td></tr><tr><td>Last round</td><td><span class="hand">Series A $60M Aug 2024<a class="cite" href="#src2" title="Anysphere raised a $60 million Series A in August 2024.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A at  $400M valuation from a16z, Thrive, sources say”">2</a></span></td></tr><tr><td>Founded</td><td><span class="hand">2022<a class="cite" href="#src2" title="Anysphere was founded in 2022.  —  “Anysphere, a two-year-old startup that’s developed an AI-powered coding assistant called Cursor”">2</a></span></td></tr></table></div>
+  <div class="sec"><span class="lbl">MANAGEMENT:</span><div class="ruled"><span class="hand">Founders: Michael Truell, Sualeh Asif, Arvid Lunnemark, Aman Sanger</span><a class="cite" href="#src1" title="The co-founders of Anysphere are Michael Truell, Sualeh Asif, Arvid Lunnemark, and Aman Sanger.  —  “The company was co-founded by Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger while they were students at MIT.”">1</a></div></div>
+  <div class="sec"><span class="lbl">COMMENTS:</span><div class="ruled"><span class="hand">Anysphere (Cursor) is an AI‑powered IDE founded in 2022 that positions itself as a GitHub Copilot rival. The company raised a $60 million Series A round in August 2024 and claims high enterprise adoption, with 64% of Fortune 500 companies using its product.</span><a class="cite" href="#src2" title="Anysphere was founded in 2022.  —  “Anysphere, a two-year-old startup that’s developed an AI-powered coding assistant called Cursor”">2</a><a class="cite" href="#src4" title="Cursor claims that 64% of Fortune 500 companies use their product.  —  “64% Fortune 500 companies using Cursor.”">4</a></div><div class="margin-note hand red">⚠ sources disagree — total_funding_usd: &#x27;60000000&#x27; (crustdata-web) vs &#x27;11000000&#x27; (crustdata-web)</div></div>
+  <div class="sec"><span class="lbl">RISKS:</span><div class="ruled"><span class="hand">No verified risk information is available; lack of disclosed financial metrics (ARR, profitability) and ambiguous total funding raise concerns.</span></div></div>
+  <div class="sec"></div>
+  <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">dig deeper – strong product potential but funding details conflict and limited financial/operational data</span></div>
+  <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">Pursue</span></span>
+    <span class="lbl">CONFIDENCE</span><span class="line short hand">medium</span></div>
+  <div class="stamp-row"><div class="stamp" style="margin-right:14px;transform:rotate(4deg)">SKEPTIC<small>4 OBJECTIONS OPEN · 2 REVIEWS</small></div><div class="stamp">VERIFIED<small>8 OF 8 CLAIMS · 1 CONFLICTS</small></div></div>
+  <div class="footer typed"><span>FORM UW-1 · prompts v1</span><span>run eval-v1-agent-all-20261010-211950</span></div>
+</article>
+<article class="sheet memo" id="page2">
+  <h1>MEMORANDUM</h1>
+  <div class="hdr"><b>TO:</b><span>Investment Committee</span><b>FROM:</b><span>Underwrite (autonomous diligence agent)</span>
+    <b>DATE:</b><span>October 10, 2026</span><b>RE:</b><span>Anysphere (Cursor) (cursor.com) — first-pass diligence</span></div>
+  <hr>
+  <p><b>Recommendation:</b> dig deeper – strong product potential but funding details conflict and limited financial/operational data <i>(confidence: medium)</i></p>
+  <h2>Summary</h2>
+<p>Anysphere (Cursor) is an AI‑powered IDE founded in 2022<a class="cite" href="#src2" title="Anysphere was founded in 2022.  —  “Anysphere, a two-year-old startup that’s developed an AI-powered coding assistant called Cursor”">2</a> that positions itself as a GitHub Copilot rival.<a class="cite" href="#src2" title="Cursor&#x27;s primary competitor is GitHub Copilot.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A”">2</a> The company raised a $60 million Series A round in August 2024<a class="cite" href="#src2" title="Anysphere raised $60 million in Series A funding in August 2024.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A at $400M valuation from a16z, Thrive, sources say”">2</a> and claims high enterprise adoption, with 64% of Fortune 500 companies using its product.<a class="cite" href="#src4" title="Cursor claims that 64% of Fortune 500 companies use their product.  —  “64% Fortune 500 companies using Cursor.”">4</a></p>
+<h2>Product &amp; business model</h2>
+<p>Cursor offers a subscription‑based model with Individual, Teams, and Enterprise tiers.<a class="cite" href="#src3" title="Anysphere (Cursor) operates on a subscription-based business model with Individual, Teams, and Enterprise tiers.  —  “Pricing ; Individual. For the agent-curious. $20 ; Teams. For teams that ship together. $40 ; Enterprise. For scaled organizations. Custom.”">3</a> It markets itself as an AI‑enhanced development environment and asserts that a majority of Fortune 500 firms have adopted the tool.<a class="cite" href="#src4" title="Cursor claims that 64% of Fortune 500 companies use their product.  —  “64% Fortune 500 companies using Cursor.”">4</a></p>
+<h2>Team</h2>
+<p>The co‑founders are Michael Truell, Sualeh Asif, Arvid Lunnemark, and Aman Sanger.<a class="cite" href="#src1" title="The co-founders of Anysphere are Michael Truell, Sualeh Asif, Arvid Lunnemark, and Aman Sanger.  —  “The company was co-founded by Michael Truell, Sualeh Asif, Arvid Lunnemark and Aman Sanger while they were students at MIT.”">1</a> No CEO information is available in the verified claims.</p>
+<h2>Funding &amp; traction</h2>
+<ul><li>Seed funding: $8 million in October 2023, bringing total to $11 million at that time.<a class="cite" href="#src5" title="Anysphere raised $8 million in seed funding in October 2023, bringing its total raised to $11 million.  —  “The new cash, which brings Anysphere&#x27;s total raised to $11 million”">5</a></li><li>Series A: $60 million raised in August 2024.<a class="cite" href="#src2" title="Anysphere raised $60 million in Series A funding in August 2024.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A at $400M valuation from a16z, Thrive, sources say”">2</a></li><li>Total funding amount is unclear due to conflicting reports ($60 M vs. $11 M)【conflict】.</li></ul>
+<h2>Market &amp; competition</h2>
+<p>The primary competitive threat is GitHub Copilot;<a class="cite" href="#src2" title="Cursor&#x27;s primary competitor is GitHub Copilot.  —  “Anysphere, a GitHub Copilot rival, has raised $60M Series A”">2</a> the broader market includes AI‑assisted coding assistants and integrated development environments.</p>
+<h2>Risks &amp; red flags</h2>
+<p>No verified risk information is available; lack of disclosed financial metrics (ARR, profitability) and ambiguous total funding raise concerns.</p>
+<h2>Open questions</h2>
+<ul><li>What potential risks or red flags have been identified for Anysphere (Cursor), such as legal issues, product limitations, or market challenges?</li><li>Are there any disclosed financial metrics for Anysphere (Cursor), such as annual recurring revenue or profitability trends?</li><li>What core technologies or patents underpin Anysphere&#x27;s (Cursor) product offering?</li></ul>
+  <div class="sig hand">— Underwrite</div>
+  <div class="footer typed"><span>Every factual sentence cites a source that passed verification (red circles → Appendix A)</span><span>page 2</span></div>
+</article>
+<article class="sheet memo appendix" id="page3">
+  <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
+  <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
+  <ol><li id="src1"><a class="src" href="https://techcrunch.com/2024/08/09/anysphere-a-github-copilot-rival-has-raised-60m-series-a-at-400m-valuation-from-a16z-thrive-sources-say/" rel="noopener noreferrer" target="_blank">Anysphere, a GitHub Copilot rival, has raised $60M Series ...</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> The co-founders of Anysphere are Michael Truell, Sualeh Asif, Arvid Lunnemark, and Aman Sanger.</li></ul></li><li id="src2"><a class="src" href="https://techcrunch.com/2024/08/09/anysphere-a-github-copilot-rival-has-raised-60m-series-a-at-400m-valuation-from-a16z-thrive-sources-say/" rel="noopener noreferrer" target="_blank">Anysphere, a GitHub Copilot rival, has raised $60M Series A at  $400M valuation from a16z, Thrive, sources say | TechCrunch</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="part">~</span> Anysphere raised $60 million in Series A funding in August 2024.</li><li><span class="part">~</span> Anysphere was founded in 2022.</li><li><span class="ok">✓</span> Cursor&#x27;s primary competitor is GitHub Copilot.</li><li><span class="part">~</span> Anysphere raised a $60 million Series A in August 2024.</li></ul></li><li id="src3"><a class="src" href="https://cursor.com/pricing" rel="noopener noreferrer" target="_blank">Cursor · Pricing</a> <span class="via">· cursor.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Anysphere (Cursor) operates on a subscription-based business model with Individual, Teams, and Enterprise tiers.</li></ul></li><li id="src4"><a class="src" href="https://cursor.com/enterprise" rel="noopener noreferrer" target="_blank">Cursor for Enterprise — Trusted by 64% of Fortune 500 ...</a> <span class="via">· cursor.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Cursor claims that 64% of Fortune 500 companies use their product.</li></ul></li><li id="src5"><a class="src" href="https://techcrunch.com/2023/10/11/anysphere-raises-8m-from-openai-to-build-an-ai-powered-ide/" rel="noopener noreferrer" target="_blank">Anysphere raises $8M from OpenAI to build an AI-powered ...</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="part">~</span> Anysphere raised $8 million in seed funding in October 2023, bringing its total raised to $11 million.</li></ul></li></ol>
+  <h2>Rejected claims (kept out of the memo)</h2><ul><li>None — every extracted claim passed.</li></ul>
+  <h2>Skeptic reviews</h2><ol><li><b>Round 1: needs work</b><ul class='claims'><li>[q4] Funding history relies on a single source reporting only the Series A $60M; total amount raised and prior seed rounds are not verified. <i>→ Search for any earlier seed or pre‑Series A funding announcements for Anysphere (Cursor) and identify all investors and amounts.</i></li><li>[q5] Traction claim that 64% of Fortune 500 companies use the product is based on a company page and lacks independent confirmation. <i>→ Find third‑party articles, analyst reports, or customer case studies that independently verify enterprise adoption numbers or headcount growth.</i></li><li>[q6] Market size and dynamics are not substantiated; only a competitor is listed without market valuation or growth data. <i>→ Locate market research reports or reputable analyst estimates for the AI‑assisted coding market and its projected growth.</i></li><li>[q9] No disclosed financial metrics are provided; reliance on internal statements is insufficient for a VC assessment. <i>→ Search for any interviews, filings, or credible news sources that mention Anysphere&#x27;s ARR, revenue growth, or profitability trends.</i></li></ul></li><li><b>Round 2: needs work</b><ul class='claims'><li>[q4] Total funding amount is contradictory; one source lists $60M total, another $11M, and the memo claims ~$71M without clear aggregation. <i>→ Search for a reliable funding database (e.g., Crunchbase, PitchBook) or recent press releases that detail both the $8M seed round and the $60M Series A and confirm the cumulative total.</i></li><li>[q2] Headquarters location is not verified; only founding year is partially sourced. <i>→ Find a reputable source (company blog, LinkedIn, press release) that states Anysphere&#x27;s headquarters city and country.</i></li><li>[q5] Traction claim relies on a self‑reported 64% Fortune 500 usage figure, which may be marketing hype and lacks third‑party verification. <i>→ Look for independent articles, case studies, or analyst reports that confirm major customer adoption or provide headcount/revenue growth metrics.</i></li><li>[q8] Risks/red flags are completely missing, leaving a material gap in the assessment. <i>→ Search news, legal databases, and community forums for any mentions of lawsuits, product limitations, security incidents, or market challenges related to Anysphere/Cursor.</i></li></ul></li></ol>
+  <h2>Agent run log</h2><div class="log"><div>Claims extracted: <b>8</b></div><div>Verified: <b>8 (50% fully)</b></div><div>Rejected: <b>0</b></div><div>Conflicts flagged: <b>1</b></div><div>Research rounds: <b>2</b></div><div>Recoveries: <b>0</b></div><div>Run time: <b>172s</b></div><div>Crustdata credits: <b>8</b></div><div>LLM cost (list price): <b>$0.038</b></div><div>Agent steps: <b>18</b></div><div>Claims rejected in-loop: <b>3 of 13</b></div><div>Self-corrections: <b>2</b></div><div>Skeptic objections: <b>8</b></div><div>Tools used: <b>company_profile ×1, finish ×2, read_page ×1, record_claim ×13, update_question ×13, web_search ×7</b></div></div>
+  <p class="via">neatlogs trace: not exported</p>
+  <div class="footer typed"><span>Generated by Underwrite · 2026-10-10 22:21</span><span>page 3</span></div>
+</article>
+</body></html>

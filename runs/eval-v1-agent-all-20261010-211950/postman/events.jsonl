@@ -1,0 +1,128 @@
+{"t": 1791649702.584883, "kind": "plan", "msg": "8 questions, 16 queries for Postman"}
+{"t": 1791649703.7001405, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791649703.9153829, "kind": "crust", "msg": "company record: 46 fields"}
+{"t": 1791649706.3138134, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', value='2014', field='founded_year', statement='Postman was founded in 2014.', evidence_id='E1')"}
+{"t": 1791649706.3158271, "kind": "extract", "msg": "C1 [q2] Postman was founded in 2014."}
+{"t": 1791649706.3178294, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', evidence_id='E1', field='hq_city', value='San Francisco', statement=\"Postman's headquarters is located in San Francisco, Californ\")"}
+{"t": 1791649706.3207157, "kind": "extract", "msg": "C2 [q2] Postman's headquarters is located in San Francisco, California, United States."}
+{"t": 1791649706.3227148, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='founders', statement='Postman was founded by Abhinav Asthana, Ankit Sobti, and Abh', evidence_id='E1', value='Abhinav Asthana, Ankit Sobti, Abhijit Kane', question_id='q3')"}
+{"t": 1791649706.3247135, "kind": "extract", "msg": "C3 [q3] Postman was founded by Abhinav Asthana, Ankit Sobti, and Abhijit Kane."}
+{"t": 1791649706.3267126, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', value='Abhinav Asthana', field='ceo', statement='Abhinav Asthana is the CEO of Postman.', question_id='q3')"}
+{"t": 1791649706.3297117, "kind": "extract", "msg": "C4 [q3] Abhinav Asthana is the CEO of Postman."}
+{"t": 1791649706.3317118, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(value='433000000', field='total_funding_usd', evidence_id='E1', statement='Postman has raised a total of $433,000,000 in funding.', question_id='q4')"}
+{"t": 1791649706.334238, "kind": "extract", "msg": "C5 [q4] Postman has raised a total of $433,000,000 in funding."}
+{"t": 1791649706.3362215, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='last_round', question_id='q4', value='series_d', statement=\"Postman's last funding round was a Series D of $225,000,000 \", evidence_id='E1')"}
+{"t": 1791649706.3392181, "kind": "extract", "msg": "C6 [q4] Postman's last funding round was a Series D of $225,000,000 on August 18, 2021."}
+{"t": 1791649707.7439208, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(note='Founded in 2014, HQ in San Francisco, CA.', question_id='q2', status='answered')"}
+{"t": 1791649707.745051, "kind": "plan", "msg": "q2 -> answered: Founded in 2014, HQ in San Francisco, CA."}
+{"t": 1791649707.7460506, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(note='Founders are Abhinav Asthana, Ankit Sobti, and Abhijit Kane.', status='answered', question_id='q3')"}
+{"t": 1791649707.7470493, "kind": "plan", "msg": "q3 -> answered: Founders are Abhinav Asthana, Ankit Sobti, and Abhijit Kane. Current CEO is Abhi"}
+{"t": 1791649707.7480502, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(question_id='q4', status='answered', note='Raised $433M total across 5 rounds, concluding with a $225M ')"}
+{"t": 1791649707.749049, "kind": "plan", "msg": "q4 -> answered: Raised $433M total across 5 rounds, concluding with a $225M Series D in August 2"}
+{"t": 1791649708.7006617, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> web_search(query='Postman products services business model api platform custom')"}
+{"t": 1791649736.7117822, "kind": "web", "msg": "search (crustdata-web) 'Postman products services business model api platform customers' -> 8 results"}
+{"t": 1791649737.8236895, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> read_page(url='https://www.postman.com/pricing/')"}
+{"t": 1791649747.0916502, "kind": "crust", "msg": "fetched 0/1 pages via Crustdata"}
+{"t": 1791649747.0936484, "kind": "recover", "msg": "1 pages empty via Crustdata; retrying them directly"}
+{"t": 1791649760.7187347, "kind": "web", "msg": "read https://www.postman.com/pricing/ -> E8 (4000 chars)"}
+{"t": 1791649760.7283185, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649762.2359016, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> update_question(note='Postman offers an API platform for building, testing, design', status='answered', question_id='q1')"}
+{"t": 1791649763.518496, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> record_claim(question_id='q1', evidence_id='E7', statement='Postman offers an API platform for building, testing, and ma', value='subscription SaaS', field='business_model')"}
+{"t": 1791649763.5264955, "kind": "extract", "msg": "C7 [q1] Postman offers an API platform for building, testing, and managing APIs across the lifecyc"}
+{"t": 1791649764.771023, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Postman offers an API platform for building, testing, design', question_id='q1')"}
+{"t": 1791649764.772087, "kind": "plan", "msg": "q1 -> answered: Postman offers an API platform for building, testing, designing, mocking, docume"}
+{"t": 1791649765.8684783, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> web_search(query='Postman customer count revenue headcount 2024 2025')"}
+{"t": 1791649772.5540285, "kind": "web", "msg": "search (crustdata-web) 'Postman customer count revenue headcount 2024 2025' -> 8 results"}
+{"t": 1791649772.5620363, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649773.8678339, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> web_search(query='Postman registered users count 30 million 35 million')"}
+{"t": 1791649778.7660077, "kind": "web", "msg": "search (crustdata-web) 'Postman registered users count 30 million 35 million' -> 9 results"}
+{"t": 1791649778.7660077, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649780.4126623, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', value='35 million users', field='none', evidence_id='E20', statement='Postman has reported reaching 35 million users across 500,00')"}
+{"t": 1791649780.4282193, "kind": "extract", "msg": "C8 [q5] Postman has reported reaching 35 million users across 500,000 organizations, including 98%"}
+{"t": 1791649781.8941627, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(question_id='q5', status='answered', note='Postman has over 35 million registered developers across 500')"}
+{"t": 1791649781.8941627, "kind": "plan", "msg": "q5 -> answered: Postman has over 35 million registered developers across 500,000 organizations ("}
+{"t": 1791649782.8696508, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> web_search(query='Postman competitors api management market size')"}
+{"t": 1791649795.8708656, "kind": "web", "msg": "search (crustdata-web) 'Postman competitors api management market size' -> 10 results"}
+{"t": 1791649795.8758714, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649797.235175, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q6', note='Main competitors include Swagger/OpenAPI, Insomnia (Kong), H')"}
+{"t": 1791649798.6172562, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(value='Microsoft Azure, AWS, Kong Insomnia', statement='Postman competes with API management tools and clients like ', field='none', question_id='q6', evidence_id='E21')"}
+{"t": 1791649798.6272645, "kind": "extract", "msg": "C9 [q6] Postman competes with API management tools and clients like Microsoft Azure API Management"}
+{"t": 1791649799.8531888, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q6', note='Main competitors include Microsoft Azure API Management, Ama')"}
+{"t": 1791649799.8531888, "kind": "plan", "msg": "q6 -> answered: Main competitors include Microsoft Azure API Management, Amazon API Gateway, Ins"}
+{"t": 1791649801.0199556, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> web_search(query='Postman news 2024 2025 AI features updates')"}
+{"t": 1791649806.9808896, "kind": "web", "msg": "search (crustdata-web) 'Postman news 2024 2025 AI features updates' -> 8 results"}
+{"t": 1791649807.0021887, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649808.277902, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> record_claim(question_id='q7', statement='In late 2025, Postman announced enhancements for enterprise ', value='AI features and enterprise readiness updates in late 2025', evidence_id='E29', field='none')"}
+{"t": 1791649808.2939005, "kind": "verify", "msg": "claim rejected in-loop: quote not in E29 (match 52%) \u2014 agent must fix it"}
+{"t": 1791649809.3445542, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> record_claim(field='none', statement='In late 2025, Postman announced enhancements for enterprise ', question_id='q7', evidence_id='E29', value='AI and enterprise readiness updates in late 2025')"}
+{"t": 1791649809.3525624, "kind": "verify", "msg": "self-corrected: C10 accepted after the agent fixed a rejected claim"}
+{"t": 1791649809.3577454, "kind": "extract", "msg": "C10 [q7] In late 2025, Postman announced enhancements for enterprise readiness and AI-ready API dev"}
+{"t": 1791649810.5938082, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> update_question(note='In the last 12 months, Postman has heavily focused on AI-rea', question_id='q7', status='answered')"}
+{"t": 1791649810.5938082, "kind": "plan", "msg": "q7 -> answered: In the last 12 months, Postman has heavily focused on AI-ready API development, "}
+{"t": 1791649811.8703299, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> web_search(query='Postman security risks privacy concerns telemetry criticism')"}
+{"t": 1791649817.217727, "kind": "web", "msg": "search (crustdata-web) 'Postman security risks privacy concerns telemetry criticism' -> 9 results"}
+{"t": 1791649817.2337375, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649818.5834527, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> record_claim(field='none', statement='Key risks associated with Postman include security exposure ', evidence_id='E35', question_id='q8', value='Public workspace exposure and credential leaks')"}
+{"t": 1791649818.59144, "kind": "extract", "msg": "C11 [q8] Key risks associated with Postman include security exposure from accidentally published pu"}
+{"t": 1791649819.7813234, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> update_question(note='Potential risks include security and privacy concerns regard', status='answered', question_id='q8')"}
+{"t": 1791649819.7813234, "kind": "plan", "msg": "q8 -> answered: Potential risks include security and privacy concerns regarding accidental expos"}
+{"t": 1791649821.571021, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> finish(summary='First-pass due diligence on Postman (postman.com) completed ')"}
+{"t": 1791649821.6429794, "kind": "verify", "msg": "grounding: 11/11 quotes found in their cited source"}
+{"t": 1791649823.904868, "kind": "verify", "msg": "judge: 8 supported, 3 partial, 0 rejected of 11"}
+{"t": 1791649825.3941069, "kind": "skeptic", "msg": "objection [q7]: The claim cites a 2025 announcement, which is outside the required 12\u2011month window and may be inaccurate or sp"}
+{"t": 1791649825.4026756, "kind": "skeptic", "msg": "objection [q1]: Only a partial description of Postman's product suite is provided and the source is limited to the company\u2019s \u201c"}
+{"t": 1791649825.4076862, "kind": "skeptic", "msg": "objection [q5]: Revenue estimates are mentioned but no concrete figures or reliable sources are cited; headcount range is vagu"}
+{"t": 1791649825.4157054, "kind": "skeptic", "msg": "objection [q6]: Market size is described only as \u201cmulti\u2011billion dollars\u201d without a source, and competitor list is incomplete."}
+{"t": 1791649825.4261038, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791649827.1910963, "kind": "recover", "msg": "gemini:gemini-3.5-flash-lite failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.1-flash-lite", "model": "gemini:gemini-3.5-flash-lite"}
+{"t": 1791649835.8493168, "kind": "agent", "msg": "step 25 (gemini-3.1-flash-lite) -> add_question(question='What products and services does Postman offer, who are its p', topic='Business Model', priority='1')"}
+{"t": 1791649835.8493168, "kind": "plan", "msg": "agent added q9 (p1): What products and services does Postman offer, who are its primary customers, an"}
+{"t": 1791649835.8493168, "kind": "agent", "msg": "step 25 (gemini-3.1-flash-lite) -> add_question(topic='Traction', question='What are the key traction signals for Postman (revenue/emplo', priority='1')"}
+{"t": 1791649835.8573165, "kind": "plan", "msg": "agent added q10 (p1): What are the key traction signals for Postman (revenue/employee count from reput"}
+{"t": 1791649835.8573165, "kind": "agent", "msg": "step 25 (gemini-3.1-flash-lite) -> add_question(question=\"Who are Postman's main competitors and what is the quantifie\", topic='Market Competitors', priority='1')"}
+{"t": 1791649835.8573165, "kind": "plan", "msg": "agent added q11 (p1): Who are Postman's main competitors and what is the quantified size of the API ma"}
+{"t": 1791649835.8613808, "kind": "agent", "msg": "step 25 (gemini-3.1-flash-lite) -> add_question(priority='1', question='What significant, verifiable news about Postman has occurred', topic='News')"}
+{"t": 1791649835.8613808, "kind": "plan", "msg": "agent added q12 (p1): What significant, verifiable news about Postman has occurred in the last 12 mont"}
+{"t": 1791649840.8470118, "kind": "agent", "msg": "step 26 (gemini-3.1-flash-lite) -> web_search(query='Postman revenue headcount 2024 financial estimate TechCrunch')"}
+{"t": 1791649847.2733889, "kind": "web", "msg": "search (crustdata-web) 'Postman revenue headcount 2024 financial estimate TechCrunch Gartner API management market size' -> 9 results"}
+{"t": 1791649847.2893853, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649849.6905577, "kind": "agent", "msg": "step 27 (gemini-3.1-flash-lite) -> read_page(url='https://www.businesswire.com/news/home/20230501005186/en/Pos')"}
+{"t": 1791649855.195793, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791649855.2109358, "kind": "web", "msg": "read https://www.businesswire.com/news/home/20230501005186/en/Postman-Named-as-a-Cust -> E45 (855 chars)"}
+{"t": 1791649855.229522, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649856.932666, "kind": "agent", "msg": "step 28 (gemini-3.1-flash-lite) -> web_search(query='Postman company news 2024 releases partnerships')"}
+{"t": 1791649862.4830594, "kind": "web", "msg": "search (crustdata-web) 'Postman company news 2024 releases partnerships' -> 8 results"}
+{"t": 1791649862.5036173, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791649864.890724, "kind": "agent", "msg": "step 29 (gemini-3.1-flash-lite) -> record_claim(field='none', question_id='q12', statement=\"In 2024, Postman released its sixth annual 'State of the API\", evidence_id='E47', value='2024 State of the API Report and v11 release')"}
+{"t": 1791649864.9068182, "kind": "extract", "msg": "C12 [q12] In 2024, Postman released its sixth annual 'State of the API Report' and launched Postman "}
+{"t": 1791649866.371841, "kind": "agent", "msg": "step 30 (gemini-3.1-flash-lite) -> record_claim(field='none', question_id='q12', value='Microsoft collaboration 2024', evidence_id='E46', statement='Postman announced a major collaboration with Microsoft in 20')"}
+{"t": 1791649866.371841, "kind": "extract", "msg": "C13 [q12] Postman announced a major collaboration with Microsoft in 2024 to unify API governance and"}
+{"t": 1791649870.3323753, "kind": "agent", "msg": "step 31 (gemini-3.1-flash-lite) -> update_question(status='answered', question_id='q9', note='Postman is an industry-standard API collaboration platform. ')"}
+{"t": 1791649876.7301297, "kind": "agent", "msg": "step 32 (gemini-3.1-flash-lite) -> record_claim(value='API platform for building and using APIs', evidence_id='E49', question_id='q9', statement='Postman provides an API platform for building and using APIs', field='business_model')"}
+{"t": 1791649876.7442935, "kind": "extract", "msg": "C14 [q9] Postman provides an API platform for building and using APIs, monetized through tiered sub"}
+{"t": 1791649882.3377862, "kind": "agent", "msg": "step 33 (gemini-3.1-flash-lite) -> update_question(note='Postman is an industry-standard API collaboration platform. ', status='answered', question_id='q9')"}
+{"t": 1791649882.3377862, "kind": "plan", "msg": "q9 -> answered: Postman is an industry-standard API collaboration platform. It is widely recogni"}
+{"t": 1791649889.0835721, "kind": "agent", "msg": "step 34 (gemini-3.1-flash-lite) -> record_claim(evidence_id='E47', value='API collaboration market leader', statement='Postman continues to lead the API collaboration space, as ev', question_id='q10', field='headcount')"}
+{"t": 1791649894.9189343, "kind": "agent", "msg": "step 35 (gemini-3.1-flash-lite) -> record_claim(field='none', question_id='q10', value='Industry traction via report', statement=\"The 'State of the API Report' by Postman is an industry-stan\", evidence_id='E47')"}
+{"t": 1791649894.9269323, "kind": "verify", "msg": "claim rejected in-loop: quote not in E47 (match 51%) \u2014 agent must fix it"}
+{"t": 1791649900.7003345, "kind": "agent", "msg": "step 36 (gemini-3.1-flash-lite) -> record_claim(question_id='q10', field='none', statement='Postman is a leading API platform, demonstrated by its annua', value='Industry leadership reported in 2024', evidence_id='E47')"}
+{"t": 1791649906.7792768, "kind": "agent", "msg": "step 37 (gemini-3.1-flash-lite) -> record_claim(field='none', question_id='q10', evidence_id='E48', statement=\"Postman's growth is backed by significant venture funding fr\", value='Venture funding by top-tier firms')"}
+{"t": 1791649906.7792768, "kind": "verify", "msg": "self-corrected: C15 accepted after the agent fixed a rejected claim"}
+{"t": 1791649906.787709, "kind": "extract", "msg": "C15 [q10] Postman's growth is backed by significant venture funding from top-tier firms including In"}
+{"t": 1791649912.4523032, "kind": "agent", "msg": "step 38 (gemini-3.1-flash-lite) -> update_question(note='While specific revenue is not publicly disclosed (Postman is', status='answered', question_id='q10')"}
+{"t": 1791649912.4523032, "kind": "plan", "msg": "q10 -> answered: While specific revenue is not publicly disclosed (Postman is private), traction "}
+{"t": 1791649918.5941572, "kind": "agent", "msg": "step 39 (gemini-3.1-flash-lite) -> record_claim(evidence_id='E42', value='146 billion by 2034', question_id='q11', field='none', statement='The API management market is a massive, multi-billion dollar')"}
+{"t": 1791649918.6027622, "kind": "extract", "msg": "C16 [q11] The API management market is a massive, multi-billion dollar opportunity, projected to rea"}
+{"t": 1791649924.4061205, "kind": "agent", "msg": "step 40 (gemini-3.1-flash-lite) -> update_question(status='answered', note='Postman faces competition from cloud-native tools (AWS, Azur', question_id='q11')"}
+{"t": 1791649924.4061205, "kind": "plan", "msg": "q11 -> answered: Postman faces competition from cloud-native tools (AWS, Azure, Google API manage"}
+{"t": 1791649930.3365808, "kind": "agent", "msg": "step 41 (gemini-3.1-flash-lite) -> update_question(note='Significant news in 2024 includes the release of the 6th ann', question_id='q12', status='answered')"}
+{"t": 1791649930.3365808, "kind": "plan", "msg": "q12 -> answered: Significant news in 2024 includes the release of the 6th annual 'State of the AP"}
+{"t": 1791649937.043934, "kind": "agent", "msg": "step 42 (gemini-3.1-flash-lite) -> finish(summary=\"The skeptic's objections have been addressed with updated, s\")"}
+{"t": 1791649937.071472, "kind": "verify", "msg": "grounding: 5/5 quotes found in their cited source"}
+{"t": 1791649947.3191729, "kind": "verify", "msg": "judge: 3 supported, 2 partial, 0 rejected of 5"}
+{"t": 1791649948.743273, "kind": "skeptic", "msg": "objection [q7]: The cited source references a 2025 announcement, which is outside the required 12\u2011month window and may be outd"}
+{"t": 1791649948.743273, "kind": "skeptic", "msg": "objection [q5]: Revenue and headcount figures are presented as vague ranges from tracking platforms without a single reputable"}
+{"t": 1791649948.7519355, "kind": "skeptic", "msg": "objection [q6]: The API management market size is quoted as \u201cover USD\u202f146\u202fbillion by 2034\u201d from a single market\u2011forecast site,"}
+{"t": 1791649948.753595, "kind": "skeptic", "msg": "objection [q8]: The risk discussion cites a blog post about a data leak but does not provide evidence of the incident\u2019s scale "}
+{"t": 1791649952.1742785, "kind": "memo", "msg": "memo written: 15 distinct verified claims cited, recommendation: dig deeper \u2013 strong product traction and large market but need more detail on execution an"}
+{"t": 1791649978.1323335, "kind": "memo", "msg": "done in 250.9s \u00b7 16 claims \u00b7 69% supported \u00b7 0 conflicts \u00b7 $0.088 LLM \u00b7 10 Crustdata credits \u00b7 2 recoveries"}
