@@ -1,0 +1,21 @@
+this is cool but everyday I hear that guys need video editor and motion designer and stuff what if we make a ai agent that helps anyone with designing, video editing, motion designer, and graphics maker, and video maker ai agent team that helps someone with this all video editing and video related help. and we could fine tune ai agents with great tasteful content and videos from which it could see and do same and better type of editing and stuff. this could be something crazy for this hackathon maybe
+
+---
+
+<task-notification>
+<task-id>b6xjk2sqi</task-id>
+<tool-use-id>toolu_011DcHM4c34K5MExzUtbhDwM</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\58af9994-a5f8-4670-83e5-5e7a3175d21c\tasks\b6xjk2sqi.output</output-file>
+<status>completed</status>
+<summary>Background command "First real Cutroom run: Tears of Steel teaser" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b5d9o76rl</task-id>
+<tool-use-id>toolu_017UvAX5CPRBFcwBXmaFRzjp</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\58af9994-a5f8-4670-83e5-5e7a3175d21c\tasks\b5d9o76rl.output</output-file>
+<status>completed</status>
+<summary>Background command "Re-run the same brief with v2 prompts and checks" completed (exit code 0)</summary>
+</task-notification>

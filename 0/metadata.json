@@ -1,0 +1,182 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4KDXG2FNCPEGBC3PWN90GZA",
+  "session_id": "58af9994-a5f8-4670-83e5-5e7a3175d21c",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-10T17:31:39.0520711Z",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "save_step_count": 3,
+  "files_touched": [
+    "runs/eval-v1-agent-all-20261010-211950/hugging-face/memo.html",
+    "runs/eval-v1-agent-all-20261010-211950/hugging-face/memo.md",
+    "runs/eval-v1-agent-all-20261010-211950/linear/events.jsonl",
+    "runs/eval-v1-agent-all-20261010-211950/linear/memo.html",
+    "runs/eval-v1-agent-all-20261010-211950/linear/memo.md",
+    "runs/eval-v1-agent-all-20261010-211950/posthog/events.jsonl",
+    "runs/eval-v1-agent-all-20261010-211950/ramp/events.jsonl",
+    "runs/eval-v1-agent-all-20261010-211950/ramp/memo.html",
+    "runs/eval-v1-agent-all-20261010-211950/ramp/memo.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "fd6820fedcc9",
+  "checkpoint_transcript_start": 2064,
+  "transcript_lines_at_start": 2064,
+  "compact_transcript_start": 252,
+  "token_usage": {
+    "input_tokens": 204,
+    "cache_creation_tokens": 181774,
+    "cache_read_tokens": 72160637,
+    "output_tokens": 130798,
+    "api_call_count": 101
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01FTDFfFJu8CKNez4mrg2bku",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "claude-api"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "d3a29e4fdf74",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 214,
+        "end": 215,
+        "entry_ids": [
+          "75181bc7-f70d-4d2f-b79b-5dff3b6d0ac6"
+        ],
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01FTDFfFJu8CKNez4mrg2bku"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: claude-api",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 11
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-10-10T17:31:38.4316223Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 6130,
+    "human_modified": 846,
+    "human_removed": 0,
+    "total_committed": 6884,
+    "total_lines_changed": 6978,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 1360,
+      "user_lines_removed": 0,
+      "agent_lines_added": 410,
+      "agent_lines_removed": 144,
+      "user_added_per_file": {
+        "runs/eval-v1-agent-all-20261010-211950/hugging-face/events.jsonl": 22,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/events.jsonl": 111,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/events.jsonl": 2,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/postman/events.jsonl": 128,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.md": 25,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/events.jsonl": 109,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/events.jsonl": 116,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.md": 25
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 1496,
+      "user_lines_removed": 0,
+      "agent_lines_added": 670,
+      "agent_lines_removed": 144,
+      "user_added_per_file": {
+        "runs/eval-v1-agent-all-20261010-211950/hugging-face/events.jsonl": 126,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/events.jsonl": 111,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/postman/events.jsonl": 128,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.md": 25,
+        "runs/eval-v1-agent-all-20261010-211950/ramp/events.jsonl": 34,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/events.jsonl": 109,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/events.jsonl": 116,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.md": 25
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 3219,
+      "user_lines_removed": 2,
+      "agent_lines_added": 847,
+      "agent_lines_removed": 144,
+      "user_added_per_file": {
+        "runs/eval-v1-agent-all-20261010-211950/anysphere-cursor/events.jsonl": 92,
+        "runs/eval-v1-agent-all-20261010-211950/anysphere-cursor/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/anysphere-cursor/memo.md": 28,
+        "runs/eval-v1-agent-all-20261010-211950/deel/events.jsonl": 94,
+        "runs/eval-v1-agent-all-20261010-211950/eval.json": 1024,
+        "runs/eval-v1-agent-all-20261010-211950/groww/events.jsonl": 102,
+        "runs/eval-v1-agent-all-20261010-211950/groww/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/groww/memo.md": 30,
+        "runs/eval-v1-agent-all-20261010-211950/hugging-face/events.jsonl": 126,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/events.jsonl": 111,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/mistral-ai/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/posthog/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/postman/events.jsonl": 128,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/postman/memo.md": 25,
+        "runs/eval-v1-agent-all-20261010-211950/ramp/events.jsonl": 57,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/events.jsonl": 109,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/razorpay/memo.md": 24,
+        "runs/eval-v1-agent-all-20261010-211950/supabase/events.jsonl": 1,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/events.jsonl": 116,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.html": 150,
+        "runs/eval-v1-agent-all-20261010-211950/zerodha/memo.md": 25,
+        "underwrite/config.py": 1,
+        "underwrite/llm.py": 28
+      },
+      "user_removed_per_file": {
+        "underwrite/config.py": 1,
+        "underwrite/llm.py": 1
+      }
+    }
+  ]
+}
