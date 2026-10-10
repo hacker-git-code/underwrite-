@@ -1,0 +1,8 @@
+<task-notification>
+<task-id>bon93s63k</task-id>
+<tool-use-id>toolu_011pNmCPV3b6zsqq5tS15WYM</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\58af9994-a5f8-4670-83e5-5e7a3175d21c\tasks\bon93s63k.output</output-file>
+<status>killed</status>
+<summary>Background command "Run the v1 baseline eval on 12 companies" was stopped because the system is running low on memory</summary>
+<note>This is not a failure of the command. Claude Code stopped it because the system was critically low on memory while the session was idle, which says nothing about the command or its own memory use, so there is nothing in it to debug. Do not start it again on your own, even if the work seems to need it: memory may still be short. Report what was stopped and why, and start it again only when asked. The user can turn this behavior off by starting Claude Code with CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1 in its environment; setting it from a shell command has no effect.</note>
+</task-notification>
