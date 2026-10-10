@@ -20,3 +20,6 @@ runs/*/raw/
 Thumbs.db
 .vscode/
 .idea/
+
+# run state holds copied third-party page text; keep memos/events/evals as evidence, not raw pages
+runs/**/state.json
