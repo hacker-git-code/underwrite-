@@ -1,0 +1,47 @@
+<task-notification>
+<task-id>bzgsofk2v</task-id>
+<tool-use-id>toolu_01HXWnnNc3CmGYH3zAtKSFTq</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\391e69a8-b680-42d0-a561-460d14b5fa7e\tasks\bzgsofk2v.output</output-file>
+<status>failed</status>
+<summary>Background command "Secure the key and test SSH to the EC2 instance" failed with exit code 255</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bennudbic</task-id>
+<tool-use-id>toolu_013mfD5tsWYqspuREg2hPQ2Y</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\391e69a8-b680-42d0-a561-460d14b5fa7e\tasks\bennudbic.output</output-file>
+<status>failed</status>
+<summary>Background command "Install dependencies and Underwrite on the EC2 server" failed with exit code 255</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b7vxenw4q</task-id>
+<tool-use-id>toolu_01BNjzxKSpcc4AsqcHGBWxnC</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\391e69a8-b680-42d0-a561-460d14b5fa7e\tasks\b7vxenw4q.output</output-file>
+<status>failed</status>
+<summary>Background command "Inspect running processes on the EC2 server" failed with exit code 255</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b9o3xu45f</task-id>
+<tool-use-id>toolu_01LZ7WVGRDdJ2hKAwBvZu8Ce</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\391e69a8-b680-42d0-a561-460d14b5fa7e\tasks\b9o3xu45f.output</output-file>
+<status>failed</status>
+<summary>Background command "List .env key names and test a clean SSH round trip" failed with exit code 255</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bve39o5h9</task-id>
+<tool-use-id>toolu_01XtTkLwgTnXUyoCq6p9mija</tool-use-id>
+<output-file>C:\Users\rehan\AppData\Local\Temp\claude\E--desktop-folders-hackathonS-neatlog-hackathon\391e69a8-b680-42d0-a561-460d14b5fa7e\tasks\bve39o5h9.output</output-file>
+<status>failed</status>
+<summary>Background command "Run Underwrite Live locally on port 8080" failed with exit code 255</summary>
+</task-notification>
