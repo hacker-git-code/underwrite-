@@ -16,9 +16,13 @@ in `hackathon.md`. Tag the official neatlogs, Entire, cfo.ai and Crustdata accou
 > Chaos mode: I inject 429s, timeouts and broken JSON on purpose.
 > The agent backs off, switches model or data source, repairs the JSON, and finishes the memo. Crash it mid-run and `underwrite resume` picks up from the last checkpoint. #neatHack neatlogs
 
-## 4. Day 2, self-improvement (attach: before/after table)
-> The agent that improves itself: a Coach reads Underwrite's own neatlogs traces + detections over MCP, rewrites its prompts, re-runs a 12-company exam, and keeps the change only if the score goes up.
-> v1 → v2 on held-out companies: fact accuracy X% → Y%. #neatHack
+## 4. Day 2, self-improvement (attach: the README results table or COACH_NOTES.md)
+> The agent that improves itself: a Coach reads Underwrite's own neatlogs traces + detections over MCP, rewrites its prompts and re-runs a 12-company exam with an answer key.
+> v2 on companies it never saw: facts right 67% → 80%, claims backed by their source 82% → 98%. But it answered fewer questions, so the Coach rejected its own change. An agent that won't ship a change just because one number looks good. #neatHack
+
+## 4b. Day 2, try it yourself (attach: screen recording of the live trail)
+> You can now ask Underwrite's agents to research any startup from your browser and watch them work live: searching, quoting, getting caught misquoting and fixing it, a skeptic pushing back. Free (2 a day), running on AWS.
+> https://184-73-13-58.sslip.io #neatHack
 
 ## 5. Day 3, it runs while I sleep (attach: screenshot of nightly commits / site)
 > Underwrite now runs every night at 2am on an AWS EC2 box: researches 3 new startups, publishes the memos, pushes to GitHub. No one watching.
@@ -26,4 +30,4 @@ in `hackathon.md`. Tag the official neatlogs, Entire, cfo.ai and Crustdata accou
 
 ## Submission (Mon Oct 12, 7:00–11:55 PM IST)
 Quote the official neatlogs post with:
-> **Team:** Rehan Momin (solo) · **Project:** Underwrite: an autonomous due-diligence agent that verifies every claim and improves itself from its neatlogs traces · **Repo:** https://github.com/hacker-git-code/underwrite- · **Live:** https://hacker-git-code.github.io/underwrite-/ · **Demo:** <video link> #neatHack
+> **Team:** Rehan Momin (solo) · **Project:** Underwrite: an autonomous due-diligence agent that verifies every claim and improves itself from its neatlogs traces · **Try it:** https://184-73-13-58.sslip.io · **Repo:** https://github.com/hacker-git-code/underwrite- · **Site:** https://hacker-git-code.github.io/underwrite-/ · **Demo:** <video link> #neatHack
