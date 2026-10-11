@@ -9,6 +9,7 @@ from __future__ import annotations
 import datetime as dt
 import html
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -19,6 +20,8 @@ from .models import CompanyState
 from .pipeline import slug
 
 REPO = "https://github.com/hacker-git-code/underwrite-"
+# Underwrite Live (the public web app on the EC2 box). Set UW_LIVE_URL in .env; the button only appears when set.
+LIVE_URL = os.environ.get("UW_LIVE_URL", "").strip()
 
 
 def esc(s: object) -> str:
@@ -100,6 +103,10 @@ th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;white-
   font:700 12px "Special Elite",monospace;padding:3px 7px;letter-spacing:.08em;opacity:.8}
 .card .links{margin-top:10px;display:flex;gap:12px;font-size:14px;flex-wrap:wrap;align-items:baseline}.card .links a{white-space:nowrap}
 a{color:var(--ink)}footer{text-align:center;font-size:13px;color:var(--mut)}
+.cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:6px 0 4px}
+.try{display:inline-block;font:700 18px "Special Elite",monospace;letter-spacing:.12em;color:var(--red);border:3px solid var(--red);
+  padding:10px 22px;text-decoration:none;transform:rotate(-2deg);transition:transform .12s,background .12s}
+.try:hover{transform:rotate(0) scale(1.03);background:rgba(184,50,42,.06)}
 @media (max-width:600px){.sheet{padding:24px 18px}h1{font-size:32px}}
 """
 
@@ -168,6 +175,9 @@ def build(out: Path | None = None) -> Path:
         scoreboard_path.write_text(scoreboard, encoding="utf-8")
 
     updated = dt.datetime.now(dt.timezone.utc)
+    cta = (f'<div class="cta"><a class="try" href="{esc(LIVE_URL)}">TRY IT LIVE &rarr;</a>'
+           '<span class="hand" style="font-size:22px">type any startup, watch the agents research it</span></div>'
+           if LIVE_URL else "")
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Underwrite · autonomous due diligence</title>
 <meta name="description" content="An autonomous due-diligence agent that researches startups overnight, verifies every claim against its source, and improves itself from its own neatlogs traces.">
@@ -181,6 +191,7 @@ def build(out: Path | None = None) -> Path:
   investment memo where <b>every fact links to the exact sentence it came from</b>. An independent checker throws out
   anything the sources don't support, and disagreements between sources are flagged in red. A Coach agent reads the
   agent's own <a href="https://neatlogs.com">neatlogs</a> traces and rewrites its prompts — and keeps a change only if the eval score improves.</p>
+  {cta}
   <div class="stats">
     <div><b>{totals['memos']}</b>memos written</div><div><b>{totals['verified']}</b>claims verified</div>
     <div><b>{totals['claims'] - totals['verified']}</b>claims rejected</div><div><b>{totals['conflicts']}</b>source conflicts flagged</div>

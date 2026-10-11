@@ -24,3 +24,6 @@ Thumbs.db
 # run state holds copied third-party page text; keep memos/events/evals as evidence, not raw pages
 runs/**/state.json
 runs/**/memo.pdf
+
+# Underwrite Live's job queue (salted visitor hashes): stays on the server
+runs/web/

@@ -3,7 +3,7 @@
   "version": "v1",
   "mode": "agent",
   "split": "all",
-  "created": 1791651448.766321,
+  "created": 1791719862.7228878,
   "rows": [
     {
       "company": "Linear",
@@ -880,36 +880,69 @@
     {
       "company": "Deel",
       "split": "test",
-      "phase": "investigating",
-      "error": "Fatal: no usable model for role 'agent' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): HTTP 413: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01m4jd4gfzefmb8fjv8y6cctd0` service tier `on_demand` on tokens per minute (TPM): Limit 8",
+      "phase": "done",
+      "error": null,
       "facts": {
         "founded_year": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "2019"
         },
         "hq_city": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "San Francisco"
         },
         "founders": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "Alex Bouaziz, Shuo Wang"
         },
         "ceo": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "Alex Bouaziz"
         }
       },
-      "metrics": {},
+      "metrics": {
+        "claims": 15,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.867,
+        "usable_rate": 0.933,
+        "unsupported": 1,
+        "coverage": 0.9,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 14,
+        "invalid_citations": 0,
+        "evidence_pages": 2,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 5,
+        "injected_faults": 0,
+        "failures": 1,
+        "duration_s": 290.6,
+        "mode": "agent",
+        "agent_steps": 25,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 20,
+          "update_question": 17,
+          "web_search": 4,
+          "read_page": 2,
+          "finish": 2
+        },
+        "claim_attempts": 20,
+        "rejected_in_loop": 4,
+        "self_corrections": 0,
+        "skeptic_objections": 5,
+        "skeptic_rounds": 2
+      },
       "usage": {
-        "llm_calls": 26,
-        "input_tokens": 181587,
-        "output_tokens": 4663,
-        "llm_usd": 0.05126,
+        "llm_calls": 32,
+        "input_tokens": 209570,
+        "output_tokens": 6159,
+        "llm_usd": 0.06248,
         "by_model": {
           "groq:openai/gpt-oss-120b": {
             "calls": 2,
@@ -922,6 +955,18 @@
             "in": 179974,
             "out": 3589,
             "usd": 0.05037700000000001
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 4,
+            "in": 25540,
+            "out": 582,
+            "usd": 0.007258
+          },
+          "gemini:gemini-3.8-flash": {
+            "calls": 2,
+            "in": 2443,
+            "out": 914,
+            "usd": 0.0039635
           }
         },
         "crust_calls": 6,
@@ -934,13 +979,13 @@
     {
       "company": "Supabase",
       "split": "test",
-      "phase": "new",
-      "error": "Fatal: no usable model for role 'smart' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): None",
+      "phase": "done",
+      "error": null,
       "facts": {
         "founded_year": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "2020"
         },
         "founders": {
           "score": 0.0,
@@ -948,21 +993,67 @@
           "pred": ""
         },
         "ceo": {
-          "score": 0.0,
-          "answered": false,
-          "pred": ""
+          "score": 1.0,
+          "answered": true,
+          "pred": "Paul Copplestone"
         }
       },
-      "metrics": {},
+      "metrics": {
+        "claims": 12,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.917,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 12,
+        "invalid_citations": 0,
+        "evidence_pages": 2,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 4,
+        "injected_faults": 0,
+        "failures": 1,
+        "duration_s": 227.1,
+        "mode": "agent",
+        "agent_steps": 29,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 15,
+          "update_question": 9,
+          "web_search": 8,
+          "read_page": 2,
+          "finish": 1
+        },
+        "claim_attempts": 15,
+        "rejected_in_loop": 3,
+        "self_corrections": 2,
+        "skeptic_objections": 6,
+        "skeptic_rounds": 2
+      },
       "usage": {
-        "llm_calls": 0,
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "llm_usd": 0.0,
-        "by_model": {},
-        "crust_calls": 0,
-        "crust_credits": 0.0,
-        "cache_hits": 0,
+        "llm_calls": 35,
+        "input_tokens": 167608,
+        "output_tokens": 5334,
+        "llm_usd": 0.05423,
+        "by_model": {
+          "gemini:gemini-3.8-flash": {
+            "calls": 4,
+            "in": 3954,
+            "out": 2229,
+            "usd": 0.008664
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 31,
+            "in": 163654,
+            "out": 3105,
+            "usd": 0.045571
+          }
+        },
+        "crust_calls": 10,
+        "crust_credits": 10.0,
+        "cache_hits": 1,
         "fallback_calls": 0
       },
       "trace_ids": []
@@ -971,20 +1062,20 @@
   "summary": {
     "all": {
       "companies": 12,
-      "completed": 10,
-      "fact_accuracy": 0.808,
-      "fact_precision": 0.955,
-      "supported_rate": 0.825,
+      "completed": 12,
+      "fact_accuracy": 0.815,
+      "fact_precision": 0.962,
+      "supported_rate": 0.836,
       "grounded_rate": 1.0,
-      "unsupported_per_memo": 0.2,
-      "coverage": 0.9,
-      "must_coverage": 0.948,
-      "conflicts_per_memo": 0.2,
+      "unsupported_per_memo": 0.25,
+      "coverage": 0.908,
+      "must_coverage": 0.957,
+      "conflicts_per_memo": 0.167,
       "invalid_citations_per_memo": 0.0,
-      "recoveries": 18,
-      "usd_per_memo": 0.0566,
-      "credits_per_memo": 10.2,
-      "seconds_per_memo": 344.01
+      "recoveries": 27,
+      "usd_per_memo": 0.0569,
+      "credits_per_memo": 9.83,
+      "seconds_per_memo": 329.817
     },
     "train": {
       "companies": 8,
@@ -1005,20 +1096,20 @@
     },
     "test": {
       "companies": 4,
-      "completed": 2,
-      "fact_accuracy": 0.5,
-      "fact_precision": 0.8,
-      "supported_rate": 0.75,
+      "completed": 4,
+      "fact_accuracy": 0.667,
+      "fact_precision": 0.909,
+      "supported_rate": 0.821,
       "grounded_rate": 1.0,
-      "unsupported_per_memo": 0.0,
-      "coverage": 0.85,
+      "unsupported_per_memo": 0.25,
+      "coverage": 0.9,
       "must_coverage": 1.0,
-      "conflicts_per_memo": 0.5,
+      "conflicts_per_memo": 0.25,
       "invalid_citations_per_memo": 0.0,
-      "recoveries": 2,
-      "usd_per_memo": 0.0329,
+      "recoveries": 11,
+      "usd_per_memo": 0.0456,
       "credits_per_memo": 8.0,
-      "seconds_per_memo": 137.55
+      "seconds_per_memo": 198.2
     }
   }
 }

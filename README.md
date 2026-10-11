@@ -166,8 +166,34 @@ The live numbers are on the [scoreboard](https://hacker-git-code.github.io/under
 `runs/eval-*/eval.json`. The v1 → v2 comparison from the Coach is in `prompts/v2/COACH_NOTES.md`.
 
 <!-- RESULTS:START -->
-_Evaluation in progress: this table is filled in from `runs/eval-*/eval.json` once the v1 baseline and the Coach's
-v2 have both been scored._
+Twelve companies with hand-checked facts (8 train, 4 held out). Same free-tier models for every column (mostly
+Gemini Flash-Lite). **Held-out companies** (the honest number, never shown to the Coach):
+
+| | Fixed pipeline v1 | Agents v1 | Agents v2 (Coach) |
+|---|---|---|---|
+| Facts right vs the answer key | **88.3%** | 66.7% | 80.0% |
+| Claims supported by their source | 79.9% | 82.1% | **97.9%** |
+| Unsupported claims per memo | 0.00 | 0.25 | 0.00 |
+| Diligence questions answered | **91.2%** | 90.0% | 85.0% |
+| Source conflicts flagged per memo | 0.00 | 0.25 | 0.50 |
+| Invalid citations per memo | 0 | 0 | 0 |
+| Crustdata credits per memo | 18.8 | **8.0** | 12.3 |
+| Minutes per memo | n/a¹ | 3.3 | **2.9** |
+
+All 12 companies: facts right 91.8% → 81.5% → 83.7%; supported by source 82.6% → 83.6% → **94.9%**; questions
+answered 87.4% → 90.8% → 82.5%; minutes per memo 5.5 (agents v1) → 3.0 (v2).
+
+**What happened.** Moving from a fixed pipeline to agents cut data cost in half, answered more questions and started
+flagging real disagreements between sources, but cost accuracy on the answer key. The Coach read the agents'
+neatlogs traces, detections and triage fixes plus the eval failures, and rewrote three prompts. v2 made the memos far
+more trustworthy (98% of claims supported on held-out companies, no unsupported claims) and recovered most of the
+lost accuracy there, but it answered fewer questions and dipped on the training companies. **Its own gate judges on
+the training split, so it rejected v2 and v1 stays in production.** An agent that won't ship its own change because
+one number got worse is the behaviour we want from something that runs unattended. Details:
+[prompts/v2/COACH_NOTES.md](prompts/v2/COACH_NOTES.md).
+
+¹ The pipeline baseline was timed before active-time tracking, so its time includes hours of waiting out free-tier
+rate limits.
 <!-- RESULTS:END -->
 
 ## Sponsor tools and how each is used

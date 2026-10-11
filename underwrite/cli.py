@@ -215,6 +215,16 @@ def render(
 
 
 @app.command()
+def serve(host: str = typer.Option("127.0.0.1", help="Bind address (0.0.0.0 only behind a firewall/proxy)"),
+          port: int = typer.Option(8080, help="Port")):
+    """Underwrite Live: a web page where anyone can ask the agents to research a company and watch them work."""
+    import uvicorn
+
+    console.print(f"[bold]Underwrite Live[/bold] → http://{host}:{port}")
+    uvicorn.run("underwrite.web:app", host=host, port=port, log_level="warning", proxy_headers=True)
+
+
+@app.command()
 def site(open_site: bool = typer.Option(False, "--open", help="Open the site when done")):
     """Build the static website in docs/ (memo gallery + scoreboard) for GitHub Pages."""
     from .site import build

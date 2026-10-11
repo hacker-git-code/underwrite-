@@ -1,0 +1,115 @@
+{"t": 1791729254.1142113, "kind": "plan", "msg": "10 questions, 20 queries for Postman"}
+{"t": 1791729255.4768941, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791729255.7262347, "kind": "crust", "msg": "company record: 46 fields"}
+{"t": 1791729258.596217, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='Postman was founded in 2014.', evidence_id='E1', field='founded_year', value='2014', question_id='q2')"}
+{"t": 1791729258.6210272, "kind": "extract", "msg": "C1 [q2] Postman was founded in 2014."}
+{"t": 1791729258.6230252, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', statement=\"Postman's headquarters is in San Francisco, California, Unit\", value='San Francisco', evidence_id='E1', field='hq_city')"}
+{"t": 1791729258.6262934, "kind": "extract", "msg": "C2 [q2] Postman's headquarters is in San Francisco, California, United States."}
+{"t": 1791729258.6272929, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='hq_country', value='United States', statement=\"Postman's headquarters is in the United States.\", question_id='q2', evidence_id='E1')"}
+{"t": 1791729258.630291, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q3', evidence_id='E1', statement='The founders of Postman include Abhinav Asthana, Ankit Sobti', value='Abhinav Asthana, Ankit Sobti, Abhijit Kane', field='founders')"}
+{"t": 1791729258.6322901, "kind": "extract", "msg": "C3 [q3] The founders of Postman include Abhinav Asthana, Ankit Sobti, and Abhijit Kane."}
+{"t": 1791729258.6342888, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', statement='The CEO of Postman is Abhinav Asthana.', value='Abhinav Asthana', question_id='q3', field='ceo')"}
+{"t": 1791729258.6362875, "kind": "extract", "msg": "C4 [q3] The CEO of Postman is Abhinav Asthana."}
+{"t": 1791729258.638289, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='total_funding_usd', value='433000000', statement='Postman has raised a total of $433,000,000 USD in funding.', evidence_id='E1', question_id='q4')"}
+{"t": 1791729258.640288, "kind": "extract", "msg": "C5 [q4] Postman has raised a total of $433,000,000 USD in funding."}
+{"t": 1791729258.6422868, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='last_round', statement=\"Postman's last funding round was a Series D of $225,000,000 \", value='series_d', evidence_id='E1', question_id='q4')"}
+{"t": 1791729258.6462839, "kind": "extract", "msg": "C6 [q4] Postman's last funding round was a Series D of $225,000,000 on August 18, 2021."}
+{"t": 1791729258.6482818, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', evidence_id='E1', field='headcount', value='3547', statement='Postman has an employee count of 3547 according to Crustdata')"}
+{"t": 1791729258.6519587, "kind": "extract", "msg": "C7 [q5] Postman has an employee count of 3547 according to Crustdata."}
+{"t": 1791729258.6549544, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', statement='Postman operates in SaaS and enterprise software categories ', field='business_model', value='SaaS', question_id='q1')"}
+{"t": 1791729258.658954, "kind": "extract", "msg": "C8 [q1] Postman operates in SaaS and enterprise software categories providing developer APIs and t"}
+{"t": 1791729260.044589, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> web_search(query='Postman API platform products pricing business model custome')"}
+{"t": 1791729265.7897723, "kind": "web", "msg": "search (crustdata-web) 'Postman API platform products pricing business model customers' -> 9 results"}
+{"t": 1791729267.0737753, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> web_search(query='Postman API platform features design test mock document moni')"}
+{"t": 1791729273.4942644, "kind": "web", "msg": "search (crustdata-web) 'Postman API platform features design test mock document monitor' -> 9 results"}
+{"t": 1791729273.5002606, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729274.8783762, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> record_claim(value='SaaS / API Platform', statement='Postman offers a unified platform for designing, testing, di', evidence_id='E8', question_id='q1', field='business_model')"}
+{"t": 1791729274.882374, "kind": "extract", "msg": "C9 [q1] Postman offers a unified platform for designing, testing, distributing, documenting, and m"}
+{"t": 1791729276.7312405, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> update_question(question_id='q1', status='answered', note='Answered via company profile and product documentation showi')"}
+{"t": 1791729276.7352386, "kind": "plan", "msg": "q1 -> answered: Answered via company profile and product documentation showing Postman's API pla"}
+{"t": 1791729276.7389, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> update_question(question_id='q2', note='Answered via Crustdata company profile: founded in 2014, hea', status='answered')"}
+{"t": 1791729276.7405422, "kind": "plan", "msg": "q2 -> answered: Answered via Crustdata company profile: founded in 2014, headquarters in San Fra"}
+{"t": 1791729276.7419307, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> update_question(note='Answered via Crustdata company profile: founders are Abhinav', status='answered', question_id='q3')"}
+{"t": 1791729276.7429516, "kind": "plan", "msg": "q3 -> answered: Answered via Crustdata company profile: founders are Abhinav Asthana, Ankit Sobt"}
+{"t": 1791729279.4063215, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> web_search(query='Postman total funding investors series d 2021 valuation')"}
+{"t": 1791729284.4667315, "kind": "web", "msg": "search (crustdata-web) 'Postman total funding investors series d 2021 valuation' -> 9 results"}
+{"t": 1791729284.4802349, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729285.9710855, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> record_claim(question_id='q4', field='total_funding_usd', evidence_id='E14', statement='Postman announced a Series D investment round of $225 millio', value='225000000')"}
+{"t": 1791729285.9747536, "kind": "extract", "msg": "C10 [q4] Postman announced a Series D investment round of $225 million valuing the company at $5.6 "}
+{"t": 1791729287.2182782, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> update_question(question_id='q4', note='Answered via company profile and press release showing $433M', status='answered')"}
+{"t": 1791729287.219201, "kind": "plan", "msg": "q4 -> answered: Answered via company profile and press release showing $433M total funding and a"}
+{"t": 1791729289.9027603, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> web_search(query='Postman number of users developers customers 2024 OR 2025 OR')"}
+{"t": 1791729295.6388, "kind": "web", "msg": "search (crustdata-web) 'Postman number of users developers customers 2024 OR 2025 OR 2026' -> 10 results"}
+{"t": 1791729295.6457777, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729297.219959, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', statement='Postman is used by more than 40 million users and 500,000 co', value='40 million users', field='none', evidence_id='E24')"}
+{"t": 1791729297.2259555, "kind": "extract", "msg": "C11 [q5] Postman is used by more than 40 million users and 500,000 companies worldwide."}
+{"t": 1791729302.4464173, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(note='Answered via company press page and Crustdata showing over 4', status='answered', question_id='q5')"}
+{"t": 1791729302.448418, "kind": "plan", "msg": "q5 -> answered: Answered via company press page and Crustdata showing over 40 million users and "}
+{"t": 1791729307.8886743, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> web_search(query='Postman competitors API management market size growth')"}
+{"t": 1791729315.3158898, "kind": "web", "msg": "search (crustdata-web) 'Postman competitors API management market size growth' -> 9 results"}
+{"t": 1791729315.3228881, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729316.8909764, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> record_claim(field='none', statement='The API management market was valued at USD 10.32 billion in', question_id='q6', value='10.32 billion USD', evidence_id='E27')"}
+{"t": 1791729316.8939688, "kind": "extract", "msg": "C12 [q6] The API management market was valued at USD 10.32 billion in 2026 and is projected to reac"}
+{"t": 1791729319.898832, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Answered via market reports and competitor insights (mention', question_id='q6')"}
+{"t": 1791729319.899832, "kind": "plan", "msg": "q6 -> answered: Answered via market reports and competitor insights (mentioning Azure, AWS API G"}
+{"t": 1791729325.9438546, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> web_search(query='Postman news 2025 2026 acquisition product launch update')"}
+{"t": 1791729331.8302758, "kind": "web", "msg": "search (crustdata-web) 'Postman news 2025 2026 acquisition product launch update' -> 8 results"}
+{"t": 1791729331.8392775, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729333.6144843, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E36', field='none', statement='Postman announced its acquisition of Fern, a developer exper', question_id='q7', value='Fern acquisition')"}
+{"t": 1791729333.6184845, "kind": "extract", "msg": "C13 [q7] Postman announced its acquisition of Fern, a developer experience company, in January 2026"}
+{"t": 1791729338.1469605, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q7', note='Answered via recent news, such as the acquisition of Fern an')"}
+{"t": 1791729338.1479607, "kind": "plan", "msg": "q7 -> answered: Answered via recent news, such as the acquisition of Fern and liblab, and new AI"}
+{"t": 1791729338.1489608, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q10', note='Answered via product updates and acquisition announcements (')"}
+{"t": 1791729343.9276783, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> record_claim(question_id='q10', statement='Postman announced product updates including AI agent templat', evidence_id='E33', value='AI agent templates', field='none')"}
+{"t": 1791729343.9326382, "kind": "extract", "msg": "C14 [q10] Postman announced product updates including AI agent templates and real-time monitoring."}
+{"t": 1791729349.8927653, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Answered via product update announcements featuring AI agent', question_id='q10')"}
+{"t": 1791729349.8944259, "kind": "plan", "msg": "q10 -> answered: Answered via product update announcements featuring AI agent templates and strat"}
+{"t": 1791729356.6144183, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> web_search(query='Postman ARR revenue financials or risks market challenges')"}
+{"t": 1791729364.6771579, "kind": "web", "msg": "search (crustdata-web) 'Postman ARR revenue financials or risks market challenges' -> 9 results"}
+{"t": 1791729364.6891603, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729366.357001, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> record_claim(statement='Postman reached $313 million in annual revenue in 2024 accor', field='none', question_id='q9', evidence_id='E43', value='313 million USD')"}
+{"t": 1791729366.362112, "kind": "extract", "msg": "C15 [q9] Postman reached $313 million in annual revenue in 2024 according to reports."}
+{"t": 1791729367.6634862, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> update_question(note='Answered via research reports citing revenue reaching ~$313 ', status='answered', question_id='q9')"}
+{"t": 1791729367.6645033, "kind": "plan", "msg": "q9 -> answered: Answered via research reports citing revenue reaching ~$313 million in annual re"}
+{"t": 1791729374.2646992, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> web_search(query='Postman risks challenges market competition security concern')"}
+{"t": 1791729404.7769368, "kind": "web", "msg": "search (crustdata-web) 'Postman risks challenges market competition security concerns' -> 9 results"}
+{"t": 1791729404.784935, "kind": "agent", "msg": "round 1 ended on budget after 24 steps"}
+{"t": 1791729404.7989814, "kind": "verify", "msg": "grounding: 15/15 quotes found in their cited source"}
+{"t": 1791729407.492894, "kind": "verify", "msg": "judge: 14 supported, 1 partial, 0 rejected of 15"}
+{"t": 1791729407.494894, "kind": "conflict", "msg": "total_funding_usd: '433000000' (crustdata) vs '225000000' (crustdata-web)", "field": "total_funding_usd"}
+{"t": 1791729408.8118293, "kind": "skeptic", "msg": "objection [q8]: No evidence provided for potential risks or red flags; this is a required risk assessment."}
+{"t": 1791729408.8148293, "kind": "skeptic", "msg": "objection [q9]: Revenue estimate relies on a single blog source which may be low\u2011quality or speculative."}
+{"t": 1791729408.8158286, "kind": "skeptic", "msg": "objection [q5]: Headcount figure is based on a single Crustdata entry; no corroborating source."}
+{"t": 1791729408.8178291, "kind": "skeptic", "msg": "objection [q7]: Acquisition of Fern cited from Business Wire in Jan 2026; need confirmation that the deal closed and any other"}
+{"t": 1791729408.824791, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791729408.8349943, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729410.6745965, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> web_search(query='Postman headcount employees Crunchbase LinkedIn')"}
+{"t": 1791729416.441347, "kind": "web", "msg": "search (crustdata-web) 'Postman headcount employees Crunchbase LinkedIn' -> 8 results"}
+{"t": 1791729416.4463463, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729417.7380602, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> record_claim(value='3590', question_id='q5', field='headcount', evidence_id='E50', statement=\"Postman's LinkedIn page lists 3,590 employees.\")"}
+{"t": 1791729417.7445745, "kind": "extract", "msg": "C16 [q5] Postman's LinkedIn page lists 3,590 employees."}
+{"t": 1791729421.8626251, "kind": "agent", "msg": "step 27 (gemini-3.5-flash-lite) -> web_search(query='Postman Fern acquisition TechCrunch Bloomberg revenue PitchB')"}
+{"t": 1791729445.3420613, "kind": "web", "msg": "search (crustdata-web) 'Postman Fern acquisition TechCrunch Bloomberg revenue PitchBook OR CB Insights' -> 9 results"}
+{"t": 1791729445.3500965, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729447.8333642, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(statement='Postman announced the acquisition of Fern on January 8, 2026', evidence_id='E56', question_id='q7', field='none', value='Fern acquisition')"}
+{"t": 1791729447.8383646, "kind": "extract", "msg": "C17 [q7] Postman announced the acquisition of Fern on January 8, 2026."}
+{"t": 1791729447.842362, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E58', statement=\"PitchBook reports Postman's acquisition of Fern took place a\", question_id='q7', value='Fern acquisition date', field='none')"}
+{"t": 1791729448.0298812, "kind": "extract", "msg": "C18 [q7] PitchBook reports Postman's acquisition of Fern took place around December 2025 / January "}
+{"t": 1791729449.9325912, "kind": "agent", "msg": "step 29 (gemini-3.5-flash-lite) -> update_question(note='Addressed potential risks including intense competition from', status='answered', question_id='q8')"}
+{"t": 1791729451.6688533, "kind": "agent", "msg": "step 30 (gemini-3.5-flash-lite) -> record_claim(value='scaling challenges', statement=\"Market analysts note that scaling past Postman's revenue bas\", evidence_id='E43', field='none', question_id='q8')"}
+{"t": 1791729451.6738482, "kind": "extract", "msg": "C19 [q8] Market analysts note that scaling past Postman's revenue base presents ongoing risks and g"}
+{"t": 1791729453.0278914, "kind": "agent", "msg": "step 31 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q8', note='Answered via analyst reports highlighting scaling challenges')"}
+{"t": 1791729453.0288932, "kind": "plan", "msg": "q8 -> answered: Answered via analyst reports highlighting scaling challenges and market competit"}
+{"t": 1791729454.843819, "kind": "agent", "msg": "step 32 (gemini-3.5-flash-lite) -> finish(summary='Completed comprehensive due diligence on Postman. Key facts ')"}
+{"t": 1791729454.8693042, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791729456.8497012, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791729458.1951866, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791729458.1971846, "kind": "verify", "msg": "judge: 2 supported, 1 partial, 1 rejected of 4"}
+{"t": 1791729459.4044132, "kind": "skeptic", "msg": "objection [q4]: Total funding amount shows conflict: Crustdata lists $433M total but another Crustdata-web entry lists $225M ("}
+{"t": 1791729459.4054132, "kind": "skeptic", "msg": "objection [q9]: Revenue estimate of $313M for 2024 is based on a single founder\u2011focused article, which may lack rigorous finan"}
+{"t": 1791729459.4064798, "kind": "skeptic", "msg": "objection [q7]: Acquisition dates for Fern are inconsistent (January 2026 vs December 2025) and the source mix includes Busine"}
+{"t": 1791729459.40731, "kind": "skeptic", "msg": "objection [q6]: API management market size is cited from Mordor Intelligence for 2026\u20112031, but the memo needs a current (2023"}
+{"t": 1791729463.3685308, "kind": "recover", "msg": "writer: invalid JSON from groq:openai/gpt-oss-120b (4 validation errors for MemoOut\nfact_sheet.last_round.str\n  Input should be a va); repairing", "prompt": "writer"}
+{"t": 1791729466.507652, "kind": "recover", "msg": "writer: JSON repaired", "prompt": "writer", "recovered": true}
+{"t": 1791729466.510652, "kind": "memo", "msg": "memo written: 16 distinct verified claims cited, recommendation: dig deeper: strong traction and market position but need to assess risks and competitive l"}
+{"t": 1791729483.5284262, "kind": "memo", "msg": "done in 214.1s \u00b7 19 claims \u00b7 84% supported \u00b7 1 conflicts \u00b7 $0.067 LLM \u00b7 10 Crustdata credits \u00b7 4 recoveries"}

@@ -1,0 +1,107 @@
+{"t": 1791729949.1301918, "kind": "plan", "msg": "8 questions, 16 queries for Ramp"}
+{"t": 1791729950.4785993, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791729950.9952452, "kind": "crust", "msg": "company record: 58 fields"}
+{"t": 1791729952.5058892, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='founded_year', evidence_id='E1', statement='Ramp was founded in 2019.', question_id='q2', value='2019')"}
+{"t": 1791729952.5105226, "kind": "extract", "msg": "C1 [q2] Ramp was founded in 2019."}
+{"t": 1791729953.6331346, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', value='New York, NY', statement=\"Ramp's headquarters is located in New York, New York, United\", field='hq_city', evidence_id='E1')"}
+{"t": 1791729953.64213, "kind": "extract", "msg": "C2 [q2] Ramp's headquarters is located in New York, New York, United States."}
+{"t": 1791729954.8272238, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> record_claim(field='hq_country', evidence_id='E1', statement=\"Ramp's headquarters is in the United States.\", question_id='q2', value='United States')"}
+{"t": 1791729956.2067208, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> record_claim(field='hq_country', value='United States', evidence_id='E1', statement=\"Ramp's headquarters country is the United States.\", question_id='q2')"}
+{"t": 1791729958.1248145, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> record_claim(statement='Ramp has an employee count of 7,490 according to the Crustda', field='headcount', question_id='q5', evidence_id='E1', value='7490')"}
+{"t": 1791729958.1298125, "kind": "extract", "msg": "C3 [q5] Ramp has an employee count of 7,490 according to the Crustdata record."}
+{"t": 1791729959.2838302, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> record_claim(value='3717000000', field='total_funding_usd', question_id='q4', statement='Ramp has raised a total of $3,717,000,000 USD in funding.', evidence_id='E1')"}
+{"t": 1791729959.2868316, "kind": "extract", "msg": "C4 [q4] Ramp has raised a total of $3,717,000,000 USD in funding."}
+{"t": 1791729960.520897, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> update_question(question_id='q2', status='answered', note='Ramp was founded in 2019 and is headquartered in New York, N')"}
+{"t": 1791729960.521897, "kind": "plan", "msg": "q2 -> answered: Ramp was founded in 2019 and is headquartered in New York, New York, United Stat"}
+{"t": 1791729961.5589738, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> web_search(query='Ramp about founders CEO products business model')"}
+{"t": 1791729967.3178453, "kind": "web", "msg": "search (crustdata-web) 'Ramp about founders CEO products business model' -> 8 results"}
+{"t": 1791729970.583129, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> read_page(url='https://research.contrary.com/company/ramp')"}
+{"t": 1791729970.7281263, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791729970.8429465, "kind": "web", "msg": "read https://research.contrary.com/company/ramp -> E8 (4000 chars)"}
+{"t": 1791729970.8469446, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729972.3251765, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> web_search(query='\"Eric Glyman\" \"Karim Atiyeh\" Ramp founders CEO')"}
+{"t": 1791729977.6117125, "kind": "web", "msg": "search (crustdata-web) '\"Eric Glyman\" \"Karim Atiyeh\" Ramp founders CEO' -> 8 results"}
+{"t": 1791729977.6258183, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729979.0268054, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> web_search(query='site:en.wikipedia.org \"Ramp (company)\"')"}
+{"t": 1791729984.5766275, "kind": "web", "msg": "search (crustdata-web) 'site:en.wikipedia.org \"Ramp (company)\"' -> 10 results"}
+{"t": 1791729984.586622, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729986.6062708, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> read_page(url='https://en.wikipedia.org/wiki/Ramp_(company)')"}
+{"t": 1791729992.6428483, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791729992.6493948, "kind": "web", "msg": "read https://en.wikipedia.org/wiki/Ramp_(company) -> E21 (4000 chars)"}
+{"t": 1791729992.655392, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791729994.3798425, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> web_search(query='\"Eric Glyman\" \"Karim Atiyeh\" founders Ramp CEO')"}
+{"t": 1791729999.8431566, "kind": "web", "msg": "search (crustdata-web) '\"Eric Glyman\" \"Karim Atiyeh\" founders Ramp CEO' -> 8 results"}
+{"t": 1791729999.8517194, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730003.7970226, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E26', value='Eric Glyman, Karim Atiyeh, Gene Lee', field='founders', statement='Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee.', question_id='q3')"}
+{"t": 1791730003.8040235, "kind": "extract", "msg": "C5 [q3] Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee."}
+{"t": 1791730006.2694063, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> record_claim(field='ceo', evidence_id='E25', value='Karim Atiyeh and Eric Glyman', statement='Ramp co-founders Karim Atiyeh and Eric Glyman serve as co-CE', question_id='q3')"}
+{"t": 1791730006.2724042, "kind": "extract", "msg": "C6 [q3] Ramp co-founders Karim Atiyeh and Eric Glyman serve as co-CEOs."}
+{"t": 1791730008.9009998, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> update_question(question_id='q3', status='answered', note='Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee.')"}
+{"t": 1791730008.9030006, "kind": "plan", "msg": "q3 -> answered: Ramp was founded by Eric Glyman, Karim Atiyeh, and Gene Lee. Its current co-CEOs"}
+{"t": 1791730011.3378682, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> web_search(query='Ramp corporate cards expense management business model targe')"}
+{"t": 1791730016.737066, "kind": "web", "msg": "search (crustdata-web) 'Ramp corporate cards expense management business model target customers' -> 8 results"}
+{"t": 1791730016.7440615, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730018.8601387, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> web_search(query='Ramp business model interchange revenue software monetizatio')"}
+{"t": 1791730024.3690393, "kind": "web", "msg": "search (crustdata-web) 'Ramp business model interchange revenue software monetization' -> 9 results"}
+{"t": 1791730024.376035, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730026.693095, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> read_page(url='https://support.ramp.com/how-ramp-makes-money')"}
+{"t": 1791730035.2719018, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791730035.2788975, "kind": "web", "msg": "read https://support.ramp.com/how-ramp-makes-money -> E40 (4000 chars)"}
+{"t": 1791730035.2858944, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730038.2943096, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Ramp offers corporate cards, expense management, bill pay, a', question_id='q1')"}
+{"t": 1791730040.0568082, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> record_claim(statement='Ramp earns revenue primarily through the use of the Ramp car', field='business_model', value='Interchange and subscriptions', evidence_id='E34', question_id='q1')"}
+{"t": 1791730040.0633783, "kind": "extract", "msg": "C7 [q1] Ramp earns revenue primarily through the use of the Ramp card and Ramp Plus subscriptions."}
+{"t": 1791730042.570571, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q1', note='Ramp offers corporate cards, expense management, bill pay, a')"}
+{"t": 1791730042.572564, "kind": "plan", "msg": "q1 -> answered: Ramp offers corporate cards, expense management, bill pay, accounts payable, and"}
+{"t": 1791730045.913277, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Ramp has raised over $3.7 billion in total funding from key ', question_id='q4')"}
+{"t": 1791730045.9172757, "kind": "plan", "msg": "q4 -> answered: Ramp has raised over $3.7 billion in total funding from key investors like Found"}
+{"t": 1791730045.920274, "kind": "agent", "msg": "round 1 ended on budget after 24 steps"}
+{"t": 1791730045.93729, "kind": "verify", "msg": "grounding: 7/7 quotes found in their cited source"}
+{"t": 1791730048.0728545, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791730049.9189894, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791730049.9275057, "kind": "verify", "msg": "judge: 6 supported, 1 partial, 0 rejected of 7"}
+{"t": 1791730051.2255619, "kind": "skeptic", "msg": "objection [q5]: Traction evidence relies solely on employee count from a single source; lacks revenue signals, customer count,"}
+{"t": 1791730051.2325594, "kind": "skeptic", "msg": "objection [q6]: No competitors or market size information provided; essential for assessing market dynamics."}
+{"t": 1791730051.2435524, "kind": "skeptic", "msg": "objection [q7]: Missing notable news from the last 12 months, which could affect valuation or risk assessment."}
+{"t": 1791730051.2495482, "kind": "skeptic", "msg": "objection [q8]: Potential risks or red flags are not addressed at all; this is material for investment evaluation."}
+{"t": 1791730051.3015196, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791730056.3066826, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> web_search(query='Ramp customer count revenue ARR growth 2024 2025 2026')"}
+{"t": 1791730065.2661674, "kind": "web", "msg": "search (crustdata-web) 'Ramp customer count revenue ARR growth 2024 2025 2026' -> 10 results"}
+{"t": 1791730065.2787113, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730067.9693975, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> record_claim(value='$1B+ revenue', evidence_id='E46', question_id='q5', statement=\"Ramp's revenue grew from $500 million to over $1 billion in \", field='none')"}
+{"t": 1791730067.9773939, "kind": "extract", "msg": "C8 [q5] Ramp's revenue grew from $500 million to over $1 billion in a 12-month period."}
+{"t": 1791730069.5202405, "kind": "agent", "msg": "step 27 (gemini-3.5-flash-lite) -> update_question(question_id='q5', status='answered', note='Ramp has demonstrated rapid traction, surpassing 70,000 busi')"}
+{"t": 1791730069.5202405, "kind": "plan", "msg": "q5 -> answered: Ramp has demonstrated rapid traction, surpassing 70,000 business customers and r"}
+{"t": 1791730071.2673593, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> web_search(query='Ramp competitors Brex Airbase Divvy corporate spend market s')"}
+{"t": 1791730077.7510052, "kind": "web", "msg": "search (crustdata-web) 'Ramp competitors Brex Airbase Divvy corporate spend market size' -> 9 results"}
+{"t": 1791730077.7547948, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730079.9357598, "kind": "agent", "msg": "step 29 (gemini-3.5-flash-lite) -> record_claim(field='none', question_id='q6', evidence_id='E49', statement=\"Ramp's direct competitors in the spend management and corpor\", value='Brex, Airbase, Divvy')"}
+{"t": 1791730079.944214, "kind": "extract", "msg": "C9 [q6] Ramp's direct competitors in the spend management and corporate card space include Brex, A"}
+{"t": 1791730085.022846, "kind": "agent", "msg": "step 30 (gemini-3.5-flash-lite) -> update_question(note=\"Ramp's primary competitors in the corporate card and spend m\", question_id='q6', status='answered')"}
+{"t": 1791730085.022846, "kind": "plan", "msg": "q6 -> answered: Ramp's primary competitors in the corporate card and spend management market inc"}
+{"t": 1791730089.1713197, "kind": "agent", "msg": "step 31 (gemini-3.5-flash-lite) -> web_search(query='Ramp funding valuation news 2025 2026')"}
+{"t": 1791730100.6489267, "kind": "web", "msg": "search (crustdata-web) 'Ramp funding valuation news 2025 2026' -> 10 results"}
+{"t": 1791730100.6611643, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730102.665548, "kind": "agent", "msg": "step 32 (gemini-3.5-flash-lite) -> record_claim(statement='Ramp reached a roughly $60 billion valuation in its latest f', value='$60B valuation', evidence_id='E53', question_id='q7', field='none')"}
+{"t": 1791730102.682115, "kind": "extract", "msg": "C10 [q7] Ramp reached a roughly $60 billion valuation in its latest funding round."}
+{"t": 1791730105.1755555, "kind": "agent", "msg": "step 33 (gemini-3.5-flash-lite) -> update_question(question_id='q7', status='answered', note='In recent notable news, Ramp raised a $1.85 billion funding ')"}
+{"t": 1791730105.1755555, "kind": "plan", "msg": "q7 -> answered: In recent notable news, Ramp raised a $1.85 billion funding round at a roughly $"}
+{"t": 1791730107.2718875, "kind": "agent", "msg": "step 34 (gemini-3.5-flash-lite) -> web_search(query='Ramp risks controversy regulatory lawsuit credit issue dispu')"}
+{"t": 1791730113.6329021, "kind": "web", "msg": "search (crustdata-web) 'Ramp risks controversy regulatory lawsuit credit issue dispute' -> 9 results"}
+{"t": 1791730113.6667678, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730115.9560244, "kind": "agent", "msg": "step 35 (gemini-3.5-flash-lite) -> record_claim(value='Federal contract investigation', evidence_id='E62', field='none', statement=\"A U.S. congressman investigated Ramp's attempt to win a $25 \", question_id='q8')"}
+{"t": 1791730115.9720392, "kind": "verify", "msg": "claim rejected in-loop: quote not in E62 (match 42%) \u2014 agent must fix it"}
+{"t": 1791730120.3968906, "kind": "agent", "msg": "step 36 (gemini-3.5-flash-lite) -> record_claim(value='GSA contracting dispute', field='none', evidence_id='E60', statement='The GSA refuted suggestions of unfair or preferential contra', question_id='q8')"}
+{"t": 1791730120.4330165, "kind": "verify", "msg": "self-corrected: C11 accepted after the agent fixed a rejected claim"}
+{"t": 1791730120.4330165, "kind": "extract", "msg": "C11 [q8] The GSA refuted suggestions of unfair or preferential contracting practices regarding Ramp"}
+{"t": 1791730124.545859, "kind": "agent", "msg": "step 37 (gemini-3.5-flash-lite) -> update_question(note='Potential operational risks include congressional inquiries ', question_id='q8', status='answered')"}
+{"t": 1791730124.545859, "kind": "plan", "msg": "q8 -> answered: Potential operational risks include congressional inquiries and media scrutiny r"}
+{"t": 1791730131.3143463, "kind": "agent", "msg": "step 38 (gemini-3.5-flash-lite) -> finish(summary='Investigated Ramp (ramp.com): Founded in 2019, headquartered')"}
+{"t": 1791730131.354339, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791730136.3386302, "kind": "verify", "msg": "judge: 4 supported, 0 partial, 0 rejected of 4"}
+{"t": 1791730137.7929218, "kind": "skeptic", "msg": "objection [q5]: Revenue figure of over $1\u202fbillion annualized is sourced from a Ramp blog post dated November\u202f2025, which is ou"}
+{"t": 1791730137.8009238, "kind": "skeptic", "msg": "objection [q5]: Customer count of 70,000 business customers is presented without a cited source"}
+{"t": 1791730137.8058677, "kind": "skeptic", "msg": "objection [q4]: Total funding amount ($3.717\u202fbillion) relies on a single Crustdata entry; no corroborating source provided"}
+{"t": 1791730137.8058677, "kind": "skeptic", "msg": "objection [q7]: The notable news item cites a $1.85\u202fbillion round at a $60\u202fbillion valuation, but only Bloomberg is referenced"}
+{"t": 1791730140.973977, "kind": "memo", "msg": "memo written: 0 distinct verified claims cited, recommendation: dig deeper \u2013 strong growth and valuation but co\u2011CEO structure warrants clarity"}
+{"t": 1791730203.2883856, "kind": "memo", "msg": "done in 193.3s \u00b7 11 claims \u00b7 91% supported \u00b7 0 conflicts \u00b7 $0.076 LLM \u00b7 12 Crustdata credits \u00b7 2 recoveries"}

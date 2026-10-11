@@ -92,3 +92,17 @@
 {"t": 1791651445.275648, "kind": "extract", "msg": "C15 [q10] Deel's strategy involves earmarking significant capital for acquisitions to expand its cap"}
 {"t": 1791651445.8058245, "kind": "recover", "msg": "gemini:gemini-3.1-flash-lite failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to groq:openai/gpt-oss-120b", "model": "gemini:gemini-3.1-flash-lite"}
 {"t": 1791651446.061058, "kind": "fail", "msg": "Deel: stopped at phase 'investigating': Fatal: no usable model for role 'agent' (add GEMINI_API_KEY / GROQ_API_KEY / CEREBRAS_API_KEY): HTTP 413: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01m4jd4gfzefmb8fjv8y6cctd0` service tier `on_demand` on tokens per minute (TPM): Limit 8"}
+{"t": 1791719419.0730085, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Strategy confirmed via Reuters: aggressive M&A strategy with', question_id='q10')"}
+{"t": 1791719419.1560328, "kind": "plan", "msg": "q10 -> answered: Strategy confirmed via Reuters: aggressive M&A strategy with capital earmarked f"}
+{"t": 1791719421.1652927, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> finish(summary='All objections have been addressed with high-credibility rep')"}
+{"t": 1791719421.2152247, "kind": "verify", "msg": "grounding: 4/4 quotes found in their cited source"}
+{"t": 1791719422.6177683, "kind": "recover", "msg": "verifier: invalid JSON from gemini:gemini-3.5-flash-lite (1 validation error for Judgements\n  Input should be a valid dictionary or instan); repairing", "prompt": "verifier"}
+{"t": 1791719423.8766053, "kind": "recover", "msg": "verifier: JSON repaired", "prompt": "verifier", "recovered": true}
+{"t": 1791719423.877525, "kind": "verify", "msg": "judge: 3 supported, 0 partial, 1 rejected of 4"}
+{"t": 1791719428.8066304, "kind": "recover", "msg": "llm smart:gemini:gemini-3.8-flash: HTTP 503 -> retry 1/3 in 2.4s", "what": "llm smart:gemini:gemini-3.8-flash"}
+{"t": 1791719496.5879571, "kind": "recover", "msg": "llm smart:gemini:gemini-3.8-flash: succeeded on attempt 2", "what": "llm smart:gemini:gemini-3.8-flash", "recovered": true}
+{"t": 1791719496.5879571, "kind": "skeptic", "msg": "objection [q4]: Total capital raised rests on a single database source (Crustdata) without identifying who Deel's major lead i"}
+{"t": 1791719496.5959587, "kind": "skeptic", "msg": "objection [q8]: The risk question (q8) has zero verified claims after the sole claim was rejected by the fact-checker, omittin"}
+{"t": 1791719496.5959587, "kind": "skeptic", "msg": "objection [q9]: Claim C11 cites an ARR figure for September 2026, which is an impossible historical date/hallucinated projecti"}
+{"t": 1791719582.2198412, "kind": "memo", "msg": "memo written: 14 distinct verified claims cited, recommendation: Strong interest due to rapid revenue scale exceeding $1B ARR, substantial capital reserves"}
+{"t": 1791719613.9441078, "kind": "memo", "msg": "done in 290.6s \u00b7 15 claims \u00b7 87% supported \u00b7 0 conflicts \u00b7 $0.062 LLM \u00b7 6 Crustdata credits \u00b7 5 recoveries"}

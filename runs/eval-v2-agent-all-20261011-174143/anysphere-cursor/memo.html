@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anysphere (Cursor) · Underwrite memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"><style>
+:root{--desk:#d9d4c7;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--type:#262421;--rule:#6b6760;--faint:#cfc8b6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--desk:#24221f}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--type)}
+body{font:15px/1.5 "Courier Prime","Courier New",monospace;padding:72px 16px 48px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;
+  flex-wrap:wrap;padding:10px 16px;background:rgba(30,28,25,.88);backdrop-filter:blur(6px);font:13px system-ui,sans-serif;color:#eee}
+.toolbar b{margin-right:auto;letter-spacing:.08em}
+.toolbar a,.toolbar button{font:inherit;color:#1e1c19;background:#f3eddc;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.toolbar a:hover,.toolbar button:hover{background:#fff}
+.sheet{position:relative;width:min(816px,100%);min-height:1056px;margin:0 auto 36px;padding:56px 60px 64px;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(ellipse at 18% 8%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(ellipse at 90% 100%,rgba(160,130,70,.10),transparent 60%);
+  box-shadow:0 1px 2px rgba(0,0,0,.15),0 12px 28px rgba(0,0,0,.18)}
+.sheet:nth-of-type(odd){transform:rotate(-.25deg)} .sheet:nth-of-type(even){transform:rotate(.3deg)}
+.hand{font-family:Caveat,"Segoe Print","Bradley Hand",cursive;color:var(--ink);font-weight:500;font-size:23px;line-height:1.15;
+  text-transform:uppercase;letter-spacing:.02em}
+.red{color:var(--red)}
+.typed{font-family:"Special Elite","Courier Prime",monospace}
+.title{text-align:center;font-size:15px;letter-spacing:.06em;margin:0 0 30px;text-decoration:underline;text-underline-offset:4px}
+.cc{position:absolute;top:26px;right:48px;transform:rotate(-8deg);font-size:21px;text-align:center;line-height:1}
+.row{display:flex;align-items:flex-end;gap:10px;margin:0 0 13px;flex-wrap:wrap}
+.lbl{font-family:"Special Elite",monospace;font-size:14px;white-space:nowrap}
+.line{flex:1 1 180px;min-width:140px;border-bottom:1px solid var(--rule);padding:0 6px 1px;min-height:30px}
+.line.short{flex:0 1 150px;min-width:110px}
+.sec{margin-top:20px;border-top:3px double var(--rule)}
+.sec>.lbl{display:inline-block;margin-top:3px;text-decoration:underline;text-underline-offset:3px}
+.ruled{padding:4px 8px 0 28px;min-height:62px;background-position:0 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,var(--faint) 29px,var(--faint) 30px);
+  line-height:30px}
+.ruled .hand{line-height:30px}
+table.ops{border-collapse:collapse;margin:8px 0 0 28px;width:calc(100% - 28px)}
+.ops td{padding:2px 6px 2px 0;vertical-align:bottom}
+.ops td:first-child{font-family:"Special Elite",monospace;font-size:14px;width:36%;padding-left:20px}
+.ops td:last-child{border-bottom:1px solid var(--rule)}
+a.cite{display:inline-block;min-width:19px;height:19px;padding:0 4px;margin:0 1px;border:1.6px solid var(--red);border-radius:50%;
+  font:700 12px/16px Caveat,cursive;color:var(--red);text-align:center;text-decoration:none;vertical-align:super;transform:rotate(-6deg)}
+.stamp-row{text-align:right;margin:14px 8px 0}
+.stamp{display:inline-block;transform:rotate(-7deg);border:3px solid var(--red);border-radius:6px;padding:6px 14px;
+  color:var(--red);font:700 17px/1.15 "Special Elite",monospace;text-align:center;letter-spacing:.12em;opacity:.78;mix-blend-mode:multiply;
+  box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 4px var(--red)}
+.stamp small{display:block;font-size:11px;letter-spacing:.08em}
+.margin-note{border-left:2px solid var(--red);padding:2px 0 2px 10px;margin:6px 0 0 28px;font-size:21px}
+.circled{display:inline-block;border:2px solid var(--ink);border-radius:50%;padding:0 12px;transform:rotate(-3deg)}
+.footer{position:absolute;left:60px;right:60px;bottom:26px;font-size:11px;color:#77736a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.memo h1{font:400 26px "Special Elite",monospace;letter-spacing:.3em;margin:0 0 18px}
+.memo .hdr{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;margin-bottom:12px}
+.memo .hdr b{font-weight:700}
+.memo hr{border:0;border-top:2px solid var(--type);margin:14px 0 18px}
+.memo h2{font:700 15px "Courier Prime",monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 6px}
+.memo p,.memo li{margin:0 0 9px;text-align:left}
+.memo ul{padding-left:22px;margin:0 0 10px}
+.sig{margin-top:30px;font-size:30px}
+.appendix ol{padding-left:24px}.appendix li{margin-bottom:12px;word-break:break-word}
+.appendix .src{font-weight:700;color:var(--ink)}.appendix .via{font-size:12px;color:#6d685e}
+.appendix .claims{list-style:none;padding-left:4px;margin:4px 0 0;font-size:13.5px}
+.appendix .claims li{margin:2px 0}
+.ok{color:#1d6b3a;font-weight:700}.part{color:#9a5b00;font-weight:700}
+.strike{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:#5d5a52}
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 18px;margin:8px 0 16px}
+.log div{border-bottom:1px dotted var(--rule)}
+@media (max-width:640px){body{padding:64px 8px 24px}.sheet{padding:40px 22px 64px;min-height:0}.cc{right:16px;top:12px}
+  .footer{left:22px;right:22px}.hand{font-size:21px}.toolbar b{display:none}}
+@media print{@page{size:letter;margin:0}
+  html,body{background:none;padding:0}.toolbar{display:none}
+  .sheet{transform:none!important;box-shadow:none;margin:0;background-image:none;width:8.5in;min-height:11in;page-break-after:always;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script><script>
+function savePng(){
+  const el=document.getElementById('page1'); const btn=document.getElementById('pngbtn'); btn.textContent='Rendering…';
+  htmlToImage.toPng(el,{pixelRatio:2,backgroundColor:'#fbf7ec',style:{transform:'none',margin:'0'}}).then(url=>{
+    const a=document.createElement('a'); a.href=url; a.download=document.body.dataset.slug+'-evaluation-form.png'; a.click();
+    btn.textContent='Download page 1 (PNG)';
+  }).catch(()=>{btn.textContent='PNG failed: use PDF'});
+}
+</script></head>
+<body data-slug="anysphere-cursor">
+<div class="toolbar"><b>UNDERWRITE · Anysphere (Cursor)</b>
+  <a href="memo.pdf" download id="pdfbtn">Download PDF</a>
+  <button id="pngbtn" onclick="savePng()">Download page 1 (PNG)</button>
+  <button onclick="window.print()">Print</button></div>
+
+<article class="sheet form" id="page1">
+  <div class="cc hand red">cc: IC<br>10/11/26</div>
+  <h1 class="title typed">UNDERWRITE EVALUATION FORM</h1>
+  
+  <div class="row"><span class="lbl">Company</span><span class="line hand" style="font-size:28px">Anysphere (Cursor)</span>
+    <span class="lbl">Date Rec'd</span><span class="line short hand">10/11/26</span></div>
+  <div class="row"><span class="lbl">Address</span><span class="line hand">San Francisco<a class="cite" href="#src1" title="The headquarters of Anysphere (Cursor) is located in San Francisco, California.  —  “Headquarters, 33 New Montgomery Street, San Francisco, California”">1</a></span>
+    <span class="lbl">Website</span><span class="line short hand" style="text-transform:none">cursor.com</span></div>
+  <div class="row"><span class="lbl">Introduced By</span><span class="line hand">Underwrite agent</span>
+    <span class="lbl">Founded</span><span class="line short hand">—</span></div>
+  <div class="sec"><span class="lbl">BUSINESS:</span><div class="ruled"><span class="hand">Cursor offers business plans including Teams and Enterprise tiers.</span><a class="cite" href="#src3" title="Cursor offers business plans including Teams and Enterprise tiers.  —  “There are two business plans: Teams and Enterprise (Custom).”">3</a></div></div>
+  <div class="sec"><span class="lbl">FINANCING TO DATE:</span><div class="ruled"><span class="hand">not verified</span>
+    </div></div>
+  <div class="sec"><span class="lbl">MARKET:</span><div class="ruled"><span class="hand">No verified information on market size or competitors is available.</span></div></div>
+  <div class="sec"><span class="lbl">OPERATING STATISTICS:</span> <span class="lbl">(as of 10/26)</span>
+    <table class="ops"><tr><td>Employees</td><td><span class="hand">844</span></td></tr><tr><td>Funding raised</td><td><span class="hand">—</span></td></tr><tr><td>Last round</td><td><span class="hand">—</span></td></tr><tr><td>Founded</td><td><span class="hand">—</span></td></tr></table></div>
+  <div class="sec"><span class="lbl">MANAGEMENT:</span><div class="ruled"><span class="hand">Michael Truell — CEO</span><a class="cite" href="#src2" title="Michael Truell is the co-founder and CEO of Anysphere (Cursor).  —  “Michael Truell is the Co-founder and CEO of Anysphere (Cursor).”">2</a><br><span class="hand">Founders: Michael Truell, Sualeh Asif, Aman Sanger, Arvid Lunnemark</span><a class="cite" href="#src1" title="The founders of Anysphere (Cursor) are Michael Truell, Sualeh Asif, Aman Sanger, and Arvid Lunnemark.  —  “Founders, Michael Truell · Sualeh Asif · Aman Sanger · Arvid Lunnemark.”">1</a><br><span class="hand">Team size: 844</span></div></div>
+  <div class="sec"><span class="lbl">COMMENTS:</span><div class="ruled"><span class="hand">Anysphere (Cursor) was founded in 2022 according to Wikipedia and 2023 according to Crustdata. The company is headquartered in San Francisco, California and employs 844 staff.</span><a class="cite" href="#src1" title="Anysphere (Cursor) was founded in 2022.  —  “Founded, 2022.”">1</a><a class="cite" href="#src4" title="Anysphere (Cursor) was founded in 2023 according to the Crustdata record.  —  “Year founded: 2023”">4</a></div><div class="margin-note hand red">⚠ sources disagree — founded_year: &#x27;2023&#x27; (crustdata) vs &#x27;2022&#x27; (crustdata-web)</div><div class="margin-note hand red">⚠ sources disagree — total_funding_usd: &#x27;$100M&#x27; (crustdata-web) vs &#x27;$900 million&#x27; (crustdata-web)</div></div>
+  <div class="sec"><span class="lbl">RISKS:</span><div class="ruled"><span class="hand">No verified risks or red flags have been identified.</span></div></div>
+  <div class="sec"></div>
+  <div class="row"><span class="lbl">RECOMMENDATION</span><span class="line hand" style="font-size:20px">dig deeper due to conflicting founding year and funding amount information</span></div>
+  <div class="row"><span class="lbl">ACTION TAKEN</span><span class="line hand"><span class="circled">Dig deeper</span></span>
+    <span class="lbl">CONFIDENCE</span><span class="line short hand">medium</span></div>
+  <div class="stamp-row"><div class="stamp" style="margin-right:14px;transform:rotate(4deg)">SKEPTIC<small>4 OBJECTIONS OPEN · 2 REVIEWS</small></div><div class="stamp">VERIFIED<small>10 OF 10 CLAIMS · 2 CONFLICTS</small></div></div>
+  <div class="footer typed"><span>FORM UW-1 · prompts v2</span><span>run eval-v2-agent-all-20261011-174143</span></div>
+</article>
+<article class="sheet memo" id="page2">
+  <h1>MEMORANDUM</h1>
+  <div class="hdr"><b>TO:</b><span>Investment Committee</span><b>FROM:</b><span>Underwrite (autonomous diligence agent)</span>
+    <b>DATE:</b><span>October 11, 2026</span><b>RE:</b><span>Anysphere (Cursor) (cursor.com) — first-pass diligence</span></div>
+  <hr>
+  <p><b>Recommendation:</b> dig deeper due to conflicting founding year and funding amount information <i>(confidence: medium)</i></p>
+  <h2>Summary</h2>
+<p>Anysphere (Cursor) was founded in 2022 according to Wikipedia<a class="cite" href="#src1" title="Anysphere (Cursor) was founded in 2022.  —  “Founded, 2022.”">1</a> and 2023 according to Crustdata.<a class="cite" href="#src4" title="Anysphere (Cursor) was founded in 2023 according to the Crustdata record.  —  “Year founded: 2023”">4</a> The company is headquartered in San Francisco, California<a class="cite" href="#src1" title="The headquarters of Anysphere (Cursor) is located in San Francisco, California.  —  “Headquarters, 33 New Montgomery Street, San Francisco, California”">1</a> and employs 844 staff.<a class="cite" href="#src4" title="Anysphere (Cursor) has an employee count of 844 according to the Crustdata company record.  —  “Employee count: 844”">4</a></p>
+<h2>Product &amp; business model</h2>
+<p>Cursor offers business plans including Teams and Enterprise tiers.<a class="cite" href="#src3" title="Cursor offers business plans including Teams and Enterprise tiers.  —  “There are two business plans: Teams and Enterprise (Custom).”">3</a></p>
+<h2>Team</h2>
+<p>Founders: Michael Truell, Sualeh Asif, Aman Sanger, and Arvid Lunnemark.<a class="cite" href="#src1" title="The founders of Anysphere (Cursor) are Michael Truell, Sualeh Asif, Aman Sanger, and Arvid Lunnemark.  —  “Founders, Michael Truell · Sualeh Asif · Aman Sanger · Arvid Lunnemark.”">1</a> Michael Truell serves as CEO.<a class="cite" href="#src2" title="Michael Truell is the co-founder and CEO of Anysphere (Cursor).  —  “Michael Truell is the Co-founder and CEO of Anysphere (Cursor).”">2</a></p>
+<h2>Funding &amp; traction</h2>
+<p>Cursor raised $100M at a $2.6B valuation in a round led by Thrive Capital.<a class="cite" href="#src5" title="Cursor raised $100M at a $2.6B valuation in a round led by Thrive Capital.  —  “In just 4 months, AI coding assistant Cursor raised another $100M at a $2.6B valuation led by Thrive, sources say”">5</a> Anysphere also announced a $900M raise at a $9.9B valuation in its third funding round.<a class="cite" href="#src6" title="Anysphere confirmed raising a $900 million round at a $9.9 billion valuation.  —  “Anysphere, which sells the popular AI coding assistant Cursor, confirmed that it raised a $900 million round at a staggering $9.9 billion valuation.”">6</a></p>
+<h2>Market &amp; competition</h2>
+<p>No verified information on market size or competitors is available.</p>
+<h2>Risks &amp; red flags</h2>
+<p>No verified risks or red flags have been identified.</p>
+<h2>Open questions</h2>
+<ul><li>Who are the main competitors of Anysphere in the AI code assistance market and what is the overall market size?</li><li>What potential risks or red flags have been identified for Anysphere, such as legal issues, product challenges, or financial concerns?</li><li>What core technologies and patents does Anysphere leverage for its Cursor product?</li><li>Has Anysphere formed any strategic partnerships or integrations that enhance its market position?</li></ul>
+  <div class="sig hand">— Underwrite</div>
+  <div class="footer typed"><span>Every factual sentence cites a source that passed verification (red circles → Appendix A)</span><span>page 2</span></div>
+</article>
+<article class="sheet memo appendix" id="page3">
+  <h1 style="font-size:18px;letter-spacing:.12em">APPENDIX A — SOURCES &amp; VERIFICATION</h1>
+  <p>✓ quote found in the source and judged supporting by an independent checker · ~ partially supported</p>
+  <ol><li id="src1"><a class="src" href="https://en.wikipedia.org/wiki/Cursor_(company)" rel="noopener noreferrer" target="_blank">Cursor (company)</a> <span class="via">· en.wikipedia.org · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Anysphere (Cursor) was founded in 2022.</li><li><span class="ok">✓</span> The headquarters of Anysphere (Cursor) is located in San Francisco, California.</li><li><span class="ok">✓</span> The founders of Anysphere (Cursor) are Michael Truell, Sualeh Asif, Aman Sanger, and Arvid Lunnemark.</li></ul></li><li id="src2"><a class="src" href="https://www.crunchbase.com/person/michael-truell-238d" rel="noopener noreferrer" target="_blank">Michael Truell - Co-founder and CEO @ Anysphere (Cursor)</a> <span class="via">· www.crunchbase.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Michael Truell is the co-founder and CEO of Anysphere (Cursor).</li></ul></li><li id="src3"><a class="src" href="https://cursor.com/docs/models-and-pricing" rel="noopener noreferrer" target="_blank">Models &amp; Pricing | Cursor Docs</a> <span class="via">· cursor.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Cursor offers business plans including Teams and Enterprise tiers.</li></ul></li><li id="src4"><span class="src">Crustdata company record: Cursor</span> <span class="via">· Crustdata company database · fetched via crustdata</span><ul class="claims"><li><span class="ok">✓</span> Anysphere (Cursor) was founded in 2023 according to the Crustdata record.</li><li><span class="ok">✓</span> Anysphere (Cursor) has an employee count of 844 according to the Crustdata company record.</li></ul></li><li id="src5"><a class="src" href="https://techcrunch.com/2024/12/19/in-just-4-months-ai-coding-assistant-cursor-raised-another-100m-at-a-2-5b-valuation-led-by-thrive-sources-say/" rel="noopener noreferrer" target="_blank">In just 4 months, AI coding assistant Cursor raised another ...</a> <span class="via">· techcrunch.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Cursor raised $100M at a $2.6B valuation in a round led by Thrive Capital.</li></ul></li><li id="src6"><a class="src" href="https://news.crunchbase.com/ai/anysphere-cursor-venture-funding-thrive/" rel="noopener noreferrer" target="_blank">AI-Powered Coding Tool Anysphere Raises $900M at $9.9B Valuation — Its Third Round In Less Than One Year</a> <span class="via">· news.crunchbase.com · fetched via crustdata-web</span><ul class="claims"><li><span class="ok">✓</span> Anysphere confirmed raising a $900 million round at a $9.9 billion valuation.</li><li><span class="ok">✓</span> Anysphere raised $900M at a $9.9B valuation in its third funding round in less than a year.</li></ul></li></ol>
+  <h2>Rejected claims (kept out of the memo)</h2><ul><li>None — every extracted claim passed.</li></ul>
+  <h2>Skeptic reviews</h2><ol><li><b>Round 1: needs work</b><ul class='claims'><li>[q4] Funding history relies on a single TechCrunch article dated Dec 2024, which is beyond the current date and may be inaccurate or speculative <i>→ Search for recent, reputable sources (e.g., Crunchbase, PitchBook, SEC filings) confirming total funds raised, dates, and investor list up to the present</i></li><li>[q5] Headcount claim comes from Crustdata only; no corroborating evidence or trend data <i>→ Find additional sources (LinkedIn company page, news articles, or company blog) that verify employee count and growth over time</i></li><li>[q6] Competitors and market size are unanswered; need credible market research <i>→ Locate recent market reports or analyst articles on AI code assistance (e.g., Gartner, CB Insights) that list main competitors and estimate market size</i></li><li>[q7] No information on significant news in the last 12 months, despite possible events like product launches or funding rounds <i>→ Search news databases for any announcements, product updates, partnerships, or legal events involving Anysphere/Cursor in the past year</i></li></ul></li><li><b>Round 2: needs work</b><ul class='claims'><li>[q2] Founding year conflict: sources list 2022 and 2023 <i>→ Search for authoritative recent source (e.g., company blog, press release, SEC filing) confirming the official founding date</i></li><li>[q4] Total funding amount conflict: $100M vs $900M reported <i>→ Find up-to-date funding summary from reliable database (Crunchbase, PitchBook) or company announcement to verify total amount raised</i></li><li>[q5] Headcount figure relies on a single Crustdata record without corroboration <i>→ Locate additional sources (LinkedIn company page, news article, company blog) confirming current employee count</i></li><li>[q5] Revenue/ARR estimate is vague and lacks source <i>→ Search for recent interviews, press releases, or market analysis that provide revenue or ARR figures for Anysphere</i></li></ul></li></ol>
+  <h2>Agent run log</h2><div class="log"><div>Claims extracted: <b>10</b></div><div>Verified: <b>10 (100% fully)</b></div><div>Rejected: <b>0</b></div><div>Conflicts flagged: <b>2</b></div><div>Research rounds: <b>2</b></div><div>Recoveries: <b>4</b></div><div>Run time: <b>207s</b></div><div>Crustdata credits: <b>13</b></div><div>LLM cost (list price): <b>$0.092</b></div><div>Agent steps: <b>39</b></div><div>Claims rejected in-loop: <b>0 of 11</b></div><div>Self-corrections: <b>0</b></div><div>Skeptic objections: <b>8</b></div><div>Tools used: <b>company_profile ×1, finish ×1, read_page ×5, record_claim ×11, update_question ×11, web_search ×10</b></div></div>
+  <p class="via">neatlogs trace: not exported</p>
+  <div class="footer typed"><span>Generated by Underwrite · 2026-10-11 20:23</span><span>page 3</span></div>
+</article>
+</body></html>

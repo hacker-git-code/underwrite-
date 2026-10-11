@@ -1,0 +1,193 @@
+{
+  "base": "v1",
+  "new": "v2",
+  "baseline_eval": "eval-v1-agent-all-20261010-211950/eval.json",
+  "new_eval": "eval-v2-agent-all-20261011-174143/eval.json",
+  "neatlogs_sources": [
+    "whoami",
+    "list_detections",
+    "triage_list",
+    "triage_get x3",
+    "search_traces: 'unsupported quote not found in cited source'",
+    "search_traces: 'invalid JSON repairing fallback'"
+  ],
+  "diagnosis": [
+    "(The coach's own diagnosis text was lost: its run was interrupted while the v2 eval was running, before these notes are written. The evidence it read and the changes it made are recorded below; the changes are taken from the prompt diff v1 -> v2.)",
+    "Local evidence from the v1 agent eval (train split): 4 wrong facts, 2 rejected claims, 7 unanswered questions.",
+    "Core facts that sit in the Crustdata record (founders, CEO, funding) were sometimes recorded late or not at all, and some numbers came from search snippets or secondary blogs.",
+    "Questions were sometimes marked answered without an accepted claim, and extra questions were added when the budget was nearly spent, which left open questions.",
+    "The verifier and writer sometimes returned JSON that failed validation (verdict labels, fact-sheet types), costing repair calls."
+  ],
+  "changes": [
+    {
+      "prompt": "analyst",
+      "why": "Record every core fact from company_profile immediately, tagged with its exact field and listing all co-founders; never rely on search snippets or secondary aggregators for key numbers or team details, read the primary page instead; a question can only be marked answered with an accepted claim; add new questions only when budget remains.",
+      "evidence": "4 wrong facts and 7 unanswered questions in the v1 eval; neatlogs triage items and the 'unsupported quote not found in cited source' trace search."
+    },
+    {
+      "prompt": "verifier",
+      "why": "The verdict must be exactly one of supported / partial / unsupported, always with a short reason.",
+      "evidence": "neatlogs trace search 'invalid JSON repairing fallback'; Judgements validation failures."
+    },
+    {
+      "prompt": "writer",
+      "why": "Explicit fact-sheet types in the output example (year as a number, founders as a list of names).",
+      "evidence": "MemoOut fact_sheet validation errors and repairs in the v1 traces."
+    }
+  ],
+  "train": {
+    "companies": {
+      "before": 8,
+      "after": 8,
+      "delta": 0
+    },
+    "completed": {
+      "before": 8,
+      "after": 8,
+      "delta": 0
+    },
+    "fact_accuracy": {
+      "before": 0.887,
+      "after": 0.855,
+      "delta": -0.03200000000000003
+    },
+    "fact_precision": {
+      "before": 0.982,
+      "after": 0.946,
+      "delta": -0.03600000000000003
+    },
+    "supported_rate": {
+      "before": 0.844,
+      "after": 0.934,
+      "delta": 0.09000000000000008
+    },
+    "grounded_rate": {
+      "before": 1.0,
+      "after": 1.0,
+      "delta": 0.0
+    },
+    "unsupported_per_memo": {
+      "before": 0.25,
+      "after": 0.125,
+      "delta": -0.125
+    },
+    "coverage": {
+      "before": 0.913,
+      "after": 0.812,
+      "delta": -0.10099999999999998
+    },
+    "must_coverage": {
+      "before": 0.935,
+      "after": 0.95,
+      "delta": 0.014999999999999902
+    },
+    "conflicts_per_memo": {
+      "before": 0.125,
+      "after": 0.25,
+      "delta": 0.125
+    },
+    "invalid_citations_per_memo": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "recoveries": {
+      "before": 16,
+      "after": 29,
+      "delta": 13
+    },
+    "usd_per_memo": {
+      "before": 0.0625,
+      "after": 0.0624,
+      "delta": -0.00010000000000000286
+    },
+    "credits_per_memo": {
+      "before": 10.75,
+      "after": 12.25,
+      "delta": 1.5
+    },
+    "seconds_per_memo": {
+      "before": 395.625,
+      "after": 188.65,
+      "delta": -206.975
+    }
+  },
+  "test": {
+    "companies": {
+      "before": 4,
+      "after": 4,
+      "delta": 0
+    },
+    "completed": {
+      "before": 4,
+      "after": 4,
+      "delta": 0
+    },
+    "fact_accuracy": {
+      "before": 0.667,
+      "after": 0.8,
+      "delta": 0.133
+    },
+    "fact_precision": {
+      "before": 0.909,
+      "after": 0.923,
+      "delta": 0.014000000000000012
+    },
+    "supported_rate": {
+      "before": 0.821,
+      "after": 0.979,
+      "delta": 0.15800000000000003
+    },
+    "grounded_rate": {
+      "before": 1.0,
+      "after": 1.0,
+      "delta": 0.0
+    },
+    "unsupported_per_memo": {
+      "before": 0.25,
+      "after": 0.0,
+      "delta": -0.25
+    },
+    "coverage": {
+      "before": 0.9,
+      "after": 0.85,
+      "delta": -0.050000000000000044
+    },
+    "must_coverage": {
+      "before": 1.0,
+      "after": 1.0,
+      "delta": 0.0
+    },
+    "conflicts_per_memo": {
+      "before": 0.25,
+      "after": 0.5,
+      "delta": 0.25
+    },
+    "invalid_citations_per_memo": {
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0
+    },
+    "recoveries": {
+      "before": 11,
+      "after": 8,
+      "delta": -3
+    },
+    "usd_per_memo": {
+      "before": 0.0456,
+      "after": 0.0613,
+      "delta": 0.0157
+    },
+    "credits_per_memo": {
+      "before": 8.0,
+      "after": 12.25,
+      "delta": 4.25
+    },
+    "seconds_per_memo": {
+      "before": 198.2,
+      "after": 171.675,
+      "delta": -26.524999999999977
+    }
+  },
+  "decision": "rejected"
+}

@@ -1,0 +1,112 @@
+{"t": 1791730805.8025942, "kind": "plan", "msg": "10 questions, 20 queries for Supabase"}
+{"t": 1791730807.0871086, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791730807.2758186, "kind": "crust", "msg": "company record: 36 fields"}
+{"t": 1791730809.312931, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='Supabase was founded in 2020.', evidence_id='E1', question_id='q2', field='founded_year')"}
+{"t": 1791730809.3209274, "kind": "extract", "msg": "C1 [q2] Supabase was founded in 2020."}
+{"t": 1791730809.3270917, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q2', statement=\"Supabase's headquarters is listed as Global, United States.\", field='hq_country', evidence_id='E1')"}
+{"t": 1791730809.3270917, "kind": "extract", "msg": "C2 [q2] Supabase's headquarters is listed as Global, United States."}
+{"t": 1791730809.3270917, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q3', field='founders', statement='The founders of Supabase are Paul Copplestone and Ant Wilson', evidence_id='E1')"}
+{"t": 1791730809.3597515, "kind": "extract", "msg": "C3 [q3] The founders of Supabase are Paul Copplestone and Ant Wilson."}
+{"t": 1791730809.3597515, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q3', evidence_id='E1', statement='Paul Copplestone is the CEO of Supabase.', field='ceo')"}
+{"t": 1791730809.3597515, "kind": "extract", "msg": "C4 [q3] Paul Copplestone is the CEO of Supabase."}
+{"t": 1791730809.3597515, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E1', statement='Total funding raised by Supabase is 1,189,224,796 USD accord', question_id='q4', field='total_funding_usd')"}
+{"t": 1791730809.3677511, "kind": "extract", "msg": "C5 [q4] Total funding raised by Supabase is 1,189,224,796 USD according to the Crustdata record."}
+{"t": 1791730809.3677511, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='headcount', evidence_id='E1', statement='Supabase has an employee count of 439.', question_id='q5')"}
+{"t": 1791730809.3757658, "kind": "extract", "msg": "C6 [q5] Supabase has an employee count of 439."}
+{"t": 1791730809.3757658, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(statement='Supabase offers a Postgres development platform providing a ', field='business_model', question_id='q1', evidence_id='E1')"}
+{"t": 1791730809.3757658, "kind": "extract", "msg": "C7 [q1] Supabase offers a Postgres development platform providing a Postgres database, authenticat"}
+{"t": 1791730810.9965408, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> web_search(query='site:supabase.com \"about\" or \"product\" or \"pricing\" OR \"data')"}
+{"t": 1791730820.2202177, "kind": "web", "msg": "search (crustdata-web) 'site:supabase.com \"about\" or \"product\" or \"pricing\" OR \"database\"' -> 10 results"}
+{"t": 1791730821.6470826, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> read_page(url='https://supabase.com/pricing')"}
+{"t": 1791730827.5861733, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791730827.61817, "kind": "web", "msg": "read https://supabase.com/pricing -> E8 (4000 chars)"}
+{"t": 1791730827.6261714, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730829.1846154, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> update_question(question_id='q1', status='answered', note='Supabase offers a Postgres development platform with databas')"}
+{"t": 1791730829.1846154, "kind": "plan", "msg": "q1 -> answered: Supabase offers a Postgres development platform with database, authentication, i"}
+{"t": 1791730829.1846154, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> update_question(note='Founded in 2020, headquarters listed as United States (Globa', status='answered', question_id='q2')"}
+{"t": 1791730829.1846154, "kind": "plan", "msg": "q2 -> answered: Founded in 2020, headquarters listed as United States (Global)."}
+{"t": 1791730829.1926143, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q3', note='Founders are Paul Copplestone and Ant Wilson. Paul Copplesto')"}
+{"t": 1791730829.1926143, "kind": "plan", "msg": "q3 -> answered: Founders are Paul Copplestone and Ant Wilson. Paul Copplestone is the CEO."}
+{"t": 1791730830.2299678, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> web_search(query='Supabase funding rounds investors total raised TechCrunch or')"}
+{"t": 1791730836.736679, "kind": "web", "msg": "search (crustdata-web) 'Supabase funding rounds investors total raised TechCrunch or PRnewswire' -> 9 results"}
+{"t": 1791730836.7558193, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730837.9484863, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> read_page(url='https://techcrunch.com/2026/06/05/supabase-doubles-valuation')"}
+{"t": 1791730838.0516183, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791730838.0529022, "kind": "web", "msg": "read https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/ -> E15 (4000 chars)"}
+{"t": 1791730838.0638533, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730839.1829135, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" \"valuation\" \"funding\" 2026 OR 2025')"}
+{"t": 1791730845.3888736, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" \"valuation\" \"funding\" 2026 OR 2025' -> 9 results"}
+{"t": 1791730845.3981962, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730846.725717, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> record_claim(field='total_funding_usd', statement='Supabase announced a $500 million Series F funding round at ', question_id='q4', evidence_id='E18')"}
+{"t": 1791730846.7337162, "kind": "extract", "msg": "C8 [q4] Supabase announced a $500 million Series F funding round at a $10.5 billion post-money val"}
+{"t": 1791730847.7697172, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> update_question(question_id='q4', status='answered', note='Supabase has raised significant venture capital, including a')"}
+{"t": 1791730847.7725363, "kind": "plan", "msg": "q4 -> answered: Supabase has raised significant venture capital, including a $500 million Series"}
+{"t": 1791730849.32843, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" traction customers revenue headcount growth')"}
+{"t": 1791730854.3561373, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" traction customers revenue headcount growth' -> 9 results"}
+{"t": 1791730854.3725953, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730855.8986619, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q5', note='Supabase has grown significantly, reporting over 250,000 cus')"}
+{"t": 1791730855.9053261, "kind": "plan", "msg": "q5 -> answered: Supabase has grown significantly, reporting over 250,000 customers, 350 employee"}
+{"t": 1791730858.9144695, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> web_search(query='Supabase competitors market size alternatives Firebase Neon ')"}
+{"t": 1791730880.9890997, "kind": "web", "msg": "search (crustdata-web) 'Supabase competitors market size alternatives Firebase Neon PlanetScale' -> 9 results"}
+{"t": 1791730881.019716, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730882.596948, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q6', note=\"Supabase's main competitors include Firebase, Neon, PlanetSc\")"}
+{"t": 1791730884.3709016, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" news 2026 OR 2025')"}
+{"t": 1791730890.2399805, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" news 2026 OR 2025' -> 9 results"}
+{"t": 1791730890.2510824, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730891.9670072, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> web_search(query='site:techcrunch.com \"Supabase\" 2026 OR 2025')"}
+{"t": 1791730912.7153974, "kind": "web", "msg": "search (crustdata-web) 'site:techcrunch.com \"Supabase\" 2026 OR 2025' -> 9 results"}
+{"t": 1791730912.7393951, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730914.49761, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> read_page(url='https://techcrunch.com/2026/09/25/some-supabase-customers-ar')"}
+{"t": 1791730923.0863695, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791730923.1006515, "kind": "web", "msg": "read https://techcrunch.com/2026/09/25/some-supabase-customers-are-publicly-exposing- -> E46 (4000 chars)"}
+{"t": 1791730923.1149662, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730925.0720513, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" partnerships integrations Vercel AWS GitHub Strip')"}
+{"t": 1791730930.4939163, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" partnerships integrations Vercel AWS GitHub Stripe' -> 8 results"}
+{"t": 1791730930.5019395, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730932.1157308, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" financials ARR revenue public OR estimate')"}
+{"t": 1791730938.4049976, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" financials ARR revenue public OR estimate' -> 9 results"}
+{"t": 1791730938.4219308, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730939.9446807, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" competitors market size BaaS database')"}
+{"t": 1791730945.4207118, "kind": "web", "msg": "search (crustdata-web) '\"Supabase\" competitors market size BaaS database' -> 9 results"}
+{"t": 1791730945.428709, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791730948.1772966, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(question_id='q6', statement=\"Supabase's main competitors include Firebase, Neon, PlanetSc\", field='none', evidence_id='E64')"}
+{"t": 1791730948.185409, "kind": "extract", "msg": "C9 [q6] Supabase's main competitors include Firebase, Neon, PlanetScale, Hasura, and Appwrite."}
+{"t": 1791730948.1934102, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(question_id='q7', field='none', evidence_id='E53', statement='Supabase announced a $500M Series F led by GIC at a $10B pre')"}
+{"t": 1791730948.1934102, "kind": "extract", "msg": "C10 [q7] Supabase announced a $500M Series F led by GIC at a $10B pre-money valuation."}
+{"t": 1791730948.208309, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(field='none', evidence_id='E46', statement='Some Supabase customers have publicly exposed sensitive user', question_id='q8')"}
+{"t": 1791730948.210378, "kind": "verify", "msg": "claim rejected in-loop: quote not in E46 (match 84%) \u2014 agent must fix it"}
+{"t": 1791730948.2237089, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(field='none', evidence_id='E62', statement='Sacra estimates that Supabase reached $170M in ARR by May 20', question_id='q9')"}
+{"t": 1791730948.2237089, "kind": "verify", "msg": "self-corrected: C11 accepted after the agent fixed a rejected claim"}
+{"t": 1791730948.2237089, "kind": "extract", "msg": "C11 [q9] Sacra estimates that Supabase reached $170M in ARR by May 2026."}
+{"t": 1791730948.231707, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> record_claim(question_id='q10', field='none', statement='Stripe is an investor in Supabase and maintains strategic ti', evidence_id='E53')"}
+{"t": 1791730948.239704, "kind": "extract", "msg": "C12 [q10] Stripe is an investor in Supabase and maintains strategic ties."}
+{"t": 1791730950.3110023, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Main competitors include Firebase, Neon, PlanetScale, Hasura', question_id='q6')"}
+{"t": 1791730950.3190005, "kind": "plan", "msg": "q6 -> answered: Main competitors include Firebase, Neon, PlanetScale, Hasura, and Appwrite."}
+{"t": 1791730950.3211763, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(note='Notable news includes raising a $500M Series F at a $10B pre', question_id='q7', status='answered')"}
+{"t": 1791730950.3211763, "kind": "plan", "msg": "q7 -> answered: Notable news includes raising a $500M Series F at a $10B pre-money valuation in "}
+{"t": 1791730950.3291771, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(question_id='q8', status='unanswerable', note='Risks include data security exposure via misconfigured Row L')"}
+{"t": 1791730950.3291771, "kind": "plan", "msg": "q8 -> unanswerable: Risks include data security exposure via misconfigured Row Level Security (RLS) "}
+{"t": 1791730950.3371773, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(note='Third-party research firms like Sacra estimate ARR reached a', status='answered', question_id='q9')"}
+{"t": 1791730950.3371773, "kind": "plan", "msg": "q9 -> answered: Third-party research firms like Sacra estimate ARR reached around $170M by mid-2"}
+{"t": 1791730950.3451738, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(note='Supabase has strategic relationships and backing from major ', question_id='q10', status='answered')"}
+{"t": 1791730950.3451738, "kind": "plan", "msg": "q10 -> answered: Supabase has strategic relationships and backing from major platforms like Strip"}
+{"t": 1791730952.5505033, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> finish(summary='Supabase is a leading open-source Postgres development platf')"}
+{"t": 1791730952.5751123, "kind": "verify", "msg": "grounding: 12/12 quotes found in their cited source"}
+{"t": 1791730955.4354575, "kind": "verify", "msg": "judge: 11 supported, 1 partial, 0 rejected of 12"}
+{"t": 1791730956.7709394, "kind": "recover", "msg": "skeptic: invalid JSON from groq:openai/gpt-oss-120b (2 validation errors for Review\nobjections.3.issue\n  Field required [type=missing); repairing", "prompt": "skeptic"}
+{"t": 1791730958.4845517, "kind": "recover", "msg": "skeptic: JSON repaired", "prompt": "skeptic", "recovered": true}
+{"t": 1791730958.492551, "kind": "skeptic", "msg": "objection [q4]: Key funding figure ($500M Series F in 2026) relies on a single source and may be outdated or speculative"}
+{"t": 1791730958.492551, "kind": "skeptic", "msg": "objection [q5]: Traction metrics (ARR $170M, customer count) are based on a single third\u2011party estimate without corroboration"}
+{"t": 1791730958.492551, "kind": "skeptic", "msg": "objection [q9]: ARR estimate comes from Sacra, a less\u2011known firm; need higher\u2011quality confirmation"}
+{"t": 1791730958.5005524, "kind": "skeptic", "msg": "objection [q10]: Strategic partnership claim only cites Stripe investment; mentions of Vercel and GitHub lack supporting source"}
+{"t": 1791730958.5067916, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791730960.3422601, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> web_search(query='\"Supabase\" \"Series F\" 500 million valuation GIC CNBC OR Tech')"}
+{"t": 1791730961.7966387, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> finish(summary='All search budget has been exhausted for additional verifica')"}
+{"t": 1791730961.8206325, "kind": "verify", "msg": "grounding: 0/0 quotes found in their cited source"}
+{"t": 1791730961.8206325, "kind": "verify", "msg": "judge: 0 supported, 0 partial, 0 rejected of 0"}
+{"t": 1791730963.4320323, "kind": "skeptic", "msg": "objection [q4]: Series F amount and valuation rely on a PRNewswire link that mentions $150M funding and Turso acquisition, not"}
+{"t": 1791730963.4400308, "kind": "skeptic", "msg": "objection [q5]: ARR estimate ($170M) is based solely on Sacra, a third\u2011party research firm; need additional corroboration such"}
+{"t": 1791730963.4400308, "kind": "skeptic", "msg": "objection [q10]: Strategic partnership claim only cites Stripe investment; mentions of Vercel and GitHub lack supporting source"}
+{"t": 1791730963.4400308, "kind": "skeptic", "msg": "objection [q4]: Total funding figure ($1.189B) is sourced only from Crustdata; cross\u2011verify with another database to ensure ac"}
+{"t": 1791730966.8602574, "kind": "memo", "msg": "memo written: 10 distinct verified claims cited, recommendation: dig deeper: strong product and funding but need to assess market risks"}
+{"t": 1791730991.3274648, "kind": "memo", "msg": "done in 162.7s \u00b7 12 claims \u00b7 92% supported \u00b7 0 conflicts \u00b7 $0.045 LLM \u00b7 12 Crustdata credits \u00b7 2 recoveries"}

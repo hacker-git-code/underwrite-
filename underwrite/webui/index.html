@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Underwrite Live · research any startup</title>
+<meta name="description" content="Ask a team of AI agents to research any startup. Free, live, and every fact is checked against its source.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23fbf7ec'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23b8322a' stroke-width='3'/%3E%3Ctext x='16' y='21' font-size='14' text-anchor='middle' fill='%231f2b6e' font-family='monospace' font-weight='700'%3EU%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap">
+<style>
+:root{--desk:#e4dfd3;--paper:#fbf7ec;--ink:#1f2b6e;--red:#b8322a;--green:#2f6b3a;--type:#262421;--mut:#6d685e;--line:#cfc8b6;--rule:#6b6760}
+@media (prefers-color-scheme:dark){:root{--desk:#1f1d1a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--desk);color:var(--type);font:16px/1.55 "Courier Prime","Courier New",monospace}
+a{color:var(--ink)}
+main{max-width:1060px;margin:0 auto;padding:24px 16px 64px}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-size:14px}
+.top b{font:400 18px "Special Elite",monospace;letter-spacing:.14em;margin-right:auto;color:#3b3833}
+@media (prefers-color-scheme:dark){.top b{color:#e9e2d1}.top a{color:#dcd4c0}}
+.sheet{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 10px 26px rgba(0,0,0,.16);padding:36px 40px;margin:0 0 28px;position:relative;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+h1{font:400 44px/1.1 "Special Elite",monospace;letter-spacing:.14em;margin:0}
+h2{font:400 20px "Special Elite",monospace;letter-spacing:.08em;margin:0 0 14px;text-decoration:underline;text-underline-offset:4px}
+.hand{font-family:Caveat,cursive;color:var(--ink);font-size:27px;line-height:1.15}
+.small{font-size:13px;color:var(--mut)}
+.live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-right:6px;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+/* the request form, drawn like the dossier's typed lines */
+form{margin-top:22px;display:grid;gap:14px;max-width:720px}
+.row{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.lbl{font:400 15px "Special Elite",monospace;white-space:nowrap;min-width:150px}
+.row input{flex:1 1 260px;min-width:200px;border:0;border-bottom:1.5px solid var(--rule);background:transparent;padding:2px 6px;
+  font:500 28px/1.2 Caveat,cursive;color:var(--ink);outline:none;text-transform:none}
+.row input:focus{border-bottom-color:var(--red)}
+.row input::placeholder{color:#b3ab98}
+.go{justify-self:start;margin-top:6px;font:700 17px "Special Elite",monospace;letter-spacing:.12em;color:var(--red);background:transparent;
+  border:3px solid var(--red);padding:9px 20px;cursor:pointer;transform:rotate(-2deg);transition:transform .12s,background .12s}
+.go:hover{transform:rotate(0) scale(1.03);background:rgba(184,50,42,.06)}
+.go:disabled{opacity:.45;cursor:wait}
+.note{min-height:24px;font:500 21px/1.2 Caveat,cursive;color:var(--red)}
+.note.ok{color:var(--green)}
+.status{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;padding-top:12px;border-top:3px double var(--rule);font-size:14px}
+.status b{font:700 22px Caveat,cursive;color:var(--ink);margin-right:4px}
+/* case file */
+.case{display:none}
+.case.on{display:block}
+.case .cc{position:absolute;top:26px;right:34px;transform:rotate(-7deg);font:700 13px "Special Elite",monospace;color:var(--red);
+  border:2.5px solid var(--red);padding:4px 9px;letter-spacing:.08em;opacity:.85}
+.case h2{padding-right:150px}
+.who{font:500 34px/1.1 Caveat,cursive;color:var(--ink);margin:2px 0 6px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0 6px;padding:0;list-style:none}
+.steps li{text-align:center;font-size:12.5px;color:var(--mut)}
+.steps li i{display:block;margin:0 auto 4px;width:34px;height:34px;border-radius:50%;border:2px dashed #a49d8e;font:700 17px/30px Caveat,cursive;font-style:normal;color:#a49d8e}
+.steps li.now i{border:2.5px solid var(--red);color:var(--red);animation:pulse 1.4s infinite}
+.steps li.done i{border:2.5px solid var(--ink);color:#fff;background:var(--ink)}
+.steps li.now,.steps li.done{color:var(--type)}
+@keyframes pulse{50%{transform:scale(1.08) rotate(-6deg)}}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:18px 0}
+.counts div{border-top:3px double var(--rule);padding-top:4px;font-size:13px}
+.counts b{display:block;font:700 30px/1.1 Caveat,cursive;color:var(--ink)}
+.counts .bad b{color:var(--red)} .counts .good b{color:var(--green)}
+.wait{font:500 24px Caveat,cursive;color:var(--ink);margin:10px 0}
+.trail{max-height:420px;overflow:auto;border:1px dashed #9a958a;padding:10px 12px;font-size:13.5px;line-height:1.5;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 22px,#e3dccb 22px,#e3dccb 23px);background-position:0 9px}
+.trail div{white-space:pre-wrap;word-break:break-word}
+.trail .t{color:var(--mut);margin-right:6px}
+.trail .k{display:inline-block;min-width:88px;font:700 11.5px "Special Elite",monospace;letter-spacing:.06em;margin-right:6px}
+.k.plan,.k.agent{color:var(--ink)} .k.crust{color:#7b3a8f} .k.web{color:#1f5f8b} .k.extract{color:#3b3833}
+.k.verify,.k.memo{color:var(--green)} .k.conflict,.k.recover{color:#a05a00} .k.fail,.k.inject{color:var(--red)} .k.skeptic{color:#8b2a6a}
+.k.info{color:var(--mut)}
+.result{display:none;margin-top:18px;align-items:center;gap:20px;flex-wrap:wrap}
+.result.on{display:flex}
+.stamp{transform:rotate(-8deg);border:3px solid var(--red);color:var(--red);font:700 20px "Special Elite",monospace;padding:8px 14px;letter-spacing:.1em}
+.open{font:700 17px "Special Elite",monospace;letter-spacing:.1em;background:var(--ink);color:#fbf7ec;padding:11px 20px;text-decoration:none}
+.open:hover{background:#2d3c8c}
+/* gallery */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.card{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 8px 18px rgba(0,0,0,.14);padding:16px 18px 14px;position:relative;text-decoration:none;color:inherit;display:block;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#d8d1bf 27px,#d8d1bf 28px);background-position:0 52px;transition:transform .15s}
+.card:nth-child(odd){transform:rotate(-.4deg)}.card:nth-child(even){transform:rotate(.35deg)}
+.card:hover{transform:translateY(-2px) rotate(0)}
+.card h3{font:400 21px "Special Elite",monospace;margin:0 0 2px;padding-right:96px}
+.card .dom{font-size:12.5px;color:var(--mut);margin-bottom:8px}
+.card .rec{font:500 20px/28px Caveat,cursive;color:var(--ink);min-height:84px;text-transform:uppercase}
+.card .st{position:absolute;top:12px;right:12px;transform:rotate(-9deg);border:2.5px solid var(--red);color:var(--red);font:700 11px "Special Elite",monospace;padding:3px 6px;letter-spacing:.08em;opacity:.85}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;counter-reset:s;padding:0;list-style:none;margin:0}
+.how li{border:1px dashed #9a958a;padding:10px 12px;counter-increment:s;font-size:14.5px}
+.how li:before{content:counter(s);display:inline-block;width:24px;height:24px;border:1.6px solid var(--red);border-radius:50%;color:var(--red);
+  font:700 15px/21px Caveat,cursive;text-align:center;margin-right:6px;transform:rotate(-6deg)}
+footer{text-align:center;font-size:13px;color:var(--mut)}
+@media (prefers-color-scheme:dark){footer{color:#bdb4a2}footer a{color:#dcd4c0}}
+@media (max-width:640px){.sheet{padding:26px 18px}h1{font-size:32px}.steps{grid-template-columns:repeat(3,1fr)}.case .cc{position:static;display:inline-block;margin-bottom:8px}.case h2{padding-right:0}.lbl{min-width:0}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><b>UNDERWRITE · LIVE</b>
+    <a href="https://hacker-git-code.github.io/underwrite-/">the project</a>
+    <a href="https://github.com/hacker-git-code/underwrite-">source on GitHub</a></div>
+
+  <section class="sheet">
+    <h1>UNDERWRITE</h1>
+    <p class="hand">Ask a team of AI agents to research any startup. Free, live, and every fact is checked.</p>
+    <p>An analyst agent pulls the company's record from Crustdata, searches and reads the web, and records each fact
+      with the exact sentence it came from. Every quote is checked against its source, a skeptic agent pushes back on
+      weak spots, and you get a three-page evaluation dossier. You watch it all happen below.</p>
+    <form id="ask" autocomplete="off">
+      <div class="row"><span class="lbl">COMPANY:</span><input id="company" maxlength="60" placeholder="e.g. Linear" required></div>
+      <div class="row"><span class="lbl">WEBSITE:</span><input id="domain" maxlength="80" placeholder="e.g. linear.app (helps a lot)"></div>
+      <button class="go" id="go" type="submit">RESEARCH IT &rarr;</button>
+      <div class="note" id="note" role="status" aria-live="polite"></div>
+    </form>
+    <div class="status" id="status"><span class="small">checking the agents…</span></div>
+  </section>
+
+  <section class="sheet case" id="case" aria-live="polite">
+    <span class="cc" id="caseno">CASE FILE</span>
+    <h2>THE AGENTS AT WORK</h2>
+    <div class="who" id="who"></div>
+    <div class="wait" id="wait"></div>
+    <ol class="steps" id="steps">
+      <li data-p="plan"><i>1</i>plan</li><li data-p="investigate"><i>2</i>investigate</li><li data-p="judge"><i>3</i>check facts</li>
+      <li data-p="review"><i>4</i>skeptic review</li><li data-p="write"><i>5</i>write memo</li><li data-p="done"><i>6</i>done</li>
+    </ol>
+    <div class="counts">
+      <div><b id="n-claims">0</b>facts recorded</div><div class="good"><b id="n-verified">0</b>verified</div>
+      <div class="bad"><b id="n-rejected">0</b>thrown out</div><div class="bad"><b id="n-conflicts">0</b>source conflicts</div>
+      <div><b id="n-searches">0</b>searches · <span id="n-pages">0</span> pages read</div><div><b id="n-objections">0</b>skeptic objections</div>
+    </div>
+    <div class="trail" id="trail"></div>
+    <div class="result" id="result"><span class="stamp" id="stamp">VERIFIED</span><a class="open" id="open" href="#">OPEN THE DOSSIER &rarr;</a>
+      <span class="small" id="took"></span></div>
+  </section>
+
+  <section class="sheet"><h2>HOW TO TRUST IT</h2><ol class="how">
+    <li><b>Every fact has a source.</b> The agent must quote the exact sentence; the quote is checked in code before it counts.</li>
+    <li><b>An independent check.</b> A separate judge decides if each quote really supports the fact. Anything that fails is thrown out, shown crossed out.</li>
+    <li><b>A skeptic.</b> Another agent reviews the work, objects to thin evidence, and sends the analyst back.</li>
+    <li><b>Disagreements are shown,</b> not hidden: two sources with different numbers both appear, flagged in red.</li>
+  </ol></section>
+
+  <section><h2 style="margin-left:4px">DOSSIERS ALREADY WRITTEN</h2><div class="grid" id="memos"></div></section>
+  <footer><p>Built for <b>#neatHack</b> with neatlogs · Entire · cfo.ai · Crustdata · runs on AWS ·
+    <a href="https://github.com/hacker-git-code/underwrite-">source</a></p></footer>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const KIND = {plan:"PLAN", crust:"CRUSTDATA", web:"WEB", extract:"FACT", verify:"CHECK", conflict:"CONFLICT", recover:"RECOVERED",
+  agent:"AGENT", skeptic:"SKEPTIC", memo:"MEMO", fail:"STOPPED", info:"NOTE", inject:"CHAOS", watch:"WATCH"};
+const PHASE = {new:0, planned:1, investigating:1, researched:1, extracted:2, judging:2, verified:2, reviewing:3, writing:4, written:4, done:5};
+let es = null, current = null, startedAt = null;
+
+async function api(path, opt) {
+  const r = await fetch(path, opt);
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.detail || "Something went wrong. Try again.");
+  return data;
+}
+
+function when(ts) { return new Date(ts * 1000).toLocaleDateString(undefined, {day: "numeric", month: "short", year: "numeric"}); }
+
+async function refresh() {
+  try {
+    const s = await api("/api/state");
+    const busy = s.running ? `<span><span class="live-dot"></span>researching <b style="font-size:20px">${esc(s.running.company)}</b> now</span>` : `<span><b>●</b>agents are free</span>`;
+    $("#status").innerHTML = `${busy}<span><b>${s.queued}</b>waiting</span><span><b>${s.today}/${s.daily_cap}</b>free memos used today</span>
+      <span><b>${s.left_for_you}</b>left for you today</span><span class="small">prompts ${esc(s.prompts)}</span>`;
+    $("#memos").innerHTML = s.memos.map((m) => `<a class="card" href="/memo/${esc(m.slug)}/"><span class="st">VERIFIED ${m.verified}/${m.claims}</span>
+      <h3>${esc(m.company)}</h3><div class="dom">${esc(m.domain || "")} · ${when(m.finished_at)}${m.conflicts ? ` · ${m.conflicts} conflict${m.conflicts > 1 ? "s" : ""}` : ""}</div>
+      <div class="rec">${esc((m.recommendation || "").slice(0, 140))}${(m.recommendation || "").length > 140 ? "…" : ""}</div></a>`).join("") || "<p>No dossiers yet. Be the first.</p>";
+  } catch (e) { $("#status").innerHTML = `<span class="small">${esc(e.message)}</span>`; }
+}
+
+$("#ask").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const company = $("#company").value.trim(), domain = $("#domain").value.trim();
+  const note = $("#note");
+  note.className = "note"; note.textContent = "";
+  $("#go").disabled = true;
+  try {
+    const r = await api("/api/research", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({company, domain})});
+    if (r.cached) {
+      note.className = "note ok";
+      note.innerHTML = `Already researched on ${when(r.finished_at)}. <a href="${r.url}">Open ${esc(r.company)}'s dossier &rarr;</a>`;
+    } else {
+      note.className = "note ok";
+      note.textContent = r.joined ? "Someone already asked for this one. Watching the same case file." : "On it. Watch the agents below.";
+      history.replaceState(null, "", `?job=${r.job}`);
+      watch(r.job);
+    }
+  } catch (err) { note.textContent = err.message; }
+  $("#go").disabled = false;
+  refresh();
+});
+
+function watch(id) {
+  current = id;
+  es?.close();
+  $("#case").classList.add("on");
+  $("#trail").innerHTML = "";
+  $("#result").classList.remove("on");
+  $("#caseno").textContent = `CASE FILE № ${id.slice(0, 6).toUpperCase()}`;
+  $("#case").scrollIntoView({behavior: "smooth", block: "start"});
+  es = new EventSource(`/api/jobs/${id}/stream`);
+  es.onmessage = (m) => {
+    const d = JSON.parse(m.data);
+    if (d.type === "event") addLine(d); else update(d);
+  };
+}
+
+function tidy(msg) {
+  // provider errors arrive as raw API payloads; keep the meaning, drop the JSON
+  return String(msg || "")
+    .replace(/Error code: (\d{3}) - \[?\{[^;]*?\)/g, "error $1)")
+    .replace(/Error code: (\d{3}) - \[?\{.*$/g, "error $1")
+    .replace(/♊/g, " · ");
+}
+
+function addLine(d) {
+  d.msg = tidy(d.msg);
+  const t = $("#trail");
+  const stick = t.scrollTop + t.clientHeight >= t.scrollHeight - 30;
+  const time = d.t ? new Date(d.t * 1000).toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit", second: "2-digit"}) : "";
+  t.insertAdjacentHTML("beforeend", `<div><span class="t">${time}</span><span class="k ${esc(d.kind)}">${KIND[d.kind] || esc((d.kind || "").toUpperCase())}</span>${esc(d.msg)}</div>`);
+  while (t.children.length > 400) t.firstChild.remove();
+  if (stick) t.scrollTop = t.scrollHeight;
+}
+
+function update(j) {
+  $("#who").textContent = `${j.company}${j.domain ? " (" + j.domain + ")" : ""}`;
+  const set = (id, v) => { if (v !== undefined) $(id).textContent = v; };
+  set("#n-claims", j.claims); set("#n-verified", j.verified); set("#n-rejected", j.rejected); set("#n-conflicts", j.conflicts);
+  set("#n-searches", j.searches); set("#n-pages", j.pages); set("#n-objections", j.objections);
+  const step = j.status === "done" ? 6 : j.status === "running" ? (PHASE[j.phase] ?? 0) + 1 : 0;
+  document.querySelectorAll("#steps li").forEach((li, i) => { li.className = i + 1 < step || j.status === "done" ? "done" : i + 1 === step ? "now" : ""; });
+  if (j.status === "queued") {
+    $("#wait").textContent = j.position > 1 ? `You're number ${j.position} in line: about ${Math.round(j.position * 5)} minutes.` : "You're next. Starting in a moment…";
+  } else if (j.status === "running") {
+    startedAt = j.started;
+    const q = j.questions ? ` · ${j.answered}/${j.questions} questions answered` : "";
+    $("#wait").textContent = `Working on it: about 5 minutes in total${q}.`;
+  } else if (j.status === "done") {
+    $("#wait").textContent = "Done. The dossier is ready.";
+    $("#stamp").textContent = `VERIFIED ${j.verified}/${j.claims}`;
+    $("#open").href = j.url;
+    $("#took").textContent = j.started && j.finished ? `took ${Math.round((j.finished - j.started) / 60)} min · ${j.steps} agent steps · ${j.self_corrections} self-corrections` : "";
+    $("#result").classList.add("on");
+    es?.close(); refresh();
+  } else if (j.status === "failed") {
+    $("#wait").textContent = `The agents stopped: ${j.error || "unknown error"}. It saved its progress; try again later.`;
+    es?.close(); refresh();
+  }
+}
+
+refresh();
+setInterval(refresh, 15000);
+const q = new URLSearchParams(location.search).get("job");
+if (q) watch(q);
+</script>
+</body>
+</html>

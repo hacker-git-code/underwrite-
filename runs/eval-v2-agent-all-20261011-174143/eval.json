@@ -1,0 +1,1101 @@
+{
+  "run_id": "eval-v2-agent-all-20261011-174143",
+  "version": "v2",
+  "mode": "agent",
+  "split": "all",
+  "created": 1791730992.5085971,
+  "rows": [
+    {
+      "company": "Linear",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2019"
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "San Francisco"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Karri Saarinen, Tuomas Artman, Jori Lallo"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Karri Saarinen"
+        }
+      },
+      "metrics": {
+        "claims": 13,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 13,
+        "invalid_citations": 0,
+        "evidence_pages": 1,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 2,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 222.3,
+        "mode": "agent",
+        "agent_steps": 30,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 13,
+          "update_question": 10,
+          "web_search": 10,
+          "read_page": 1,
+          "finish": 1
+        },
+        "claim_attempts": 13,
+        "rejected_in_loop": 0,
+        "self_corrections": 0,
+        "skeptic_objections": 3,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 36,
+        "input_tokens": 196029,
+        "output_tokens": 5105,
+        "llm_usd": 0.06054,
+        "by_model": {
+          "gemini:gemini-3.8-flash": {
+            "calls": 4,
+            "in": 4213,
+            "out": 1882,
+            "usd": 0.007752499999999999
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 32,
+            "in": 191816,
+            "out": 3223,
+            "usd": 0.0527885
+          }
+        },
+        "crust_calls": 11,
+        "crust_credits": 11.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "PostHog",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2020"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "James Hawkins, Tim Glaser"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "James Hawkins and Tim Glaser"
+        }
+      },
+      "metrics": {
+        "claims": 9,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.5,
+        "must_coverage": 0.6,
+        "conflicts": 1,
+        "memo_citations": 9,
+        "invalid_citations": 0,
+        "evidence_pages": 8,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 9,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 54.8,
+        "mode": "agent",
+        "agent_steps": 32,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 12,
+          "web_search": 10,
+          "read_page": 9,
+          "update_question": 8,
+          "finish": 1
+        },
+        "claim_attempts": 12,
+        "rejected_in_loop": 3,
+        "self_corrections": 1,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 37,
+        "input_tokens": 218778,
+        "output_tokens": 6354,
+        "llm_usd": 0.06283,
+        "by_model": {
+          "gemini:gemini-3.8-flash": {
+            "calls": 1,
+            "in": 249,
+            "out": 829,
+            "usd": 0.0026115
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 33,
+            "in": 215159,
+            "out": 2894,
+            "usd": 0.058130749999999995
+          },
+          "groq:openai/gpt-oss-120b": {
+            "calls": 3,
+            "in": 3370,
+            "out": 2631,
+            "usd": 0.0020841
+          }
+        },
+        "crust_calls": 17,
+        "crust_credits": 17.0,
+        "cache_hits": 2,
+        "fallback_calls": 4
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Razorpay",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2014"
+        },
+        "hq_city": {
+          "score": 0.0,
+          "answered": true,
+          "pred": "Adugodi"
+        },
+        "founders": {
+          "score": 0.5,
+          "answered": true,
+          "pred": "Harshil Mathur"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Harshil Mathur"
+        }
+      },
+      "metrics": {
+        "claims": 15,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 15,
+        "invalid_citations": 0,
+        "evidence_pages": 1,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 0,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 156.1,
+        "mode": "agent",
+        "agent_steps": 26,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 22,
+          "update_question": 14,
+          "web_search": 10,
+          "read_page": 1,
+          "finish": 2
+        },
+        "claim_attempts": 22,
+        "rejected_in_loop": 6,
+        "self_corrections": 4,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 32,
+        "input_tokens": 174904,
+        "output_tokens": 7341,
+        "llm_usd": 0.05176,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 4463,
+            "out": 2812,
+            "usd": 0.00235665
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 28,
+            "in": 170441,
+            "out": 4529,
+            "usd": 0.04940375
+          }
+        },
+        "crust_calls": 11,
+        "crust_credits": 11.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Zerodha",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2010"
+        },
+        "hq_city": {
+          "score": 0.0,
+          "answered": false,
+          "pred": ""
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Nithin Kamath, Nikhil Kamath"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Nithin Kamath"
+        }
+      },
+      "metrics": {
+        "claims": 13,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.923,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 10,
+        "invalid_citations": 0,
+        "evidence_pages": 3,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 2,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 251.8,
+        "mode": "agent",
+        "agent_steps": 44,
+        "tool_calls": {
+          "company_profile": 2,
+          "record_claim": 14,
+          "web_search": 10,
+          "read_page": 4,
+          "update_question": 12,
+          "finish": 2
+        },
+        "claim_attempts": 14,
+        "rejected_in_loop": 1,
+        "self_corrections": 0,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 51,
+        "input_tokens": 332691,
+        "output_tokens": 6746,
+        "llm_usd": 0.09011,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 4184,
+            "out": 3068,
+            "usd": 0.0024684
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 47,
+            "in": 328507,
+            "out": 3678,
+            "usd": 0.08764374999999999
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 2,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Postman",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2014"
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "San Francisco"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Abhinav Asthana, Ankit Sobti, Abhijit Kane"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Abhinav Asthana"
+        }
+      },
+      "metrics": {
+        "claims": 19,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.842,
+        "usable_rate": 0.947,
+        "unsupported": 1,
+        "coverage": 0.9,
+        "must_coverage": 1.0,
+        "conflicts": 1,
+        "memo_citations": 16,
+        "invalid_citations": 0,
+        "evidence_pages": 0,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 4,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 214.1,
+        "mode": "agent",
+        "agent_steps": 32,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 20,
+          "web_search": 10,
+          "update_question": 12,
+          "finish": 1
+        },
+        "claim_attempts": 20,
+        "rejected_in_loop": 0,
+        "self_corrections": 0,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 40,
+        "input_tokens": 231153,
+        "output_tokens": 8459,
+        "llm_usd": 0.06731,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 5070,
+            "out": 2959,
+            "usd": 0.0025359
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 36,
+            "in": 226083,
+            "out": 5500,
+            "usd": 0.06477075000000002
+          }
+        },
+        "crust_calls": 10,
+        "crust_credits": 10.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Mistral AI",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2023"
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Paris"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Arthur Mensch, Guillaume Lample, Timothee Lacroix"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Arthur Mensch"
+        }
+      },
+      "metrics": {
+        "claims": 10,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.8,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.6,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 10,
+        "invalid_citations": 0,
+        "evidence_pages": 3,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 6,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 168.4,
+        "mode": "agent",
+        "agent_steps": 28,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 11,
+          "update_question": 7,
+          "web_search": 10,
+          "read_page": 3,
+          "finish": 1
+        },
+        "claim_attempts": 11,
+        "rejected_in_loop": 1,
+        "self_corrections": 1,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 37,
+        "input_tokens": 171148,
+        "output_tokens": 6129,
+        "llm_usd": 0.04917,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 4055,
+            "out": 2671,
+            "usd": 0.0022108500000000003
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 33,
+            "in": 167093,
+            "out": 3458,
+            "usd": 0.046960249999999995
+          }
+        },
+        "crust_calls": 13,
+        "crust_credits": 13.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Hugging Face",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2016"
+        },
+        "hq_city": {
+          "score": 0.0,
+          "answered": false,
+          "pred": ""
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Cl\u00e9ment Delangue, Julien Chaumond, Thomas Wolf"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Clem Delangue"
+        }
+      },
+      "metrics": {
+        "claims": 9,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.5,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 9,
+        "invalid_citations": 0,
+        "evidence_pages": 2,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 4,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 248.4,
+        "mode": "agent",
+        "agent_steps": 24,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 10,
+          "web_search": 10,
+          "read_page": 2,
+          "update_question": 6,
+          "finish": 2
+        },
+        "claim_attempts": 10,
+        "rejected_in_loop": 0,
+        "self_corrections": 0,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 32,
+        "input_tokens": 141248,
+        "output_tokens": 6672,
+        "llm_usd": 0.04177,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 3592,
+            "out": 3548,
+            "usd": 0.0026676
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 28,
+            "in": 137656,
+            "out": 3124,
+            "usd": 0.0391
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Ramp",
+      "split": "train",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2019"
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "New York"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Eric Glyman, Karim Atiyeh, Gene Lee"
+        },
+        "ceo": {
+          "score": 0.0,
+          "answered": false,
+          "pred": ""
+        }
+      },
+      "metrics": {
+        "claims": 11,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.909,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 0,
+        "invalid_citations": 0,
+        "evidence_pages": 3,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 2,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 193.3,
+        "mode": "agent",
+        "agent_steps": 38,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 14,
+          "update_question": 9,
+          "web_search": 10,
+          "read_page": 3,
+          "finish": 1
+        },
+        "claim_attempts": 14,
+        "rejected_in_loop": 1,
+        "self_corrections": 1,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 45,
+        "input_tokens": 276756,
+        "output_tokens": 5988,
+        "llm_usd": 0.07559,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 3810,
+            "out": 2446,
+            "usd": 0.0020391000000000003
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 41,
+            "in": 272946,
+            "out": 3542,
+            "usd": 0.07354949999999999
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 2,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Anysphere (Cursor)",
+      "split": "test",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 0.0,
+          "answered": false,
+          "pred": ""
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "San Francisco"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Michael Truell, Sualeh Asif, Aman Sanger, Arvid Lunnemark"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Michael Truell"
+        }
+      },
+      "metrics": {
+        "claims": 10,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.6,
+        "must_coverage": 1.0,
+        "conflicts": 2,
+        "memo_citations": 10,
+        "invalid_citations": 0,
+        "evidence_pages": 3,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 4,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 206.8,
+        "mode": "agent",
+        "agent_steps": 39,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 11,
+          "web_search": 10,
+          "read_page": 5,
+          "update_question": 11,
+          "finish": 1
+        },
+        "claim_attempts": 11,
+        "rejected_in_loop": 0,
+        "self_corrections": 0,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 47,
+        "input_tokens": 343964,
+        "output_tokens": 5888,
+        "llm_usd": 0.09207,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 4221,
+            "out": 2593,
+            "usd": 0.00218895
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 43,
+            "in": 339743,
+            "out": 3295,
+            "usd": 0.08987824999999998
+          }
+        },
+        "crust_calls": 13,
+        "crust_credits": 13.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Groww",
+      "split": "test",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2016"
+        },
+        "hq_city": {
+          "score": 0.0,
+          "answered": true,
+          "pred": "Bellandur"
+        },
+        "founders": {
+          "score": 0.0,
+          "answered": false,
+          "pred": ""
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Lalit Keshre"
+        }
+      },
+      "metrics": {
+        "claims": 10,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 1.0,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 10,
+        "invalid_citations": 0,
+        "evidence_pages": 2,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 2,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 145.5,
+        "mode": "agent",
+        "agent_steps": 26,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 14,
+          "web_search": 10,
+          "read_page": 2,
+          "update_question": 11,
+          "finish": 2
+        },
+        "claim_attempts": 14,
+        "rejected_in_loop": 3,
+        "self_corrections": 2,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 33,
+        "input_tokens": 171975,
+        "output_tokens": 5851,
+        "llm_usd": 0.04919,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 3671,
+            "out": 2464,
+            "usd": 0.0020290499999999997
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 29,
+            "in": 168304,
+            "out": 3387,
+            "usd": 0.04715650000000001
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Deel",
+      "split": "test",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2019"
+        },
+        "hq_city": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "San Francisco"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Alex Bouaziz, Shuo Wang, Ofer Simon"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Alex Bouaziz"
+        }
+      },
+      "metrics": {
+        "claims": 18,
+        "grounded_rate": 1.0,
+        "supported_rate": 1.0,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.9,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 17,
+        "invalid_citations": 0,
+        "evidence_pages": 2,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 0,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 171.7,
+        "mode": "agent",
+        "agent_steps": 30,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 25,
+          "web_search": 10,
+          "read_page": 2,
+          "update_question": 12,
+          "finish": 1
+        },
+        "claim_attempts": 25,
+        "rejected_in_loop": 5,
+        "self_corrections": 2,
+        "skeptic_objections": 6,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 36,
+        "input_tokens": 201833,
+        "output_tokens": 8197,
+        "llm_usd": 0.0589,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 5350,
+            "out": 3687,
+            "usd": 0.0030147
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 32,
+            "in": 196483,
+            "out": 4510,
+            "usd": 0.05588575
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 1,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    },
+    {
+      "company": "Supabase",
+      "split": "test",
+      "phase": "done",
+      "error": null,
+      "facts": {
+        "founded_year": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "2020"
+        },
+        "founders": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Paul Copplestone, Ant Wilson"
+        },
+        "ceo": {
+          "score": 1.0,
+          "answered": true,
+          "pred": "Paul Copplestone"
+        }
+      },
+      "metrics": {
+        "claims": 12,
+        "grounded_rate": 1.0,
+        "supported_rate": 0.917,
+        "usable_rate": 1.0,
+        "unsupported": 0,
+        "coverage": 0.9,
+        "must_coverage": 1.0,
+        "conflicts": 0,
+        "memo_citations": 10,
+        "invalid_citations": 0,
+        "evidence_pages": 3,
+        "crustdata_record": true,
+        "rounds": 2,
+        "recoveries": 2,
+        "injected_faults": 0,
+        "failures": 0,
+        "duration_s": 162.7,
+        "mode": "agent",
+        "agent_steps": 25,
+        "tool_calls": {
+          "company_profile": 1,
+          "record_claim": 13,
+          "web_search": 11,
+          "read_page": 3,
+          "update_question": 11,
+          "finish": 2
+        },
+        "claim_attempts": 13,
+        "rejected_in_loop": 1,
+        "self_corrections": 1,
+        "skeptic_objections": 8,
+        "skeptic_rounds": 2
+      },
+      "usage": {
+        "llm_calls": 31,
+        "input_tokens": 154324,
+        "output_tokens": 6231,
+        "llm_usd": 0.04499,
+        "by_model": {
+          "groq:openai/gpt-oss-120b": {
+            "calls": 4,
+            "in": 4251,
+            "out": 2792,
+            "usd": 0.00231285
+          },
+          "gemini:gemini-3.5-flash-lite": {
+            "calls": 27,
+            "in": 150073,
+            "out": 3439,
+            "usd": 0.04267674999999999
+          }
+        },
+        "crust_calls": 12,
+        "crust_credits": 12.0,
+        "cache_hits": 2,
+        "fallback_calls": 0
+      },
+      "trace_ids": []
+    }
+  ],
+  "summary": {
+    "all": {
+      "companies": 12,
+      "completed": 12,
+      "fact_accuracy": 0.837,
+      "fact_precision": 0.939,
+      "supported_rate": 0.949,
+      "grounded_rate": 1.0,
+      "unsupported_per_memo": 0.083,
+      "coverage": 0.825,
+      "must_coverage": 0.967,
+      "conflicts_per_memo": 0.333,
+      "invalid_citations_per_memo": 0.0,
+      "recoveries": 37,
+      "usd_per_memo": 0.062,
+      "credits_per_memo": 12.25,
+      "seconds_per_memo": 182.992
+    },
+    "train": {
+      "companies": 8,
+      "completed": 8,
+      "fact_accuracy": 0.855,
+      "fact_precision": 0.946,
+      "supported_rate": 0.934,
+      "grounded_rate": 1.0,
+      "unsupported_per_memo": 0.125,
+      "coverage": 0.812,
+      "must_coverage": 0.95,
+      "conflicts_per_memo": 0.25,
+      "invalid_citations_per_memo": 0.0,
+      "recoveries": 29,
+      "usd_per_memo": 0.0624,
+      "credits_per_memo": 12.25,
+      "seconds_per_memo": 188.65
+    },
+    "test": {
+      "companies": 4,
+      "completed": 4,
+      "fact_accuracy": 0.8,
+      "fact_precision": 0.923,
+      "supported_rate": 0.979,
+      "grounded_rate": 1.0,
+      "unsupported_per_memo": 0.0,
+      "coverage": 0.85,
+      "must_coverage": 1.0,
+      "conflicts_per_memo": 0.5,
+      "invalid_citations_per_memo": 0.0,
+      "recoveries": 8,
+      "usd_per_memo": 0.0613,
+      "credits_per_memo": 12.25,
+      "seconds_per_memo": 171.675
+    }
+  }
+}
