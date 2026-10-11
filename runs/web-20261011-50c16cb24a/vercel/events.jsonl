@@ -1,0 +1,124 @@
+{"t": 1791731245.1150591, "kind": "recover", "msg": "gemini:gemini-3.8-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.7-flash", "model": "gemini:gemini-3.8-flash"}
+{"t": 1791731252.7306347, "kind": "plan", "msg": "8 questions, 16 queries for Vercel"}
+{"t": 1791731254.195764, "kind": "agent", "msg": "step 1 (gemini-3.5-flash-lite) -> company_profile()"}
+{"t": 1791731260.9566798, "kind": "crust", "msg": "company record: 40 fields"}
+{"t": 1791731262.9980302, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='founded_year', evidence_id='E1', question_id='q2', statement='Vercel was founded in 2015.', value='2015')"}
+{"t": 1791731263.011171, "kind": "extract", "msg": "C1 [q2] Vercel was founded in 2015."}
+{"t": 1791731263.0162199, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(value='San Francisco', question_id='q2', statement=\"Vercel's corporate headquarters is in San Francisco, Califor\", field='hq_city', evidence_id='E1')"}
+{"t": 1791731263.0207808, "kind": "extract", "msg": "C2 [q2] Vercel's corporate headquarters is in San Francisco, California, United States."}
+{"t": 1791731263.0207808, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q3', value='Guillermo Rauch', field='ceo', statement='Guillermo Rauch serves as the CEO of Vercel.', evidence_id='E1')"}
+{"t": 1791731263.0287814, "kind": "extract", "msg": "C3 [q3] Guillermo Rauch serves as the CEO of Vercel."}
+{"t": 1791731263.0287814, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(field='total_funding_usd', statement='Vercel has raised a total of $863,000,000 in funding.', evidence_id='E1', question_id='q4', value='863000000')"}
+{"t": 1791731263.0367754, "kind": "extract", "msg": "C4 [q4] Vercel has raised a total of $863,000,000 in funding."}
+{"t": 1791731263.0436144, "kind": "agent", "msg": "step 2 (gemini-3.5-flash-lite) -> record_claim(question_id='q5', field='headcount', evidence_id='E1', statement='Vercel has an employee count of approximately 1,014.', value='1014')"}
+{"t": 1791731263.0471494, "kind": "extract", "msg": "C5 [q5] Vercel has an employee count of approximately 1,014."}
+{"t": 1791731264.5007336, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> update_question(question_id='q2', status='answered', note='Founded in 2015, HQ in San Francisco, CA.')"}
+{"t": 1791731264.5021517, "kind": "plan", "msg": "q2 -> answered: Founded in 2015, HQ in San Francisco, CA."}
+{"t": 1791731264.5102391, "kind": "agent", "msg": "step 3 (gemini-3.5-flash-lite) -> web_search(query='Vercel founders Guillermo Rauch other founders')"}
+{"t": 1791731270.2707813, "kind": "web", "msg": "search (crustdata-web) 'Vercel founders Guillermo Rauch other founders' -> 8 results"}
+{"t": 1791731271.4439611, "kind": "agent", "msg": "step 4 (gemini-3.5-flash-lite) -> web_search(query='Vercel co-founders OR founded by \"Vercel\"')"}
+{"t": 1791731282.1906278, "kind": "web", "msg": "search (crustdata-web) 'Vercel co-founders OR founded by \"Vercel\"' -> 9 results"}
+{"t": 1791731282.197144, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731283.3513067, "kind": "agent", "msg": "step 5 (gemini-3.5-flash-lite) -> read_page(url='https://research.contrary.com/company/vercel')"}
+{"t": 1791731292.6253786, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791731292.7890103, "kind": "web", "msg": "read https://research.contrary.com/company/vercel -> E14 (4000 chars)"}
+{"t": 1791731292.819125, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731294.666166, "kind": "agent", "msg": "step 6 (gemini-3.5-flash-lite) -> record_claim(statement='Vercel was co-founded by Guillermo Rauch, Tony Kovanen, and ', question_id='q3', evidence_id='E14', field='founders', value='Guillermo Rauch, Tony Kovanen, Naoyuki Kanezawa')"}
+{"t": 1791731294.6732173, "kind": "verify", "msg": "claim rejected in-loop: quote not in E14 (match 32%) \u2014 agent must fix it"}
+{"t": 1791731296.1196878, "kind": "agent", "msg": "step 7 (gemini-3.5-flash-lite) -> web_search(query='\"Vercel was founded\" \"Guillermo Rauch\" \"Tony Kovanen\"')"}
+{"t": 1791731301.9237912, "kind": "web", "msg": "search (crustdata-web) '\"Vercel was founded\" \"Guillermo Rauch\" \"Tony Kovanen\"' -> 9 results"}
+{"t": 1791731301.9397926, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731303.5725498, "kind": "agent", "msg": "step 8 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E15', field='founders', value='Guillermo Rauch, Tony Kovanen, Naoyuki Kanezawa', question_id='q3', statement='Vercel was co-founded by Guillermo Rauch, Tony Kovanen, and ')"}
+{"t": 1791731303.5791, "kind": "verify", "msg": "self-corrected: C6 accepted after the agent fixed a rejected claim"}
+{"t": 1791731303.5806198, "kind": "extract", "msg": "C6 [q3] Vercel was co-founded by Guillermo Rauch, Tony Kovanen, and Naoyuki Kanezawa."}
+{"t": 1791731305.6279693, "kind": "agent", "msg": "step 9 (gemini-3.5-flash-lite) -> update_question(status='answered', question_id='q3', note='Founders: Guillermo Rauch, Tony Kovanen, Naoyuki Kanezawa. C')"}
+{"t": 1791731305.6279693, "kind": "plan", "msg": "q3 -> answered: Founders: Guillermo Rauch, Tony Kovanen, Naoyuki Kanezawa. CEO: Guillermo Rauch."}
+{"t": 1791731306.8883038, "kind": "agent", "msg": "step 10 (gemini-3.5-flash-lite) -> web_search(query='Vercel total funding round valuation investors Crunchbase')"}
+{"t": 1791731318.7744112, "kind": "web", "msg": "search (crustdata-web) 'Vercel total funding round valuation investors Crunchbase' -> 9 results"}
+{"t": 1791731318.7928967, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731320.21096, "kind": "agent", "msg": "step 11 (gemini-3.5-flash-lite) -> web_search(query='Vercel valuation $9.3 billion funding round 2024 2025')"}
+{"t": 1791731326.3795588, "kind": "web", "msg": "search (crustdata-web) 'Vercel valuation $9.3 billion funding round 2024 2025' -> 9 results"}
+{"t": 1791731326.3861628, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731327.9229429, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> record_claim(field='last_round', statement='Vercel announced a Series F funding round of $300M valuing t', question_id='q4', evidence_id='E28', value='Series F, $300M, $9.3 billion valuation')"}
+{"t": 1791731327.9229429, "kind": "extract", "msg": "C7 [q4] Vercel announced a Series F funding round of $300M valuing the company at $9.3 billion."}
+{"t": 1791731327.9309406, "kind": "agent", "msg": "step 12 (gemini-3.5-flash-lite) -> record_claim(evidence_id='E32', value='Accel, GIC', statement=\"Vercel's Series F was co-led by Accel and GIC.\", field='total_funding_usd', question_id='q4')"}
+{"t": 1791731327.9389389, "kind": "extract", "msg": "C8 [q4] Vercel's Series F was co-led by Accel and GIC."}
+{"t": 1791731329.3704689, "kind": "agent", "msg": "step 13 (gemini-3.5-flash-lite) -> update_question(note='Total funding ~$863M cumulatively across 6 rounds, latest Se', question_id='q4', status='answered')"}
+{"t": 1791731329.3704689, "kind": "plan", "msg": "q4 -> answered: Total funding ~$863M cumulatively across 6 rounds, latest Series F of $300M in S"}
+{"t": 1791731330.7588592, "kind": "agent", "msg": "step 14 (gemini-3.5-flash-lite) -> web_search(query='Vercel core products target customers business model revenue')"}
+{"t": 1791731340.668738, "kind": "web", "msg": "search (crustdata-web) 'Vercel core products target customers business model revenue monetization' -> 8 results"}
+{"t": 1791731340.679124, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731342.299685, "kind": "agent", "msg": "step 15 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Vercel offers the Frontend Cloud / AI Cloud platform (featur', question_id='q1')"}
+{"t": 1791731343.7535698, "kind": "agent", "msg": "step 16 (gemini-3.5-flash-lite) -> record_claim(statement='Vercel monetizes through usage-based pricing (compute, bandw', question_id='q1', field='business_model', value='usage-based pricing, per-seat Pro subscriptions, enterprise ', evidence_id='E37')"}
+{"t": 1791731343.7592678, "kind": "extract", "msg": "C9 [q1] Vercel monetizes through usage-based pricing (compute, bandwidth, storage) and per-seat Pr"}
+{"t": 1791731345.3105772, "kind": "agent", "msg": "step 17 (gemini-3.5-flash-lite) -> update_question(note='Vercel offers the Frontend Cloud / AI Cloud platform (featur', status='answered', question_id='q1')"}
+{"t": 1791731345.311593, "kind": "plan", "msg": "q1 -> answered: Vercel offers the Frontend Cloud / AI Cloud platform (featuring Next.js, deploym"}
+{"t": 1791731346.9561443, "kind": "agent", "msg": "step 18 (gemini-3.5-flash-lite) -> web_search(query='Vercel ARR enterprise customers headcount metrics 2025 2026')"}
+{"t": 1791731352.618207, "kind": "web", "msg": "search (crustdata-web) 'Vercel ARR enterprise customers headcount metrics 2025 2026' -> 9 results"}
+{"t": 1791731352.618207, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731354.4561455, "kind": "agent", "msg": "step 19 (gemini-3.5-flash-lite) -> record_claim(statement='Vercel crossed a $500M revenue run rate in July 2026, up fro', field='none', evidence_id='E39', value='$500M revenue run rate', question_id='q5')"}
+{"t": 1791731354.468402, "kind": "extract", "msg": "C10 [q5] Vercel crossed a $500M revenue run rate in July 2026, up from $200M ARR in 2025."}
+{"t": 1791731355.8476877, "kind": "agent", "msg": "step 20 (gemini-3.5-flash-lite) -> update_question(status='answered', note='Vercel crossed a $500M revenue run rate in mid-2026 (up from', question_id='q5')"}
+{"t": 1791731355.8513029, "kind": "plan", "msg": "q5 -> answered: Vercel crossed a $500M revenue run rate in mid-2026 (up from ~$200M ARR previous"}
+{"t": 1791731356.9180233, "kind": "agent", "msg": "step 21 (gemini-3.5-flash-lite) -> web_search(query='Vercel competitors AWS Amplify Netlify Cloudflare Pages')"}
+{"t": 1791731367.5040498, "kind": "web", "msg": "search (crustdata-web) 'Vercel competitors AWS Amplify Netlify Cloudflare Pages' -> 9 results"}
+{"t": 1791731367.520046, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731369.008523, "kind": "agent", "msg": "step 22 (gemini-3.5-flash-lite) -> update_question(question_id='q6', note='Primary competitors include Netlify, Cloudflare Pages, AWS A', status='answered')"}
+{"t": 1791731370.3209343, "kind": "agent", "msg": "step 23 (gemini-3.5-flash-lite) -> record_claim(value='zero-config Next.js support', question_id='q6', statement='Vercel is the most common choice when speed-to-cutover and z', field='none', evidence_id='E46')"}
+{"t": 1791731370.329571, "kind": "extract", "msg": "C11 [q6] Vercel is the most common choice when speed-to-cutover and zero-config Next.js support mat"}
+{"t": 1791731371.510602, "kind": "agent", "msg": "step 24 (gemini-3.5-flash-lite) -> update_question(note='Primary competitors include Netlify, Cloudflare Pages, AWS A', status='answered', question_id='q6')"}
+{"t": 1791731371.510602, "kind": "plan", "msg": "q6 -> answered: Primary competitors include Netlify, Cloudflare Pages, AWS Amplify, Render, Fly."}
+{"t": 1791731371.5192497, "kind": "agent", "msg": "round 1 ended on budget after 24 steps"}
+{"t": 1791731371.5309236, "kind": "verify", "msg": "grounding: 11/11 quotes found in their cited source"}
+{"t": 1791731374.2676027, "kind": "verify", "msg": "judge: 11 supported, 0 partial, 0 rejected of 11"}
+{"t": 1791731374.7386913, "kind": "recover", "msg": "gemini:gemini-3.7-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.6-flash", "model": "gemini:gemini-3.7-flash"}
+{"t": 1791731380.6713536, "kind": "recover", "msg": "llm smart:gemini:gemini-3.6-flash: HTTP 503 -> retry 1/3 in 2.2s", "what": "llm smart:gemini:gemini-3.6-flash"}
+{"t": 1791731383.2146719, "kind": "recover", "msg": "gemini:gemini-3.6-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.5-flash", "model": "gemini:gemini-3.6-flash"}
+{"t": 1791731383.517402, "kind": "recover", "msg": "gemini:gemini-3.5-flash failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to groq:openai/gpt-oss-120b", "model": "gemini:gemini-3.5-flash"}
+{"t": 1791731384.8526165, "kind": "skeptic", "msg": "objection [q5]: Headcount figure relies on a single source (Crustdata) of unclear credibility"}
+{"t": 1791731384.856825, "kind": "skeptic", "msg": "objection [q5]: ARR estimate is inferred from revenue run\u2011rate claim without independent verification"}
+{"t": 1791731384.8578498, "kind": "skeptic", "msg": "objection [q7]: No information provided about product launches, partnerships, acquisitions, or milestones in the past 12 month"}
+{"t": 1791731384.8578498, "kind": "skeptic", "msg": "objection [q8]: Risks section is empty and lacks sourced evidence about pricing, lock\u2011in, or community sentiment"}
+{"t": 1791731384.8738506, "kind": "skeptic", "msg": "sending the analyst back for round 2"}
+{"t": 1791731386.7646098, "kind": "agent", "msg": "step 25 (gemini-3.5-flash-lite) -> web_search(query='Vercel headcount LinkedIn Crunchbase employee count 2026')"}
+{"t": 1791731392.0348299, "kind": "web", "msg": "search (crustdata-web) 'Vercel headcount LinkedIn Crunchbase employee count 2026' -> 9 results"}
+{"t": 1791731392.0576837, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731394.9087198, "kind": "agent", "msg": "step 26 (gemini-3.5-flash-lite) -> record_claim(statement='Vercel has 1,011 employees as of August 2026 according to Tr', question_id='q5', field='headcount', value='1011', evidence_id='E53')"}
+{"t": 1791731394.9165735, "kind": "extract", "msg": "C12 [q5] Vercel has 1,011 employees as of August 2026 according to Tracxn."}
+{"t": 1791731397.0295463, "kind": "agent", "msg": "step 27 (gemini-3.5-flash-lite) -> web_search(query='Vercel major product launches partnerships acquisitions 2025')"}
+{"t": 1791731405.691519, "kind": "web", "msg": "search (crustdata-web) 'Vercel major product launches partnerships acquisitions 2025 2026' -> 8 results"}
+{"t": 1791731405.7069404, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731407.7334816, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(field='none', question_id='q7', value='Tremor acquisition', statement='Vercel acquired Tremor in January 2025.', evidence_id='E57')"}
+{"t": 1791731407.7414942, "kind": "extract", "msg": "C13 [q7] Vercel acquired Tremor in January 2025."}
+{"t": 1791731407.751573, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(field='none', question_id='q7', statement='Globant announced a multi-year strategic alliance with Verce', evidence_id='E58', value='Globant strategic alliance')"}
+{"t": 1791731407.757852, "kind": "extract", "msg": "C14 [q7] Globant announced a multi-year strategic alliance with Vercel in July 2026."}
+{"t": 1791731407.765727, "kind": "agent", "msg": "step 28 (gemini-3.5-flash-lite) -> record_claim(value='Better Auth acquisition', statement='Vercel acquired Better Auth in June 2026.', evidence_id='E59', field='none', question_id='q7')"}
+{"t": 1791731407.7737272, "kind": "extract", "msg": "C15 [q7] Vercel acquired Better Auth in June 2026."}
+{"t": 1791731408.312387, "kind": "recover", "msg": "gemini:gemini-3.5-flash-lite failed (daily quota exhausted: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please ch); falling back to gemini:gemini-3.1-flash-lite", "model": "gemini:gemini-3.5-flash-lite"}
+{"t": 1791731418.9300072, "kind": "agent", "msg": "step 29 (gemini-3.1-flash-lite) -> update_question(note='Recent milestones: Acquired Tremor (Jan 2025), Better Auth (', status='answered', question_id='q7')"}
+{"t": 1791731418.9300072, "kind": "plan", "msg": "q7 -> answered: Recent milestones: Acquired Tremor (Jan 2025), Better Auth (June 2026); Strategi"}
+{"t": 1791731419.8250997, "kind": "recover", "msg": "llm agent:gemini:gemini-3.1-flash-lite: HTTP 503 -> retry 1/3 in 2.1s", "what": "llm agent:gemini:gemini-3.1-flash-lite"}
+{"t": 1791731430.9846268, "kind": "recover", "msg": "llm agent:gemini:gemini-3.1-flash-lite: succeeded on attempt 2", "what": "llm agent:gemini:gemini-3.1-flash-lite", "recovered": true}
+{"t": 1791731430.9846268, "kind": "agent", "msg": "step 30 (gemini-3.1-flash-lite) -> read_page(url='https://devgraphiq.com/vercel-statistics/')"}
+{"t": 1791731435.5035336, "kind": "crust", "msg": "fetched 1/1 pages via Crustdata"}
+{"t": 1791731435.5035336, "kind": "web", "msg": "read https://devgraphiq.com/vercel-statistics/ -> E63 (4000 chars)"}
+{"t": 1791731435.5195303, "kind": "info", "msg": "context compacted: older page text replaced with stubs"}
+{"t": 1791731442.3505583, "kind": "agent", "msg": "step 31 (gemini-3.1-flash-lite) -> web_search(query='Vercel lock-in risks pricing criticism open-source community')"}
+{"t": 1791731448.7042327, "kind": "agent", "msg": "step 32 (gemini-3.1-flash-lite) -> record_claim(question_id='q8', evidence_id='E62', field='none', statement='Critics express concern regarding vendor lock-in due to Verc', value='vendor lock-in, Next.js framework dependency')"}
+{"t": 1791731448.7108357, "kind": "verify", "msg": "claim rejected in-loop: quote not in E62 (match 83%) \u2014 agent must fix it"}
+{"t": 1791731455.5069141, "kind": "agent", "msg": "step 33 (gemini-3.1-flash-lite) -> record_claim(evidence_id='E62', value='usage-based pricing pivot', question_id='q8', statement='Vercel has pivoted its business model to usage-based pricing', field='none')"}
+{"t": 1791731455.5069141, "kind": "verify", "msg": "self-corrected: C16 accepted after the agent fixed a rejected claim"}
+{"t": 1791731455.5134866, "kind": "extract", "msg": "C16 [q8] Vercel has pivoted its business model to usage-based pricing."}
+{"t": 1791731461.8752768, "kind": "agent", "msg": "step 34 (gemini-3.1-flash-lite) -> update_question(status='answered', question_id='q8', note='Risks include potential vendor lock-in due to deep framework')"}
+{"t": 1791731461.8752768, "kind": "plan", "msg": "q8 -> answered: Risks include potential vendor lock-in due to deep framework (Next.js) coupling "}
+{"t": 1791731469.1099253, "kind": "agent", "msg": "step 35 (gemini-3.1-flash-lite) -> finish(summary='Vercel is a San Francisco-based developer platform founded i')"}
+{"t": 1791731469.1756117, "kind": "verify", "msg": "grounding: 5/5 quotes found in their cited source"}
+{"t": 1791731476.6889434, "kind": "verify", "msg": "judge: 5 supported, 0 partial, 0 rejected of 5"}
+{"t": 1791731477.9491012, "kind": "recover", "msg": "skeptic: invalid JSON from groq:openai/gpt-oss-120b (1 validation error for Review\nobjections.4.issue\n  Field required [type=missing,); repairing", "prompt": "skeptic"}
+{"t": 1791731481.7231352, "kind": "recover", "msg": "skeptic: JSON repaired", "prompt": "skeptic", "recovered": true}
+{"t": 1791731481.7231352, "kind": "skeptic", "msg": "objection [q4]: Key funding and valuation figures rely on a single blog post and a SaaStr article; need corroboration from a r"}
+{"t": 1791731481.7231352, "kind": "skeptic", "msg": "objection [q5]: ARR and revenue run\u2011rate numbers are based on a niche blog and may be outdated or speculative"}
+{"t": 1791731481.7301419, "kind": "skeptic", "msg": "objection [q5]: Employee headcount is reported inconsistently (1,014 vs 1,011) and sourced from different third\u2011party sites"}
+{"t": 1791731481.7301419, "kind": "skeptic", "msg": "objection [q7]: Acquisition of Better Auth and strategic alliance with Globant are recent but only cited from company blog and"}
+{"t": 1791731486.3076112, "kind": "memo", "msg": "memo written: 15 distinct verified claims cited, recommendation: strong interest \u2013 Vercel shows strong growth, substantial funding, and a compelling usage\u2011"}
+{"t": 1791731577.0666754, "kind": "memo", "msg": "done in 245.2s \u00b7 16 claims \u00b7 100% supported \u00b7 0 conflicts \u00b7 $0.067 LLM \u00b7 14 Crustdata credits \u00b7 10 recoveries"}

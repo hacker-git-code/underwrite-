@@ -16,7 +16,8 @@ and only keeps a change if the numbers improve.
 - Challenge: "Build agents you'd trust to run without you watching." (single track)
 - Required tools: neatlogs (tracing + Coach loop), Entire (checkpointed build sessions), cfo.ai (business plan)
 - Repo: https://github.com/hacker-git-code/underwrite-
-- Live site: https://hacker-git-code.github.io/underwrite-/ (after GitHub Pages is enabled)
+- Live site: https://hacker-git-code.github.io/underwrite-/
+- Try it (public web app on AWS EC2): https://184-73-13-58.sslip.io
 
 ## Team
 
@@ -53,13 +54,22 @@ and only keeps a change if the numbers improve.
 - v1 baseline eval running (12 companies).
 - Tests: `tests/test_offline.py` 6/6 pass (pipeline, resume after crash, chaos recovery, fact scoring, SSRF, HTML escaping).
 
+### 2026-10-11
+
+- Agent mode (analyst tool loop + skeptic review), watch mode, model-chain waits; agent v1 eval on all 12 companies.
+- Coach v1 -> v2 from neatlogs traces/detections/triage over MCP + eval failures: held-out facts right 66.7% -> 80.0%,
+  supported by source 82% -> 98%, but coverage 91% -> 83% and train accuracy dipped, so its gate rejected v2
+  (`prompts/v2/COACH_NOTES.md`). v1 stays in production.
+- Underwrite Live: public web app (`underwrite serve`) on an AWS EC2 t3.small behind Caddy/HTTPS; anyone can type a
+  company and watch the agents work. First public-style run: Vercel, 16/16 claims verified, 8 skeptic objections, 5.6 min.
+
 ## Demo
 
 - Script: `submission/DEMO_SCRIPT.md` (video pending)
 
 ## Evidence checklist (from the hackathon page)
 
-- [ ] Before/after run comparison with numbers — after the Coach run (`prompts/v2/COACH_NOTES.md`)
+- [x] Before/after run comparison with numbers — README "Results" + `prompts/v2/COACH_NOTES.md`
 - [x] neatlogs trace links / screenshots — trace ids printed per run and in each dossier appendix
 - [x] Entire checkpoints from the repo — `Entire-Checkpoint:` trailers, refs pushed to GitHub
 - [ ] cfo.ai business plan (pricing, costs, revenue, runway) — inputs ready in `business/PLAN.md`

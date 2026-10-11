@@ -7,6 +7,9 @@ agent** attacks the result and sends the analyst back until the evidence holds u
 company each night and re-investigates only what changed. A **coach agent** reads all of this from
 [neatlogs](https://neatlogs.com) traces, rewrites the agents' prompts, and keeps a change only if the eval score goes up.
 
+**Try it yourself, free, in your browser:** https://184-73-13-58.sslip.io (type any startup and watch the agents
+research it live; runs on AWS)
+
 **Live site (memo gallery + scoreboard):** https://hacker-git-code.github.io/underwrite-/
 &nbsp;·&nbsp; Built for **#neatHack** (Oct 10–12, 2026), theme: *"Build agents you'd trust to run without you watching."*
 
@@ -243,6 +246,7 @@ Keys (all have free tiers):
 | `underwrite rescore <eval_run_id>` | Re-grade a finished eval after a ground-truth fix, using the memos it already wrote |
 | `underwrite render <run_id> [--open]` | Re-draw dossiers (HTML + PDF) without re-running the agent |
 | `underwrite site [--open]` | Build the website in `docs/` (merges with what's already published) |
+| `underwrite serve [--port 8080]` | Underwrite Live: the public web app (queue, live agent trail, dossiers, free-use limits) |
 | `underwrite doctor` | Check keys, models, Crustdata balance and the neatlogs MCP connection |
 
 ## Configuration
