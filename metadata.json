@@ -3,13 +3,15 @@
   "checkpoint_id": "01M4NR8NPYMNR7DBJPMS61E124",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 2,
+  "checkpoints_count": 8,
   "files_touched": [
     ".gitignore",
     "business/PLAN.md",
     "deploy/README.md",
     "deploy/web.sh",
     "runs/eval-v1-agent-all-20261010-211950/deel/events.jsonl",
+    "runs/eval-v1-agent-all-20261010-211950/deel/memo.html",
+    "runs/eval-v1-agent-all-20261010-211950/deel/memo.md",
     "runs/eval-v1-agent-all-20261010-211950/eval.json",
     "runs/eval-v1-agent-all-20261010-211950/supabase/events.jsonl",
     "runs/eval-v2-agent-all-20261011-174143/hugging-face/events.jsonl",
@@ -32,13 +34,20 @@
       "compact_transcript": "/0/transcript.jsonl",
       "content_hash": "/0/content_hash.txt",
       "prompt": "/0/prompt.txt"
+    },
+    {
+      "metadata": "/1/metadata.json",
+      "transcript": "/1/full.jsonl",
+      "compact_transcript": "/1/transcript.jsonl",
+      "content_hash": "/1/content_hash.txt",
+      "prompt": "/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 384,
-    "cache_creation_tokens": 1121205,
-    "cache_read_tokens": 94837534,
-    "output_tokens": 467965,
-    "api_call_count": 221
+    "input_tokens": 750,
+    "cache_creation_tokens": 3027574,
+    "cache_read_tokens": 193195118,
+    "output_tokens": 913685,
+    "api_call_count": 402
   }
 }
