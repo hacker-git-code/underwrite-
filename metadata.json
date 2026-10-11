@@ -1,0 +1,44 @@
+{
+  "cli_version": "0.11.4",
+  "checkpoint_id": "01M4NR8NPYMNR7DBJPMS61E124",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    ".gitignore",
+    "business/PLAN.md",
+    "deploy/README.md",
+    "deploy/web.sh",
+    "runs/eval-v1-agent-all-20261010-211950/deel/events.jsonl",
+    "runs/eval-v1-agent-all-20261010-211950/eval.json",
+    "runs/eval-v1-agent-all-20261010-211950/supabase/events.jsonl",
+    "runs/eval-v2-agent-all-20261011-174143/hugging-face/events.jsonl",
+    "runs/eval-v2-agent-all-20261011-174143/mistral-ai/events.jsonl",
+    "runs/eval-v2-agent-all-20261011-174143/mistral-ai/memo.html",
+    "runs/eval-v2-agent-all-20261011-174143/mistral-ai/memo.md",
+    "runs/eval-v2-agent-all-20261011-174143/posthog/memo.html",
+    "runs/eval-v2-agent-all-20261011-174143/posthog/memo.md",
+    "runs/eval-v2-agent-all-20261011-174143/postman/memo.html",
+    "runs/eval-v2-agent-all-20261011-174143/postman/memo.md",
+    "runs/eval-v2-agent-all-20261011-174143/razorpay/events.jsonl",
+    "underwrite/cli.py",
+    "underwrite/web.py",
+    "underwrite/webui/index.html"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 384,
+    "cache_creation_tokens": 1121205,
+    "cache_read_tokens": 94837534,
+    "output_tokens": 467965,
+    "api_call_count": 221
+  }
+}
