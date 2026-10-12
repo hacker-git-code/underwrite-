@@ -20,8 +20,8 @@ from .models import CompanyState
 from .pipeline import slug
 
 REPO = "https://github.com/hacker-git-code/underwrite-"
-# Underwrite Live (the public web app on the EC2 box). Set UW_LIVE_URL in .env; the button only appears when set.
-LIVE_URL = os.environ.get("UW_LIVE_URL", "").strip()
+# Underwrite Live (the public web app on the EC2 box). Override with UW_LIVE_URL; set it empty to hide the button.
+LIVE_URL = os.environ.get("UW_LIVE_URL", "https://184-73-13-58.sslip.io").strip()
 
 
 def esc(s: object) -> str:
@@ -89,14 +89,14 @@ h2{font:400 20px "Special Elite",monospace;letter-spacing:.08em;margin:0 0 14px;
 .steps li{border:1px dashed #9a958a;padding:10px 12px;counter-increment:s}
 .steps li:before{content:counter(s);display:inline-block;width:24px;height:24px;border:1.6px solid var(--red);border-radius:50%;
   color:var(--red);font:700 15px/21px Caveat,cursive;text-align:center;margin-right:6px;transform:rotate(-6deg)}
-.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;white-space:nowrap}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;white-space:nowrap}th{white-space:normal;vertical-align:bottom}
 .tag{font-size:11px;border:1.5px solid var(--red);color:var(--red);padding:0 5px;border-radius:3px;text-transform:uppercase}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.15),0 8px 18px rgba(0,0,0,.14);padding:18px 20px 16px;position:relative;
   background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#d8d1bf 27px,#d8d1bf 28px);background-position:0 54px}
 .card:nth-child(odd){transform:rotate(-.4deg)}.card:nth-child(even){transform:rotate(.35deg)}
-.card h3{font:400 22px "Special Elite",monospace;margin:0 0 2px}
+.card h3{font:400 22px "Special Elite",monospace;margin:0 0 2px;padding-right:118px}
 .card .upd{font:500 18px/1.2 Caveat,cursive;color:var(--red);margin:-2px 0 8px;padding-right:90px}.card .dom{font-size:13px;color:var(--mut);margin-bottom:10px}
 .card .rec{font:500 21px/28px Caveat,cursive;color:var(--ink);min-height:84px;text-transform:uppercase}
 .card .stamp{position:absolute;top:14px;right:14px;transform:rotate(-9deg);border:2.5px solid var(--red);color:var(--red);
