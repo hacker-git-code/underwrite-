@@ -300,7 +300,7 @@ tests/              offline end-to-end tests (fake LLM + fake tools)
 
 ## Evidence checklist for judges
 
-- [ ] **Before/after with numbers**: [Results](#results), `prompts/v2/COACH_NOTES.md`, `underwrite compare v1 v2`
+- [x] **Before/after with numbers**: [Results](#results), `prompts/v2/COACH_NOTES.md`, `underwrite compare v1 v2`
 - [x] **neatlogs traces**: every run is a trace in the project; ids are printed by each run and in each dossier's appendix
 - [x] **Entire checkpoints**: `Entire-Checkpoint:` trailers on commits; `entire checkpoint list` in a clone
 - [ ] **cfo.ai business plan**: `business/PLAN.md` + cfo.ai model

@@ -1,22 +1,33 @@
-# Demo video script (target 2:50)
+# Demo video (2:10)
 
-Judging weights the video at 20% ("how clearly it explains the agent and the tool use") and the agent itself at 30%,
-so the video is built around **watching the agents make decisions**. Record at 1080p, terminal font ≥ 16pt.
+Published with the launch quote-tweet (1920×1080, 30 fps, H.264 + AAC, 24 MB; under X's 2:20 upload limit). The
+rendered file and thumbnail stay out of git (`submission/underwrite-demo.mp4`, `submission/video-thumbnail.png`).
 
-**Before recording, open in tabs:** the live site · one agent dossier (Ramp) · its neatlogs trace · GitHub commits ·
-`prompts/v2/COACH_NOTES.md` · `submission/ENTIRE.md` · the cfo.ai model. Warm the cache once:
-`uv run underwrite run "Ramp" --domain ramp.com --chaos 0.2`.
+**How it was made.** Every shot is a real screen recording, nothing mocked up: a headless browser typed "Perplexity"
+into Underwrite Live on Oct 12 and filmed the whole 8-minute run, then opened the dossier it wrote; the code, Coach
+notes and Entire commit shots are the public GitHub pages. Waiting is sped up and marked with an "N× speed" badge.
+The voiceover is AI-generated (Microsoft Edge neural voice), and captions are burned in because X autoplays muted.
 
-| Time | On screen | Say |
+The filmed run: 21 claims, 100% supported by their source, 5 misquotes rejected the moment they were recorded (the
+agent fixed them in 3 self-corrections), 5 skeptic objections over two rounds, 12 failures recovered (Gemini 503s, a daily-quota fallback), 12
+Crustdata credits, 487 s. Dossier: https://184-73-13-58.sslip.io/memo/perplexity/
+
+| Time | On screen | Voiceover |
 |---|---|---|
-| 0:00–0:12 | Live site hero, then click **TRY IT LIVE** | "Underwrite is a team of AI agents that does venture due diligence overnight, and checks its own work, because the theme is agents you'd trust without watching. And anyone can try it." |
-| 0:12–0:30 | **Underwrite Live** (https://184-73-13-58.sslip.io): type a company, press RESEARCH IT, the case file opens and the trail starts (speed up 4×; pause on a `CHECK … claim rejected in-loop` line) | "You type a startup, and you watch the agents work in real time: searching, reading, recording facts. Here the checker caught a misquote and sent the agent back to fix it. This runs on AWS, with limits so the free credits last." |
-| 0:12–0:45 | Terminal, `underwrite run "Ramp"` (speed up 3×). Pause on `[agent] step N -> web_search(...)`, then a `REJECTED` line and the `self-corrected` line | "The analyst agent decides every move: pull the **Crustdata** record, search, read a page, record a claim. Each claim has to quote its source exactly, and it's checked the instant it's recorded. Here it misquoted, got bounced, and fixed it itself." |
-| 0:45–1:05 | Pause on `[skeptic] objection…` and `sending the analyst back` | "Then a skeptic agent attacks the work: 'your traction numbers come from one blog, and you never checked risks.' It sends the analyst back. Nobody told it to look for a congressional investigation into Ramp; it found one because the skeptic pushed." |
-| 1:05–1:25 | Dossier page 1 (hover a red circle), page 3 (skeptic rounds, rejected claims) | "The output is an evaluation form like Sequoia's 1977 Apple memo. Every red number links to the exact quote; page three shows the skeptic's objections and what was thrown out." |
-| 1:25–1:40 | Terminal: chaos run (`[inject]` → `[recover]`), and the `daily quota exhausted → falling back` lines | "Failures are normal: rate limits, dead models, broken output. It retries, switches models or data sources, and every step is checkpointed, so even a crash resumes mid-investigation." |
-| 1:40–1:55 | Terminal `underwrite watch` (`CHANGED …` lines) + an UPDATED card on the site | "Every night a watcher re-checks each company and re-investigates only what changed." |
-| 1:55–2:25 | **neatlogs** trace tree → `underwrite coach` output → `COACH_NOTES.md` → `underwrite compare` table | "Every run is a trace in **neatlogs**. The coach agent reads those traces, detections and triage fixes over the neatlogs MCP server, rewrites the agents' prompts, and re-runs a 12-company exam with an answer key. Its new version made the memos far more trustworthy: on companies it never saw, facts right went from 67 to 80 percent and 98 percent of claims were backed by their source. But it answered fewer questions and slipped on the training companies, so the coach **rejected its own change**. That's what you want from something running unattended: it doesn't ship a change just because one number looks good." |
-| 2:25–2:38 | `submission/ENTIRE.md` / `entire checkpoint list` / `entire graph checkpoint` | "**Entire** checkpointed every coding session, and its code graph mapped the refactor from pipeline to agents before we touched it." |
-| 2:38–2:48 | **cfo.ai** model | "**cfo.ai** turned measured cost per memo into pricing, margins and runway." |
-| 2:48–2:50 | Site memo grid | "Underwrite: the diligence team that works while you sleep." |
+| 0:00 | Underwrite Live, typing "Perplexity" | Okay. So this is Underwrite. You type in any startup, and a team of AI agents does the due diligence an analyst would spend hours on. |
+| 0:08 | Case file opens, trail starts (4×) | The problem with research agents? They make stuff up. Confidently. And at 3 a.m., nobody's there to catch it. |
+| 0:15 | Agent trail (7×) | So here, the analyst agent picks every move. Pull the Crustdata record. Search. Read a page. Record a fact. But every fact has to quote the exact sentence it came from, and code checks that quote against the source the moment it's recorded. |
+| 0:29 | Punch-in: `claim rejected in-loop` (red box) → `self-corrected` (green box) | Watch. It misquoted a source, got bounced, and fixed it itself. |
+| 0:34 | Trail (fast) to `judge: 16 supported` | Then an independent judge checks that each quote actually proves the claim. |
+| 0:38 | Skeptic objections ("sourced from low-authority SEO blogs") | And then, my favorite part. A skeptic agent reads everything and basically goes: nah. Your traction numbers come from SEO blogs. Go back. |
+| 0:48 | Round two (fast) → VERIFIED stamp | So the analyst goes back for round two. Eight minutes later, you get this. |
+| 0:53 | Dossier page 1, hovering red source numbers | An evaluation form, styled after Sequoia's 1977 memo on Apple. Every red number is a source. Hover it, and there's the exact quote. |
+| 1:02 | Page 2, page 3 appendix | Page two is the memo. Page three is the receipts: every source, every claim it threw out, and the full agent log. |
+| 1:10 | Punch-in: `RECOVERED … daily quota exhausted; falling back` | And stuff breaks overnight. Models run out of quota. APIs time out. It falls back, retries, and checkpoints every single step. This one run recovered twelve times, on its own. |
+| 1:22 | `coach.py`: neatlogs MCP calls (`list_detections`, `triage_list`, `search_traces`, …) | Now the wild part. Every run is traced in neatlogs. A coach agent reads those traces, detections and suggested fixes, over the neatlogs MCP server. |
+| 1:33 | `prompts/v2/COACH_NOTES.md` (Decision: rejected) | It rewrites the agents' prompts, and re-runs a twelve-company exam with an answer key. |
+| 1:38 | Held-out results table | On companies it had never seen, facts right went from 67 to 80 percent. Claims backed by their source: 82 to 98. |
+| 1:47 | Site scoreboard, REJECTED tags; `decide()` gate | But it answered fewer questions. So the coach rejected its own upgrade. Which is exactly what you want from an agent nobody's watching. |
+| 1:54 | Commit e473e38 with its `Entire-Checkpoint:` trailer | Every coding session that built this is checkpointed with Entire, and the live app runs on AWS. |
+| 2:00 | Site → TRY IT LIVE → Underwrite Live | It's live right now. Go type in a startup. Link's below. Underwrite. Due diligence that works while you sleep. |
+| 2:06 | End card: try-it URL, repo, tools | |

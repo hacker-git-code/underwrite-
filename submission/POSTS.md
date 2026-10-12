@@ -28,6 +28,64 @@ in `hackathon.md`. Tag the official neatlogs, Entire, cfo.ai and Crustdata accou
 > Underwrite now runs every night at 2am on an AWS EC2 box: researches 3 new startups, publishes the memos, pushes to GitHub. No one watching.
 > Live: https://hacker-git-code.github.io/underwrite-/ · code: https://github.com/hacker-git-code/underwrite- #neatHack
 
-## Submission (Mon Oct 12, 7:00–11:55 PM IST)
-Quote the official neatlogs post with:
-> **Team:** Rehan Momin (solo) · **Project:** Underwrite: an autonomous due-diligence agent that verifies every claim and improves itself from its neatlogs traces · **Try it:** https://184-73-13-58.sslip.io · **Repo:** https://github.com/hacker-git-code/underwrite- · **Site:** https://hacker-git-code.github.io/underwrite-/ · **Demo:** <video link> #neatHack
+## Launch quote-tweet
+
+Submission night (Mon Oct 12, 7:00–11:55 PM IST). **Quote-tweet the official @neatlogs launch post** with this text
+and attach `submission/underwrite-demo.mp4` as native video. Every post below is within X's 280-character limit
+(links count as 23; the main post is 279, so if X says it's too long, change `try it ↓` to `try it:`).
+
+**Main post (the quote-tweet, video attached):**
+
+```text
+i built AI agents that do VC due diligence while you sleep.
+
+every fact must quote its source. a skeptic sends them back. a coach read their traces, rewrote their prompts, then rejected its own upgrade.
+
+try it ↓
+https://184-73-13-58.sslip.io
+
+@neatlogs @EntireHQ @arithecfo #neatHack
+```
+
+**Reply 1 (attach: the dossier screenshot, `submission/video-thumbnail.png`):**
+
+```text
+how it works 🧵
+
+→ an analyst agent picks every move: Crustdata record, search, read a page, record a fact
+→ each fact must quote its source; code checks the quote instantly
+→ a separate judge checks the quote proves it
+→ a skeptic sends it back until the evidence holds
+```
+
+**Reply 2:**
+
+```text
+you get a 3-page dossier styled after Sequoia's 1977 Apple memo. every red number links the exact quote; page 3 is the receipts.
+
+the run in the video: Perplexity, 8 min, 21 claims, 100% source-backed, 12 failures recovered on its own.
+```
+
+**Reply 3 (attach: screenshot of the scoreboard with the REJECTED tags, or `prompts/v2/COACH_NOTES.md`):**
+
+```text
+my favorite part: a coach agent reads their @neatlogs traces, detections and triage over MCP, rewrites the prompts, re-runs a 12-company exam.
+
+unseen companies: facts right 67%→80%, source-backed claims 82%→98%.
+
+but it answered fewer questions, so it rejected its own change.
+```
+
+**Reply 4:**
+
+```text
+built solo in 3 days for #neatHack. every coding session is checkpointed with @EntireHQ.
+
+code: https://github.com/hacker-git-code/underwrite-
+memos + scoreboard: https://hacker-git-code.github.io/underwrite-/
+
+go make it research your favorite startup 👀
+```
+
+Every number above is real: the Perplexity run is the one filmed for the video (Underwrite Live, Oct 12), and the
+Coach numbers are the held-out split in `prompts/v2/COACH_NOTES.md`.

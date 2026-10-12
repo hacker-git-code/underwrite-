@@ -63,9 +63,18 @@ and only keeps a change if the numbers improve.
 - Underwrite Live: public web app (`underwrite serve`) on an AWS EC2 t3.small behind Caddy/HTTPS; anyone can type a
   company and watch the agents work. First public-style run: Vercel, 16/16 claims verified, 8 skeptic objections, 5.6 min.
 
+### 2026-10-12
+
+- Launch prep: fixed the site dropping its TRY IT LIVE button on any rebuild without `UW_LIVE_URL` (it now defaults to
+  the live URL, so the nightly rebuild can't remove it); scoreboard fits the page; long names clear the VERIFIED stamp.
+- Browser audit of the live app, site and dossiers at desktop and phone widths: no console errors or failed requests.
+- Filmed a real run on Underwrite Live for the demo: Perplexity, 21 claims, 100% supported, 5 misquotes rejected and
+  fixed in-loop, 5 skeptic objections over two rounds, 12 recoveries, 12 Crustdata credits, 8.1 min.
+- Demo video (2:10, AI voiceover, real footage only) and the launch quote-tweet + thread: `submission/`.
+
 ## Demo
 
-- Script: `submission/DEMO_SCRIPT.md` (video pending)
+- Video (2:10): attached to the launch quote-tweet; script and shot list: `submission/DEMO_SCRIPT.md`
 
 ## Evidence checklist (from the hackathon page)
 
@@ -75,7 +84,7 @@ and only keeps a change if the numbers improve.
 - [ ] cfo.ai business plan (pricing, costs, revenue, runway) — inputs ready in `business/PLAN.md`
 - [x] A run where an action failed and the agent recovered — `[recover]` events in every real run so far
   (Crustdata ConnectError → retry, empty pages → direct fetch, malformed JSON → repair, Gemini 503 → retry)
-- [ ] Public posts tagged #neatHack — drafts in `submission/POSTS.md`
+- [ ] Public posts tagged #neatHack — launch quote-tweet + thread ready in `submission/POSTS.md`
 - [x] Public repo with commits dated during the hackathon
 
 ## Limitations & next steps
@@ -85,4 +94,5 @@ and only keeps a change if the numbers improve.
 
 ## Submission status
 
-- Not submitted. Submissions open Mon 12 Oct, 7:00–11:55 PM IST (quote-tweet the official neatlogs post).
+- Ready to submit (Mon 12 Oct, 7:00–11:55 PM IST): quote-tweet the official @neatlogs launch post with the video,
+  tagging @neatlogs @EntireHQ @arithecfo, then the form. Answers: `submission/SUBMISSION.md`.

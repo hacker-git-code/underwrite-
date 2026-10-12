@@ -27,3 +27,7 @@ runs/**/memo.pdf
 
 # Underwrite Live's job queue (salted visitor hashes): stays on the server
 runs/web/
+
+# demo video + thumbnail (uploaded to X / YouTube, too big for git)
+submission/*.mp4
+submission/video-thumbnail.png
